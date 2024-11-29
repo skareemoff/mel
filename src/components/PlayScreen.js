@@ -8,6 +8,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Octicons from '@expo/vector-icons/Octicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import SwipableCard from './SwipableCard';
+import {shuffle} from './Utils';
 
 const BOTTOM_APPBAR_HEIGHT = 80;
 
@@ -18,6 +19,7 @@ export default function PlayScreen({route, navigation}) {
 
   const deckAndCardData = require('../data/cards.json');
   const deckData = deckAndCardData.decks.filter(item => item.id == deckID)[0];
+  const [deckKey, setDeckKey] = useState(0);
 
   // const tempList = [];
   // deckData.cards.filter(cardData => {
@@ -26,14 +28,17 @@ export default function PlayScreen({route, navigation}) {
   //   }
   // });
 
-  const [cardMap, setNewData] = useState([...deckData.cards]);
+
+  const cardDeck = [...shuffle(deckData.cards)];
   const [currentIndex, setCurrentIndex] = useState(0);
   const animatedValue = useSharedValue(0);
-  const deckSize = cardMap.length;
 
   const handleSetCurrentIndex = (newIndex) => {
-    if (newIndex >= deckSize) {
+    if (newIndex >= cardDeck.length) {
       setCurrentIndex(0); // Restart from the first card
+      animatedValue.value = 0;
+      setDeckKey(prevKey => prevKey + 1); // Change key to force re-render
+      cardDeck.splice(0, cardDeck.length, shuffle(cardDeck));
     } else {
       setCurrentIndex(newIndex);
     }
@@ -42,8 +47,8 @@ export default function PlayScreen({route, navigation}) {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaView style={styles.container}>
-        <View style={styles.cardContainer}>
-          {cardMap.map((item, index) => {
+        <View style={styles.cardContainer} key={deckKey}>
+          {cardDeck.map((item, index) => {
             if (index > currentIndex + MAX || index < currentIndex) {
               return null;
             }
@@ -53,12 +58,10 @@ export default function PlayScreen({route, navigation}) {
                 maxVisibleItems={MAX}
                 item={item}
                 index={index}
-                deckSize={deckSize}
-                cardMap={cardMap}
+                deckSize={cardDeck.length}
                 animatedValue={animatedValue}
                 currentIndex={currentIndex}
                 setCurrentIndex={handleSetCurrentIndex}
-                setNewData={setNewData}
                 key={index}
               />
             );

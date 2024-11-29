@@ -9,16 +9,18 @@ const SwipableCard = ({
   maxVisibleItems,
   item,
   index,
-  cardMap,
   deckSize,
   animatedValue,
   currentIndex,
-  setCurrentIndex,
-  setNewData
+  setCurrentIndex
 }) => {
   const {width} = useWindowDimensions();
   const translateX = useSharedValue(0);
   const direction = useSharedValue(0);
+
+  React.useEffect(() => {
+    translateX.value = 0; // Reset translation
+  }, []);
 
   const pan = Gesture.Pan()
     .onUpdate(e => {
@@ -44,7 +46,6 @@ const SwipableCard = ({
       if (currentIndex === index) {
         if (Math.abs(e.translationX) > 150 || Math.abs(e.velocityX) > 1000) {
           translateX.value = withTiming(width * direction.value, {}, () => {
-            runOnJS(setNewData)([...cardMap]);
             runOnJS(setCurrentIndex)(currentIndex + 1); // Increment index
           });
           animatedValue.value = withTiming(currentIndex + 1);
