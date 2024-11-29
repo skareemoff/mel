@@ -12,23 +12,32 @@ import SwipableCard from './SwipableCard';
 const BOTTOM_APPBAR_HEIGHT = 80;
 
 export default function PlayScreen({route, navigation}) {
+  const MAX = 3;
   const { deckID } = route.params;
+  const { bottom } = useSafeAreaInsets();
+
   const deckAndCardData = require('../data/cards.json');
   const deckData = deckAndCardData.decks.filter(item => item.id == deckID)[0];
-  const cards = deckData.cards;
 
-  const tempMap = [];
-  cards.filter(cardData => {
-    if(cardData.deckID == deckID){
-      tempMap.push(cardData)
-    }
-  });
+  // const tempList = [];
+  // deckData.cards.filter(cardData => {
+  //   if(cardData.id < 6){
+  //     tempList.push(cardData)
+  //   }
+  // });
 
-  const MAX = 3;
-  const { bottom } = useSafeAreaInsets();
-  const [cardMap, setNewData] = useState([...tempMap, ...tempMap]);
+  const [cardMap, setNewData] = useState([...deckData.cards]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const animatedValue = useSharedValue(0);
+  const deckSize = cardMap.length;
+
+  const handleSetCurrentIndex = (newIndex) => {
+    if (newIndex >= deckSize) {
+      setCurrentIndex(0); // Restart from the first card
+    } else {
+      setCurrentIndex(newIndex);
+    }
+  };
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
@@ -44,11 +53,11 @@ export default function PlayScreen({route, navigation}) {
                 maxVisibleItems={MAX}
                 item={item}
                 index={index}
-                dataLength={cardMap.length}
+                deckSize={deckSize}
                 cardMap={cardMap}
                 animatedValue={animatedValue}
                 currentIndex={currentIndex}
-                setCurrentIndex={setCurrentIndex}
+                setCurrentIndex={handleSetCurrentIndex}
                 setNewData={setNewData}
                 key={index}
               />

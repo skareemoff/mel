@@ -10,7 +10,7 @@ const SwipableCard = ({
   item,
   index,
   cardMap,
-  dataLength,
+  deckSize,
   animatedValue,
   currentIndex,
   setCurrentIndex,
@@ -19,7 +19,6 @@ const SwipableCard = ({
   const {width} = useWindowDimensions();
   const translateX = useSharedValue(0);
   const direction = useSharedValue(0);
-  const numberOfCards = dataLength - currentIndex;
 
   const pan = Gesture.Pan()
     .onUpdate(e => {
@@ -43,19 +42,15 @@ const SwipableCard = ({
     })
     .onEnd(e => {
       if (currentIndex === index) {
-        // If the swipe distance is greater than 150 or the swipe velocity is greater than 1000
-        // go to the next card
         if (Math.abs(e.translationX) > 150 || Math.abs(e.velocityX) > 1000) {
           translateX.value = withTiming(width * direction.value, {}, () => {
-            runOnJS(setNewData)([...cardMap, cardMap[currentIndex]]);
-            runOnJS(setCurrentIndex)(currentIndex + 1);
+            runOnJS(setNewData)([...cardMap]);
+            runOnJS(setCurrentIndex)(currentIndex + 1); // Increment index
           });
           animatedValue.value = withTiming(currentIndex + 1);
-          // If the swipe distance is less than 150 or the swipe velocity is less than 1000
-          // go back to the original position
         } else {
-          translateX.value = withTiming(0, {duration: 500});
-          animatedValue.value = withTiming(currentIndex, {duration: 500});
+          translateX.value = withTiming(0, { duration: 500 });
+          animatedValue.value = withTiming(currentIndex, { duration: 500 });
         }
       }
     });
@@ -107,7 +102,7 @@ const SwipableCard = ({
               styles.container,
               {
                 backgroundColor: "cornflowerblue",
-                zIndex: dataLength - index
+                zIndex: deckSize - index
               },
               animatedStyle
           ]}>
@@ -115,7 +110,7 @@ const SwipableCard = ({
         <Card
           deckName={deckName}
           text={item.text}
-          info={(index+1)+" / "+numberOfCards}
+          info={(index+1)+" / "+deckSize}
           height='100%'
           width='100%'
           />
