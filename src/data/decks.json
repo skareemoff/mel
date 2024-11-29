@@ -1,0 +1,24 @@
+{
+  "decks": [
+    {
+      "id": 1,
+      "deckName": "Ice Breakers"
+    },
+    {
+      "id": 2,
+      "deckName": "Confessions"
+    },
+    {
+      "id": 3,
+      "deckName": "Going Deep"
+    },
+    {
+      "id": 4,
+      "deckName": "End of the Year"
+    },
+    {
+      "id": 5,
+      "deckName": "Connection 101"
+    }
+  ]
+}
