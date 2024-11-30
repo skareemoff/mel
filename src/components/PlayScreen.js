@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useSharedValue, } from 'react-native-reanimated';
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Appbar } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Octicons from '@expo/vector-icons/Octicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import SwipableCard from './SwipableCard';
 
@@ -61,13 +60,13 @@ export default function PlayScreen({route, navigation}) {
 
         <Appbar style={[ styles.bottom, { height: BOTTOM_APPBAR_HEIGHT + bottom }]} safeAreaInsets={{ bottom }} >
           <TouchableOpacity style={[styles.button, styles.buttonLeft]}>
-            <Octicons name="heart" size={32} color="cornflowerblue" />
+            <Image name="heart" style={styles.buttonImage} source={require("../assets/images/like.png")}/>
           </TouchableOpacity>
           <TouchableOpacity style={[styles.button, styles.buttonMiddle]}>
-            <Octicons name="share" size={32} color="cornflowerblue" />
+            <Image name="share" style={styles.buttonImage} source={require("../assets/images/share.png")} />
           </TouchableOpacity>
           <TouchableOpacity style={[styles.button, styles.buttonRight]} onPressOut={() => handleSetCurrentIndex(0)}>
-            <MaterialCommunityIcons name="restart" size={32} color="cornflowerblue" />
+            <Image name="restart" style={styles.buttonImage} source={require("../assets/images/undo.png")} />
           </TouchableOpacity>
         </Appbar>
 
@@ -89,6 +88,10 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
+  buttonImage: {
+    height: 60,
+    width: 60,
+  },
   bottom: {
     backgroundColor: '#E3F8C0',
     position: 'fixed',
@@ -101,15 +104,9 @@ const styles = StyleSheet.create({
     maxWidth: 400,
   },
   button: {
-    padding: 10,
     borderRadius: "50%",
-    width: 60,
-    height: 60,
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 2,
-    backgroundColor: '#B0F176',
-    borderColor: '#B0F176',
     overflow: 'hidden',
     marginLeft: 20,
     marginRight: 20,
