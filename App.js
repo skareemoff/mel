@@ -28,11 +28,13 @@ export default function App() {
           <NavigationContainer>
             <Stack.Navigator initialRouteName="Home"
               screenOptions={({ navigation, route }) => ({
+                headerShadowVisible: false,
+                headerStyle: {backgroundColor: 'yellow'},
                 headerLeft: () => (
                   route.name == 'Home' ?
                   null
                   :
-                  <TouchableOpacity onPress={() => navigation.goBack(null)}>
+                  <TouchableOpacity  onPress={() => navigation.goBack(null)}>
                     <Image
                       style={{width: 32, height: 32}}
                       source={require('./src/assets/images/button-small-back.png')}

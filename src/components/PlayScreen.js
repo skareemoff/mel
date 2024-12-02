@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSharedValue, } from 'react-native-reanimated';
-import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, ImageBackground, View, Image, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Appbar } from 'react-native-paper';
@@ -36,6 +36,9 @@ export default function PlayScreen({route, navigation}) {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaView style={styles.container}>
+      <ImageBackground
+          source={DeckData.inst().getDeckImage(deckData.deckBackground)}
+          style={{ height: '100%', width: '100%'}}>
         <View style={styles.cardContainer} key={deckKey}>
           {cardDeck.map((item, index) => {
             if (index > currentIndex + MAX || index < currentIndex) {
@@ -69,7 +72,7 @@ export default function PlayScreen({route, navigation}) {
             <Image name="restart" style={styles.buttonImage} source={require("../assets/images/undo.png")} />
           </TouchableOpacity>
         </Appbar>
-
+      </ImageBackground>
       </SafeAreaView>
     </GestureHandlerRootView>
   );
@@ -78,7 +81,7 @@ export default function PlayScreen({route, navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: 'transparent',
     flexDirection: "column",
     justifyContent: "center",
     alignContent: "center",
@@ -93,7 +96,7 @@ const styles = StyleSheet.create({
     width: 60,
   },
   bottom: {
-    backgroundColor: 'white',
+    backgroundColor: 'transparent',
     position: 'fixed',
     left: 0,
     right: 0,
@@ -112,10 +115,12 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   buttonLeft: {
+    backgroundColor: 'transparent',
   },
   buttonCenter: {
-
+    backgroundColor: 'transparent',
   },
   buttonRight: {
+    backgroundColor: 'transparent',
   }
 });

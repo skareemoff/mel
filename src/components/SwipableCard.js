@@ -1,8 +1,9 @@
-import {StyleSheet, useWindowDimensions} from 'react-native';
+import {StyleSheet, ImageBackground, useWindowDimensions} from 'react-native';
 import React from 'react';
 import Animated, { interpolate, useAnimatedStyle, useSharedValue, runOnJS, withTiming } from 'react-native-reanimated';
 import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 import Card from './Card';
+import {height, width, FULL_CARD_HEIGHT, HALF_CARD_HEIGHT} from './Utils'
 
 const SwipableCard = ({
   deckName,
@@ -14,7 +15,6 @@ const SwipableCard = ({
   currentIndex,
   setCurrentIndex
 }) => {
-  const {width} = useWindowDimensions();
   const translateX = useSharedValue(0);
   const direction = useSharedValue(0);
 
@@ -102,7 +102,6 @@ const SwipableCard = ({
           style={[
               styles.container,
               {
-                backgroundColor: "white",
                 zIndex: deckSize - index,
               },
               animatedStyle
@@ -111,15 +110,12 @@ const SwipableCard = ({
           shadowOpacity={0.3}
           shadowOffset={{width: 1, height: 1 }}
       >
-
-        <Card
-          deckName={deckName}
-          text={item.text}
-          info={(index+1)+" / "+deckSize}
-          height='100%'
-          width='100%'
-          />
-
+          <Card
+            type='card'
+            deckName={deckName}
+            text={item.text}
+            info={(index+1)+" / "+deckSize}
+            />
       </Animated.View>
     </GestureDetector>
   );
@@ -130,7 +126,7 @@ export default SwipableCard;
 const styles = StyleSheet.create({
   container: {
       position: 'absolute',
-      width: '85%',
+      width: '100%',
       height: '100%',
       borderRadius: 28,
       maxWidth: 400,

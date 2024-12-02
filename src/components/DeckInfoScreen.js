@@ -28,9 +28,9 @@ const DeckInfoScreen = ({route, navigation}) => {
             }
         ]}>
             <Card
+                type='deck'
                 text={deckData.deckName}
-                height={HALF_CARD_HEIGHT}
-                width={width}
+                deckBackground={deckData.deckBackground}
                 info={"❤️ "+height}
                 moreInfo={"💬 "+width}
                 deckColor="white"

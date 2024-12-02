@@ -1,30 +1,46 @@
 import React from 'react';
-import { StyleSheet, Text, View, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Pressable, ImageBackground } from 'react-native';
+import {width, FULL_CARD_HEIGHT, HALF_CARD_HEIGHT} from './Utils'
+import DeckData from './DeckData.js'
 
 const Card = (cardData, props) => {
+    const cardHeight = (cardData.type == 'card') ? FULL_CARD_HEIGHT : HALF_CARD_HEIGHT;
+    const bottomPadding = (cardData.type == 'card') ? 0 : 20;
+
     const buildCard = () => {
+        const img = (typeof(cardData.deckBackground) !== 'undefined' && cardData.deckBackground != null)
+            ? DeckData.inst().getDeckImage(cardData.deckBackground)
+            : null;
         return (
             <View style={[styles.card, {
-                        height: cardData.height,
-                        width: cardData.width * 0.9,
-                        marginHorizontal: cardData.width * 0.05,
-                    }]}
+                height: cardHeight,
+                width: width * 0.9,
+                marginHorizontal: width * 0.05}]}
             >
-                <View style={styles.top}>
-                    <View style={styles.cardHeader}>
-                        <Text style={styles.deckName}>{cardData.deckName}</Text>
-                        <Text style={styles.subText}>{cardData.subText}</Text>
-                    </View>
-                </View>
-                <View style={styles.middle}>
-                    <Text style={styles.cardText}>{cardData.text}</Text>
-                </View>
-                <View style={styles.bottom}>
-                    <Text style={styles.footerTextLeft}>{cardData.info}</Text>
-                    <Text style={styles.footerTextRight}>{cardData.moreInfo}</Text>
-                </View>
+                <ImageBackground
+                    source={img}
+                    imageStyle={{ borderRadius: 20, opacity: 0.7}}
+                    style={{
+                        height: '100%',
+                        width: '100%',
+                    }}>
+                        <View style={styles.top}>
+                            <View style={styles.cardHeader}>
+                                <Text style={styles.deckName}>{cardData.deckName}</Text>
+                                <Text style={styles.subText}>{cardData.subText}</Text>
+                            </View>
+                        </View>
+                        <View style={styles.middle}>
+                            <Text style={styles.cardText}>{cardData.text}</Text>
+                        </View>
+                        <View style={[styles.bottom, {paddingBottom: bottomPadding}]}>
+                            <Text style={[styles.footerText, styles.footerTextLeft]}>{cardData.info}</Text>
+                            <Text style={[styles.footerText, styles.footerTextRight]}>{cardData.moreInfo}</Text>
+                        </View>
+                </ImageBackground>
             </View>
-    )};
+        )
+    };
 
     if(cardData.clickHandler != null)
         return (
@@ -97,24 +113,21 @@ const styles = StyleSheet.create({
     },
     bottom: {
         flex: 1,
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
         maxWidth: 400,
-        paddingBottom: 16,
     },
-    footerTextLeft: {
+    footerText: {
         fontFamily: "DM Sans",
-        fontSize: 18,
+        fontSize: 14,
         color: 'black',
         position: 'absolute',
+    },
+    footerTextLeft: {
         left: 15,
     },
     footerTextRight: {
-        fontFamily: "DM Sans",
-        fontSize: 18,
-        color: 'black',
-        position: 'absolute',
         right: 15,
     },
 });

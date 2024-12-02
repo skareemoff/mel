@@ -3,6 +3,7 @@
       {
           "id": 1,
           "deckName": "Ice Breakers",
+          "deckBackground": "deckBG2",
           "cards": [
               {
                   "id": 1,
@@ -509,6 +510,7 @@
       {
           "id": 2,
           "deckName": "Confessions",
+          "deckBackground": "deckBG4",
           "cards": [
               {
                   "id": 101,
@@ -1015,6 +1017,7 @@
       {
           "id": 3,
           "deckName": "Going Deep",
+          "deckBackground": "deckBG1",
           "cards": [
               {
                   "id": 201,
@@ -1516,6 +1519,7 @@
       {
           "id": 4,
           "deckName": "End of the Year",
+          "deckBackground": "deckBG3",
           "cards": [
               {
                   "id": 300,
@@ -2122,6 +2126,7 @@
       {
           "id": 5,
           "deckName": "Connection 101",
+          "deckBackground": "homeBG",
           "cards": [
               {
                   "id": 420,
