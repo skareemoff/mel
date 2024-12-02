@@ -19,7 +19,7 @@ const Card = (cardData, props) => {
             >
                 <ImageBackground
                     source={img}
-                    imageStyle={{ borderRadius: 20, opacity: 0.7}}
+                    imageStyle={{ borderRadius: 20}}
                     style={{
                         height: '100%',
                         width: '100%',

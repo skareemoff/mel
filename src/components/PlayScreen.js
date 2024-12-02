@@ -8,12 +8,12 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import SwipableCard from './SwipableCard';
 import DeckData from './DeckData'
 
-const BOTTOM_APPBAR_HEIGHT = 80;
+const BOTTOM_APPBAR_HEIGHT = 160;
 
 export default function PlayScreen({route, navigation}) {
   const MAX = 3;
   const { deckID } = route.params;
-  const { bottom } = useSafeAreaInsets();
+  const insets = useSafeAreaInsets();
 
   const deckData = DeckData.inst().getDeck(deckID);
   const cardDeck = [...deckData.cards];
@@ -33,18 +33,21 @@ export default function PlayScreen({route, navigation}) {
     }
   };
 
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView edges={['right', 'left']} style={[styles.container,]}>
       <ImageBackground
-          source={DeckData.inst().getDeckImage(deckData.deckBackground)}
-          style={{ height: '100%', width: '100%'}}>
-        <View style={styles.cardContainer} key={deckKey}>
+        source={DeckData.inst().getDeckImage(deckData.deckBackground)}
+        style={{ height: '100%', width: '100%'}}
+      >
+        <View
+          style={[styles.cardContainer, {paddingTop: Math.max(insets.top, 100), }]}
+          key={deckKey}>
           {cardDeck.map((item, index) => {
             if (index > currentIndex + MAX || index < currentIndex) {
               return null;
             }
-            item.deckColor = 'lightblue'
             return (
               <SwipableCard
                 deckName={deckData.deckName}
@@ -61,7 +64,7 @@ export default function PlayScreen({route, navigation}) {
           })}
         </View>
 
-        <Appbar style={[ styles.bottom, { height: BOTTOM_APPBAR_HEIGHT + bottom }]} safeAreaInsets={{ bottom }} >
+        <Appbar style={[ styles.bottom, { height: BOTTOM_APPBAR_HEIGHT + insets.top }]} safeAreaInsets={{ insets }} >
           <TouchableOpacity style={[styles.button, styles.buttonLeft]}>
             <Image name="heart" style={styles.buttonImage} source={require("../assets/images/like.png")}/>
           </TouchableOpacity>
@@ -81,15 +84,14 @@ export default function PlayScreen({route, navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'transparent',
     flexDirection: "column",
     justifyContent: "center",
-    alignContent: "center",
+    alignContent: "baseline",
   },
   cardContainer: {
-    flex: 2,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'baseline',
   },
   buttonImage: {
     height: 60,
@@ -102,25 +104,16 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: -60,
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
     maxWidth: 400,
   },
   button: {
     borderRadius: "50%",
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
     overflow: 'hidden',
     marginLeft: 20,
     marginRight: 20,
   },
-  buttonLeft: {
-    backgroundColor: 'transparent',
-  },
-  buttonCenter: {
-    backgroundColor: 'transparent',
-  },
-  buttonRight: {
-    backgroundColor: 'transparent',
-  }
 });

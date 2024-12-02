@@ -37,7 +37,6 @@ const HomeScreen = ({navigation}) => {
             text={item.text}
             info={height}
             moreInfo={"11h"}
-            deckColor="white"
             clickHandler={clickCard}
         />
         : <Card
@@ -46,7 +45,6 @@ const HomeScreen = ({navigation}) => {
             text={item.deckName}
             info={"❤️ "+height}
             moreInfo={"💬 "+width}
-            deckColor="white"
             deckBackground={item.deckBackground}
             clickHandler={clickDeck}
         />

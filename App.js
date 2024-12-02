@@ -29,7 +29,6 @@ export default function App() {
             <Stack.Navigator initialRouteName="Home"
               screenOptions={({ navigation, route }) => ({
                 headerShadowVisible: false,
-                headerStyle: {backgroundColor: 'yellow'},
                 headerLeft: () => (
                   route.name == 'Home' ?
                   null
