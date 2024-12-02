@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import { useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 import { NavigationContainer, createNavigationContainerRef, Header } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashScreen from "./src/components/SplashScreen";
@@ -8,6 +8,7 @@ import HomeScreen from "./src/components/HomeScreen";
 import DeckInfoScreen from "./src/components/DeckInfoScreen";
 import PlayScreen from "./src/components/PlayScreen";
 import CustomNavigationBar from './src/components/CustomNavigationBar';
+import styles from './src/assets/style'
 
 const Stack = createNativeStackNavigator();
 
@@ -40,10 +41,3 @@ export default function App({ navigation }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#E3F8C0'
-  },
-});

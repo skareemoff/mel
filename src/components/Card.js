@@ -2,15 +2,13 @@ import React from 'react';
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 
 const Card = (cardData, props) => {
-    const buildCard = () => { return (
-            <View style={[styles.card,
-                {
-                    height: cardData.height,
-                    width: cardData.width * 0.9,
-                    marginHorizontal: cardData.width * 0.05,
-                    shadowOffset: { width: 0, height: 4 },
-                    backgroundColor: cardData.deckColor
-                }]}
+    const buildCard = () => {
+        return (
+            <View style={[styles.card, {
+                        height: cardData.height,
+                        width: cardData.width * 0.9,
+                        marginHorizontal: cardData.width * 0.05,
+                    }]}
             >
                 <View style={styles.top}>
                     <View style={styles.cardHeader}>
@@ -42,14 +40,15 @@ export default Card;
 
 const styles = StyleSheet.create({
     card: {
-        borderRadius: 20,
         justifyContent: 'center',
+        borderRadius: 20,
         alignItems: 'center',
         maxWidth: 400,
         marginBottom: 20,
         shadowColor: '#000',
-        shadowOpacity: 0.2,
-        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowOffset: {width: 1, height: 1 },
+        backgroundColor: 'white',
     },
     top: {
         flex: 1,
@@ -73,23 +72,25 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     deckName: {
-        flex: 2,
+        fontFamily: "DM Sans",
         fontSize: 20,
+        flex: 2,
         textAlign: 'center',
-        color: 'lightgoldenrodyellow',
+        color: 'black',
     },
     subText: {
+        fontFamily: "DM Sans",
+        fontSize: 14,
         flex: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',
-        fontSize: 14,
         textAlign: 'center',
-        color: 'yellow',
+        color: 'black',
     },
     cardText: {
+        fontFamily: "DM Sans",
         fontSize: 28,
-        fontWeight: 'bold',
-        color: 'white',
+        color: 'black',
         textAlign: 'center',
         paddingLeft: 20,
         paddingRight: 20,
@@ -103,14 +104,16 @@ const styles = StyleSheet.create({
         paddingBottom: 16,
     },
     footerTextLeft: {
+        fontFamily: "DM Sans",
         fontSize: 18,
-        color: 'lemonchiffon',
+        color: 'black',
         position: 'absolute',
         left: 15,
     },
     footerTextRight: {
+        fontFamily: "DM Sans",
         fontSize: 18,
-        color: 'lemonchiffon',
+        color: 'black',
         position: 'absolute',
         right: 15,
     },

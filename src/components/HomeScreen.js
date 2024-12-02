@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { FlatList, StyleSheet, Text, StatusBar, View, Dimensions } from 'react-native';
+import { FlatList, StatusBar, View, Dimensions } from 'react-native';
 import Card from './Card';
+import styles from '../assets/style'
+import DeckData from './DeckData.js'
 
 // Screen dimensions
 const { height, width } = Dimensions.get('window');
@@ -10,7 +11,6 @@ const FULL_CARD_HEIGHT = height * 0.7;
 const HALF_CARD_HEIGHT = height * 0.25;
 
 const HomeScreen = ({navigation}) => {
-    const deckAndCardData = require('../data/cards.json');
     const cards = [
         {
             id: 0,
@@ -18,7 +18,7 @@ const HomeScreen = ({navigation}) => {
             text: "What's the most spontaneous thing you've ever done?",
             type: 'card',
         },
-        ...deckAndCardData.decks
+        ...DeckData.inst().data()
     ];
 
     // Function to load more cards when reaching the end
@@ -44,7 +44,7 @@ const HomeScreen = ({navigation}) => {
             width={width}
             info={"🤔 "+height}
             moreInfo={"⏱️ 11h"}
-            deckColor="lightgreen"
+            deckColor="white"
             clickHandler={clickCard}
         />
         :
@@ -55,7 +55,7 @@ const HomeScreen = ({navigation}) => {
             width={width}
             info={"❤️ "+height}
             moreInfo={"💬 "+width}
-            deckColor="lightblue"
+            deckColor="white"
             clickHandler={clickDeck}
         />
     );
@@ -80,14 +80,5 @@ const HomeScreen = ({navigation}) => {
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    flatList: {
-        backgroundColor: '#E3F8C0',
-    }
-});
 
 export default HomeScreen;

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { StyleSheet, Animated } from "react-native";
 import { WebView } from 'react-native-webview';
+import styles from '../assets/style'
 
 export default function SplashScreen() {
     const fadeAnimation = useRef(new Animated.Value(0)).current;
@@ -22,12 +23,6 @@ export default function SplashScreen() {
         />);
 }
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: "#CFEBB8"
-    },
-  });
 
 export const template = () => `<!doctype html>
 <head>
@@ -57,8 +52,8 @@ export const template = () => `<!doctype html>
         }
 
         .animated-title {
-            color: "cornflowerblue";
-            font-family: Roboto, Arial, sans-serif;
+            color: "black";
+            font-family: "DM Sans", sans-serif;
             height: 90vmin;
             left: 50%;
             position: absolute;
@@ -95,7 +90,7 @@ export const template = () => `<!doctype html>
             animation-fill-mode: forwards;
             bottom: 0;
             transform: translate(0, 100%);
-            color: floralwhite;
+            color: grey;
         }
 
         .animated-title > div.text-bottom {
@@ -103,21 +98,22 @@ export const template = () => `<!doctype html>
         }
 
         .animated-title > div.text-bottom div {
+            text-align: center;
+            color: blue;
             animation: showBottomText 0.5s;
             animation-delay: 1.75s;
             animation-fill-mode: forwards;
             top: 0;
             transform: translate(0, -100%);
-            color: cornflowerblue;
         }
 
         .animated-title {
             animation: fadeOut 2s;
             animation-delay: 3.5s;
         }
-                
+
         body, .animated-title, div {
-            background-color: "#E3F8C0"
+            background-color: "#white"
         }
     </style>
 </head>
@@ -130,7 +126,7 @@ export const template = () => `<!doctype html>
           </div>
         </div>
         <div class="text-bottom">
-          <div>More Exciting Life!</div>
+          <div>More Exciting Life</div>
         </div>
     </div>
 </body>`;

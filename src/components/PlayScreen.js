@@ -6,6 +6,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Appbar } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import SwipableCard from './SwipableCard';
+import DeckData from './DeckData'
 
 const BOTTOM_APPBAR_HEIGHT = 80;
 
@@ -14,8 +15,7 @@ export default function PlayScreen({route, navigation}) {
   const { deckID } = route.params;
   const { bottom } = useSafeAreaInsets();
 
-  const deckAndCardData = require('../data/cards.json');
-  const deckData = deckAndCardData.decks.filter(item => item.id == deckID)[0];
+  const deckData = DeckData.inst().getDeck(deckID);
   const cardDeck = [...deckData.cards];
 
   const [deckKey, setDeckKey] = useState(0);
@@ -41,6 +41,7 @@ export default function PlayScreen({route, navigation}) {
             if (index > currentIndex + MAX || index < currentIndex) {
               return null;
             }
+            item.deckColor = 'lightblue'
             return (
               <SwipableCard
                 deckName={deckData.deckName}
@@ -77,8 +78,8 @@ export default function PlayScreen({route, navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white',
     flexDirection: "column",
-    backgroundColor: '#E3F8C0',
     justifyContent: "center",
     alignContent: "center",
   },
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
     width: 60,
   },
   bottom: {
-    backgroundColor: '#E3F8C0',
+    backgroundColor: 'white',
     position: 'fixed',
     left: 0,
     right: 0,

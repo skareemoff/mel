@@ -102,11 +102,15 @@ const SwipableCard = ({
           style={[
               styles.container,
               {
-                backgroundColor: "cornflowerblue",
-                zIndex: deckSize - index
+                backgroundColor: "white",
+                zIndex: deckSize - index,
               },
               animatedStyle
-          ]}>
+          ]}
+          shadowColor='#000'
+          shadowOpacity={0.3}
+          shadowOffset={{width: 1, height: 1 }}
+      >
 
         <Card
           deckName={deckName}
