@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dimensions, View, Pressable } from 'react-native'
+import { Dimensions, View } from 'react-native'
 import Card from './Card';
 import styles from '../assets/style'
 import DeckData from './DeckData'

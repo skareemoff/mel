@@ -1,4 +1,4 @@
-import {StyleSheet, Dimensions, useWindowDimensions} from 'react-native';
+import {StyleSheet, useWindowDimensions} from 'react-native';
 import React from 'react';
 import Animated, { interpolate, useAnimatedStyle, useSharedValue, runOnJS, withTiming } from 'react-native-reanimated';
 import {Gesture, GestureDetector} from 'react-native-gesture-handler';

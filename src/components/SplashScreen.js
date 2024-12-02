@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { StyleSheet, Animated } from "react-native";
+import { Animated } from "react-native";
 import { WebView } from 'react-native-webview';
 import styles from '../assets/style'
 
@@ -54,12 +54,13 @@ export const template = () => `<!doctype html>
         .animated-title {
             color: "black";
             font-family: "DM Sans", sans-serif;
-            height: 90vmin;
+            height: 100vmin;
             left: 50%;
             position: absolute;
             top: 50%;
             transform: translate(-50%, -50%);
             width: 90vmin;
+            background-color: "rgb(239 244 226)";
         }
 
         .animated-title > div {
@@ -80,7 +81,7 @@ export const template = () => `<!doctype html>
         }
 
         .animated-title > div.text-top {
-            border-bottom: 0.5vmin solid #C5CAC1;
+            border-bottom: 0.5vmin solid #88A273;
             top: 0;
         }
 
@@ -90,7 +91,7 @@ export const template = () => `<!doctype html>
             animation-fill-mode: forwards;
             bottom: 0;
             transform: translate(0, 100%);
-            color: grey;
+            color: rgb(159 176 154);
         }
 
         .animated-title > div.text-bottom {
@@ -98,8 +99,10 @@ export const template = () => `<!doctype html>
         }
 
         .animated-title > div.text-bottom div {
-            text-align: center;
-            color: blue;
+            font-size: 9vmin;
+            text-align: right;
+            width: 100%;
+            color: #709F70;
             animation: showBottomText 0.5s;
             animation-delay: 1.75s;
             animation-fill-mode: forwards;
