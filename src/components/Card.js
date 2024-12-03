@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Pressable, ImageBackground } from 'react-native';
 import {width, FULL_CARD_HEIGHT, HALF_CARD_HEIGHT} from './Utils'
 import DeckData from './DeckData.js'
+import styles from '../assets/style'
 
 const Card = (cardData, props) => {
     const cardHeight = (cardData.type == 'card') ? FULL_CARD_HEIGHT : HALF_CARD_HEIGHT;
@@ -12,7 +13,7 @@ const Card = (cardData, props) => {
             ? DeckData.inst().getDeckImage(cardData.deckBackground)
             : null;
         return (
-            <View style={[styles.card, {
+            <View style={[st.card, {
                 height: cardHeight,
                 width: width * 0.9,
                 marginHorizontal: width * 0.05}]}
@@ -24,18 +25,18 @@ const Card = (cardData, props) => {
                         height: '100%',
                         width: '100%',
                     }}>
-                        <View style={styles.top}>
-                            <View style={styles.cardHeader}>
-                                <Text style={styles.deckName}>{cardData.deckName}</Text>
-                                <Text style={styles.subText}>{cardData.subText}</Text>
+                        <View style={st.top}>
+                            <View style={st.cardHeader}>
+                                <Text style={[st.deckName, styles[cardData.deckStyle]]}>{cardData.deckName}</Text>
+                                <Text style={[st.subText, styles[cardData.deckStyle]]}>{cardData.subText}</Text>
                             </View>
                         </View>
-                        <View style={styles.middle}>
-                            <Text style={styles.cardText}>{cardData.text}</Text>
+                        <View style={st.middle}>
+                            <Text style={[st.cardText, styles[cardData.deckStyle]]}>{cardData.text}</Text>
                         </View>
-                        <View style={[styles.bottom, {paddingBottom: bottomPadding}]}>
-                            <Text style={[styles.footerText, styles.footerTextLeft]}>{cardData.info}</Text>
-                            <Text style={[styles.footerText, styles.footerTextRight]}>{cardData.moreInfo}</Text>
+                        <View style={[st.bottom, {paddingBottom: bottomPadding}]}>
+                            <Text style={[st.footerText, st.footerTextLeft, styles[cardData.deckStyle]]}>{cardData.info}</Text>
+                            <Text style={[st.footerText, st.footerTextRight, styles[cardData.deckStyle]]}>{cardData.moreInfo}</Text>
                         </View>
                 </ImageBackground>
             </View>
@@ -44,7 +45,7 @@ const Card = (cardData, props) => {
 
     if(cardData.clickHandler != null)
         return (
-            <Pressable style={styles.deckVisible} onPress={() => cardData.clickHandler(cardData)}>
+            <Pressable style={st.deckVisible} onPress={() => cardData.clickHandler(cardData)}>
                 {buildCard()}
             </Pressable>
         );
@@ -54,7 +55,7 @@ const Card = (cardData, props) => {
 
 export default Card;
 
-const styles = StyleSheet.create({
+const st = StyleSheet.create({
     card: {
         justifyContent: 'center',
         borderRadius: 20,

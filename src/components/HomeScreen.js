@@ -38,6 +38,7 @@ const HomeScreen = ({navigation}) => {
             info={height}
             moreInfo={"11h"}
             clickHandler={clickCard}
+            deckStyle={item.deckStyle}
         />
         : <Card
             type='deck'
@@ -47,6 +48,7 @@ const HomeScreen = ({navigation}) => {
             moreInfo={"💬 "+width}
             deckBackground={item.deckBackground}
             clickHandler={clickDeck}
+            deckStyle={item.deckStyle}
         />
     );
 
