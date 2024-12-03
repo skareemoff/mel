@@ -13,7 +13,7 @@ install! 'cocoapods',
 
 prepare_react_native_project!
 
-target 'mel' do
+target 'MoreExcitingLife' do
   use_expo_modules!
 
   if ENV['EXPO_USE_COMMUNITY_AUTOLINKING'] == '1'
@@ -30,8 +30,6 @@ target 'mel' do
       'ios'
     ]
   end
-
-  pod 'RNScreens', :path => '../node_modules/react-native-screens'
 
   config = use_native_modules!(config_command)
 

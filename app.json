@@ -1,14 +1,16 @@
 {
   "expo": {
-    "name": "mel",
+    "name": "More Exciting Life",
     "slug": "mel",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "icon": "./src/assets/images/app-icon.png",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.mel"
+      "bundleIdentifier": "life.moreexiting.mel",
+      "icon": "./src/assets/images/app-icon.png"
     },
     "android": {
       "adaptiveIcon": {
