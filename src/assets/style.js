@@ -32,7 +32,8 @@ export default StyleSheet.create({
         fontWeight: 'bold'
     },
     deck6: {
-        color: 'white',
-        fontWeight: 'bold'
+        fontFamily: "Comic",
+        fontWeight: 'bold',
+        color: '#53B0CF',
     }
 });
