@@ -35,5 +35,16 @@ export default StyleSheet.create({
         fontFamily: "Comic",
         fontWeight: 'bold',
         color: '#53B0CF',
+    },
+    qODCard: {
+        backgroundColor: '#BFF6BF',
+    },
+    qODCardText: {
+        color: '#4B677D',
+        fontWeight: '400'
+    },
+    qODDeckText: {
+        color: 'lemonchiffon',
+        fontWeight: '600'
     }
 });

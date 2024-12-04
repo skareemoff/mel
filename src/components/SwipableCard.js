@@ -115,7 +115,8 @@ const SwipableCard = ({
             deckName={deckName}
             text={item.text}
             info={(index+1)+" / "+deckSize}
-            deckStyle={item.deckStyle}
+            textStyle={item.deckTextStyle}
+            cardStyle={item.cardStyle}
             />
       </Animated.View>
     </GestureDetector>

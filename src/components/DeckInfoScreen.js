@@ -34,8 +34,9 @@ const DeckInfoScreen = ({route, navigation}) => {
                 info={"❤️ "+height}
                 moreInfo={"💬 "+width}
                 clickHandler={clickDeck}
-                deckStyle={deckData.deckStyle}
-                />
+                textStyle={deckData.deckTextStyle}
+                cardStyle={deckData.deckStyle}
+            />
         </View>
     )
 }

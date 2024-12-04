@@ -1,3 +1,5 @@
+import {getAllFiles} from './Utils'
+
 export default class DeckData {
     static _instance = null;
     _decks = [];
@@ -19,13 +21,20 @@ export default class DeckData {
         if (DeckData._instance == null) {
             DeckData._instance = new DeckData();
             this._instance._decks = require('../data/cards.json').decks;
+
         }
 
         return this._instance;
     }
 
+
     data() {
         return this._decks;
+    }
+
+    localQuestinOfTheDay() {
+        const cards = this.getDeck(3).cards;
+        return cards[Math.round(Math.random() * (cards.length - 1))].text;
     }
 
     getDeck(id) {

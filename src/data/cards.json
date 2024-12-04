@@ -4,7 +4,7 @@
           "id": 1,
           "deckName": "Ice Breakers",
           "deckBackground": "deckBG1",
-          "deckStyle": "deck1",
+          "deckTextStyle": "deck1",
           "cards": [
               {
                   "id": 1,
@@ -512,7 +512,7 @@
           "id": 2,
           "deckName": "Confessions",
           "deckBackground": "deckBG2",
-          "deckStyle": "deck2",
+          "deckTextStyle": "deck2",
           "cards": [
               {
                   "id": 101,
@@ -1020,7 +1020,7 @@
           "id": 3,
           "deckName": "Going Deep",
           "deckBackground": "deckBG3",
-          "deckStyle": "deck3",
+          "deckTextStyle": "deck3",
           "cards": [
               {
                   "id": 201,
@@ -1523,7 +1523,7 @@
           "id": 4,
           "deckName": "End of the Year",
           "deckBackground": "deckBG5",
-          "deckStyle": "deck4",
+          "deckTextStyle": "deck4",
           "cards": [
               {
                   "id": 300,
@@ -2131,7 +2131,7 @@
           "id": 5,
           "deckName": "Connection 101",
           "deckBackground": "deckBG4",
-          "deckStyle": "deck5",
+          "deckTextStyle": "deck5",
           "cards": [
               {
                   "id": 420,
@@ -2794,7 +2794,7 @@
         "id": 6,
         "deckName": "Tiny Talks",
         "deckBackground": "deckBG6",
-        "deckStyle": "deck6",
+        "deckTextStyle": "deck6",
         "cards": [
             {
                 "id": 551,

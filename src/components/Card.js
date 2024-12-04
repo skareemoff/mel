@@ -5,7 +5,14 @@ import DeckData from './DeckData.js'
 import styles from '../assets/style'
 
 const Card = (cardData, props) => {
-    const cardHeight = (cardData.type == 'card') ? FULL_CARD_HEIGHT : HALF_CARD_HEIGHT;
+    const cardHeight = (typeof(cardData.deckBackground) !== 'undefined' && cardData.deckBackground != null)
+    ? (cardData.height == 'full'
+        ? FULL_CARD_HEIGHT
+        : HALF_CARD_HEIGHT)
+    : ((cardData.type == 'card')
+        ? FULL_CARD_HEIGHT
+        : HALF_CARD_HEIGHT);
+
     const bottomPadding = (cardData.type == 'card') ? 0 : 20;
 
     const buildCard = () => {
@@ -13,10 +20,10 @@ const Card = (cardData, props) => {
             ? DeckData.inst().getDeckImage(cardData.deckBackground)
             : null;
         return (
-            <View style={[st.card, {
-                height: cardHeight,
-                width: width * 0.9,
-                marginHorizontal: width * 0.05}]}
+            <View style={[st.card,
+                {height: cardHeight, width: width * 0.9, marginHorizontal: width * 0.05},
+                styles[cardData.cardStyle]
+            ]}
             >
                 <ImageBackground
                     source={img}
@@ -27,16 +34,16 @@ const Card = (cardData, props) => {
                     }}>
                         <View style={st.top}>
                             <View style={st.cardHeader}>
-                                <Text style={[st.deckName, styles[cardData.deckStyle]]}>{cardData.deckName}</Text>
-                                <Text style={[st.subText, styles[cardData.deckStyle]]}>{cardData.subText}</Text>
+                                <Text style={[st.deckName, styles[cardData.textStyle]]}>{cardData.deckName}</Text>
+                                <Text style={[st.subText, styles[cardData.textStyle]]}>{cardData.subText}</Text>
                             </View>
                         </View>
                         <View style={st.middle}>
-                            <Text style={[st.cardText, styles[cardData.deckStyle]]}>{cardData.text}</Text>
+                            <Text style={[st.cardText, styles[cardData.textStyle]]}>{cardData.text}</Text>
                         </View>
                         <View style={[st.bottom, {paddingBottom: bottomPadding}]}>
-                            <Text style={[st.footerText, st.footerTextLeft, styles[cardData.deckStyle]]}>{cardData.info}</Text>
-                            <Text style={[st.footerText, st.footerTextRight, styles[cardData.deckStyle]]}>{cardData.moreInfo}</Text>
+                            <Text style={[st.footerText, st.footerTextLeft, styles[cardData.textStyle]]}>{cardData.info}</Text>
+                            <Text style={[st.footerText, st.footerTextRight, styles[cardData.textStyle]]}>{cardData.moreInfo}</Text>
                         </View>
                 </ImageBackground>
             </View>

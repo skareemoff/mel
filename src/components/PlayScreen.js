@@ -71,6 +71,7 @@ export default function PlayScreen({route, navigation}) {
           <TouchableOpacity style={[styles.button, styles.buttonMiddle]}>
             <Image name="share" style={styles.buttonImage} source={require("../assets/images/share.png")} />
           </TouchableOpacity>
+          {/* TODO: Reset doesn't redraw properly */}
           <TouchableOpacity style={[styles.button, styles.buttonRight]} onPressOut={() => handleSetCurrentIndex(0)}>
             <Image name="restart" style={styles.buttonImage} source={require("../assets/images/undo.png")} />
           </TouchableOpacity>
