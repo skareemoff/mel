@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Button, Pressable } from "react-native";
+import { View, StyleSheet} from "react-native";
 import React from "react";
 import Animated, {
   interpolate,
@@ -16,7 +16,7 @@ const RotatableCard = (cardData) => {
     return {
       transform: [
         {
-          rotateY: withTiming(`${spinVal}deg`, { duration: 500 }),
+          rotateY: withTiming(`${spinVal}deg`, { duration: 1500 }),
         },
       ],
     };
@@ -27,11 +27,15 @@ const RotatableCard = (cardData) => {
     return {
       transform: [
         {
-          rotateY: withTiming(`${spinVal}deg`, { duration: 500 }),
+          rotateY: withTiming(`${spinVal}deg`, { duration: 1500 }),
         },
       ],
     };
   }, []);
+
+  const _handleClick = (externalHandler) => {
+    spin.value = spin.value ? 0 : 1;
+  }
 
   return (
     <View>
@@ -44,6 +48,7 @@ const RotatableCard = (cardData) => {
                 deckBackground={cardData.deckBackground}
                 textStyle={cardData.deckTextStyle}
                 cardStyle={cardData.deckStyle}
+                clickHandler={() => _handleClick()}
             />
         </Animated.View>
         <Animated.View style={[Styles.back, bStyle]}>
@@ -53,9 +58,9 @@ const RotatableCard = (cardData) => {
                 deckID={cardData.id}
                 deckName={cardData.deckName}
                 text={cardData.text}
-                clickHandler={() => (spin.value = 1)}
                 textStyle={cardData.cardTextStyle}
                 cardStyle={cardData.cardStyle}
+                clickHandler={() => (_handleClick(cardData.cardClickHandler))}
             />
         </Animated.View>
     </View>
@@ -74,4 +79,4 @@ const Styles = StyleSheet.create({
       justifyContent: "center",
       zIndex: 10,
     },
-  });
+});

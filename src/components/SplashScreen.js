@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import { Animated } from "react-native";
+import { Animated, ImageBackground } from "react-native";
 import { WebView } from 'react-native-webview';
 import styles from '../assets/style'
+import DeckData from './DeckData'
 
 export default function SplashScreen() {
     const fadeAnimation = useRef(new Animated.Value(0)).current;
@@ -20,7 +21,13 @@ export default function SplashScreen() {
             showsHorizontalScrollIndicator={false}
             bounces={false}
             scrollEnabled={false}
-        />);
+        >
+      {/* <ImageBackground
+        source={DeckData.inst().getDeckImage('deckBG2')}
+        style={{ height: '100%', width: '100%'}}
+        imageStyle={{ opacity: 0.7}}
+      /> */}
+        </WebView>);
 }
 
 
@@ -117,6 +124,17 @@ export const template = () => `<!doctype html>
 
         body, .animated-title, div {
             background-color: "#white"
+        }
+        body {
+            background-image: url('/src/assets/images/homeBG.png');
+            opacity: 0.5;
+            opacity: 0.5;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;
         }
     </style>
 </head>

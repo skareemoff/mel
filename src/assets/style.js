@@ -37,7 +37,7 @@ export default StyleSheet.create({
         color: '#53B0CF',
     },
     qODCard: {
-        backgroundColor: '#BFF6BF',
+        backgroundColor: '#FFE770',
     },
     qODCardText: {
         color: '#4B677D',

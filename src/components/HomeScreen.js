@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { FlatList, StatusBar, View, ImageBackground } from 'react-native';
 import Card from './Card';
 import styles from '../assets/style'
@@ -11,7 +10,7 @@ const HomeScreen = ({navigation}) => {
         {
             id: 0,
             deckName: 'Question of the day',
-            text: DeckData.inst().localQuestinOfTheDay(),
+            text: DeckData.inst().getQuestionOfTheDay(),
             type: 'deck',
             height: 'full',
             deckBackground: 'homeBG',
@@ -22,30 +21,16 @@ const HomeScreen = ({navigation}) => {
         ...DeckData.inst().data()
     ];
 
-    // Function to load more cards when reaching the end
-    const loadMoreCards = () => {
-    };
-
     const clickDeck = (cardData) => {
-        if(cardData.deckID == 0) {
-            _handleRefresh();
-        }
-        else {
-            navigation.navigate('Deck',
-                { deckID: cardData.deckID, deckName: cardData.text })
-        }
-    };
-
-    const clickCard = (cardData) => {
-        // navigation.navigate('Deck')
-    };
+        navigation.navigate('Deck', { deckID: cardData.deckID, deckName: cardData.text })
+    }
 
     const renderCard = ({ item }) => (
         item.id == 0
         ? <RotatableCard
             id={0}
             deckName='Question of the day'
-            text={DeckData.inst().localQuestinOfTheDay()}
+            text={DeckData.inst().getQuestionOfTheDay()}
             type='deck'
             height='full'
             deckBackground='homeBG'
@@ -54,22 +39,7 @@ const HomeScreen = ({navigation}) => {
             cardStyle='qODCard'
             deckStyle='qODDeck'
         />
-        : (
-            item.type == 'card'
-            ? <Card
-                type='card'
-                height={item.height}
-                deckID={item.deckID}
-                deckName={item.deckName}
-                text={item.text}
-                clickHandler={clickCard}
-                textStyle={item.cardTextStyle}
-                cardStyle={item.cardStyle}
-
-                info={height}
-                moreInfo={"11h"}
-            />
-            : <Card
+        :  <Card
                 type='deck'
                 height={item.height}
                 deckID={item.id}
@@ -82,18 +52,7 @@ const HomeScreen = ({navigation}) => {
                 info={"❤️ "+height}
                 moreInfo={"💬 "+width}
             />
-        )
     );
-
-    const refreshData = [];
-    const _handleRefresh = () => {
-        console.log('_handleRefresh')
-        console.log("Swapped");
-        cards[0]['type'] = 'card';
-        cards[0]['clickHandler'] = clickCard;
-        refreshData.push("X");
-    };
-
 
     return (
         <View style={styles.container}>
@@ -111,12 +70,9 @@ const HomeScreen = ({navigation}) => {
                     }}
                     keyExtractor={(item) => item.id}
                     showsVerticalScrollIndicator={false}
-                    onEndReached={loadMoreCards}
-                    onEndReachedThreshold={1}
                     bounces={false} // Prevent overscrolling past the first card
                     snapToAlignment="start"
                     decelerationRate="fast"
-                    extraData={refreshData}
                 />
             </ImageBackground>
         </View>

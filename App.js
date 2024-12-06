@@ -7,11 +7,13 @@ import HomeScreen from "./src/components/HomeScreen";
 import DeckInfoScreen from "./src/components/DeckInfoScreen";
 import PlayScreen from "./src/components/PlayScreen";
 import styles from './src/assets/style'
+import DeckData from './src/components/DeckData'
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [isShowSplashScreen, setIsShowSplashScreen] = useState(true);
+  DeckData.inst();
 
   useEffect(() => {
     setTimeout(() => {
