@@ -8,7 +8,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import SwipableCard from './SwipableCard';
 import DeckData from './DeckData'
 import {BOTTOM_APPBAR_HEIGHT} from './Utils'
-import { KeepAwake } from '@sayem314/react-native-keep-awake';
 
 export default function PlayScreen({route, navigation}) {
   const MAX = 3;
@@ -37,7 +36,6 @@ export default function PlayScreen({route, navigation}) {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaView edges={['right', 'left']} style={[styles.container,]}>
-      <KeepAwake>
       <ImageBackground
         source={DeckData.inst().getDeckImage(deckData.deckBackground)}
         style={{ height: '100%', width: '100%'}}
@@ -78,7 +76,6 @@ export default function PlayScreen({route, navigation}) {
           </TouchableOpacity>
         </Appbar>
       </ImageBackground>
-      </KeepAwake>
       </SafeAreaView>
     </GestureHandlerRootView>
   );
