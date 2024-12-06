@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import { Animated, ImageBackground } from "react-native";
+import { Animated } from "react-native";
 import { WebView } from 'react-native-webview';
 import styles from '../assets/style'
-import DeckData from './DeckData'
 
 export default function SplashScreen() {
     const fadeAnimation = useRef(new Animated.Value(0)).current;

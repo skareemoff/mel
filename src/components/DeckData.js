@@ -1,10 +1,8 @@
-import { useState } from "react";
-
 export default class DeckData {
     static _instance = null;
     _questionOfTheDay = null;
     _dayOfTheQuestion = null;
-    _decks = [];
+    _data = [];
     _images = {
         deckBG1: require("../assets/images/deckBG1.png"),
         deckBG2: require("../assets/images/deckBG2.png"),
@@ -18,7 +16,7 @@ export default class DeckData {
     static inst() {
         if (DeckData._instance == null) {
             DeckData._instance = new DeckData();
-            DeckData._instance._decks = require('../data/cards.json').decks;
+            DeckData._instance._data = require('../data/cards.json');
             DeckData._instance._loadQoD();
         }
 
@@ -27,6 +25,7 @@ export default class DeckData {
 
     _loadQoD() {
         if(this._verifyQoD()) {
+            console.log("VERIFIED OK");
             return this._questionOfTheDay;
         }
 
@@ -58,14 +57,18 @@ export default class DeckData {
     }
 
     _isToday = (date) => {
-        var t2 = new Date().getTime();
-        var t1 = date.getTime();
-        var diff = (t2-t1)/(24*3600*1000);
-        return diff >= -0.5 && diff <= 0.5;
+        var curDate = new Date();
+        return curDate.getFullYear() == date.getFullYear()
+                && curDate.getMonth() == date.getMonth()
+                && curDate.getDate() == date.getDate();
     }
 
     data() {
-        return this._decks;
+        return this._data;
+    }
+
+    decks() {
+        return this.data().decks;
     }
 
     getRandomCard(deckID) {
@@ -74,7 +77,7 @@ export default class DeckData {
     }
 
     getDeck(id) {
-        return this._decks.filter(item => item.id == id)[0];
+        return this.decks().filter(item => item.id == id)[0];
     }
 
     getDeckImage(imageName){

@@ -18,7 +18,7 @@ const HomeScreen = ({navigation}) => {
             deckTextStyle: 'qODDeckText',
             cardStyle: 'qODCard',
         },
-        ...DeckData.inst().data()
+        ...DeckData.inst().decks()
     ];
 
     const clickDeck = (cardData) => {

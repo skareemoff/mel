@@ -5,7 +5,7 @@ import DeckData from './DeckData.js'
 import styles from '../assets/style'
 
 const Card = (cardData, props) => {
-    const cardHeight = (typeof(cardData.deckBackground) !== 'undefined' && cardData.deckBackground != null)
+    const cardHeight = (typeof(cardData.height) !== 'undefined' && cardData.height != null)
     ? (cardData.height == 'full'
         ? FULL_CARD_HEIGHT
         : HALF_CARD_HEIGHT)
@@ -70,8 +70,8 @@ const st = StyleSheet.create({
         maxWidth: 400,
         marginBottom: 20,
         shadowColor: '#000',
-        shadowOpacity: 0.3,
-        shadowOffset: {width: 1, height: 1 },
+        shadowOpacity: 0.5,
+        shadowOffset: {width: 2, height: 2 },
         backgroundColor: 'white',
     },
     top: {
@@ -84,7 +84,7 @@ const st = StyleSheet.create({
         paddingTop: 20,
     },
     middle: {
-        flex: 8,
+        flex: 1,
         justifyContent: 'center',
         alignContent: "center",
         width: "100%",

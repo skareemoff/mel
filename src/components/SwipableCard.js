@@ -1,9 +1,9 @@
-import {StyleSheet, ImageBackground, useWindowDimensions} from 'react-native';
+import {StyleSheet} from 'react-native';
 import React from 'react';
 import Animated, { interpolate, useAnimatedStyle, useSharedValue, runOnJS, withTiming } from 'react-native-reanimated';
 import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 import Card from './Card';
-import {height, width, FULL_CARD_HEIGHT, HALF_CARD_HEIGHT} from './Utils'
+import {width} from './Utils'
 
 const SwipableCard = ({
   deckName,

@@ -6,6 +6,7 @@ import SplashScreen from "./src/components/SplashScreen";
 import HomeScreen from "./src/components/HomeScreen";
 import DeckInfoScreen from "./src/components/DeckInfoScreen";
 import PlayScreen from "./src/components/PlayScreen";
+import Onboarding from "./src/components/Onboarding";
 import styles from './src/assets/style'
 import DeckData from './src/components/DeckData'
 
@@ -13,7 +14,9 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [isShowSplashScreen, setIsShowSplashScreen] = useState(true);
-  DeckData.inst();
+  const isShowOnboarding = true;
+
+  DeckData.inst(); // preload the deck while showing splashscreen
 
   useEffect(() => {
     setTimeout(() => {
@@ -27,28 +30,29 @@ export default function App() {
         isShowSplashScreen ?
           <SplashScreen /> :
           <NavigationContainer>
-            <Stack.Navigator initialRouteName="Home"
-              screenOptions={({ navigation, route }) => ({
-                headerShadowVisible: false,
-                headerLeft: () => (
-                  route.name == 'Home' ?
-                  null
-                  :
-                  <TouchableOpacity  onPress={() => navigation.goBack(null)}>
-                    <Image
-                      style={{width: 32, height: 32}}
-                      source={require('./src/assets/images/button-small-back.png')}
-                    />
-                  </TouchableOpacity>
-                ),
-                headerTitle: () => (
-                  <Image source={require('./src/assets/images/logo.png')} style={{width:'72', height: 32}}/>
-                ),
-              })}>
-              <Stack.Screen name="Home" component={HomeScreen} options={{  headerShown: true}} />
-              <Stack.Screen name="Deck" component={DeckInfoScreen} options={{  headerShown: true}} />
-              <Stack.Screen name="Play" component={PlayScreen} options= {{  headerShown: true }} />
-            </Stack.Navigator>
+              <Stack.Navigator initialRouteName={isShowOnboarding ? 'Onboarding' : 'Home'}
+                screenOptions={({ navigation, route }) => ({
+                  headerShadowVisible: false,
+                  headerLeft: () => (
+                    route.name == 'Home' ?
+                    null
+                    :
+                    <TouchableOpacity  onPress={() => navigation.goBack(null)}>
+                      <Image
+                        style={{width: 32, height: 32}}
+                        source={require('./src/assets/images/button-small-back.png')}
+                      />
+                    </TouchableOpacity>
+                  ),
+                  headerTitle: () => (
+                    <Image source={require('./src/assets/images/logo.png')} style={{width:'72', height: 32}}/>
+                  ),
+                })}>
+                <Stack.Screen name="Home" component={HomeScreen} options={{  headerShown: true}} />
+                <Stack.Screen name="Deck" component={DeckInfoScreen} options={{  headerShown: true}} />
+                <Stack.Screen name="Play" component={PlayScreen} options= {{  headerShown: true }} />
+                <Stack.Screen name="Onboarding" component={Onboarding} options= {{  headerShown: false }} />
+              </Stack.Navigator>
           </NavigationContainer>
       }
     </View>
