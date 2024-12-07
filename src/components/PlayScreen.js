@@ -8,26 +8,36 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import SwipableCard from './SwipableCard';
 import DeckData from './DeckData'
 import {BOTTOM_APPBAR_HEIGHT} from './Utils'
+import {shuffle} from './Utils'
 
 export default function PlayScreen({route, navigation}) {
   const MAX = 3;
   const { deckID } = route.params;
   const insets = useSafeAreaInsets();
 
-  const deckData = DeckData.inst().getDeck(deckID);
-  const cardDeck = [...deckData.cards];
+  const deckData = DeckData.getDeck(deckID);
+  const cardDeck = useSharedValue(shuffle(deckData.cards));
 
   const [deckKey, setDeckKey] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const animatedValue = useSharedValue(0);
 
   const handleSetCurrentIndex = (newIndex) => {
-    if (newIndex >= cardDeck.length) {
+    if(newIndex === -1) {
+      cardDeck.value = shuffle(cardDeck.value);
       setCurrentIndex(0); // Restart from the first card
       animatedValue.value = 0;
       setDeckKey(prevKey => prevKey + 1); // Change key to force re-render
-      cardDeck.splice(0, cardDeck.length, cardDeck);
-    } else {
+    }
+    else if(newIndex >= cardDeck.value.length) {
+      cardDeck.value.splice(0, cardDeck.value.length, cardDeck.value);
+      console.log("REACHED THE END");
+      setCurrentIndex(0); // Restart from the first card
+      animatedValue.value = 0;
+      setDeckKey(prevKey => prevKey + 1); // Change key to force re-render
+    }
+    else {
+      console.log("SETTING: ", newIndex, cardDeck.value[newIndex].text);
       setCurrentIndex(newIndex);
     }
   };
@@ -37,13 +47,13 @@ export default function PlayScreen({route, navigation}) {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaView edges={['right', 'left']} style={[styles.container,]}>
       <ImageBackground
-        source={DeckData.inst().getDeckImage(deckData.deckBackground)}
+        source={DeckData.getDeckImage(deckData.deckBackground)}
         style={{ height: '100%', width: '100%'}}
       >
         <View
           style={[styles.cardContainer, {paddingTop: Math.max(insets.top, 100), }]}
           key={deckKey}>
-          {cardDeck.map((item, index) => {
+          {cardDeck.value.map((item, index) => {
             if (index > currentIndex + MAX || index < currentIndex) {
               return null;
             }
@@ -53,7 +63,7 @@ export default function PlayScreen({route, navigation}) {
                 maxVisibleItems={MAX}
                 item={item}
                 index={index}
-                deckSize={cardDeck.length}
+                deckSize={cardDeck.value.length}
                 animatedValue={animatedValue}
                 currentIndex={currentIndex}
                 setCurrentIndex={handleSetCurrentIndex}
@@ -71,7 +81,7 @@ export default function PlayScreen({route, navigation}) {
             <Image name="share" style={styles.buttonImage} source={require("../assets/images/share.png")} />
           </TouchableOpacity>
           {/* TODO: Reset doesn't redraw properly */}
-          <TouchableOpacity style={[styles.button, styles.buttonRight]} onPressOut={() => handleSetCurrentIndex(0)}>
+          <TouchableOpacity style={[styles.button, styles.buttonRight]} onPressOut={() => handleSetCurrentIndex(-1)}>
             <Image name="restart" style={styles.buttonImage} source={require("../assets/images/undo.png")} />
           </TouchableOpacity>
         </Appbar>

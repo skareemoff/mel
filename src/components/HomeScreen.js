@@ -10,7 +10,7 @@ const HomeScreen = ({navigation}) => {
         {
             id: 0,
             deckName: 'Question of the day',
-            text: DeckData.inst().getQuestionOfTheDay(),
+            text: DeckData.getQuestionOfTheDay(),
             type: 'deck',
             height: 'full',
             deckBackground: 'homeBG',
@@ -18,7 +18,7 @@ const HomeScreen = ({navigation}) => {
             deckTextStyle: 'qODDeckText',
             cardStyle: 'qODCard',
         },
-        ...DeckData.inst().decks()
+        ...DeckData.decks()
     ];
 
     const clickDeck = (cardData) => {
@@ -30,7 +30,7 @@ const HomeScreen = ({navigation}) => {
         ? <RotatableCard
             id={0}
             deckName='Question of the day'
-            text={DeckData.inst().getQuestionOfTheDay()}
+            text={DeckData.getQuestionOfTheDay()}
             type='deck'
             height='full'
             deckBackground='homeBG'
@@ -46,11 +46,11 @@ const HomeScreen = ({navigation}) => {
                 text={item.deckName}
                 deckBackground={item.deckBackground}
                 clickHandler={clickDeck}
-                textStyle={item.deckTextStyle}
+                cardTextStyle={item.deckTextStyle}
                 cardStyle={item.deckStyle}
 
-                info={"❤️ "+height}
-                moreInfo={"💬 "+width}
+                infoLeft={"❤️ "+height}
+                infoRight={"💬 "+width}
             />
     );
 
@@ -59,7 +59,7 @@ const HomeScreen = ({navigation}) => {
             {/* TODO: image background isn't working */}
             <ImageBackground
                 style={{flex: 1, resizeMode: 'cover', width: null, height: null,}}
-                source={DeckData.inst().getDeckImage('homeBG')}>
+                source={DeckData.getDeckImage('homeBG')}>
                 <FlatList
                     style={styles.flatList}
                     data={cards}

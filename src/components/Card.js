@@ -3,21 +3,18 @@ import { StyleSheet, Text, View, Pressable, ImageBackground } from 'react-native
 import {width, FULL_CARD_HEIGHT, HALF_CARD_HEIGHT} from './Utils'
 import DeckData from './DeckData.js'
 import styles from '../assets/style'
+import Markdown from 'react-native-markdown-display';
 
 const Card = (cardData, props) => {
     const cardHeight = (typeof(cardData.height) !== 'undefined' && cardData.height != null)
-    ? (cardData.height == 'full'
-        ? FULL_CARD_HEIGHT
-        : HALF_CARD_HEIGHT)
-    : ((cardData.type == 'card')
-        ? FULL_CARD_HEIGHT
-        : HALF_CARD_HEIGHT);
+    ? (cardData.height == 'full' ? FULL_CARD_HEIGHT : HALF_CARD_HEIGHT)
+    : ((cardData.type == 'card') ? FULL_CARD_HEIGHT : HALF_CARD_HEIGHT);
 
-    const bottomPadding = (cardData.type == 'card') ? 0 : 20;
+    const bottomPadding = (cardData.type == 'card') ? 0 : 0;
 
     const buildCard = () => {
         const img = (typeof(cardData.deckBackground) !== 'undefined' && cardData.deckBackground != null)
-            ? DeckData.inst().getDeckImage(cardData.deckBackground)
+            ? DeckData.getDeckImage(cardData.deckBackground)
             : null;
         return (
             <View style={[st.card,
@@ -34,16 +31,25 @@ const Card = (cardData, props) => {
                     }}>
                         <View style={st.top}>
                             <View style={st.cardHeader}>
-                                <Text style={[st.deckName, styles[cardData.textStyle]]}>{cardData.deckName}</Text>
-                                <Text style={[st.subText, styles[cardData.textStyle]]}>{cardData.subText}</Text>
+                                <Text style={[st.deckName, styles[cardData.deckTextStyle]]}>{cardData.deckName}</Text>
+                                <Text style={[st.deckSubText, styles[cardData.deckSubTextStyle]]}>{cardData.deckSubText}</Text>
                             </View>
                         </View>
-                        <View style={st.middle}>
-                            <Text style={[st.cardText, styles[cardData.textStyle]]}>{cardData.text}</Text>
-                        </View>
+                        { cardData.useMarkdown == 'yes'
+                        ?
+                            <View style={st.middle}>
+                                { cardData.text && <Markdown style={styles[cardData.cardTextStyle]}>{cardData.text}</Markdown> }
+                                { cardData.subText && <Markdown style={styles[cardData.cardSubTextStyle]}>{cardData.subText}</Markdown> }
+                            </View>
+                        :
+                            <View style={st.middle}>
+                                <Text style={[st.cardText, styles[cardData.cardTextStyle]]}>{cardData.text}</Text>
+                                <Text style={[st.cardSubText, styles[cardData.cardSubTextStyle]]}>{cardData.subText}</Text>
+                            </View>
+                        }
                         <View style={[st.bottom, {paddingBottom: bottomPadding}]}>
-                            <Text style={[st.footerText, st.footerTextLeft, styles[cardData.textStyle]]}>{cardData.info}</Text>
-                            <Text style={[st.footerText, st.footerTextRight, styles[cardData.textStyle]]}>{cardData.moreInfo}</Text>
+                            <Text style={[st.footerText, st.footerTextLeft, styles[cardData.infoTextStyleLeft]]}>{cardData.infoLeft}</Text>
+                            <Text style={[st.footerText, st.footerTextRight, styles[cardData.infoTextStyleRight]]}>{cardData.infoRight}</Text>
                         </View>
                 </ImageBackground>
             </View>
@@ -84,9 +90,9 @@ const st = StyleSheet.create({
         paddingTop: 20,
     },
     middle: {
-        flex: 1,
+        flex: 4,
         justifyContent: 'center',
-        alignContent: "center",
+        alignContent: "",
         width: "100%",
         maxWidth: 400,
         padding: 20,
@@ -102,7 +108,7 @@ const st = StyleSheet.create({
         textAlign: 'center',
         color: 'black',
     },
-    subText: {
+    deckSubText: {
         fontFamily: "DM Sans",
         fontSize: 14,
         flex: 1,
@@ -118,6 +124,14 @@ const st = StyleSheet.create({
         textAlign: 'center',
         paddingLeft: 20,
         paddingRight: 20,
+    },
+    cardSubText: {
+        fontFamily: "DM Sans",
+        fontSize: 14,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        textAlign: 'center',
+        color: 'black',
     },
     bottom: {
         flex: 1,

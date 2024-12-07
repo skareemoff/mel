@@ -10,7 +10,7 @@ import {BOTTOM_APPBAR_HEIGHT} from './Utils'
 
 const DeckInfoScreen = ({route, navigation}) => {
     const { deckID } = route.params;
-    const deckData = DeckData.inst().getDeck(deckID)
+    const deckData = DeckData.getDeck(deckID)
 
     const cards = [ {'id': "deck"}, {'id':'description'}, {'id':'example'}, {'id': 'rules'}];
     const clickDeck = () => {
@@ -23,11 +23,11 @@ const DeckInfoScreen = ({route, navigation}) => {
                 type='deck'
                 text={deckData.deckName}
                 deckBackground={deckData.deckBackground}
-                textStyle={deckData.deckTextStyle}
+                cardTextStyle={deckData.deckTextStyle}
                 cardStyle={deckData.deckStyle}/>
         : item.id === 'description'
             ? <SafeAreaView>
-                <Markdown style={styles.deckInfoDescription}>{deckData.description}</Markdown>
+                { deckData.description && <Markdown style={styles.deckInfoDescription}>{deckData.description}</Markdown> }
             </SafeAreaView>
         : item.id === 'example'
             ? <Card
@@ -35,10 +35,10 @@ const DeckInfoScreen = ({route, navigation}) => {
                 height='half'
                 deckName={deckData.deckName}
                 text={deckData.cards[0].text}
-                textStyle='deckInfoText'
+                cardTextStyle='deckInfoText'
                 cardStyle='deckInfoCard' />
             :  <SafeAreaView>
-                <Markdown style={styles.deckInfoRules}>{deckData.rules}</Markdown>
+                { deckData.rules && <Markdown style={styles.deckInfoRules}>{deckData.rules}</Markdown> }
             </SafeAreaView>
     );
 

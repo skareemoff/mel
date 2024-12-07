@@ -113,11 +113,19 @@ const SwipableCard = ({
           <Card
             type='card'
             deckName={deckName}
+            infoLeft={(index+1)+" / "+deckSize}
             text={item.text}
-            info={(index+1)+" / "+deckSize}
-            textStyle={item.deckTextStyle}
+            subText={item.subText}
+            height={item.height}
+            useMarkdown={item.useMarkdown}
+            deckTextStyle={item.deckTextStyle}
+            deckSubTextStyle={item.deckSubTextStyle}
+            cardTextStyle={item.cardTextStyle}
+            cardSubTextStyle={item.cardSubTextStyle}
             cardStyle={item.cardStyle}
-            />
+            infoTextStyleLeft={item.infoTextStyleLeft}
+            infoTextStyleRight={item.infoTextStyleRight}
+          />
       </Animated.View>
     </GestureDetector>
   );

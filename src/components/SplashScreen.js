@@ -22,7 +22,7 @@ export default function SplashScreen() {
             scrollEnabled={false}
         >
       {/* <ImageBackground
-        source={DeckData.inst().getDeckImage('deckBG2')}
+        source={DeckData.getDeckImage('deckBG2')}
         style={{ height: '100%', width: '100%'}}
         imageStyle={{ opacity: 0.7}}
       /> */}

@@ -135,6 +135,89 @@ export default StyleSheet.create({
             margin: 20,
             marginBottom: 40,
             marginTop: 40
+        }
+    },
+    onboardingDeckText: {
+        color: "transparent"
+    },
+    onboardingText: {
+        heading1: {
+            flexDirection: 'column',
+            fontFamily: "DM Sans",
+            color: "black",
+            textAlign: 'lefyt',
+            fontSize: 32,
+            fontWeight: 400,
+            marginBottom: 20
         },
+        heading2: {
+            fontFamily: "DM Sans",
+            marginBottom: 20,
+            fontWeight: 600,
+            fontSize: 26,
+            textAlign: 'center',
+            color: 'black'
+        },
+        heading3: {
+            fontFamily: "DM Sans",
+            marginTop: 20,
+            marginBottom: 20,
+            fontWeight: 500,
+            fontSize: 20,
+            textAlign: 'left',
+            color: 'black'
+        },
+        heading4: {
+            fontFamily: "DM Sans",
+            marginTop: 20,
+            marginBottom: 4,
+            fontWeight: 400,
+            fontSize: 18,
+            textAlign: 'left',
+            color: 'black'
+        },
+        blockquote: {
+            fontFamily: "DM Sans",
+            fontSize: 16,
+            backgroundColor: 'honeydew',
+            borderLeftWidth: 0,
+            borderLeftColor: "red",
+            padding: 20
+        },
+        ordered_list:{
+            counterReset: 'item',
+            listStyleType: 'upper-roman',
+            lineHeight: 26,
+        },
+        ordered_list_icon: {
+            marginRight: 20,
+            marginBottom: 20,
+            backgroundColor: "#rgb(180 185 162)",
+            color: "white",
+            width: "30",
+            height: "30",
+            borderRadius: "50%",
+            textAlign: "center",
+            fontWeight: 'bold',
+            fontSize: 22,
+            lineHeight: "0",
+        },
+        bullet_list: {
+            margin: 0,
+            marginTop: 16,
+            marginBottom: 16,
+            fontSize: 18,
+            padding: 0,
+            lineHeight: 24,
+        },
+        list_item: {
+            marginTop: 16
+        },
+        body: {
+            fontFamily: "DM Sans",
+            margin: 20,
+            marginBottom: 40,
+            marginTop: 40
+        }
     }
 });

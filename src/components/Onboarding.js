@@ -11,7 +11,7 @@ import {height} from './Utils'
 export default function Onboarding({navigation}) {
   const insets = useSafeAreaInsets();
 
-  const deckData = DeckData.inst().data().onboarding;
+  const deckData = DeckData.data().onboarding;
   const cardDeck = [...deckData.cards];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -32,7 +32,7 @@ export default function Onboarding({navigation}) {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaView edges={['right', 'left']} style={[styles.container,]}>
       <ImageBackground
-        source={DeckData.inst().getDeckImage(deckData.deckBackground)}
+        source={DeckData.getDeckImage(deckData.deckBackground)}
         style={{ height: '100%', width: '100%'}}
       >
         <View style={[styles.cardContainer, { paddingTop: Math.max(insets.top, height * 0.3), }]}>
@@ -43,6 +43,7 @@ export default function Onboarding({navigation}) {
             return (
               <SwipableCard
                 deckName={deckData.deckName}
+                useMarkdown='yes'
                 maxVisibleItems={cardDeck.length}
                 item={item}
                 index={index}

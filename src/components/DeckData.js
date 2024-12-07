@@ -2,7 +2,7 @@ export default class DeckData {
     static _instance = null;
     _questionOfTheDay = null;
     _dayOfTheQuestion = null;
-    _data = [];
+    _data = require('../data/cards.json');
     _images = {
         deckBG1: require("../assets/images/deckBG1.png"),
         deckBG2: require("../assets/images/deckBG2.png"),
@@ -16,7 +16,6 @@ export default class DeckData {
     static inst() {
         if (DeckData._instance == null) {
             DeckData._instance = new DeckData();
-            DeckData._instance._data = require('../data/cards.json');
             DeckData._instance._loadQoD();
         }
 
@@ -25,7 +24,6 @@ export default class DeckData {
 
     _loadQoD() {
         if(this._verifyQoD()) {
-            console.log("VERIFIED OK");
             return this._questionOfTheDay;
         }
 
@@ -63,28 +61,28 @@ export default class DeckData {
                 && curDate.getDate() == date.getDate();
     }
 
-    data() {
-        return this._data;
+    static data() {
+        return DeckData.inst()._data;
     }
 
-    decks() {
-        return this.data().decks;
+    static decks() {
+        return DeckData.data().decks;
     }
 
-    getRandomCard(deckID) {
-        const cards = this.getDeck(deckID).cards;
+    static getRandomCard(deckID) {
+        const cards = DeckData.getDeck(deckID).cards;
         return cards[Math.round(Math.random() * (cards.length - 1))];
     }
 
-    getDeck(id) {
-        return this.decks().filter(item => item.id == id)[0];
+    static getDeck(id) {
+        return DeckData.decks().filter(item => item.id == id)[0];
     }
 
-    getDeckImage(imageName){
-        return this._images[imageName];
+    static getDeckImage(imageName){
+        return DeckData.inst()._images[imageName];
     }
 
-    getQuestionOfTheDay() {
-        return this._questionOfTheDay;
+    static getQuestionOfTheDay() {
+        return DeckData.inst()._questionOfTheDay;
     }
 }

@@ -524,6 +524,13 @@
                     "deckID": 2
                 },
                 {
+                    "id": "SP01",
+                    "text": "Switch It Card",
+                    "subText": "Use the Switch It card to make someone else answer the same question before continuing.",
+                    "deckID": 2,
+                    "type": "special"
+                },
+                {
                     "id": 102,
                     "text": "What's a realization about yourself that surprised you?",
                     "deckID": 2
@@ -619,6 +626,13 @@
                     "deckID": 2
                 },
                 {
+                    "id": "SP05",
+                    "text": "Challenge Card",
+                    "subText": "Use the Challenge Card to push yourself or someone else to reveal more or complete a fun task!",
+                    "deckID": 2,
+                    "type": "special"
+                },
+                {
                     "id": 121,
                     "text": "What keeps you going during tough times?",
                     "deckID": 2
@@ -702,6 +716,13 @@
                     "id": 137,
                     "text": "When was the last time you felt truly seen by someone?",
                     "deckID": 2
+                },
+                {
+                    "id": "SP02",
+                    "text": "Switch It Card",
+                    "subText": "Use the Switch It card to make someone else answer the same question before continuing.",
+                    "deckID": 2,
+                    "type": "special"
                 },
                 {
                     "id": 138,
@@ -812,6 +833,13 @@
                     "id": 159,
                     "text": "What's a fear you have about your future?",
                     "deckID": 2
+                },
+                {
+                    "id": "SP06",
+                    "text": "Challenge Card",
+                    "subText": "Use the Challenge Card to push yourself or someone else to reveal more or complete a fun task!",
+                    "deckID": 2,
+                    "type": "special"
                 },
                 {
                     "id": 160,
@@ -939,6 +967,13 @@
                     "deckID": 2
                 },
                 {
+                    "id": "SP03",
+                    "text": "Switch It Card",
+                    "subText": "Use the Switch It card to make someone else answer the same question before continuing.",
+                    "deckID": 2,
+                    "type": "special"
+                },
+                {
                     "id": 185,
                     "text": "What's something you're currently in denial about?",
                     "deckID": 2
@@ -999,6 +1034,13 @@
                     "deckID": 2
                 },
                 {
+                    "id": "SP04",
+                    "text": "Switch It Card",
+                    "subText": "Use the Switch It card to make someone else answer the same question before continuing.",
+                    "deckID": 2,
+                    "type": "special"
+                },
+                {
                     "id": 197,
                     "text": "What's a fear you have about your impact on others?",
                     "deckID": 2
@@ -1007,6 +1049,13 @@
                     "id": 198,
                     "text": "When was the last time you felt truly challenged by your own beliefs?",
                     "deckID": 2
+                },
+                {
+                    "id": "SP07",
+                    "text": "Challenge Card",
+                    "subText": "Use the Challenge Card to push yourself or someone else to reveal more or complete a fun task!",
+                    "deckID": 2,
+                    "type": "special"
                 },
                 {
                     "id": 199,
@@ -1024,7 +1073,7 @@
             "id": 3,
             "deckName": "Going Deep",
             "description": "> Honest and heartfelt questions about the most meaningful aspects of your life, designed to inspire real talk.",
-            "rules": "### How to Play ###\n##### This collection is all about exploring life’s most meaningful topics. Expect heartfelt, honest conversations that connect on a deeper level. #####\n\n> 1. Decide who goes first. Tap **Play.**\n> 2. The first person reads the question, reflects for a moment, and shares their thoughts.\n> 3. After answering, the group can ask one follow-up question to dive deeper.\n> 4. The answering player then selects someone to go next and passes them the phone. \n\n ###### **Pro Tip:** If an **All Play** card appears, everyone answers the same question for a group discussion. ######",
+            "rules": "### How to Play ###\n##### This collection is all about exploring life’s most meaningful topics. Expect heartfelt, honest conversations that connect on a deeper level. #####\n\n> 1. Decide who goes first. Tap **Play.**\n> 2. The first person reads the question, reflects for a moment, and shares their thoughts.\n> 3. After answering, the group can ask one follow-up question to dive deeper.\n> 4. The answering player then selects someone to go next and passes them the phone. \n\n ###### **Pro Tip:** If an **All Play Card** appears, everyone answers the same question for a group discussion. ######",
             "deckBackground": "deckBG3",
             "deckTextStyle": "deck3",
             "cards": [
@@ -1092,6 +1141,13 @@
                     "id": 213,
                     "text": "What's a transformative experience you wish you could relive?",
                     "deckID": 3
+                },
+                {
+                    "id": "SP08",
+                    "text": "All Play Card",
+                    "subText": "Everyone answers the same question for a group discussion.",
+                    "deckID": 3,
+                    "type": "special"
                 },
                 {
                     "id": 214,
@@ -1187,6 +1243,13 @@
                     "id": 232,
                     "text": "Describe a moment when you felt completely at peace with the universe.",
                     "deckID": 3
+                },
+                {
+                    "id": "SP09",
+                    "text": "All Play Card",
+                    "subText": "Everyone answers the same question for a group discussion.",
+                    "deckID": 3,
+                    "type": "special"
                 },
                 {
                     "id": 233,
@@ -1394,6 +1457,13 @@
                     "deckID": 3
                 },
                 {
+                    "id": "SP10",
+                    "text": "All Play Card",
+                    "subText": "Everyone answers the same question for a group discussion.",
+                    "deckID": 3,
+                    "type": "special"
+                },
+                {
                     "id": 274,
                     "text": "How has your relationship with success and failure evolved over time?",
                     "deckID": 3
@@ -1484,6 +1554,13 @@
                     "deckID": 3
                 },
                 {
+                    "id": "SP11",
+                    "text": "All Play Card",
+                    "subText": "Everyone answers the same question for a group discussion.",
+                    "deckID": 3,
+                    "type": "special"
+                },
+                {
                     "id": 292,
                     "text": "Describe a time when you had to choose between your personal values and societal norms",
                     "deckID": 3
@@ -1550,7 +1627,7 @@
                 },
                 {
                     "id": 303,
-                    "text": "What's the best compliment you received in 2024?",
+                    "text": "What's the best compliment you received this year?",
                     "deckID": 4
                 },
                 {
@@ -1565,7 +1642,7 @@
                 },
                 {
                     "id": 306,
-                    "text": "What song defined your 2024?",
+                    "text": "What song defined this year for you?",
                     "deckID": 4
                 },
                 {
@@ -1590,8 +1667,15 @@
                 },
                 {
                     "id": 311,
-                    "text": "What was your most memorable day in 2024?",
+                    "text": "What was your most memorable day this year?",
                     "deckID": 4
+                },
+                {
+                    "id": "SP12",
+                    "text": "Gratitude Card",
+                    "subText": "Pause the game and everyone must share one thing they are grateful for.",
+                    "deckID": 4,
+                    "type": "special"
                 },
                 {
                     "id": 312,
@@ -1730,7 +1814,7 @@
                 },
                 {
                     "id": 339,
-                    "text": "What's one word that summarizes your 2024?",
+                    "text": "What's one word that summarizes this year for you?",
                     "deckID": 4
                 },
                 {
@@ -1832,6 +1916,13 @@
                     "id": 359,
                     "text": "What risk did you take that scared you?",
                     "deckID": 4
+                },
+                {
+                    "id": "SP13",
+                    "text": "Gratitude Card",
+                    "subText": "Pause the game and everyone must share one thing they are grateful for.",
+                    "deckID": 4,
+                    "type": "special"
                 },
                 {
                     "id": 360,
@@ -2017,6 +2108,13 @@
                     "id": 396,
                     "text": "How has your perception of personal growth changed?",
                     "deckID": 4
+                },
+                {
+                    "id": "SP14",
+                    "text": "Gratitude Card",
+                    "subText": "Pause the game and everyone must share one thing they are grateful for.",
+                    "deckID": 4,
+                    "type": "special"
                 },
                 {
                     "id": 397,
@@ -2934,6 +3032,13 @@
                     "deckID": 6
                 },
                 {
+                    "id": "SP15",
+                    "text": "Challenge Card",
+                    "subText": "Everyone does a fun action like drawing their answer, acting it out, or finding an object in the room related to the question.",
+                    "deckID": 6,
+                    "type": "special"
+                },
+                {
                     "id": 576,
                     "text": "What's your favorite thing about our family?",
                     "deckID": 6
@@ -3094,6 +3199,13 @@
                     "deckID": 6
                 },
                 {
+                    "id": "SP16",
+                    "text": "Challenge Card",
+                    "subText": "Everyone does a fun action like drawing their answer, acting it out, or finding an object in the room related to the question.",
+                    "deckID": 6,
+                    "type": "special"
+                },
+                {
                     "id": 608,
                     "text": "What's a time when you felt different from others?",
                     "deckID": 6
@@ -3197,6 +3309,13 @@
                     "id": 628,
                     "text": "What helps you feel calm when you're upset?",
                     "deckID": 6
+                },
+                {
+                    "id": "SP17",
+                    "text": "Challenge Card",
+                    "subText": "Everyone does a fun action like drawing their answer, acting it out, or finding an object in the room related to the question.",
+                    "deckID": 6,
+                    "type": "special"
                 },
                 {
                     "id": 629,
@@ -3419,6 +3538,13 @@
                     "deckID": 6
                 },
                 {
+                    "id": "SP18",
+                    "text": "Challenge Card",
+                    "subText": "Everyone does a fun action like drawing their answer, acting it out, or finding an object in the room related to the question.",
+                    "deckID": 6,
+                    "type": "special"
+                },
+                {
                     "id": 673,
                     "text": "What do you think about when you're alone?",
                     "deckID": 6
@@ -3544,6 +3670,13 @@
                     "deckID": 6
                 },
                 {
+                    "id": "SP19",
+                    "text": "Challenge Card",
+                    "subText": "Everyone does a fun action like drawing their answer, acting it out, or finding an object in the room related to the question.",
+                    "deckID": 6,
+                    "type": "special"
+                },
+                {
                     "id": 698,
                     "text": "What makes you feel like you belong?",
                     "deckID": 6
@@ -3564,32 +3697,31 @@
     "onboarding": {
         "id": "onboarding",
         "deckName": "Onboarding",
-        "deckBackground": "deckBG6",
-        "deckTextStyle": "deck6",
+        "deckBackground": "deckBG2",
         "cards": [
             {
                 "deckID": "onboarding",
                 "id": "onboarding1",
-                "text": "Did you know, friends extend your life?",
-                "info": "A"
+                "useMarkdown":"yes",
+                "deckTextStyle": "onboardingDeckText",
+                "cardTextStyle": "onboardingText",
+                "text": "# Welcome to a More Exciting Life\n#### ✨ **Break the Ice:** Engage with thought-provoking questions designed to spark deep conversations.\n#### 💬 **Build Bonds:** Explore shared values, dreams, and passions with people who inspire you.\n#### 🌟 **Live Fully:** Make every connection count as you embrace a more exciting and fulfilling life.\n#### Let’s turn small talk into big moments—are you ready to start?"
             },
             {
                 "deckID": "onboarding",
                 "id": "onboarding2",
-                "text": "Did you know, friends extend your life?",
-                "info": "A"
+                "useMarkdown":"yes",
+                "deckTextStyle": "onboardingDeckText",
+                "cardTextStyle": "onboardingText",
+                "text": "## How to play\n### Question of the Day\n#### Start each day with a fresh, thought-provoking question, same for all of users:\n#### ✨ Reflect on it privately.\n#### 💬 Share your thoughts (anonymously)  with others.\n#### 🔥 Use it as a spark for meaningful conversations throughout your day."
             },
             {
                 "deckID": "onboarding",
                 "id": "onboarding3",
-                "text": "Did you know, friends extend your life?",
-                "info": "A"
-            },
-            {
-                "deckID": "onboarding",
-                "id": "onboarding4",
-                "text": "Did you know, friends extend your life?",
-                "info": "A"
+                "useMarkdown":"yes",
+                "deckTextStyle": "onboardingDeckText",
+                "cardTextStyle": "onboardingText",
+                "text": "## How to play\n#### Curated decks designed to deepen connections:\n#### ❄️ **Icebreakers:** Perfect for starting conversations.\n#### ❤️ **Going Deep:** For heartfelt, meaningful discussions.\n#### 🎉 **Fun Cards:** Bring laughter and joy to any group.\n#### 📚 And so much more!\n\n#### Choose a deck, draw a card, and let the connection begin! 🌟"
             }
         ]
     }

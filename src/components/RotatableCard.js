@@ -41,7 +41,7 @@ const RotatableCard = (cardData) => {
                 deckID={cardData.id}
                 text={cardData.deckName}
                 deckBackground={cardData.deckBackground}
-                textStyle={cardData.deckTextStyle}
+                cardTextStyle={cardData.deckTextStyle}
                 cardStyle={cardData.deckStyle}
                 clickHandler={() => _handleClick()}
             />
@@ -53,7 +53,7 @@ const RotatableCard = (cardData) => {
                 deckID={cardData.id}
                 deckName={cardData.deckName}
                 text={cardData.text}
-                textStyle={cardData.cardTextStyle}
+                cardTextStyle={cardData.cardTextStyle}
                 cardStyle={cardData.cardStyle}
                 clickHandler={() => (_handleClick(cardData.cardClickHandler))}
             />
