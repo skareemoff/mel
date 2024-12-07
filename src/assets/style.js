@@ -46,10 +46,13 @@ export default StyleSheet.create({
     qODDeckText: {
         color: 'whitesmoke',
         fontWeight: '600',
-        fontSize: 64,
+        fontSize: 60,
+    },
+    deckTitle: {
+        marginBottom: -10,
     },
     deckInfoText: {
-        fontSize: 20,
+        fontSize: 18,
     },
     deckInfoCard: {
         shadowColor: '#000',
@@ -170,9 +173,8 @@ export default StyleSheet.create({
         heading4: {
             fontFamily: "DM Sans",
             marginTop: 20,
-            marginBottom: 4,
             fontWeight: 400,
-            fontSize: 18,
+            fontSize: 16,
             textAlign: 'left',
             color: 'black'
         },

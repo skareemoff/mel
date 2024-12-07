@@ -35,6 +35,7 @@ const DeckInfoScreen = ({route, navigation}) => {
                 height='half'
                 deckName={deckData.deckName}
                 text={deckData.cards[0].text}
+                deckTextStyle='deckTitle'
                 cardTextStyle='deckInfoText'
                 cardStyle='deckInfoCard' />
             :  <SafeAreaView>
