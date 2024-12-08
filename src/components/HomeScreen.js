@@ -48,9 +48,6 @@ const HomeScreen = ({navigation}) => {
                 clickHandler={clickDeck}
                 cardTextStyle={item.deckTextStyle}
                 cardStyle={item.deckStyle}
-
-                infoLeft={"❤️ "+height}
-                infoRight={"💬 "+width}
             />
     );
 
