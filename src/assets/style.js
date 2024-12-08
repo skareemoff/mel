@@ -103,8 +103,6 @@ export default StyleSheet.create({
         body: {
             fontFamily: "DM Sans",
             margin: 20,
-            marginBottom: 40,
-            marginTop: 40
         },
         blockquote: {
             fontFamily: "DM Sans",
@@ -175,8 +173,7 @@ export default StyleSheet.create({
         body: {
             fontFamily: "DM Sans",
             margin: 20,
-            marginBottom: 40,
-            marginTop: 40
+            paddingLeft: 10
         }
     },
     onboardingDeckText: {
