@@ -11,6 +11,45 @@ export default StyleSheet.create({
     flatList: {
         backgroundColor: 'white',
     },
+    cardContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'baseline',
+    },
+    appbarBottom: {
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        maxWidth: 400,
+        backgroundColor: 'transparent',
+        position: 'fixed',
+        left: 0,
+        right: 0,
+        bottom: 0,
+        display: 'flex',
+    },
+    roundButton: {
+        borderRadius: "50%",
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        overflow: 'hidden',
+        marginLeft: 20,
+        marginRight: 20,
+      },
+      roundButtonImage: {
+        height: 60,
+        width: 60,
+    },
+    largeButton: {
+        borderRadius: "20%",
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        overflow: 'hidden',
+        marginBottom: 10,
+    },
+    largeButtonImage: {
+        height: 60,
+        width: 140,
+    },
     deck1: {
         color: 'white',
         fontWeight: 'bold',

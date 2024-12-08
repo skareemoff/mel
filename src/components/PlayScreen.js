@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSharedValue, } from 'react-native-reanimated';
-import { StyleSheet, ImageBackground, View, Image, TouchableOpacity } from 'react-native';
+import { ImageBackground, View, Image, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Appbar } from 'react-native-paper';
@@ -9,6 +9,7 @@ import SwipableCard from './SwipableCard';
 import DeckData from './DeckData'
 import {BOTTOM_APPBAR_HEIGHT} from './Utils'
 import {shuffle} from './Utils'
+import st from '../assets/style'
 
 export default function PlayScreen({route, navigation}) {
   const MAX = 3;
@@ -45,13 +46,13 @@ export default function PlayScreen({route, navigation}) {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <SafeAreaView edges={['right', 'left']} style={[styles.container,]}>
+      <SafeAreaView edges={['right', 'left']} style={[st.container,]}>
       <ImageBackground
         source={DeckData.getDeckImage(deckData.deckBackground)}
         style={{ height: '100%', width: '100%'}}
       >
         <View
-          style={[styles.cardContainer, {paddingTop: Math.max(insets.top, 100), }]}
+          style={[st.cardContainer, {paddingTop: Math.max(insets.top, 100), }]}
           key={deckKey}>
           {cardDeck.value.map((item, index) => {
             if (index > currentIndex + MAX || index < currentIndex) {
@@ -73,16 +74,16 @@ export default function PlayScreen({route, navigation}) {
           })}
         </View>
 
-        <Appbar style={[ styles.bottom, { height: BOTTOM_APPBAR_HEIGHT + insets.top }]} safeAreaInsets={{ insets }} >
-          <TouchableOpacity style={[styles.button, styles.buttonLeft]}>
-            <Image name="heart" style={styles.buttonImage} source={require("../assets/images/like.png")}/>
+        <Appbar style={[ st.appbarBottom, { bottom: -60, height: BOTTOM_APPBAR_HEIGHT + insets.top }]} safeAreaInsets={{ insets }} >
+          <TouchableOpacity style={st.roundButton}>
+            <Image name="heart" style={st.roundButtonImage} source={require("../assets/images/like.png")}/>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.button, styles.buttonMiddle]}>
-            <Image name="share" style={styles.buttonImage} source={require("../assets/images/share.png")} />
+          <TouchableOpacity style={st.roundButton}>
+            <Image name="share" style={st.roundButtonImage} source={require("../assets/images/share.png")} />
           </TouchableOpacity>
           {/* TODO: Reset doesn't redraw properly */}
-          <TouchableOpacity style={[styles.button, styles.buttonRight]} onPressOut={() => handleSetCurrentIndex(-1)}>
-            <Image name="restart" style={styles.buttonImage} source={require("../assets/images/undo.png")} />
+          <TouchableOpacity style={st.roundButton} onPressOut={() => handleSetCurrentIndex(-1)}>
+            <Image name="restart" style={st.roundButtonImage} source={require("../assets/images/undo.png")} />
           </TouchableOpacity>
         </Appbar>
       </ImageBackground>
@@ -90,40 +91,3 @@ export default function PlayScreen({route, navigation}) {
     </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "center",
-    alignContent: "baseline",
-  },
-  cardContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'baseline',
-  },
-  buttonImage: {
-    height: 60,
-    width: 60,
-  },
-  bottom: {
-    backgroundColor: 'transparent',
-    position: 'fixed',
-    left: 0,
-    right: 0,
-    bottom: -60,
-    display: 'flex',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    maxWidth: 400,
-  },
-  button: {
-    borderRadius: "50%",
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    overflow: 'hidden',
-    marginLeft: 20,
-    marginRight: 20,
-  },
-});

@@ -7,6 +7,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import SwipableCard from './SwipableCard';
 import DeckData from './DeckData'
 import {height} from './Utils'
+import styles from '../assets/style'
 
 export default function Onboarding({navigation}) {
   const insets = useSafeAreaInsets();
@@ -61,40 +62,3 @@ export default function Onboarding({navigation}) {
     </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "center",
-    alignContent: "baseline",
-  },
-  cardContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'baseline',
-  },
-  buttonImage: {
-    height: 60,
-    width: 60,
-  },
-  bottom: {
-    backgroundColor: 'transparent',
-    position: 'fixed',
-    left: 0,
-    right: 0,
-    bottom: -60,
-    display: 'flex',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    maxWidth: 400,
-  },
-  button: {
-    borderRadius: "50%",
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    overflow: 'hidden',
-    marginLeft: 20,
-    marginRight: 20,
-  },
-});

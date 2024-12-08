@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, Text, SafeAreaView, ScrollView, StatusBar, View, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { FlatList, SafeAreaView, StatusBar, View, TouchableOpacity, Image } from 'react-native';
 import Card from './Card';
 import styles from '../assets/style'
 import DeckData from './DeckData'
@@ -66,36 +66,14 @@ const DeckInfoScreen = ({route, navigation}) => {
                 decelerationRate="fast"
             />
 
-        <Appbar style={[ st.bottom, { backgroundColor: 'transparent', height: BOTTOM_APPBAR_HEIGHT - 80 }]} >
-          <TouchableOpacity style={[st.button, st.buttonMiddle]} onPressOut={() => clickDeck()}>
-            <Image name="share" style={st.buttonImage} source={require("../assets/images/button-play.png")} />
-          </TouchableOpacity>
-        </Appbar>
+            <Appbar style={[ styles.appbarBottom, { height: BOTTOM_APPBAR_HEIGHT - 80 }]} >
+            <TouchableOpacity style={[styles.largeButton, styles.buttonMiddle]} onPressOut={() => clickDeck()}>
+                <Image name="share" style={styles.largeButtonImage} source={require("../assets/images/button-play.png")} />
+            </TouchableOpacity>
+            </Appbar>
 
         </View>
     )
 }
 
 export default DeckInfoScreen
-
-
-const st = StyleSheet.create({
-    bottom: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      maxWidth: 400,
-    },
-
-    buttonImage: {
-        height: 60,
-        width: 140,
-      },
-
-    button: {
-      borderRadius: "20%",
-      justifyContent: 'flex-start',
-      alignItems: 'center',
-      overflow: 'hidden',
-      marginBottom: 10,
-    },
-  });
