@@ -1,4 +1,4 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
+//import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default class DeckData {
     static _instance = null;
@@ -21,7 +21,6 @@ export default class DeckData {
         if (DeckData._instance == null) {
             DeckData._instance = new DeckData();
             DeckData._instance._loadQoD();
-
         }
 
         return DeckData._instance;
