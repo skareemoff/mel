@@ -188,7 +188,7 @@ export default StyleSheet.create({
             fontFamily: "DM Sans",
             color: "black",
             textAlign: 'lefyt',
-            fontSize: 32,
+            fontSize: 40,
             fontWeight: 400,
             marginBottom: 20
         },
@@ -196,14 +196,14 @@ export default StyleSheet.create({
             fontFamily: "DM Sans",
             marginBottom: 20,
             fontWeight: 600,
-            fontSize: 26,
+            fontSize: 40,
             textAlign: 'center',
             color: 'black'
         },
         heading3: {
             fontFamily: "DM Sans",
-            marginTop: 20,
-            marginBottom: 20,
+            marginTop: 10,
+            marginBottom: 10,
             fontWeight: 500,
             fontSize: 20,
             textAlign: 'left',
