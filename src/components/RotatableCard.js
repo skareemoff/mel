@@ -45,10 +45,10 @@ const RotatableCard = (cardData) => {
   const _handleClick = () => {
     const newValue = spin.value >= 1 ? 0 : 1;
     spin.value = withSequence(
-      withTiming(0.5, { duration: 150 }, () => {
+      withTiming(0.5, { duration: 450 }, () => {
         runOnJS(toggleBackView)();
       }),
-      withTiming(newValue, { duration: 150 })
+      withTiming(newValue, { duration: 450 })
     );
   }
 
