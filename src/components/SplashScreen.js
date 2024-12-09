@@ -88,7 +88,7 @@ export const template = () => `<!doctype html>
         }
 
         .animated-title > div.text-top {
-            border-bottom: 0.5vmin solid #88A273;
+            border-bottom: 0.5vmin solid black;
             top: 0;
         }
 
@@ -98,7 +98,8 @@ export const template = () => `<!doctype html>
             animation-fill-mode: forwards;
             bottom: 0;
             transform: translate(0, 100%);
-            color: rgb(159 176 154);
+            color: black;
+            opacity: 0.7;
         }
 
         .animated-title > div.text-bottom {
@@ -109,7 +110,7 @@ export const template = () => `<!doctype html>
             font-size: 9vmin;
             text-align: right;
             width: 100%;
-            color: #709F70;
+            color: black;
             animation: showBottomText 0.5s;
             animation-delay: 1.75s;
             animation-fill-mode: forwards;
@@ -127,8 +128,6 @@ export const template = () => `<!doctype html>
         }
         body {
             background-image: url('/src/assets/images/homeBG.png');
-            opacity: 0.5;
-            opacity: 0.5;
             top: 0;
             left: 0;
             bottom: 0;
