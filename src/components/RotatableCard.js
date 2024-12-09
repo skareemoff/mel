@@ -1,19 +1,32 @@
 import { View, StyleSheet} from "react-native";
 import React from "react";
-import Animated, {interpolate, useAnimatedStyle, useSharedValue, withTiming} from "react-native-reanimated";
+import Animated, {
+  interpolate,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+  withSequence,
+  runOnJS
+} from "react-native-reanimated";
 import Card from './Card'
 
 const RotatableCard = (cardData) => {
   const spin = useSharedValue(0);
+  const [showBack, setShowBack] = React.useState(false);
+
+  const toggleBackView = () => {
+    setShowBack(prev => !prev);
+  };
 
   const rStyle = useAnimatedStyle(() => {
     const spinVal = interpolate(spin.value, [0, 1], [0, 180]);
     return {
       transform: [
         {
-          rotateY: withTiming(`${spinVal}deg`, { duration: 1500 }),
+          rotateY: `${spinVal}deg`,
         },
       ],
+      opacity: interpolate(spin.value, [0, 0.5, 1], [1, 0, 0]),
     };
   }, []);
 
@@ -22,14 +35,21 @@ const RotatableCard = (cardData) => {
     return {
       transform: [
         {
-          rotateY: withTiming(`${spinVal}deg`, { duration: 1500 }),
+          rotateY: `${spinVal}deg`,
         },
       ],
+      opacity: interpolate(spin.value, [0, 0.5, 1], [0, 0, 1]),
     };
   }, []);
 
   const _handleClick = () => {
-    spin.value = spin.value ? 0 : 1;
+    const newValue = spin.value >= 1 ? 0 : 1;
+    spin.value = withSequence(
+      withTiming(0.5, { duration: 150 }, () => {
+        runOnJS(toggleBackView)();
+      }),
+      withTiming(newValue, { duration: 150 })
+    );
   }
 
   return (
@@ -67,11 +87,11 @@ export default RotatableCard;
 const Styles = StyleSheet.create({
     front: {
       position: "absolute",
+      backfaceVisibility: "hidden",
     },
     back: {
       backfaceVisibility: "hidden",
       alignItems: "center",
       justifyContent: "center",
-      zIndex: 10,
     },
 });
