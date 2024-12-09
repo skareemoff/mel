@@ -33,7 +33,6 @@ export default function Onboarding({navigation}) {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaView edges={['right', 'left']} style={[styles.container,]}>
       <ImageBackground
-        source={DeckData.getDeckImage(deckData.deckBackground)}
         style={{ height: '100%', width: '100%'}}
       >
         <View style={[styles.cardContainer, { paddingTop: Math.max(insets.top, height * 0.3), }]}>

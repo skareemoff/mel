@@ -42,6 +42,9 @@ export default function App() {
               <Stack.Navigator initialRouteName={isShowOnboarding ? 'Onboarding' : 'Home'}
                 screenOptions={({ navigation, route }) => ({
                   headerShadowVisible: false,
+                  headerStyle: {
+                    backgroundColor: '#FBF7EF',
+                  },
                   headerLeft: () => (
                     route.name == 'Home' ?
                     null

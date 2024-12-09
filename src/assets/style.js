@@ -3,13 +3,13 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: '#FBF7EF',
         flexDirection: "column",
         justifyContent: "center",
         alignContent: "center",
     },
     flatList: {
-        backgroundColor: 'white',
+        backgroundColor: '#FBF7EF',
     },
     cardContainer: {
         flex: 1,
