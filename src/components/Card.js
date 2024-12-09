@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Pressable, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, Pressable, ImageBackground, Image } from 'react-native';
 import {width, FULL_CARD_HEIGHT, HALF_CARD_HEIGHT} from './Utils'
 import DeckData from './DeckData.js'
 import styles from '../assets/style'
@@ -34,7 +34,6 @@ const Card = (cardData, props) => {
         );
     };
 
-
     const buildCard = () => {
         const img = (typeof(cardData.deckBackground) !== 'undefined' && cardData.deckBackground != null)
             ? DeckData.getDeckImage(cardData.deckBackground)
@@ -44,8 +43,14 @@ const Card = (cardData, props) => {
             getShareableView()
         ) : (
             <>
-                <View style={st.top}>
-                    <View style={st.cardHeader}>
+                <View style={[st.top, { position: 'relative' }]}>
+                    {cardData.isFavourite == 'yes' ? (
+                        <Image
+                            source={require('../assets/images/like.png')}
+                            style={{ width: 48, height: 48, position: 'absolute', top: 20, right: 20, zIndex: 1 }}
+                        />
+                    ) : null}
+                    <View style={[st.cardHeader, { width: '100%' }]}>
                         <Text style={[st.deckName, styles[cardData.deckTextStyle]]}>{cardData.deckName}</Text>
                         <Text style={[st.deckSubText, styles[cardData.deckSubTextStyle]]}>{cardData.deckSubText}</Text>
                     </View>

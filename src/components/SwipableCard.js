@@ -4,7 +4,7 @@ import Animated, { interpolate, useAnimatedStyle, useSharedValue, runOnJS, withT
 import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 import Card from './Card';
 import {width} from './Utils'
-
+import DeckData from './DeckData'
 const SwipableCard = ({
   deckName,
   maxVisibleItems,
@@ -125,6 +125,7 @@ const SwipableCard = ({
             cardStyle={item.cardStyle}
             infoTextStyleLeft={item.infoTextStyleLeft}
             infoTextStyleRight={item.infoTextStyleRight}
+            isFavourite={DeckData.isFavourite(item.id) ? 'yes' : 'no'}
           />
       </Animated.View>
     </GestureDetector>

@@ -1,4 +1,6 @@
-//import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const SUFFIX_FAVOURITE = "favourite_";
 
 export default class DeckData {
     static _instance = null;
@@ -21,6 +23,7 @@ export default class DeckData {
         if (DeckData._instance == null) {
             DeckData._instance = new DeckData();
             DeckData._instance._loadQoD();
+            DeckData._instance._loadFavourites();
         }
 
         return DeckData._instance;
@@ -32,7 +35,13 @@ export default class DeckData {
                 const keys = await AsyncStorage.getAllKeys();
                 const result = await AsyncStorage.multiGet(keys);
                 console.log(result);
-                //return result.map(req => JSON.parse(req)).forEach(console.log);
+                const favourites = [];
+                keys.map((item) => {
+                    if(item[0].startsWith(SUFFIX_FAVOURITE)) {
+                        favourites.push(item.substring(10));
+                    }
+                });
+                this._favourites = [...favourites];
             } catch (error) {
                 console.error(error)
             }
@@ -41,23 +50,20 @@ export default class DeckData {
         }
       };
 
-      _parseFavourites(data) {
-        const favourites = [];
-        this._data.map((deck) => {
-            deck.cards.map((card) => {
-                data.map((item) => {
-                    if(card.id == item.id) {
-                        const tmpCard = [...card];
-                        tmpCard.deckName = deck.deckName;
-                        tmpCard.deckBackground = deck.deckBackground;
-                        favourites.push(tmpCard);
-                    }
-                });
-            });
-        });
 
-        this._favourites = [...favourites];
-      }
+      _storeValue = async (key, value) => {
+        try {
+          await AsyncStorage.setItem(key, value);
+        } catch (e) {
+        }
+      };
+
+      _removeValue = async (key) => {
+        try {
+          await AsyncStorage.removeItem(key);
+        } catch(e) {
+        }
+      };
 
     _loadQoD() {
         if(this._verifyQoD()) {
@@ -96,6 +102,22 @@ export default class DeckData {
         return curDate.getFullYear() == date.getFullYear()
                 && curDate.getMonth() == date.getMonth()
                 && curDate.getDate() == date.getDate();
+    }
+
+    static addFavourite(cardID) {
+        DeckData.inst()._storeValue(SUFFIX_FAVOURITE+cardID, ''+cardID);
+        DeckData.inst()._favourites.push(SUFFIX_FAVOURITE+cardID);
+    }
+
+    static removeFavourite(cardID) {
+        DeckData.inst()._removeValue(SUFFIX_FAVOURITE+cardID);
+        DeckData.inst()._favourites = DeckData.inst()._favourites.filter(item => item != SUFFIX_FAVOURITE+cardID);
+    }
+
+    static isFavourite(cardID) {
+        const isFavorite = DeckData.inst()._favourites.includes(SUFFIX_FAVOURITE+cardID);
+        console.log("CHECKING FAVOURITE: ", cardID, isFavorite);
+        return isFavorite;
     }
 
     static data() {

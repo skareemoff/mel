@@ -33,7 +33,10 @@ export default function PlayScreen({route, navigation}) {
   const [shareModalVisible, setShareModalVisible] = useState(false);
 
   useEffect(() => {
-    // Update visible cards when currentIndex changes
+    updateVisibleCards();
+  }, [currentIndex]);
+
+  const updateVisibleCards = () => {
     const visible = cardDeck.value
       .slice(currentIndex, currentIndex + MAX + 1)
       .map((item, index) => ({
@@ -41,10 +44,22 @@ export default function PlayScreen({route, navigation}) {
         index: currentIndex + index,
       }));
     setVisibleCards(visible);
-  }, [currentIndex]);
+  };
+
+  const toggleFavourite = () => {
+    const cardID = cardDeck.value[currentIndex].id;
+    if(DeckData.isFavourite(cardID)) {
+      DeckData.removeFavourite(cardID);
+    }
+    else {
+      DeckData.addFavourite(cardID);
+    }
+    setCurrentIndex(currentIndex);
+    updateVisibleCards();
+  };
 
   const handleSetCurrentIndex = (newIndex) => {
-    if(newIndex === -1) {
+    if(newIndex == -1) {
       cardDeck.value = shuffle(cardDeck.value);
       setCurrentIndex(0);
       animatedValue.value = 0;
@@ -59,6 +74,7 @@ export default function PlayScreen({route, navigation}) {
     else {
       setCurrentIndex(newIndex);
     }
+    updateVisibleCards();
   };
 
   const shareSnapshot = async () => {
@@ -97,7 +113,7 @@ export default function PlayScreen({route, navigation}) {
             {visibleCards.map((item) => {
               return (
                 <SwipableCard
-                  deckName={deckData.deckName}
+                  deckName={item.deckName ? item.deckName : deckData.deckName}
                   maxVisibleItems={MAX}
                   item={item}
                   index={item.index}
@@ -126,7 +142,7 @@ export default function PlayScreen({route, navigation}) {
             />
           </Modal>
           <Appbar style={[ st.appbarBottom, { bottom: -60, height: BOTTOM_APPBAR_HEIGHT + insets.top }]} safeAreaInsets={{ insets }} >
-            <TouchableOpacity style={st.roundButton}>
+            <TouchableOpacity style={st.roundButton} onPress={toggleFavourite}>
               <Image name="heart" style={st.roundButtonImage} source={require("../assets/images/like.png")}/>
             </TouchableOpacity>
             <TouchableOpacity style={st.roundButton} onPress={shareSnapshot}>
