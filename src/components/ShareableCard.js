@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, SafeAreaView, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { ImageBackground, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import ViewShot from 'react-native-view-shot';
 import DeckData from './DeckData';
@@ -18,7 +18,7 @@ export const ShareableCard = ({deckData, cardDeck, currentIndex, viewShotRef, se
                         style={styles.fullScreen}>
                         <Card
                             type='card'
-                            deckName={deckData.deckName}
+                            deckName={DeckData.getDeckName(cardDeck.value[currentIndex].deckID)}
                             text={cardDeck.value[currentIndex].text}
                             subText={cardDeck.value[currentIndex].subText}
                             height={cardDeck.value[currentIndex].height}

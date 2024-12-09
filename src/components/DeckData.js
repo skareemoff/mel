@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const SUFFIX_FAVOURITE = "favourite_";
+const _SUFFIX_FAVOURITE = "favourite_";
+export const ID_FAVOURITES = 'favourites';
 
 export default class DeckData {
     static _instance = null;
@@ -8,6 +9,7 @@ export default class DeckData {
     _dayOfTheQuestion = null;
     _data = require('../data/cards.json');
     _favourites = [];
+    _deckNames = {};
 
     _images = {
         deckBG1: require("../assets/images/deckBG1.png"),
@@ -20,11 +22,14 @@ export default class DeckData {
         deckBGFav: require("../assets/images/deckBGFav.png")
       };
 
-      static inst() {
+    static inst() {
         if (DeckData._instance == null) {
             DeckData._instance = new DeckData();
             DeckData._instance._loadQoD();
             DeckData._instance._loadFavourites();
+            DeckData.decks().map((deck) => {
+                DeckData._instance._deckNames[deck.id] = deck.deckName;
+            });
         }
 
         return DeckData._instance;
@@ -35,8 +40,8 @@ export default class DeckData {
             try {
                 const keys = await AsyncStorage.getAllKeys();
                 const favourites = [];
-                keys.map((item) => {
-                    if(item[0].startsWith(SUFFIX_FAVOURITE)) {
+                keys.forEach((item) => {
+                    if(item.startsWith(_SUFFIX_FAVOURITE)) {
                         favourites.push(item.substring(10));
                     }
                 });
@@ -103,36 +108,37 @@ export default class DeckData {
     }
 
     static addFavourite(cardID) {
-        DeckData.inst()._storeValue(SUFFIX_FAVOURITE+cardID, ''+cardID);
-        DeckData.inst()._favourites.push(SUFFIX_FAVOURITE+cardID);
+        DeckData.inst()._storeValue(_SUFFIX_FAVOURITE+cardID, ''+cardID);
+        DeckData.inst()._favourites.push(''+cardID);
     }
 
     static removeFavourite(cardID) {
-        DeckData.inst()._removeValue(SUFFIX_FAVOURITE+cardID);
-        DeckData.inst()._favourites = DeckData.inst()._favourites.filter(item => item != SUFFIX_FAVOURITE+cardID);
+        DeckData.inst()._favourites = DeckData.inst()._favourites.filter(item => item != ''+cardID);
+        DeckData.inst()._removeValue(_SUFFIX_FAVOURITE+cardID);
     }
 
     static isFavourite(cardID) {
-        const isFavorite = DeckData.inst()._favourites.includes(SUFFIX_FAVOURITE+cardID);
-        return isFavorite;
+        return DeckData.inst()._favourites.includes(''+cardID);
     }
 
     static gatherFavourites() {
         const favourites = [];
-        DeckData.inst()._data.map((deck) => {
+        DeckData.decks().map((deck) => {
             deck.cards.map((card) => {
                 DeckData.inst()._favourites.forEach(item => {
-                    const cardID = DeckData.getDeck(item.substring(10));
-                    if(card.id == cardID) {
-                        const tmpCard = [...card];
-                        tmpCard.deckName = deck.deckName;
-                        favourites.push(tmpCard);
+                    if(card.id == item) {
+                        favourites.push(card);
                     }
                 });
             });
         });
+        return favourites;
+    }
 
-        return favourites
+    static getFavDeck() {
+        const favDeck = DeckData.data().favourites;
+        favDeck.cards = DeckData.gatherFavourites();
+        return favDeck;
     }
 
     static data() {
@@ -149,7 +155,17 @@ export default class DeckData {
     }
 
     static getDeck(id) {
+        if(id == ID_FAVOURITES) {
+            return DeckData.getFavDeck();
+        }
         return DeckData.decks().filter(item => item.id == id)[0];
+    }
+
+    static getDeckName(deckID) {
+        if(deckID == ID_FAVOURITES) {
+            return 'Favourites';
+        }
+        return DeckData.inst()._deckNames[deckID];
     }
 
     static getDeckImage(imageName){

@@ -1,14 +1,14 @@
-import { FlatList, StatusBar, View, ImageBackground } from 'react-native';
+import { FlatList, StatusBar, View } from 'react-native';
 import Card from './Card';
 import styles from '../assets/style'
 import DeckData from './DeckData.js'
-import {height, width, HALF_CARD_HEIGHT} from './Utils'
+import {HALF_CARD_HEIGHT} from './Utils'
 import RotatableCard from './RotatableCard';
 
 const HomeScreen = ({navigation}) => {
     const cards = [
         {
-            id: 0,
+            id: 'questionOfTheDay',
             deckName: 'Question of the day',
             text: DeckData.getQuestionOfTheDay(),
             type: 'deck',
@@ -18,7 +18,8 @@ const HomeScreen = ({navigation}) => {
             deckTextStyle: 'qODDeckText',
             cardStyle: 'qODCard',
         },
-        ...DeckData.decks()
+        ...DeckData.decks(),
+        DeckData.getFavDeck()
     ];
 
     const clickDeck = (cardData) => {
@@ -26,9 +27,9 @@ const HomeScreen = ({navigation}) => {
     }
 
     const renderCard = ({ item }) => (
-        item.id == 0
+        item.id == 'questionOfTheDay'
         ? <RotatableCard
-            id={0}
+            id='questionOfTheDay'
             deckName='Question of the day'
             text={DeckData.getQuestionOfTheDay()}
             type='deck'

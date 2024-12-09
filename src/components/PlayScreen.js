@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
 import { configureReanimatedLogger, ReanimatedLogLevel } from 'react-native-reanimated';
-import { useSharedValue, useAnimatedStyle } from 'react-native-reanimated';
 import { ImageBackground, View, Image, TouchableOpacity, Modal } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import React, { useState, useEffect, useRef } from 'react';
+import { useSharedValue } from 'react-native-reanimated';
 import { captureRef } from 'react-native-view-shot';
 import { Appbar } from 'react-native-paper';
 import Share from 'react-native-share';
@@ -37,9 +37,7 @@ export default function PlayScreen({route, navigation}) {
   }, [currentIndex]);
 
   const updateVisibleCards = () => {
-    const visible = cardDeck.value
-      .slice(currentIndex, currentIndex + MAX + 1)
-      .map((item, index) => ({
+    const visible = cardDeck.value.slice(currentIndex, currentIndex + MAX + 1).map((item, index) => ({
         ...item,
         index: currentIndex + index,
       }));
@@ -60,21 +58,25 @@ export default function PlayScreen({route, navigation}) {
 
   const handleSetCurrentIndex = (newIndex) => {
     if(newIndex == -1) {
-      cardDeck.value = shuffle(cardDeck.value);
-      setCurrentIndex(0);
-      animatedValue.value = 0;
-      setDeckKey(prevKey => prevKey + 1);
+      if(currentIndex != 0 ) {
+        // cardDeck.value = shuffle(cardDeck.value);
+        setCurrentIndex(0);
+        animatedValue.value = 0;
+        setDeckKey(prevKey => prevKey + 1);
+        updateVisibleCards();
+      }
     }
     else if(newIndex >= cardDeck.value.length) {
       cardDeck.value.splice(0, cardDeck.value.length, cardDeck.value);
       setCurrentIndex(0);
       animatedValue.value = 0;
       setDeckKey(prevKey => prevKey + 1);
+      updateVisibleCards();
     }
     else {
       setCurrentIndex(newIndex);
+      updateVisibleCards();
     }
-    updateVisibleCards();
   };
 
   const shareSnapshot = async () => {
@@ -113,7 +115,7 @@ export default function PlayScreen({route, navigation}) {
             {visibleCards.map((item) => {
               return (
                 <SwipableCard
-                  deckName={item.deckName ? item.deckName : deckData.deckName}
+                  deckName={DeckData.getDeckName(item.deckID)}
                   maxVisibleItems={MAX}
                   item={item}
                   index={item.index}

@@ -10,7 +10,7 @@ import {BOTTOM_APPBAR_HEIGHT} from './Utils'
 
 const DeckInfoScreen = ({route, navigation}) => {
     const { deckID } = route.params;
-    const deckData = DeckData.getDeck(deckID)
+    const deckData = DeckData.getDeck(deckID);
 
     const cards = [ {'id': "deck"}, {'id':'description'}, {'id':'example'}, {'id': 'rules'}];
     const clickDeck = () => {
@@ -33,7 +33,7 @@ const DeckInfoScreen = ({route, navigation}) => {
             ? <Card
                 type='card'
                 height='half'
-                deckName={deckData.cards[0].deckName ? deckData.cards[0].deckName : deckData.deckName}
+                deckName={DeckData.getDeckName(deckData.cards[0].deckID)}
                 text={deckData.cards[0].text}
                 deckTextStyle='deckTitle'
                 cardTextStyle='deckInfoText'

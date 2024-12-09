@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Animated, Platform, InteractionManager } from "react-native";
+import { Animated } from "react-native";
 import { WebView } from 'react-native-webview';
 import styles from '../assets/style'
 
