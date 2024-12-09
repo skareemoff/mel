@@ -128,6 +128,11 @@ export default StyleSheet.create({
     shareableCard: {
         marginRight: 150,
     },
+    shareableInfoLeft: {
+        alignSelf: 'center',
+        justifyContent: 'center',
+        left: '36%'
+    },
     deckTitle: {
         marginBottom: -10,
     },
