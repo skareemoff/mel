@@ -28,7 +28,7 @@ const RotatableCard = (cardData) => {
     };
   }, []);
 
-  const _handleClick = (externalHandler) => {
+  const _handleClick = () => {
     spin.value = spin.value ? 0 : 1;
   }
 
@@ -55,7 +55,7 @@ const RotatableCard = (cardData) => {
                 text={cardData.text}
                 cardTextStyle={cardData.cardTextStyle}
                 cardStyle={cardData.cardStyle}
-                clickHandler={() => (_handleClick(cardData.cardClickHandler))}
+                clickHandler={() => (_handleClick())}
             />
         </Animated.View>
     </View>
