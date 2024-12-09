@@ -43,7 +43,7 @@ export default function App() {
                 screenOptions={({ navigation, route }) => ({
                   headerShadowVisible: false,
                   headerStyle: {
-                    backgroundColor: '#FBF7EF',
+                    backgroundColor: 'beige',
                   },
                   headerLeft: () => (
                     route.name == 'Home' ?
