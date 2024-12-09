@@ -33,8 +33,6 @@ export default class DeckData {
         try {
             try {
                 const keys = await AsyncStorage.getAllKeys();
-                const result = await AsyncStorage.multiGet(keys);
-                console.log(result);
                 const favourites = [];
                 keys.map((item) => {
                     if(item[0].startsWith(SUFFIX_FAVOURITE)) {
@@ -49,7 +47,6 @@ export default class DeckData {
             console.error("Failed to load Favourites: ", e)
         }
       };
-
 
       _storeValue = async (key, value) => {
         try {
@@ -116,8 +113,25 @@ export default class DeckData {
 
     static isFavourite(cardID) {
         const isFavorite = DeckData.inst()._favourites.includes(SUFFIX_FAVOURITE+cardID);
-        console.log("CHECKING FAVOURITE: ", cardID, isFavorite);
         return isFavorite;
+    }
+
+    static gatherFavourites() {
+        const favourites = [];
+        DeckData.inst()._data.map((deck) => {
+            deck.cards.map((card) => {
+                DeckData.inst()._favourites.forEach(item => {
+                    const cardID = DeckData.getDeck(item.substring(10));
+                    if(card.id == cardID) {
+                        const tmpCard = [...card];
+                        tmpCard.deckName = deck.deckName;
+                        favourites.push(tmpCard);
+                    }
+                });
+            });
+        });
+
+        return favourites
     }
 
     static data() {
