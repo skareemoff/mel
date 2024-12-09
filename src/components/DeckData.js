@@ -16,7 +16,8 @@ export default class DeckData {
         deckBG4: require("../assets/images/deckBG4.png"),
         deckBG5: require("../assets/images/deckBG5.png"),
         deckBG6: require("../assets/images/deckBG6.png"),
-        homeBG:  require("../assets/images/homeBG.png")
+        homeBG:  require("../assets/images/homeBG.png"),
+        deckBGFav: require("../assets/images/deckBGFav.png")
       };
 
       static inst() {

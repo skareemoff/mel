@@ -3861,9 +3861,10 @@
     "favourites": {
         "id": "favourites",
         "deckName": "Favourites",
+        "deckTextStyle": "deckFavs",
         "description": "> These are all of your favourite questions from all of your decks.",
         "rules": "### How to Play ###\n##### Just enjoy revisiting and finding new depth and insights.######",
-        "deckBackground": "deckBG6",
+        "deckBackground": "deckBGFav",
         "cards": [
 
         ]
