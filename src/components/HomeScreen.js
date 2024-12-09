@@ -53,25 +53,20 @@ const HomeScreen = ({navigation}) => {
 
     return (
         <View style={styles.container}>
-            {/* TODO: image background isn't working */}
-            <ImageBackground
-                style={{flex: 1, resizeMode: 'cover', width: null, height: null,}}
-                source={DeckData.getDeckImage('homeBG')}>
-                <FlatList
-                    style={styles.flatList}
-                    data={cards}
-                    renderItem={renderCard}
-                    contentContainerStyle={{
-                        paddingTop: StatusBar.currentHeight + 40, // Add padding at the top to avoid status bar overlap
-                        paddingBottom: HALF_CARD_HEIGHT / 2, // Ensure padding for the last card
-                    }}
-                    keyExtractor={(item) => item.id}
-                    showsVerticalScrollIndicator={false}
-                    bounces={false} // Prevent overscrolling past the first card
-                    snapToAlignment="start"
-                    decelerationRate="fast"
-                />
-            </ImageBackground>
+            <FlatList
+                style={styles.flatList}
+                data={cards}
+                renderItem={renderCard}
+                contentContainerStyle={{
+                    paddingTop: StatusBar.currentHeight + 40, // Add padding at the top to avoid status bar overlap
+                    paddingBottom: HALF_CARD_HEIGHT / 2, // Ensure padding for the last card
+                }}
+                keyExtractor={(item) => item.id}
+                showsVerticalScrollIndicator={false}
+                bounces={false} // Prevent overscrolling past the first card
+                snapToAlignment="start"
+                decelerationRate="fast"
+            />
         </View>
     );
 };
