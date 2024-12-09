@@ -166,11 +166,12 @@ const st = StyleSheet.create({
     },
     cardSubText: {
         fontFamily: "DM Sans",
-        fontSize: 14,
+        fontSize: 20,
         flexDirection: 'row',
         flexWrap: 'wrap',
         textAlign: 'center',
         color: 'black',
+        marginTop: 20,
     },
     bottom: {
         flex: 1,
