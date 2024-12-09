@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Animated } from "react-native";
+import { Animated, Platform, InteractionManager } from "react-native";
 import { WebView } from 'react-native-webview';
 import styles from '../assets/style'
 
@@ -13,6 +13,7 @@ export default function SplashScreen() {
             useNativeDriver: true,
         }).start();
     }, [fadeAnimation]);
+
     return (
         <WebView
             style={styles.container}

@@ -1,8 +1,12 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 export default class DeckData {
     static _instance = null;
     _questionOfTheDay = null;
     _dayOfTheQuestion = null;
     _data = require('../data/cards.json');
+    _favourites = [];
+
     _images = {
         deckBG1: require("../assets/images/deckBG1.png"),
         deckBG2: require("../assets/images/deckBG2.png"),
@@ -13,14 +17,48 @@ export default class DeckData {
         homeBG:  require("../assets/images/homeBG.png")
       };
 
-    static inst() {
+      static inst() {
         if (DeckData._instance == null) {
             DeckData._instance = new DeckData();
             DeckData._instance._loadQoD();
+
         }
 
         return DeckData._instance;
     }
+
+    _loadFavourites = async () => {
+        try {
+            try {
+                const keys = await AsyncStorage.getAllKeys();
+                const result = await AsyncStorage.multiGet(keys);
+                console.log(result);
+                //return result.map(req => JSON.parse(req)).forEach(console.log);
+            } catch (error) {
+                console.error(error)
+            }
+        } catch (e) {
+            console.error("Failed to load Favourites: ", e)
+        }
+      };
+
+      _parseFavourites(data) {
+        const favourites = [];
+        this._data.map((deck) => {
+            deck.cards.map((card) => {
+                data.map((item) => {
+                    if(card.id == item.id) {
+                        const tmpCard = [...card];
+                        tmpCard.deckName = deck.deckName;
+                        tmpCard.deckBackground = deck.deckBackground;
+                        favourites.push(tmpCard);
+                    }
+                });
+            });
+        });
+
+        this._favourites = [...favourites];
+      }
 
     _loadQoD() {
         if(this._verifyQoD()) {

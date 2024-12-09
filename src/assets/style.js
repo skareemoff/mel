@@ -87,6 +87,9 @@ export default StyleSheet.create({
         fontWeight: '600',
         fontSize: 60,
     },
+    shareableCard: {
+        marginRight: 150,
+    },
     deckTitle: {
         marginBottom: -10,
     },

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { View, Image, TouchableOpacity } from "react-native";
+import { View, Image, TouchableOpacity, Platform, InteractionManager } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashScreen from "./src/components/SplashScreen";
@@ -19,10 +19,19 @@ export default function App() {
   DeckData.inst(); // preload the deck while showing splashscreen
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsShowSplashScreen(false);
-    }, 5000);
-  });
+    const timer = setTimeout(() => {
+      // Clean up WebView processes before hiding splash screen
+      if (Platform.OS === 'ios') {
+        InteractionManager.runAfterInteractions(() => {
+          setIsShowSplashScreen(false);
+        });
+      } else {
+        setIsShowSplashScreen(false);
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <View style={styles.container}>
