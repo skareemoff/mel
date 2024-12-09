@@ -87,6 +87,39 @@ export default StyleSheet.create({
         fontWeight: '600',
         fontSize: 60,
     },
+    specialCardDeckTextStyle: {
+        backgroundColor: 'black',
+        color: 'white'
+    },
+    specialCardDeckSubTextStyle: {
+        backgroundColor: 'black',
+        color: 'white'
+
+    },
+    specialCardTextStyle: {
+        backgroundColor: 'black',
+        color: 'white'
+    },
+    specialCardSubTextStyle: {
+        backgroundColor: 'black',
+        color: 'white'
+    },
+    specialCardStyle: {
+        backgroundColor: 'black',
+        color: 'white'
+    },
+    specialCardInfoTextStyleLeft: {
+        backgroundColor: 'black',
+        color: 'white'
+    },
+    specialCardInfoTextStyleRight: {
+        backgroundColor: 'black',
+        color: 'white'
+    },
+    exampleInfoTextStyleRight: {
+        color: 'blue',
+        fontWeight: '500'
+    },
     shareableCard: {
         marginRight: 150,
     },

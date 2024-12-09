@@ -528,7 +528,14 @@
                     "text": "Switch It Card",
                     "subText": "Use the Switch It card to make someone else answer the same question before continuing.",
                     "deckID": 2,
-                    "type": "special"
+                    "type": "special",
+                    "deckTextStyle":"specialCardDeckTextStyle",
+                    "deckSubTextStyle":"specialCardDeckSubTextStyle",
+                    "cardTextStyle":"specialCardTextStyle",
+                    "cardSubTextStyle":"specialCardSubTextStyle",
+                    "cardStyle":"specialCardStyle",
+                    "infoTextStyleLeft":"specialCardInfoTextStyleLeft",
+                    "infoTextStyleRight":"specialCardInfoTextStyleRight"
                 },
                 {
                     "id": 102,
@@ -630,7 +637,14 @@
                     "text": "Challenge Card",
                     "subText": "Use the Challenge Card to push yourself or someone else to reveal more or complete a fun task!",
                     "deckID": 2,
-                    "type": "special"
+                    "type": "special",
+                    "deckTextStyle":"specialCardDeckTextStyle",
+                    "deckSubTextStyle":"specialCardDeckSubTextStyle",
+                    "cardTextStyle":"specialCardTextStyle",
+                    "cardSubTextStyle":"specialCardSubTextStyle",
+                    "cardStyle":"specialCardStyle",
+                    "infoTextStyleLeft":"specialCardInfoTextStyleLeft",
+                    "infoTextStyleRight":"specialCardInfoTextStyleRight"
                 },
                 {
                     "id": 121,
@@ -722,7 +736,14 @@
                     "text": "Switch It Card",
                     "subText": "Use the Switch It card to make someone else answer the same question before continuing.",
                     "deckID": 2,
-                    "type": "special"
+                    "type": "special",
+                    "deckTextStyle":"specialCardDeckTextStyle",
+                    "deckSubTextStyle":"specialCardDeckSubTextStyle",
+                    "cardTextStyle":"specialCardTextStyle",
+                    "cardSubTextStyle":"specialCardSubTextStyle",
+                    "cardStyle":"specialCardStyle",
+                    "infoTextStyleLeft":"specialCardInfoTextStyleLeft",
+                    "infoTextStyleRight":"specialCardInfoTextStyleRight"
                 },
                 {
                     "id": 138,
@@ -839,7 +860,14 @@
                     "text": "Challenge Card",
                     "subText": "Use the Challenge Card to push yourself or someone else to reveal more or complete a fun task!",
                     "deckID": 2,
-                    "type": "special"
+                    "type": "special",
+                    "deckTextStyle":"specialCardDeckTextStyle",
+                    "deckSubTextStyle":"specialCardDeckSubTextStyle",
+                    "cardTextStyle":"specialCardTextStyle",
+                    "cardSubTextStyle":"specialCardSubTextStyle",
+                    "cardStyle":"specialCardStyle",
+                    "infoTextStyleLeft":"specialCardInfoTextStyleLeft",
+                    "infoTextStyleRight":"specialCardInfoTextStyleRight"
                 },
                 {
                     "id": 160,
@@ -971,7 +999,14 @@
                     "text": "Switch It Card",
                     "subText": "Use the Switch It card to make someone else answer the same question before continuing.",
                     "deckID": 2,
-                    "type": "special"
+                    "type": "special",
+                    "deckTextStyle":"specialCardDeckTextStyle",
+                    "deckSubTextStyle":"specialCardDeckSubTextStyle",
+                    "cardTextStyle":"specialCardTextStyle",
+                    "cardSubTextStyle":"specialCardSubTextStyle",
+                    "cardStyle":"specialCardStyle",
+                    "infoTextStyleLeft":"specialCardInfoTextStyleLeft",
+                    "infoTextStyleRight":"specialCardInfoTextStyleRight"
                 },
                 {
                     "id": 185,
@@ -1038,7 +1073,14 @@
                     "text": "Switch It Card",
                     "subText": "Use the Switch It card to make someone else answer the same question before continuing.",
                     "deckID": 2,
-                    "type": "special"
+                    "type": "special",
+                    "deckTextStyle":"specialCardDeckTextStyle",
+                    "deckSubTextStyle":"specialCardDeckSubTextStyle",
+                    "cardTextStyle":"specialCardTextStyle",
+                    "cardSubTextStyle":"specialCardSubTextStyle",
+                    "cardStyle":"specialCardStyle",
+                    "infoTextStyleLeft":"specialCardInfoTextStyleLeft",
+                    "infoTextStyleRight":"specialCardInfoTextStyleRight"
                 },
                 {
                     "id": 197,
@@ -1055,7 +1097,14 @@
                     "text": "Challenge Card",
                     "subText": "Use the Challenge Card to push yourself or someone else to reveal more or complete a fun task!",
                     "deckID": 2,
-                    "type": "special"
+                    "type": "special",
+                    "deckTextStyle":"specialCardDeckTextStyle",
+                    "deckSubTextStyle":"specialCardDeckSubTextStyle",
+                    "cardTextStyle":"specialCardTextStyle",
+                    "cardSubTextStyle":"specialCardSubTextStyle",
+                    "cardStyle":"specialCardStyle",
+                    "infoTextStyleLeft":"specialCardInfoTextStyleLeft",
+                    "infoTextStyleRight":"specialCardInfoTextStyleRight"
                 },
                 {
                     "id": 199,
@@ -1147,7 +1196,14 @@
                     "text": "All Play Card",
                     "subText": "Everyone answers the same question for a group discussion.",
                     "deckID": 3,
-                    "type": "special"
+                    "type": "special",
+                    "deckTextStyle":"specialCardDeckTextStyle",
+                    "deckSubTextStyle":"specialCardDeckSubTextStyle",
+                    "cardTextStyle":"specialCardTextStyle",
+                    "cardSubTextStyle":"specialCardSubTextStyle",
+                    "cardStyle":"specialCardStyle",
+                    "infoTextStyleLeft":"specialCardInfoTextStyleLeft",
+                    "infoTextStyleRight":"specialCardInfoTextStyleRight"
                 },
                 {
                     "id": 214,
@@ -1249,7 +1305,14 @@
                     "text": "All Play Card",
                     "subText": "Everyone answers the same question for a group discussion.",
                     "deckID": 3,
-                    "type": "special"
+                    "type": "special",
+                    "deckTextStyle":"specialCardDeckTextStyle",
+                    "deckSubTextStyle":"specialCardDeckSubTextStyle",
+                    "cardTextStyle":"specialCardTextStyle",
+                    "cardSubTextStyle":"specialCardSubTextStyle",
+                    "cardStyle":"specialCardStyle",
+                    "infoTextStyleLeft":"specialCardInfoTextStyleLeft",
+                    "infoTextStyleRight":"specialCardInfoTextStyleRight"
                 },
                 {
                     "id": 233,
@@ -1461,7 +1524,14 @@
                     "text": "All Play Card",
                     "subText": "Everyone answers the same question for a group discussion.",
                     "deckID": 3,
-                    "type": "special"
+                    "type": "special",
+                    "deckTextStyle":"specialCardDeckTextStyle",
+                    "deckSubTextStyle":"specialCardDeckSubTextStyle",
+                    "cardTextStyle":"specialCardTextStyle",
+                    "cardSubTextStyle":"specialCardSubTextStyle",
+                    "cardStyle":"specialCardStyle",
+                    "infoTextStyleLeft":"specialCardInfoTextStyleLeft",
+                    "infoTextStyleRight":"specialCardInfoTextStyleRight"
                 },
                 {
                     "id": 274,
@@ -1558,7 +1628,14 @@
                     "text": "All Play Card",
                     "subText": "Everyone answers the same question for a group discussion.",
                     "deckID": 3,
-                    "type": "special"
+                    "type": "special",
+                    "deckTextStyle":"specialCardDeckTextStyle",
+                    "deckSubTextStyle":"specialCardDeckSubTextStyle",
+                    "cardTextStyle":"specialCardTextStyle",
+                    "cardSubTextStyle":"specialCardSubTextStyle",
+                    "cardStyle":"specialCardStyle",
+                    "infoTextStyleLeft":"specialCardInfoTextStyleLeft",
+                    "infoTextStyleRight":"specialCardInfoTextStyleRight"
                 },
                 {
                     "id": 292,
@@ -1675,7 +1752,14 @@
                     "text": "Gratitude Card",
                     "subText": "Pause the game and everyone must share one thing they are grateful for.",
                     "deckID": 4,
-                    "type": "special"
+                    "type": "special",
+                    "deckTextStyle":"specialCardDeckTextStyle",
+                    "deckSubTextStyle":"specialCardDeckSubTextStyle",
+                    "cardTextStyle":"specialCardTextStyle",
+                    "cardSubTextStyle":"specialCardSubTextStyle",
+                    "cardStyle":"specialCardStyle",
+                    "infoTextStyleLeft":"specialCardInfoTextStyleLeft",
+                    "infoTextStyleRight":"specialCardInfoTextStyleRight"
                 },
                 {
                     "id": 312,
@@ -1922,7 +2006,14 @@
                     "text": "Gratitude Card",
                     "subText": "Pause the game and everyone must share one thing they are grateful for.",
                     "deckID": 4,
-                    "type": "special"
+                    "type": "special",
+                    "deckTextStyle":"specialCardDeckTextStyle",
+                    "deckSubTextStyle":"specialCardDeckSubTextStyle",
+                    "cardTextStyle":"specialCardTextStyle",
+                    "cardSubTextStyle":"specialCardSubTextStyle",
+                    "cardStyle":"specialCardStyle",
+                    "infoTextStyleLeft":"specialCardInfoTextStyleLeft",
+                    "infoTextStyleRight":"specialCardInfoTextStyleRight"
                 },
                 {
                     "id": 360,
@@ -2114,7 +2205,14 @@
                     "text": "Gratitude Card",
                     "subText": "Pause the game and everyone must share one thing they are grateful for.",
                     "deckID": 4,
-                    "type": "special"
+                    "type": "special",
+                    "deckTextStyle":"specialCardDeckTextStyle",
+                    "deckSubTextStyle":"specialCardDeckSubTextStyle",
+                    "cardTextStyle":"specialCardTextStyle",
+                    "cardSubTextStyle":"specialCardSubTextStyle",
+                    "cardStyle":"specialCardStyle",
+                    "infoTextStyleLeft":"specialCardInfoTextStyleLeft",
+                    "infoTextStyleRight":"specialCardInfoTextStyleRight"
                 },
                 {
                     "id": 397,
@@ -3036,7 +3134,14 @@
                     "text": "Challenge Card",
                     "subText": "Everyone does a fun action like drawing their answer, acting it out, or finding an object in the room related to the question.",
                     "deckID": 6,
-                    "type": "special"
+                    "type": "special",
+                    "deckTextStyle":"specialCardDeckTextStyle",
+                    "deckSubTextStyle":"specialCardDeckSubTextStyle",
+                    "cardTextStyle":"specialCardTextStyle",
+                    "cardSubTextStyle":"specialCardSubTextStyle",
+                    "cardStyle":"specialCardStyle",
+                    "infoTextStyleLeft":"specialCardInfoTextStyleLeft",
+                    "infoTextStyleRight":"specialCardInfoTextStyleRight"
                 },
                 {
                     "id": 576,
@@ -3203,7 +3308,14 @@
                     "text": "Challenge Card",
                     "subText": "Everyone does a fun action like drawing their answer, acting it out, or finding an object in the room related to the question.",
                     "deckID": 6,
-                    "type": "special"
+                    "type": "special",
+                    "deckTextStyle":"specialCardDeckTextStyle",
+                    "deckSubTextStyle":"specialCardDeckSubTextStyle",
+                    "cardTextStyle":"specialCardTextStyle",
+                    "cardSubTextStyle":"specialCardSubTextStyle",
+                    "cardStyle":"specialCardStyle",
+                    "infoTextStyleLeft":"specialCardInfoTextStyleLeft",
+                    "infoTextStyleRight":"specialCardInfoTextStyleRight"
                 },
                 {
                     "id": 608,
@@ -3315,7 +3427,14 @@
                     "text": "Challenge Card",
                     "subText": "Everyone does a fun action like drawing their answer, acting it out, or finding an object in the room related to the question.",
                     "deckID": 6,
-                    "type": "special"
+                    "type": "special",
+                    "deckTextStyle":"specialCardDeckTextStyle",
+                    "deckSubTextStyle":"specialCardDeckSubTextStyle",
+                    "cardTextStyle":"specialCardTextStyle",
+                    "cardSubTextStyle":"specialCardSubTextStyle",
+                    "cardStyle":"specialCardStyle",
+                    "infoTextStyleLeft":"specialCardInfoTextStyleLeft",
+                    "infoTextStyleRight":"specialCardInfoTextStyleRight"
                 },
                 {
                     "id": 629,
@@ -3542,7 +3661,14 @@
                     "text": "Challenge Card",
                     "subText": "Everyone does a fun action like drawing their answer, acting it out, or finding an object in the room related to the question.",
                     "deckID": 6,
-                    "type": "special"
+                    "type": "special",
+                    "deckTextStyle":"specialCardDeckTextStyle",
+                    "deckSubTextStyle":"specialCardDeckSubTextStyle",
+                    "cardTextStyle":"specialCardTextStyle",
+                    "cardSubTextStyle":"specialCardSubTextStyle",
+                    "cardStyle":"specialCardStyle",
+                    "infoTextStyleLeft":"specialCardInfoTextStyleLeft",
+                    "infoTextStyleRight":"specialCardInfoTextStyleRight"
                 },
                 {
                     "id": 673,
@@ -3674,7 +3800,14 @@
                     "text": "Challenge Card",
                     "subText": "Everyone does a fun action like drawing their answer, acting it out, or finding an object in the room related to the question.",
                     "deckID": 6,
-                    "type": "special"
+                    "type": "special",
+                    "deckTextStyle":"specialCardDeckTextStyle",
+                    "deckSubTextStyle":"specialCardDeckSubTextStyle",
+                    "cardTextStyle":"specialCardTextStyle",
+                    "cardSubTextStyle":"specialCardSubTextStyle",
+                    "cardStyle":"specialCardStyle",
+                    "infoTextStyleLeft":"specialCardInfoTextStyleLeft",
+                    "infoTextStyleRight":"specialCardInfoTextStyleRight"
                 },
                 {
                     "id": 698,

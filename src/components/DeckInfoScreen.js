@@ -33,11 +33,15 @@ const DeckInfoScreen = ({route, navigation}) => {
             ? <Card
                 type='card'
                 height='half'
-                deckName={deckData.deckName}
+                deckName={deckData.cards[0].deckName ? deckData.cards[0].deckName : deckData.deckName}
                 text={deckData.cards[0].text}
                 deckTextStyle='deckTitle'
                 cardTextStyle='deckInfoText'
-                cardStyle='deckInfoCard' />
+                cardStyle='deckInfoCard'
+                infoRight='Example'
+                infoTextStyleRight='exampleInfoTextStyleRight'
+                isFavourite={DeckData.isFavourite(deckData.cards[0].id) ? 'yes' : 'no'}
+                />
             :  <SafeAreaView>
                 { deckData.rules && <Markdown style={styles.deckInfoRules}>{deckData.rules}</Markdown> }
             </SafeAreaView>
