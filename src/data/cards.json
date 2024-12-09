@@ -3713,7 +3713,7 @@
                 "useMarkdown":"yes",
                 "deckTextStyle": "onboardingDeckText",
                 "cardTextStyle": "onboardingText",
-                "text": "## How to play\n### Question of the Day\n#### Start each day with a fresh, thought-provoking question, same for all of users:\n#### ✨ Reflect on it privately.\n#### 💬 Share your thoughts (anonymously)  with others.\n#### 🔥 Use it as a spark for meaningful conversations throughout your day."
+                "text": "## How to play\n### Question of the Day\n#### Start each day with a fresh, thought-provoking question, same for all of users:\n#### ✨ Reflect on it privately.\n#### 🔥 Use it as a spark for meaningful conversations throughout your day."
             },
             {
                 "deckID": "onboarding",
@@ -3723,6 +3723,16 @@
                 "cardTextStyle": "onboardingText",
                 "text": "## How to play\n#### Curated decks designed to deepen connections:\n#### ❄️ **Icebreakers:** Perfect for starting conversations.\n#### ❤️ **Going Deep:** For heartfelt, meaningful discussions.\n#### 🎉 **Fun Cards:** Bring laughter and joy to any group.\n#### 📚 And so much more!\n\n#### Choose a deck, draw a card, and let the connection begin! 🌟"
             }
+        ]
+    },
+    "favourites": {
+        "id": "favourites",
+        "deckName": "Favourites",
+        "description": "> These are all of your favourite questions from all of your decks.",
+        "rules": "### How to Play ###\n##### Just enjoy revisiting and finding new depth and insights.######",
+        "deckBackground": "deckBG6",
+        "cards": [
+
         ]
     }
 }
