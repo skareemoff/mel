@@ -38,8 +38,8 @@ const DeckInfoScreen = ({route, navigation}) => {
                 deckTextStyle='deckTitle'
                 cardTextStyle='deckInfoText'
                 cardStyle='deckInfoCard'
-                infoRight='Example'
-                infoTextStyleRight='exampleInfoTextStyleRight'
+                infoLeft='Example'
+                infoTextStyleLeft='shareableInfoLeft'
                 isFavourite='no'
                 />
             :  <SafeAreaView>

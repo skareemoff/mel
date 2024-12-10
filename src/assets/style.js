@@ -131,7 +131,8 @@ export default StyleSheet.create({
     shareableInfoLeft: {
         alignSelf: 'center',
         justifyContent: 'center',
-        left: '36%'
+        width: '100%',
+        textAlign: 'center'
     },
     deckTitle: {
         marginBottom: -10,

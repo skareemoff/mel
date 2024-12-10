@@ -146,6 +146,7 @@ const st = StyleSheet.create({
         flex: 2,
         textAlign: 'center',
         color: 'black',
+        width: '100%'
     },
     deckSubText: {
         fontFamily: "DM Sans",
@@ -154,6 +155,7 @@ const st = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         textAlign: 'center',
+        width: '100%',
         color: 'black',
     },
     cardText: {
@@ -161,6 +163,7 @@ const st = StyleSheet.create({
         fontSize: 28,
         color: 'black',
         textAlign: 'center',
+        width: '100%',
         paddingLeft: 20,
         paddingRight: 20,
     },
@@ -170,6 +173,7 @@ const st = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         textAlign: 'center',
+        width: '100%',
         color: 'black',
         marginTop: 20,
     },
