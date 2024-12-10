@@ -4,6 +4,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import React, { useState, useEffect, useRef } from 'react';
+import { activateKeepAwake, activateKeepAwakeAsync, deactivateKeepAwake } from 'expo-keep-awake';
 import { useSharedValue } from 'react-native-reanimated';
 import { captureRef } from 'react-native-view-shot';
 import { Appbar } from 'react-native-paper';
@@ -35,6 +36,16 @@ export default function PlayScreen({route, navigation}) {
   useEffect(() => {
     updateVisibleCards();
   }, [currentIndex]);
+
+  useEffect(() => {
+    // Activate keep-awake when component mounts
+    activateKeepAwakeAsync();
+
+    // Deactivate keep-awake when component unmounts
+    return () => {
+      deactivateKeepAwake();
+    };
+  }, []);
 
   const updateVisibleCards = () => {
     const visible = cardDeck.value.slice(currentIndex, currentIndex + MAX + 1).map((item, index) => ({
