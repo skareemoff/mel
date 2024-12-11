@@ -4,7 +4,6 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import React, { useState, useEffect, useRef } from 'react';
-import { useKeepAwake } from 'expo-keep-awake';
 import { useSharedValue } from 'react-native-reanimated';
 import { captureRef } from 'react-native-view-shot';
 import { Appbar } from 'react-native-paper';
@@ -15,6 +14,7 @@ import DeckData from './DeckData'
 import {shuffle} from './Utils'
 import st from '../assets/style'
 import { ShareableCard } from './ShareableCard';
+import IdleTimerManager from 'react-native-idle-timer';
 
 configureReanimatedLogger({ level: ReanimatedLogLevel.warn, strict: false });
 
@@ -34,6 +34,13 @@ export default function PlayScreen({route, navigation}) {
   const animatedValue = useSharedValue(0);
   const [shareModalVisible, setShareModalVisible] = useState(false);
 
+  componentWillMount() {
+    IdleTimerManager.setIdleTimerDisabled(true);
+  }
+
+  componentWillUnmount() {
+    IdleTimerManager.setIdleTimerDisabled(false);
+  }
   useEffect(() => {
     updateVisibleCards();
   }, [currentIndex]);
