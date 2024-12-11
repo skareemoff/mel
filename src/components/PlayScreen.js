@@ -19,7 +19,6 @@ import IdleTimerManager from 'react-native-idle-timer';
 configureReanimatedLogger({ level: ReanimatedLogLevel.warn, strict: false });
 
 export default function PlayScreen({route, navigation}) {
-  useKeepAwake();
   const MAX = 3;
   const { deckID } = route.params;
   const insets = useSafeAreaInsets();
@@ -34,11 +33,11 @@ export default function PlayScreen({route, navigation}) {
   const animatedValue = useSharedValue(0);
   const [shareModalVisible, setShareModalVisible] = useState(false);
 
-  componentWillMount() {
+  const componentDidMount=()=> {
     IdleTimerManager.setIdleTimerDisabled(true);
   }
 
-  componentWillUnmount() {
+  const componentWillUnmount=()=> {
     IdleTimerManager.setIdleTimerDisabled(false);
   }
   useEffect(() => {
