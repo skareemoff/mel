@@ -14,7 +14,6 @@ import DeckData from './DeckData'
 import {shuffle} from './Utils'
 import st from '../assets/style'
 import { ShareableCard } from './ShareableCard';
-import IdleTimerManager from 'react-native-idle-timer';
 
 configureReanimatedLogger({ level: ReanimatedLogLevel.warn, strict: false });
 
@@ -33,13 +32,6 @@ export default function PlayScreen({route, navigation}) {
   const animatedValue = useSharedValue(0);
   const [shareModalVisible, setShareModalVisible] = useState(false);
 
-  const componentDidMount=()=> {
-    IdleTimerManager.setIdleTimerDisabled(true);
-  }
-
-  const componentWillUnmount=()=> {
-    IdleTimerManager.setIdleTimerDisabled(false);
-  }
   useEffect(() => {
     updateVisibleCards();
   }, [currentIndex]);
