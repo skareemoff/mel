@@ -174,7 +174,7 @@ export default StyleSheet.create({
             marginTop: 20,
             marginBottom: 20,
             fontWeight: 400,
-            fontSize: 16,
+            fontSize: 18,
             textAlign: 'center',
             color: 'black'
         },
@@ -183,13 +183,13 @@ export default StyleSheet.create({
             marginTop: 20,
             marginBottom: 20,
             fontWeight: 400,
-            fontSize: 16,
+            fontSize: 18,
             textAlign: 'center',
             color: 'black'
         },
         blockquote: {
             fontFamily: "DM Sans",
-            fontSize: 16,
+            fontSize: 18,
             backgroundColor: 'honeydew',
             borderLeftWidth: 0,
             borderLeftColor: "red",
@@ -257,13 +257,13 @@ export default StyleSheet.create({
             fontFamily: "DM Sans",
             marginTop: 20,
             fontWeight: 400,
-            fontSize: 16,
+            fontSize: 18,
             textAlign: 'left',
             color: 'black'
         },
         blockquote: {
             fontFamily: "DM Sans",
-            fontSize: 16,
+            fontSize: 18,
             backgroundColor: 'honeydew',
             borderLeftWidth: 0,
             borderLeftColor: "red",

@@ -127,12 +127,16 @@ const st = StyleSheet.create({
         alignItems: 'baseline',
         maxWidth: 400,
         paddingTop: 20,
+        justifyContent: 'center',
+        width: '100%',
+        height: '100%'
     },
     middle: {
         flex: 4,
         justifyContent: 'center',
-        alignContent: "",
+        alignContent: "center",
         width: "100%",
+        height: "100%",
         maxWidth: 400,
         padding: 20,
         paddingTop: 0,
@@ -186,8 +190,8 @@ const st = StyleSheet.create({
     },
     footerText: {
         fontFamily: "DM Sans",
-        fontSize: 14,
         color: 'black',
+        fontSize: 14,
         position: 'absolute',
     },
     footerTextLeft: {
@@ -210,13 +214,11 @@ const st = StyleSheet.create({
         paddingHorizontal: 15,
     },
     shotDeckName: {
-        fontSize: 20,
         fontWeight: 'bold',
         textAlign: 'center',
         color: '#000',
     },
     shotDeckSubText: {
-        fontSize: 14,
         textAlign: 'center',
         color: '#666',
         marginTop: 5,
@@ -231,7 +233,6 @@ const st = StyleSheet.create({
         width: '100%',
     },
     shotCardText: {
-        fontSize: 28,
         textAlign: 'center',
         color: '#000',
     },
@@ -257,11 +258,9 @@ const st = StyleSheet.create({
         width: '100%',
     },
     shotFooterTextLeft: {
-        fontSize: 12,
         color: '#666',
     },
     shotFooterTextRight: {
-        fontSize: 12,
         color: '#666',
     },
 });
