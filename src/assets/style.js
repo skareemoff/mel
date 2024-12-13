@@ -138,7 +138,7 @@ export default StyleSheet.create({
         marginBottom: -10,
     },
     deckInfoText: {
-        fontSize: 18,
+        fontSize: 16,
     },
     deckInfoCard: {
     },
@@ -152,7 +152,7 @@ export default StyleSheet.create({
             fontFamily: "DM Sans",
             paddingLeft: 10,
             fontWeight: 600,
-            fontSize: 18,
+            fontSize: 16,
             borderLeftWidth: 7,
             borderLeftColor: "red",
             backgroundColor: '#FBF7EF',
@@ -171,7 +171,7 @@ export default StyleSheet.create({
             marginTop: 20,
             marginBottom: 20,
             fontWeight: 400,
-            fontSize: 18,
+            fontSize: 16,
             textAlign: 'center',
             color: 'black'
         },
@@ -180,13 +180,13 @@ export default StyleSheet.create({
             marginTop: 20,
             marginBottom: 20,
             fontWeight: 400,
-            fontSize: 18,
+            fontSize: 16,
             textAlign: 'center',
             color: 'black'
         },
         blockquote: {
             fontFamily: "DM Sans",
-            fontSize: 18,
+            fontSize: 16,
             borderLeftWidth: 0,
             borderLeftColor: "red",
             padding: 20,
@@ -258,13 +258,13 @@ export default StyleSheet.create({
             fontFamily: "DM Sans",
             marginTop: 20,
             fontWeight: 400,
-            fontSize: 18,
+            fontSize: 16,
             textAlign: 'left',
             color: 'black'
         },
         blockquote: {
             fontFamily: "DM Sans",
-            fontSize: 18,
+            fontSize: 16,
             backgroundColor: '#FBF7EF',
             borderLeftWidth: 0,
             borderLeftColor: "red",
@@ -292,7 +292,7 @@ export default StyleSheet.create({
             margin: 0,
             marginTop: 16,
             marginBottom: 16,
-            fontSize: 18,
+            fontSize: 16,
             padding: 0,
             lineHeight: 24,
         },
