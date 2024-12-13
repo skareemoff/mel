@@ -9,6 +9,14 @@ export const shuffle = (array) => {
   return sortedList;
 }
 
+export const specialShuffle = (array) => {
+  var tmpArray = array;
+  do {
+    tmpArray = shuffle(tmpArray);
+  } while(tmpArray.length > 0 && tmpArray[0].type == 'special');
+  return tmpArray;
+};
+
 export const getAllFiles = async (folder) => {
   const reader = RNFS.readDirAssets(folder);
   const files = reader.filter((item) => item.isFile()).map((file) => file.name);

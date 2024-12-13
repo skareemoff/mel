@@ -122,7 +122,7 @@ export default StyleSheet.create({
         color: 'white'
     },
     exampleInfoTextStyleRight: {
-        color: 'blue',
+        color: 'black',
         fontWeight: '500'
     },
     shareableCard: {
@@ -141,24 +141,21 @@ export default StyleSheet.create({
         fontSize: 18,
     },
     deckInfoCard: {
-        shadowColor: '#000',
-        shadowOpacity: 0.5,
-        shadowOffset: {width: 2, height: 2 },
-        backgroundColor: 'honeydew',
     },
     deckInfoDescription: {
         body: {
             fontFamily: "DM Sans",
             margin: 20,
+            backgroundColor: '#FBF7EF',
         },
         blockquote: {
             fontFamily: "DM Sans",
             paddingLeft: 10,
             fontWeight: 600,
             fontSize: 18,
-            backgroundColor: 'honeydew',
             borderLeftWidth: 7,
-            borderLeftColor: "red"
+            borderLeftColor: "red",
+            backgroundColor: '#FBF7EF',
         },
     },
     deckInfoRules: {
@@ -190,26 +187,29 @@ export default StyleSheet.create({
         blockquote: {
             fontFamily: "DM Sans",
             fontSize: 18,
-            backgroundColor: 'honeydew',
             borderLeftWidth: 0,
             borderLeftColor: "red",
-            padding: 20
+            padding: 20,
+            backgroundColor: '#FBF7EF',
         },
         ordered_list:{
             counterReset: 'item',
             listStyleType: 'upper-roman',
             lineHeight: 26,
+            backgroundColor: '#FBF7EF',
         },
         ordered_list_icon: {
             marginRight: 20,
             marginBottom: 20,
-            backgroundColor: "#rgb(180 185 162)",
+            backgroundColor: "#B4B9A2",
             color: "white",
             width: "30",
             height: "30",
             borderRadius: "50%",
             textAlign: "center",
             fontWeight: 'bold',
+            justifyContent: 'center',
+            alignItems: 'center',
             fontSize: 22,
             lineHeight: "0",
         },
@@ -220,7 +220,8 @@ export default StyleSheet.create({
         body: {
             fontFamily: "DM Sans",
             margin: 20,
-            paddingLeft: 10
+            paddingLeft: 10,
+            backgroundColor: '#FBF7EF',
         }
     },
     onboardingDeckText: {
@@ -264,7 +265,7 @@ export default StyleSheet.create({
         blockquote: {
             fontFamily: "DM Sans",
             fontSize: 18,
-            backgroundColor: 'honeydew',
+            backgroundColor: '#FBF7EF',
             borderLeftWidth: 0,
             borderLeftColor: "red",
             padding: 20
@@ -277,7 +278,7 @@ export default StyleSheet.create({
         ordered_list_icon: {
             marginRight: 20,
             marginBottom: 20,
-            backgroundColor: "#rgb(180 185 162)",
+            backgroundColor: "#B4B9A2",
             color: "white",
             width: "30",
             height: "30",

@@ -11,7 +11,7 @@ import Share from 'react-native-share';
 import {BOTTOM_APPBAR_HEIGHT} from './Utils'
 import SwipableCard from './SwipableCard';
 import DeckData from './DeckData'
-import {shuffle} from './Utils'
+import {specialShuffle} from './Utils'
 import st from '../assets/style'
 import { ShareableCard } from './ShareableCard';
 
@@ -24,7 +24,7 @@ export default function PlayScreen({route, navigation}) {
   const viewShotRef = useRef(null);
 
   const deckData = DeckData.getDeck(deckID);
-  const cardDeck = useSharedValue(shuffle(deckData.cards));
+  const cardDeck = useSharedValue(specialShuffle(deckData.cards));
   const [visibleCards, setVisibleCards] = useState([]);
 
   const [deckKey, setDeckKey] = useState(0);
@@ -59,7 +59,7 @@ export default function PlayScreen({route, navigation}) {
   const handleSetCurrentIndex = (newIndex) => {
     if(newIndex == -1) {
       if(currentIndex != 0 ) {
-        // cardDeck.value = shuffle(cardDeck.value);
+        cardDeck.value = specialShuffle(cardDeck.value);
         setCurrentIndex(0);
         animatedValue.value = 0;
         setDeckKey(prevKey => prevKey + 1);
