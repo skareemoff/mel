@@ -28,7 +28,7 @@ export default function App() {
       } else {
         setIsShowSplashScreen(false);
       }
-    }, 5000);
+    }, 5500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -37,7 +37,7 @@ export default function App() {
     <View style={styles.container}>
       {
         isShowSplashScreen ?
-          <SplashScreen /> :
+          <SplashScreen  /> :
           <NavigationContainer>
               <Stack.Navigator initialRouteName={isShowOnboarding ? 'Onboarding' : 'Home'}
                 screenOptions={({ navigation, route }) => ({
@@ -46,7 +46,7 @@ export default function App() {
                     backgroundColor: '#FBF7EF',
                   },
                   headerLeft: () => (
-                    route.name == 'Home' ?
+                    route.name == 'Home' || route.name == 'Onboarding' ?
                     null
                     :
                     <TouchableOpacity  onPress={() => navigation.goBack(null)}>
@@ -63,7 +63,7 @@ export default function App() {
                 <Stack.Screen name="Home" component={HomeScreen} options={{  headerShown: true}} />
                 <Stack.Screen name="Deck" component={DeckInfoScreen} options={{  headerShown: true}} />
                 <Stack.Screen name="Play" component={PlayScreen} options= {{  headerShown: true }} />
-                <Stack.Screen name="Onboarding" component={Onboarding} options= {{  headerShown: false }} />
+                <Stack.Screen name="Onboarding" component={Onboarding} options= {{  headerShown: true }} />
               </Stack.Navigator>
           </NavigationContainer>
       }

@@ -35,7 +35,7 @@ export default function Onboarding({navigation}) {
       <ImageBackground
         style={{ height: '100%', width: '100%'}}
       >
-        <View style={[styles.cardContainer, { paddingTop: Math.max(insets.top, height * 0.3), }]}>
+        <View style={[styles.cardContainer, { paddingTop: insets.top, }]}>
           {cardDeck.map((item, index) => {
             if (index > currentIndex + cardDeck.length || index < currentIndex) {
               return null;

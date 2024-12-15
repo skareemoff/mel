@@ -1,152 +1,128 @@
-import React, { useEffect, useRef } from "react";
-import { Animated } from "react-native";
-import { WebView } from 'react-native-webview';
-import styles from '../assets/style'
+import React, { useRef, useEffect } from 'react';
+import {View, StyleSheet, Text, Animated, Easing, Image, Dimensions} from 'react-native';
+import st from '../assets/style'
 
 export default function SplashScreen() {
-    const fadeAnimation = useRef(new Animated.Value(0)).current;
-
+    const fadeAnim1 = useRef(new Animated.Value(0)).current;
+    const fadeAnim2 = useRef(new Animated.Value(0)).current;
+    const fadeAnim3 = useRef(new Animated.Value(0)).current;
+    const fadeAnim4 = useRef(new Animated.Value(0)).current;
+    const fadeAnim5 = useRef(new Animated.Value(1)).current;
+    const fadeAnim6 = useRef(new Animated.Value(0)).current;
+    const slideAnim1 = useRef(new Animated.Value(0)).current;
     useEffect(() => {
-        Animated.timing(fadeAnimation, {
-            toValue: 1,
-            duration: 5000,
-            useNativeDriver: true,
-        }).start();
-    }, [fadeAnimation]);
+        Animated.sequence([
+            Animated.timing(fadeAnim1, {
+                toValue:1,
+                duration:750,
+                easing: Easing.ease,
+                useNativeDriver:true,
+            }),
+            Animated.timing(fadeAnim2, {
+                toValue:1,
+                duration:750,
+                easing: Easing.ease,
+                useNativeDriver:true,
+            }),
+            Animated.timing(fadeAnim3, {
+                toValue:1,
+                duration:750,
+                easing: Easing.ease,
+                useNativeDriver:true,
+            }),
+            Animated.timing(fadeAnim4, {
+                toValue:1,
+                duration:1000,
+                easing: Easing.ease,
+                useNativeDriver:true,
+            }),
+            Animated.parallel([
+                Animated.timing(fadeAnim5, {
+                    toValue:0,
+                    duration:750,
+                    easing: Easing.ease,
+                    useNativeDriver:true,
+                }),
+                Animated.timing(fadeAnim6, {
+                    toValue:1,
+                    duration:1000,
+                    easing: Easing.ease,
+                    useNativeDriver:true,
+                }),
+            ]),
+            Animated.timing(slideAnim1, {
+                toValue: 72 - (Dimensions.get('window').height/2),
+                duration: 1000,
+                easing: Easing.ease,
+                useNativeDriver: true
+            })
+          ]).start();
+    });
 
     return (
-        <WebView
-            style={styles.container}
-            source={{ html: template() }}
-            showsHorizontalScrollIndicator={false}
-            bounces={false}
-            scrollEnabled={false}
-        >
-      {/* <ImageBackground
-        source={DeckData.getDeckImage('deckBG2')}
-        style={{ height: '100%', width: '100%'}}
-        imageStyle={{ opacity: 0.7}}
-      /> */}
-        </WebView>);
+        <View style={styles.container}>
+            <Animated.View style={[styles.container, {opacity:fadeAnim5}]}>
+                <Animated.View style={[{opacity:fadeAnim1}]}>
+                    <Text style={[styles.text, styles.text1]}>
+                        You are
+                    </Text>
+                </Animated.View>
+                <Animated.View style={[{opacity:fadeAnim2}]}>
+                    <Text style={[styles.text, styles.text2]}>
+                        one question away
+                    </Text>
+                </Animated.View>
+                <Animated.View style={[{opacity:fadeAnim3}]}>
+                    <Text style={[styles.text, styles.text3]}>
+                        from a
+                    </Text>
+                </Animated.View>
+                <Animated.View style={[{opacity:fadeAnim4}]}>
+                    <Text style={[styles.text, styles.text4]}>
+                        More Exciting Life
+                    </Text>
+                </Animated.View>
+            </Animated.View>
+            <Animated.View style={[styles.container, {opacity:fadeAnim6}, {transform: [{translateY: slideAnim1}]} ]}>
+                <Image source={require("../assets/images/logo.png")} style={[styles.image]}/>
+            </Animated.View>
+        </View>
+    );
 }
 
+const styles=StyleSheet.create({
+    container: {
+        flex: 1,
+        height: "100%",
+        width: "100%",
+        justifyContent: "center",
+        alignItems: "center",
+        position: "absolute",
+    },
+    text: {
+        color: "black",
+        fontFamily: "DM Sans",
+        fontSize: 24,
+        textAlign: "center",
+        width: "100%",
+        lineHeight: 40,
+    },
 
-export const template = () => `<!doctype html>
-<head>
-    <style>
-        @keyframes showTopText {
-            0% {
-                transform: translate3d(0, 100%, 0);
-            }
-            40%, 60% {
-                transform: translate3d(0, 50%, 0);
-            }
-            100% {
-                transform: translate3d(0, 0, 0);
-            }
-        }
-        @keyframes showBottomText {
-            0% {
-                transform: translate3d(0, -100%, 0);
-            }
-            100% {
-                transform: translate3d(0, 0, 0);
-            }
-        }
-        @keyframes fadeOut {
-            0% { opacity: 100; }
-            100% { opacity: 0; }
-        }
+    text1: {
+    },
 
-        .animated-title {
-            color: "black";
-            font-family: "DM Sans", sans-serif;
-            height: 100vmin;
-            left: 50%;
-            position: absolute;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 90vmin;
-            background-color: "rgb(239 244 226)";
-        }
+    text2: {
+    },
 
-        .animated-title > div {
-            height: 50%;
-            overflow: hidden;
-            position: absolute;
-            width: 100%;
-        }
-
-        .animated-title > div div {
-            font-size: 7vmin;
-            padding: 1vmin 0;
-            position: absolute;
-        }
-
-        .animated-title > div div span {
-            display: block;
-        }
-
-        .animated-title > div.text-top {
-            border-bottom: 0.5vmin solid black;
-            top: 0;
-        }
-
-        .animated-title > div.text-top div {
-            animation: showTopText 1s;
-            animation-delay: 0.5s;
-            animation-fill-mode: forwards;
-            bottom: 0;
-            transform: translate(0, 100%);
-            color: black;
-            opacity: 0.7;
-        }
-
-        .animated-title > div.text-bottom {
-            bottom: 0;
-        }
-
-        .animated-title > div.text-bottom div {
-            font-size: 9vmin;
-            text-align: right;
-            width: 100%;
-            color: black;
-            animation: showBottomText 0.5s;
-            animation-delay: 1.75s;
-            animation-fill-mode: forwards;
-            top: 0;
-            transform: translate(0, -100%);
-        }
-
-        .animated-title {
-            animation: fadeOut 2s;
-            animation-delay: 3.5s;
-        }
-
-        body, .animated-title, div {
-            background-color: "#white"
-        }
-        body {
-            background-image: url('/src/assets/images/homeBG.png');
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            position: absolute;
-            z-index: -1;
-        }
-    </style>
-</head>
-<body>
-    <div class="animated-title">
-        <div class="text-top">
-          <div>
-            <span>You are</span>
-            <span>one question away from a</span>
-          </div>
-        </div>
-        <div class="text-bottom">
-          <div>More Exciting Life</div>
-        </div>
-    </div>
-</body>`;
+    text3: {
+    },
+    text4: {
+        fontSize: 36,
+    },
+    image: {
+        justifyContent: "center",
+        alignItems: "center",
+        width: 72,
+        height: 32,
+    }
+});
