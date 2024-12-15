@@ -28,7 +28,7 @@ export default function App() {
       } else {
         setIsShowSplashScreen(false);
       }
-    }, 5500);
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, []);

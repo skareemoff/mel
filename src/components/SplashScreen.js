@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import {View, StyleSheet, Text, Animated, Easing, Image, Dimensions} from 'react-native';
-import st from '../assets/style'
 
 export default function SplashScreen() {
     const fadeAnim1 = useRef(new Animated.Value(0)).current;
@@ -51,8 +50,8 @@ export default function SplashScreen() {
                 }),
             ]),
             Animated.timing(slideAnim1, {
-                toValue: 72 - (Dimensions.get('window').height/2),
-                duration: 1000,
+                toValue: 0 - (Dimensions.get('window').height * 0.4),
+                duration: 750,
                 easing: Easing.ease,
                 useNativeDriver: true
             })
@@ -98,6 +97,7 @@ const styles=StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         position: "absolute",
+        backgroundColor: '#FBF7EF'
     },
     text: {
         color: "black",
