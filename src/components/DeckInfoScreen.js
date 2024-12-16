@@ -24,7 +24,10 @@ const DeckInfoScreen = ({route, navigation}) => {
                 text={deckData.deckName}
                 deckBackground={deckData.deckBackground}
                 cardTextStyle={deckData.deckTextStyle}
-                cardStyle={deckData.deckStyle}/>
+                cardStyle={deckData.deckStyle}
+                subText={deckData.subText}
+                cardSubTextStyle={deckData.cardSubTextStyle}
+            />
         : item.id === 'description'
             ? <SafeAreaView>
                 { deckData.description && <Markdown style={styles.deckInfoDescription}>{deckData.description}</Markdown> }
@@ -34,7 +37,7 @@ const DeckInfoScreen = ({route, navigation}) => {
                 type='card'
                 height='half'
                 deckName={DeckData.getDeckName(deckData.id)}
-                text={deckData.cards.length > 0 ? deckData.cards[0].text : 'You have no cards in this deck yet.\nAdd some cards to get started.' }
+                text={deckData.cards.length > 0 ? deckData.cards[0].text : deckData.exampleText }
                 deckTextStyle='deckTitle'
                 cardTextStyle='deckInfoText'
                 cardStyle='deckInfoCard'
