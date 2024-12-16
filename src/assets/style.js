@@ -1,12 +1,21 @@
-import { StyleSheet } from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
-export default StyleSheet.create({
+EStyleSheet.build({
+    $textColor: 'black',
+    $backgroundColor: 'white',
+    $containerColor: '#FBF7EF',
+});
+
+export default EStyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FBF7EF',
+        backgroundColor: '$containerColor',
         flexDirection: "column",
         justifyContent: "center",
         alignContent: "center",
+    },
+    headerStyle: {
+        backgroundColor: '$containerColor',
     },
     shadow: {
         shadowColor:'#000',
@@ -14,7 +23,7 @@ export default StyleSheet.create({
         shadowOffset:{width: 2, height: 2 }
     },
     flatList: {
-        backgroundColor: '#FBF7EF',
+        backgroundColor: '$containerColor',
     },
     cardContainer: {
         flex: 1,

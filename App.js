@@ -43,7 +43,7 @@ export default function App() {
                 screenOptions={({ navigation, route }) => ({
                   headerShadowVisible: false,
                   headerStyle: {
-                    backgroundColor: '#FBF7EF',
+                    backgroundColor: '#FBF7EF', // TODO: find a way to use EStyleSheet variables here
                   },
                   headerLeft: () => (
                     route.name == 'Home' || route.name == 'Onboarding' ?

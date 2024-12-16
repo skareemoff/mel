@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
 import React from 'react';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import Animated, { interpolate, useAnimatedStyle, useSharedValue, runOnJS, withTiming } from 'react-native-reanimated';
 import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 import Card from './Card';
@@ -104,7 +104,7 @@ const SwipableCard = ({
           <Card
             type='card'
             deckName={deckName}
-            infoLeft={(index+1)+" / "+deckSize}
+            // infoLeft={(index+1)+" / "+deckSize}
             text={item.text}
             subText={item.subText}
             height={item.height}
@@ -125,7 +125,7 @@ const SwipableCard = ({
 
 export default SwipableCard;
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container: {
     position: 'absolute',
     width: '100%',

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Image, ImageBackground, SafeAreaView, StyleSheet } from 'react-native';
+import { Image, ImageBackground, SafeAreaView } from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import ViewShot from 'react-native-view-shot';
 import DeckData from './DeckData';
@@ -38,7 +39,7 @@ export const ShareableCard = ({deckData, cardDeck, currentIndex, viewShotRef, se
     );
 }
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
     fullScreen: {
         flex: 1,
         width: '100%',

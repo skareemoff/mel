@@ -1,4 +1,5 @@
-import { View, StyleSheet} from "react-native";
+import { View} from "react-native";
+import EStyleSheet from 'react-native-extended-stylesheet';
 import React from "react";
 import Animated, { interpolate, useAnimatedStyle, useSharedValue, withTiming, withSequence, runOnJS } from "react-native-reanimated";
 import Card from './Card'
@@ -77,7 +78,7 @@ const RotatableCard = (cardData) => {
 
 export default RotatableCard;
 
-const Styles = StyleSheet.create({
+const Styles = EStyleSheet.create({
     front: {
       position: "absolute",
       backfaceVisibility: "hidden",

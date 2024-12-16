@@ -1,4 +1,5 @@
-import { View, StyleSheet, Image, TouchableOpacity, Text} from "react-native";
+import { View, Image, TouchableOpacity, Text} from "react-native";
+import EStyleSheet from 'react-native-extended-stylesheet';
 import React, { useState } from "react";
 import Animated from "react-native-reanimated";
 import Card from './Card'
@@ -41,7 +42,7 @@ const RevealableCard = (cardData) => {
 
 export default RevealableCard;
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   face: {
     alignItems: "center",
     justifyContent: "center",

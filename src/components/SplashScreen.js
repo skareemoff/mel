@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
-import {View, StyleSheet, Text, Animated, Easing, Image, Dimensions} from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
+import {View, Text, Animated, Easing, Image, Dimensions} from 'react-native';
 
 export default function SplashScreen() {
     const fadeAnim1 = useRef(new Animated.Value(0)).current;
@@ -89,7 +90,7 @@ export default function SplashScreen() {
     );
 }
 
-const styles=StyleSheet.create({
+const styles = EStyleSheet.create({
     container: {
         flex: 1,
         height: "100%",
@@ -97,7 +98,7 @@ const styles=StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         position: "absolute",
-        backgroundColor: '#FBF7EF'
+        backgroundColor: '$containerColor'
     },
     text: {
         color: "black",
