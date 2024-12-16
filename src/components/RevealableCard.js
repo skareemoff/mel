@@ -1,7 +1,6 @@
-import { View, Image, TouchableOpacity, Text} from "react-native";
+import { View, Image, TouchableOpacity, Text, Animated} from "react-native";
 import EStyleSheet from 'react-native-extended-stylesheet';
-import React, { useState } from "react";
-import Animated from "react-native-reanimated";
+import React, { useRef, useState } from "react";
 import Card from './Card'
 import st from '../assets/style'
 import { width, calculateCardHeight } from "./Utils";
@@ -9,8 +8,17 @@ import { width, calculateCardHeight } from "./Utils";
 
 const RevealableCard = (cardData) => {
   const [isShowRevealButton, setIsShowRevealButton] = useState(true);
+  const opacityAnimation = useRef(new Animated.Value(1)).current;
+  const opacityStyle = { opacity: opacityAnimation };
+
   const clickReveal = () => {
-    setIsShowRevealButton(false);
+    Animated.timing(opacityAnimation, {
+      toValue: 0,
+      duration: 1000,
+      useNativeDriver: true
+    }).start(() => {
+      setIsShowRevealButton(false);
+    })
   }
 
   return (
@@ -26,12 +34,12 @@ const RevealableCard = (cardData) => {
                 cardStyle={cardData.cardStyle}
             />
             {isShowRevealButton ?
-            <View name="cover" style={[styles.cover, { height: calculateCardHeight(cardData) * 0.8, width: width * 0.85 } ]} >
+            <Animated.View name="cover" style={[styles.cover, { height: calculateCardHeight(cardData) * 0.8, width: width * 0.85 }, opacityStyle ]} >
                 <Image source={require('../assets/images/qodmask-small.png')} style={styles.blurImage} />
                 <TouchableOpacity style={[styles.revealButton, styles.shadow]} onPressOut={() => clickReveal()}>
                   <Text style={styles.revealButtonText} source={require("../assets/images/button-play.png")} >Reveal </Text>
                 </TouchableOpacity>
-              </View>
+              </Animated.View>
             :
             null
             }
@@ -57,7 +65,6 @@ const styles = EStyleSheet.create({
     maxWidth: 400,
     zIndex: 1,
     top: 0,
-    opacity: 1,
   },
   blurImage: {
     width: '100%',
