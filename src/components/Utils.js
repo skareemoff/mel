@@ -23,6 +23,12 @@ export const getAllFiles = async (folder) => {
   return [...files];
 };
 
+export const calculateCardHeight = (cardData) => {
+  return (typeof(cardData.height) !== 'undefined' && cardData.height != null)
+    ? (cardData.height == 'full' ? FULL_CARD_HEIGHT : HALF_CARD_HEIGHT)
+    : ((cardData.type == 'card') ? FULL_CARD_HEIGHT : HALF_CARD_HEIGHT);
+}
+
 // Screen dimensions
 export const { height, width } = Dimensions.get('window');
 

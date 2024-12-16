@@ -1,14 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, Pressable, ImageBackground, Image } from 'react-native';
-import {width, FULL_CARD_HEIGHT, HALF_CARD_HEIGHT} from './Utils'
+import {width, calculateCardHeight} from './Utils'
 import DeckData from './DeckData.js'
 import styles from '../assets/style'
 import Markdown from 'react-native-markdown-display';
 
 const Card = (cardData, props) => {
-    const cardHeight = (typeof(cardData.height) !== 'undefined' && cardData.height != null)
-    ? (cardData.height == 'full' ? FULL_CARD_HEIGHT : HALF_CARD_HEIGHT)
-    : ((cardData.type == 'card') ? FULL_CARD_HEIGHT : HALF_CARD_HEIGHT);
+    const cardHeight = calculateCardHeight(cardData);
 
     const bottomPadding = (cardData.type == 'card') ? 0 : 0;
 

@@ -3,7 +3,7 @@ import Card from './Card';
 import styles from '../assets/style'
 import DeckData from './DeckData.js'
 import {HALF_CARD_HEIGHT} from './Utils'
-import RotatableCard from './RotatableCard';
+import RevealableCard from './RevealableCard';
 
 const HomeScreen = ({navigation}) => {
     const cards = [
@@ -28,7 +28,7 @@ const HomeScreen = ({navigation}) => {
 
     const renderCard = ({ item }) => (
         item.id == 'questionOfTheDay'
-        ? <RotatableCard
+        ? <RevealableCard
             id='questionOfTheDay'
             deckName='Question of the day'
             text={DeckData.getQuestionOfTheDay()}
