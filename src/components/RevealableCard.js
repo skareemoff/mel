@@ -26,11 +26,11 @@ const RevealableCard = (cardData) => {
             />
             {isShowRevealButton ?
             <View name="cover" style={[styles.cover, { height: calculateCardHeight(cardData), width: width * 0.9, marginHorizontal: width * 0.05 } ]} >
-              <Image source={require('../assets/images/qodmask.png')} style={{ width: '100%', height: '100%' }} />
-              <TouchableOpacity style={[{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center' }]} onPressOut={() => clickReveal()}>
-                <Text style={styles.revealButton} source={require("../assets/images/button-play.png")} >Reveal </Text>
-            </TouchableOpacity>
-            </View>
+                <Image source={require('../assets/images/qodmask.png')} style={{ width: '100%', height: '100%' }} />
+                <TouchableOpacity style={[{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center' }]} onPressOut={() => clickReveal()}>
+                  <Text style={styles.revealButton} source={require("../assets/images/button-play.png")} >Reveal </Text>
+                </TouchableOpacity>
+              </View>
             :
             null
             }
