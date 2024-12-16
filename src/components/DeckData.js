@@ -138,6 +138,7 @@ export default class DeckData {
     static getFavDeck() {
         const favDeck = DeckData.data().favourites;
         favDeck.cards = DeckData.gatherFavourites();
+        favDeck.subText = "You have " + (favDeck.cards.length > 0 ? favDeck.cards.length : "no") + " favourite questions";
         return favDeck;
     }
 
