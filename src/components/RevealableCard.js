@@ -23,7 +23,6 @@ const RevealableCard = (cardData) => {
                 text={cardData.text}
                 cardTextStyle={cardData.cardTextStyle}
                 cardStyle={cardData.cardStyle}
-                clickHandler={() => (_handleClick())}
             />
             {isShowRevealButton ?
             <View name="cover" style={[styles.cover, { height: calculateCardHeight(cardData), width: width * 0.9, marginHorizontal: width * 0.05 } ]} >
