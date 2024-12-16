@@ -6,7 +6,6 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import SwipableCard from './SwipableCard';
 import DeckData from './DeckData'
-import {height} from './Utils'
 import styles from '../assets/style'
 
 export default function Onboarding({navigation}) {
@@ -32,14 +31,8 @@ export default function Onboarding({navigation}) {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaView edges={['right', 'left']} style={[styles.container,]}>
-      <ImageBackground
-        style={{ height: '100%', width: '100%'}}
-      >
-        <View style={[styles.cardContainer, { paddingTop: insets.top, }]}>
+        <View style={[styles.cardContainer, { maxWidth: 400, paddingTop: Math.max(insets.top, 10), }]}>
           {cardDeck.map((item, index) => {
-            if (index > currentIndex + cardDeck.length || index < currentIndex) {
-              return null;
-            }
             return (
               <SwipableCard
                 deckName={deckData.deckName}
@@ -56,7 +49,6 @@ export default function Onboarding({navigation}) {
             );
           })}
         </View>
-      </ImageBackground>
       </SafeAreaView>
     </GestureHandlerRootView>
   );
