@@ -49,6 +49,8 @@ const HomeScreen = ({navigation}) => {
                 clickHandler={clickDeck}
                 cardTextStyle={item.deckTextStyle}
                 cardStyle={item.deckStyle}
+                subText={item.subText}
+                cardSubTextStyle={item.cardSubTextStyle}
             />
     );
 
