@@ -1,4 +1,3 @@
-import { configureReanimatedLogger, ReanimatedLogLevel } from 'react-native-reanimated';
 import { ImageBackground, View, Image, TouchableOpacity, Modal } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -13,8 +12,6 @@ import DeckData from './DeckData'
 import {BOTTOM_APPBAR_HEIGHT, specialShuffle} from './Utils'
 import st from '../assets/style'
 import { ShareableCard } from './ShareableCard';
-
-configureReanimatedLogger({ level: ReanimatedLogLevel.warn, strict: false });
 
 export default function PlayScreen({route, navigation}) {
   const MAX = 3;
