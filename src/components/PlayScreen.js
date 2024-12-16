@@ -68,7 +68,6 @@ export default function PlayScreen({route, navigation}) {
     else if(newIndex >= cardDeck.value.length) {
       cardDeck.value.splice(0, cardDeck.value.length, cardDeck.value);
       setCurrentIndex(0);
-      animatedValue.value = 0;
       setDeckKey(prevKey => prevKey + 1);
       updateVisibleCards();
     }
