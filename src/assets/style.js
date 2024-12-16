@@ -75,9 +75,13 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         color: '#53B0CF',
     },
-    deckFavs: {
+    favDeck: {
         fontFamily: "Comic",
         fontWeight: 'bold',
+        color: 'white',
+    },
+    favSubText: {
+        fontFamily: "Comic",
         color: 'white',
     },
     qODCard: {
