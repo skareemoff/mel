@@ -31,7 +31,7 @@ export default function Onboarding({navigation}) {
   return (
     <GestureHandlerRootView>
       <SafeAreaView edges={['right', 'left']} style={[styles.container]}>
-        <View style={[styles.cardContainer, { paddingTop: Math.max(insets.top, 10) }]}>
+        <View style={[styles.cardContainer, { paddingTop: Math.max(insets.top, 100)}]}>
           {cardDeck.map((item, index) => {
             return (
               <SwipableCard
