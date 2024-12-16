@@ -9,6 +9,7 @@ export const shuffle = (array) => {
   return sortedList;
 }
 
+// Make sure the first card is not a special card
 export const specialShuffle = (array) => {
   var tmpArray = array;
   do {
