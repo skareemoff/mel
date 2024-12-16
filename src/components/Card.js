@@ -8,8 +8,6 @@ import Markdown from 'react-native-markdown-display';
 const Card = (cardData, props) => {
     const cardHeight = calculateCardHeight(cardData);
 
-    const bottomPadding = (cardData.type == 'card') ? 0 : 0;
-
     const getShareableView = () => {
         return (
             <>
@@ -21,10 +19,10 @@ const Card = (cardData, props) => {
               </View>
               <View style={[st.middle, st.shotMiddle]}>
                 <Text style={[st.cardText, styles[cardData.cardTextStyle], st.shotCardText]}>{cardData.text}</Text>
-                <Text style={[st.cardSubText, styles[cardData.cardSubTextStyle]]}>{cardData.subText}</Text>
+                <Text style={[st.cardSubText, styles[cardData.cardSubTextStyle], st.shotCardSubText]}>{cardData.subText}</Text>
                 <View style={st.shotCommentBox}></View>
               </View>
-              <View style={[st.bottom, st.shotBottom, {paddingBottom: bottomPadding}]}>
+              <View style={[st.bottom, st.shotBottom]}>
                 <Text style={[st.footerText, st.footerTextLeft, styles[cardData.infoTextStyleLeft], st.shotFooterTextLeft]}>{cardData.infoLeft}</Text>
                 <Text style={[st.footerText, st.footerTextRight, styles[cardData.infoTextStyleRight], st.shotFooterTextRight]}>{cardData.infoRight}</Text>
               </View>
@@ -41,14 +39,14 @@ const Card = (cardData, props) => {
             getShareableView()
         ) : (
             <>
-                <View style={[st.top, { position: 'relative' }]}>
+                <View style={[st.top]}>
                     {cardData.isFavourite == 'yes' ? (
                         <Image
                             source={require('../assets/images/like.png')}
-                            style={{ width: 48, height: 48, position: 'absolute', top: 20, right: 20, zIndex: 1 }}
+                            style={st.likeIcon}
                         />
                     ) : null}
-                    <View style={[st.cardHeader, { width: '100%' }]}>
+                    <View style={[st.cardHeader]}>
                         <Text style={[st.deckName, styles[cardData.deckTextStyle]]}>{cardData.deckName}</Text>
                         <Text style={[st.deckSubText, styles[cardData.deckSubTextStyle]]}>{cardData.deckSubText}</Text>
                     </View>
@@ -64,7 +62,7 @@ const Card = (cardData, props) => {
                         <Text style={[st.cardSubText, styles[cardData.cardSubTextStyle]]}>{cardData.subText}</Text>
                     </View>
                 )}
-                <View style={[st.bottom, {paddingBottom: bottomPadding}]}>
+                <View style={[st.bottom]}>
                     <Text style={[st.footerText, st.footerTextLeft, styles[cardData.infoTextStyleLeft]]}>{cardData.infoLeft}</Text>
                     <Text style={[st.footerText, st.footerTextRight, styles[cardData.infoTextStyleRight]]}>{cardData.infoRight}</Text>
                 </View>
@@ -72,14 +70,14 @@ const Card = (cardData, props) => {
         );
 
         return (
-            <View style={[st.card,
+            <View style={[st.card, styles.shadow,
                 {height: cardHeight, width: width * 0.9, marginHorizontal: width * 0.05},
                 styles[cardData.cardStyle]
             ]}>
                 {img ? (
                     <ImageBackground
                         source={img}
-                        imageStyle={{ borderRadius: 20}}
+                        imageStyle={{ borderRadius: 30}}
                         style={{
                             height: '100%',
                             width: '100%',
@@ -112,10 +110,7 @@ const st = StyleSheet.create({
         alignItems: 'center',
         maxWidth: 400,
         marginBottom: 20,
-        shadowColor: '#000',
-        shadowOpacity: 0.5,
-        shadowOffset: {width: 2, height: 2 },
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     top: {
         flex: 1,
@@ -123,6 +118,7 @@ const st = StyleSheet.create({
         flexWrap: 'wrap',
         justifyContent: 'center',
         alignItems: 'baseline',
+        position: 'relative',
         maxWidth: 400,
         paddingTop: 20,
         justifyContent: 'center',
@@ -198,8 +194,18 @@ const st = StyleSheet.create({
     footerTextRight: {
         right: 15,
     },
+    likeIcon: {
+        width: 48,
+        height: 48,
+        position: 'absolute',
+        top: 20,
+        right: 20,
+        zIndex: 1
+    },
+
 
     shotTop: {
+        backgroundColor: 'white',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         paddingTop: 10,
@@ -212,16 +218,19 @@ const st = StyleSheet.create({
         paddingHorizontal: 15,
     },
     shotDeckName: {
+        backgroundColor: 'white',
         fontWeight: 'bold',
         textAlign: 'center',
         color: '#000',
     },
     shotDeckSubText: {
+        backgroundColor: 'white',
         textAlign: 'center',
         color: '#666',
         marginTop: 5,
     },
     shotMiddle: {
+        backgroundColor: 'white',
         padding: 20,
         paddingTop: 10,
         flexDirection: 'column',
@@ -231,16 +240,19 @@ const st = StyleSheet.create({
         width: '100%',
     },
     shotCardText: {
+        backgroundColor: 'white',
         textAlign: 'center',
         color: '#000',
     },
     shotCardSubText: {
+        backgroundColor: 'white',
+        color: '#000',
         marginTop: 20,
     },
     shotCommentBox: {
         borderWidth: 1,
         borderColor: '#000',
-        borderRadius: 8,
+        borderRadius: 30,
         padding: 10,
         flex: 1,
         width: '90%',
@@ -249,6 +261,7 @@ const st = StyleSheet.create({
         marginBottom: 10,
     },
     shotBottom: {
+        backgroundColor: 'white',
         flex: 0.1,
         minHeight: 40,
         justifyContent: 'center',

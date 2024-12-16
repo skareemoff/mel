@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSharedValue, } from 'react-native-reanimated';
-import { ImageBackground, View } from 'react-native';
+import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -29,9 +29,9 @@ export default function Onboarding({navigation}) {
   };
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <SafeAreaView edges={['right', 'left']} style={[styles.container,]}>
-        <View style={[styles.cardContainer, { maxWidth: 400, paddingTop: Math.max(insets.top, 10), }]}>
+    <GestureHandlerRootView>
+      <SafeAreaView edges={['right', 'left']} style={[styles.container]}>
+        <View style={[styles.cardContainer, { paddingTop: Math.max(insets.top, 10) }]}>
           {cardDeck.map((item, index) => {
             return (
               <SwipableCard

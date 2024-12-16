@@ -27,7 +27,7 @@ const RevealableCard = (cardData) => {
             {isShowRevealButton ?
             <View name="cover" style={[styles.cover, { height: calculateCardHeight(cardData) * 0.8, width: width * 0.85 } ]} >
                 <Image source={require('../assets/images/qodmask-small.png')} style={styles.blurImage} />
-                <TouchableOpacity style={styles.revealButton } onPressOut={() => clickReveal()}>
+                <TouchableOpacity style={[styles.revealButton, styles.shadow]} onPressOut={() => clickReveal()}>
                   <Text style={styles.revealButtonText} source={require("../assets/images/button-play.png")} >Reveal </Text>
                 </TouchableOpacity>
               </View>
@@ -71,9 +71,6 @@ const styles = StyleSheet.create({
   revealButton: {
     justifyContent: 'center',
     borderRadius: 24,
-    shadowColor: '#000',
-    shadowOpacity: 0.5,
-    shadowOffset: {width: 2, height: 2 },
     width: 120,
     height: 60,
     backgroundColor: "white",

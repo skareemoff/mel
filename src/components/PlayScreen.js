@@ -103,7 +103,7 @@ export default function PlayScreen({route, navigation}) {
   };
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView>
       <SafeAreaView edges={['right', 'left']} style={st.container}>
         <ImageBackground
           source={DeckData.getDeckImage(deckData.deckBackground)}

@@ -51,13 +51,13 @@ export default function App() {
                     :
                     <TouchableOpacity  onPress={() => navigation.goBack(null)}>
                       <Image
-                        style={{width: 32, height: 32}}
+                        style={styles.smallButtonSize}
                         source={require('./src/assets/images/button-small-back.png')}
                       />
                     </TouchableOpacity>
                   ),
                   headerTitle: () => (
-                    <Image source={require('./src/assets/images/logo.png')} style={{width:'72', height: 32}}/>
+                    <Image source={require('./src/assets/images/logo.png')} style={styles.logoSize}/>
                   ),
                 })}>
                 <Stack.Screen name="Home" component={HomeScreen} options={{  headerShown: true}} />

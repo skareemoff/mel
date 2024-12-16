@@ -1,13 +1,6 @@
 import { View, StyleSheet} from "react-native";
 import React from "react";
-import Animated, {
-  interpolate,
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-  withSequence,
-  runOnJS
-} from "react-native-reanimated";
+import Animated, { interpolate, useAnimatedStyle, useSharedValue, withTiming, withSequence, runOnJS } from "react-native-reanimated";
 import Card from './Card'
 
 const RotatableCard = (cardData) => {

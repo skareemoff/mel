@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, ImageBackground, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native';
+import { Image, ImageBackground, SafeAreaView, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import ViewShot from 'react-native-view-shot';
 import DeckData from './DeckData';

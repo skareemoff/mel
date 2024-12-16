@@ -51,13 +51,7 @@ const DeckInfoScreen = ({route, navigation}) => {
     );
 
     return (
-        <View style={[styles.container,
-            {
-                shadowColor:'#000',
-                shadowOpacity:0.3,
-                shadowOffset:{width: 1, height: 1 }
-            }
-        ]}>
+        <View style={[styles.container, styles.shadow ]}>
             <FlatList
                 style={styles.flatList}
                 data={cards}

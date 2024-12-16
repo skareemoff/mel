@@ -100,11 +100,7 @@ const SwipableCard = ({
 
   return (
     <GestureDetector gesture={pan}>
-      <Animated.View style={[ styles.container, { zIndex: deckSize - index }, animatedStyle ]}
-          shadowColor='#000'
-          shadowOpacity={0.3}
-          shadowOffset={{width: 1, height: 1 }}
-      >
+      <Animated.View style={[ styles.container, { zIndex: deckSize - index}, animatedStyle ]}>
           <Card
             type='card'
             deckName={deckName}
@@ -131,10 +127,10 @@ export default SwipableCard;
 
 const styles = StyleSheet.create({
   container: {
-      position: 'absolute',
-      width: '100%',
-      height: '100%',
-      borderRadius: 30,
-      maxWidth: 400,
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    borderRadius: 30,
+    maxWidth: 400,
   },
 });
