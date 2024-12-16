@@ -8,10 +8,9 @@ import { useSharedValue } from 'react-native-reanimated';
 import { captureRef } from 'react-native-view-shot';
 import { Appbar } from 'react-native-paper';
 import Share from 'react-native-share';
-import {BOTTOM_APPBAR_HEIGHT} from './Utils'
 import SwipableCard from './SwipableCard';
 import DeckData from './DeckData'
-import {specialShuffle} from './Utils'
+import {BOTTOM_APPBAR_HEIGHT, specialShuffle} from './Utils'
 import st from '../assets/style'
 import { ShareableCard } from './ShareableCard';
 
