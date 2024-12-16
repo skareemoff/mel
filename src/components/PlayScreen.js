@@ -109,9 +109,7 @@ export default function PlayScreen({route, navigation}) {
           source={DeckData.getDeckImage(deckData.deckBackground)}
           style={{ height: '100%', width: '100%'}}
         >
-          <View
-            style={[st.cardContainer, {paddingTop: Math.max(insets.top, 100), }]}
-            key={deckKey}>
+          <View style={[st.cardContainer, {paddingTop: Math.max(insets.top, 100), }]} key={deckKey}>
             {visibleCards.map((item) => {
               return (
                 <SwipableCard
