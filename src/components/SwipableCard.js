@@ -5,6 +5,8 @@ import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 import Card from './Card';
 import {width} from './Utils'
 import DeckData from './DeckData'
+
+
 const SwipableCard = ({
   deckName,
   maxVisibleItems,
@@ -98,14 +100,7 @@ const SwipableCard = ({
 
   return (
     <GestureDetector gesture={pan}>
-      <Animated.View
-          style={[
-              styles.container,
-              {
-                zIndex: deckSize - index,
-              },
-              animatedStyle
-          ]}
+      <Animated.View style={[ styles.container, { zIndex: deckSize - index }, animatedStyle ]}
           shadowColor='#000'
           shadowOpacity={0.3}
           shadowOffset={{width: 1, height: 1 }}
@@ -139,7 +134,7 @@ const styles = StyleSheet.create({
       position: 'absolute',
       width: '100%',
       height: '100%',
-      borderRadius: 28,
+      borderRadius: 30,
       maxWidth: 400,
   },
 });

@@ -108,7 +108,7 @@ export default Card;
 const st = StyleSheet.create({
     card: {
         justifyContent: 'center',
-        borderRadius: 20,
+        borderRadius: 30,
         alignItems: 'center',
         maxWidth: 400,
         marginBottom: 20,
