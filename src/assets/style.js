@@ -8,6 +8,11 @@ export default StyleSheet.create({
         justifyContent: "center",
         alignContent: "center",
     },
+    shadow: {
+        shadowColor:'#000',
+        shadowOpacity:0.5,
+        shadowOffset:{width: 2, height: 2 }
+    },
     flatList: {
         backgroundColor: '#FBF7EF',
     },
@@ -49,6 +54,14 @@ export default StyleSheet.create({
     largeButtonImage: {
         height: 60,
         width: 140,
+    },
+    smallButtonSize: {
+        width: 32,
+        height: 32,
+    },
+    logoSize: {
+        width: 72,
+        height: 32,
     },
     deck1: {
         color: 'white',
