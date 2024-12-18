@@ -99,17 +99,14 @@ export default EStyleSheet.create({
         fontFamily: 'DMSans-Bold'
     },
     deck6: {
-        fontFamily: "Comic",
         fontFamily: 'DMSans-Bold',
         color: '#53B0CF',
     },
     favDeck: {
-        fontFamily: "Comic",
         fontFamily: 'DMSans-Bold',
         color: 'white',
     },
     favSubText: {
-        fontFamily: "Comic",
         color: 'white',
     },
     qODCard: {
@@ -195,7 +192,6 @@ export default EStyleSheet.create({
     },
     deckInfoRules: {
         heading3: {
-            fontFamily: "DMSans-Regular",
             color: "black",
             textAlign: 'center',
             fontSize: 20,
