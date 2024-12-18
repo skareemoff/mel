@@ -163,8 +163,8 @@ const st = EStyleSheet.create({
         color: 'black',
         textAlign: 'center',
         width: '100%',
-        paddingLeft: 20,
-        paddingRight: 20,
+        paddingLeft: "1rem",
+        paddingRight: "1rem",
     },
     cardSubText: {
         fontFamily: "DMSans-Regular",
