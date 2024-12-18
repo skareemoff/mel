@@ -12,10 +12,36 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
 		4DD6B3C4D8BB4F019F532B36 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42897212B9D4DC6907D57D2 /* noop-file.swift */; };
+		6213E6F8F4714CA5AB324966 /* DMMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA9AD4FEB644C87ACB835B6 /* DMMono-Regular.ttf */; };
+		788D6072E3724963AB2962D9 /* DMMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5979637A8F28429A984EAE85 /* DMMono-Medium.ttf */; };
+		796C9BCB5A293CD9EA6ED25B /* libPods-MoreExcitingLife.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAD157C28A84D6F024D9833 /* libPods-MoreExcitingLife.a */; };
 		79E109CF7A6B545134C55EED /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A5509F5B174372437CDFD69C /* PrivacyInfo.xcprivacy */; };
-		96905EF65AED1B983A6B3ABC /* libPods-MoreExcitingLife.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-MoreExcitingLife.a */; };
+		7AEA87C266F34C11B80FBEFA /* DMMono-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 782EEA4B8DF94CC0BE0797F1 /* DMMono-Italic.ttf */; };
+		7EA10F0D2D119BBE0017542D /* DMSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD38F276E62449280FE3B28 /* DMSans-ExtraBoldItalic.ttf */; };
+		7EA10F0E2D119BBE0017542D /* DMSans-VariableFont_opsz,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C32C0BAA07AF4AFDB67DCE3A /* DMSans-VariableFont_opsz,wght.ttf */; };
+		7EA10F0F2D119BBE0017542D /* DMSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22488FE174114F568C46429E /* DMSans-Italic.ttf */; };
+		7EA10F102D119BBE0017542D /* DMSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8121CDD28D345F8AA6ECF49 /* DMSans-ExtraBold.ttf */; };
+		7EA10F112D119BBE0017542D /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61C18BCBF58B4F0CA7EC7AD3 /* DMSans-Regular.ttf */; };
+		7EA10F122D119BBE0017542D /* DMSans-Italic-VariableFont_opsz,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 940396C6F1684F42B5A4DB8E /* DMSans-Italic-VariableFont_opsz,wght.ttf */; };
+		7EA10F132D119BBE0017542D /* DMSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E479C1D8C4C7423497E06456 /* DMSans-ExtraLight.ttf */; };
+		7EA10F142D119BBE0017542D /* DMSans-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 141749748A714B2598BA7786 /* DMSans-BlackItalic.ttf */; };
+		7EA10F152D119BBE0017542D /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61E184DCB059491981DEA1BF /* DMSans-Bold.ttf */; };
+		7EA10F162D119BBE0017542D /* DMSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91D79E09A17340AEB9CA630F /* DMSans-BoldItalic.ttf */; };
+		7EA10F172D119BBE0017542D /* DMSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18AFAFC93E4346138979D686 /* DMSans-SemiBold.ttf */; };
+		7EA10F182D119BBE0017542D /* DMSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C70A7EE6900451594238489 /* DMSans-Thin.ttf */; };
+		7EA10F192D119BBE0017542D /* DMSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B497A3141F244906A626E123 /* DMSans-ExtraLightItalic.ttf */; };
+		7EA10F1A2D119BBE0017542D /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DA30E6B91DF4CC9AC656A51 /* DMSans-Medium.ttf */; };
+		7EA10F1B2D119BBE0017542D /* DMSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDF6BB5B905A444BB11E9D63 /* DMSans-MediumItalic.ttf */; };
+		7EA10F1C2D119BBE0017542D /* DMSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9B61B522ACB4D429226D65A /* DMSans-Black.ttf */; };
+		7EA10F1D2D119BBE0017542D /* DMSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3C893A2C54C401085FFB3E2 /* DMSans-LightItalic.ttf */; };
+		7EA10F1E2D119BBE0017542D /* DMSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81F2A5804A964936A14E8DE6 /* DMSans-ThinItalic.ttf */; };
+		7EA10F1F2D119BBE0017542D /* DMSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37A2D5454C68452E9A67922E /* DMSans-Light.ttf */; };
+		7EA10F202D119BBE0017542D /* DMSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE6F13DEEBD42BA9368E37C /* DMSans-SemiBoldItalic.ttf */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
+		B23B114B89BF42A092605C33 /* DMMono-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 865F7D82A35B41FC955578C8 /* DMMono-MediumItalic.ttf */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+		CE6AA586DE594C00B559AA6C /* DMMono-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C79A3981731345769F6CC2A4 /* DMMono-Light.ttf */; };
+		EF42716B3F384E8CB1A678BA /* DMMono-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B15C1B1A3C11488EA221D20C /* DMMono-LightItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,17 +51,43 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MoreExcitingLife/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MoreExcitingLife/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MoreExcitingLife/main.m; sourceTree = "<group>"; };
+		141749748A714B2598BA7786 /* DMSans-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-BlackItalic.ttf"; path = "../src/assets/fonts/DMSans-BlackItalic.ttf"; sourceTree = "<group>"; };
+		18AFAFC93E4346138979D686 /* DMSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-SemiBold.ttf"; path = "../src/assets/fonts/DMSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		1C018B80BA6F2BAF718D6C1C /* Pods-MoreExcitingLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoreExcitingLife.debug.xcconfig"; path = "Target Support Files/Pods-MoreExcitingLife/Pods-MoreExcitingLife.debug.xcconfig"; sourceTree = "<group>"; };
+		22488FE174114F568C46429E /* DMSans-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Italic.ttf"; path = "../src/assets/fonts/DMSans-Italic.ttf"; sourceTree = "<group>"; };
+		37A2D5454C68452E9A67922E /* DMSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Light.ttf"; path = "../src/assets/fonts/DMSans-Light.ttf"; sourceTree = "<group>"; };
+		3C70A7EE6900451594238489 /* DMSans-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Thin.ttf"; path = "../src/assets/fonts/DMSans-Thin.ttf"; sourceTree = "<group>"; };
 		410412682CFA40D99DCB4B04 /* MoreExcitingLife-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "MoreExcitingLife-Bridging-Header.h"; path = "MoreExcitingLife/MoreExcitingLife-Bridging-Header.h"; sourceTree = "<group>"; };
-		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-MoreExcitingLife.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoreExcitingLife.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C2E3173556A471DD304B334 /* Pods-MoreExcitingLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoreExcitingLife.debug.xcconfig"; path = "Target Support Files/Pods-MoreExcitingLife/Pods-MoreExcitingLife.debug.xcconfig"; sourceTree = "<group>"; };
-		7A4D352CD337FB3A3BF06240 /* Pods-MoreExcitingLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoreExcitingLife.release.xcconfig"; path = "Target Support Files/Pods-MoreExcitingLife/Pods-MoreExcitingLife.release.xcconfig"; sourceTree = "<group>"; };
+		4DA30E6B91DF4CC9AC656A51 /* DMSans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Medium.ttf"; path = "../src/assets/fonts/DMSans-Medium.ttf"; sourceTree = "<group>"; };
+		5979637A8F28429A984EAE85 /* DMMono-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "DMMono-Medium.ttf"; path = "../src/assets/fonts/DMMono-Medium.ttf"; sourceTree = "<group>"; };
+		61C18BCBF58B4F0CA7EC7AD3 /* DMSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Regular.ttf"; path = "../src/assets/fonts/DMSans-Regular.ttf"; sourceTree = "<group>"; };
+		61E184DCB059491981DEA1BF /* DMSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Bold.ttf"; path = "../src/assets/fonts/DMSans-Bold.ttf"; sourceTree = "<group>"; };
+		682812DB0B150DDD753762A9 /* Pods-MoreExcitingLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoreExcitingLife.release.xcconfig"; path = "Target Support Files/Pods-MoreExcitingLife/Pods-MoreExcitingLife.release.xcconfig"; sourceTree = "<group>"; };
+		782EEA4B8DF94CC0BE0797F1 /* DMMono-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "DMMono-Italic.ttf"; path = "../src/assets/fonts/DMMono-Italic.ttf"; sourceTree = "<group>"; };
 		7ED84E712D03833600990335 /* libReactNativeKCKeepAwake.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReactNativeKCKeepAwake.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		81F2A5804A964936A14E8DE6 /* DMSans-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-ThinItalic.ttf"; path = "../src/assets/fonts/DMSans-ThinItalic.ttf"; sourceTree = "<group>"; };
+		865F7D82A35B41FC955578C8 /* DMMono-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "DMMono-MediumItalic.ttf"; path = "../src/assets/fonts/DMMono-MediumItalic.ttf"; sourceTree = "<group>"; };
+		91D79E09A17340AEB9CA630F /* DMSans-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-BoldItalic.ttf"; path = "../src/assets/fonts/DMSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		940396C6F1684F42B5A4DB8E /* DMSans-Italic-VariableFont_opsz,wght.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Italic-VariableFont_opsz,wght.ttf"; path = "../src/assets/fonts/DMSans-Italic-VariableFont_opsz,wght.ttf"; sourceTree = "<group>"; };
+		9BD38F276E62449280FE3B28 /* DMSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-ExtraBoldItalic.ttf"; path = "../src/assets/fonts/DMSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		9FAD157C28A84D6F024D9833 /* libPods-MoreExcitingLife.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoreExcitingLife.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3C893A2C54C401085FFB3E2 /* DMSans-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-LightItalic.ttf"; path = "../src/assets/fonts/DMSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		A5509F5B174372437CDFD69C /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = MoreExcitingLife/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = MoreExcitingLife/SplashScreen.storyboard; sourceTree = "<group>"; };
+		B15C1B1A3C11488EA221D20C /* DMMono-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "DMMono-LightItalic.ttf"; path = "../src/assets/fonts/DMMono-LightItalic.ttf"; sourceTree = "<group>"; };
+		B497A3141F244906A626E123 /* DMSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-ExtraLightItalic.ttf"; path = "../src/assets/fonts/DMSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		BAA9AD4FEB644C87ACB835B6 /* DMMono-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "DMMono-Regular.ttf"; path = "../src/assets/fonts/DMMono-Regular.ttf"; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
+		C32C0BAA07AF4AFDB67DCE3A /* DMSans-VariableFont_opsz,wght.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-VariableFont_opsz,wght.ttf"; path = "../src/assets/fonts/DMSans-VariableFont_opsz,wght.ttf"; sourceTree = "<group>"; };
 		C42897212B9D4DC6907D57D2 /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "MoreExcitingLife/noop-file.swift"; sourceTree = "<group>"; };
+		C79A3981731345769F6CC2A4 /* DMMono-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "DMMono-Light.ttf"; path = "../src/assets/fonts/DMMono-Light.ttf"; sourceTree = "<group>"; };
+		C8121CDD28D345F8AA6ECF49 /* DMSans-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-ExtraBold.ttf"; path = "../src/assets/fonts/DMSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		CEE6F13DEEBD42BA9368E37C /* DMSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-SemiBoldItalic.ttf"; path = "../src/assets/fonts/DMSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		E479C1D8C4C7423497E06456 /* DMSans-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-ExtraLight.ttf"; path = "../src/assets/fonts/DMSans-ExtraLight.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F9B61B522ACB4D429226D65A /* DMSans-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Black.ttf"; path = "../src/assets/fonts/DMSans-Black.ttf"; sourceTree = "<group>"; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-MoreExcitingLife/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		FDF6BB5B905A444BB11E9D63 /* DMSans-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-MediumItalic.ttf"; path = "../src/assets/fonts/DMSans-MediumItalic.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,13 +95,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96905EF65AED1B983A6B3ABC /* libPods-MoreExcitingLife.a in Frameworks */,
+				796C9BCB5A293CD9EA6ED25B /* libPods-MoreExcitingLife.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00B32ECA423E4EFB9589C7BD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F9B61B522ACB4D429226D65A /* DMSans-Black.ttf */,
+				141749748A714B2598BA7786 /* DMSans-BlackItalic.ttf */,
+				61E184DCB059491981DEA1BF /* DMSans-Bold.ttf */,
+				91D79E09A17340AEB9CA630F /* DMSans-BoldItalic.ttf */,
+				C8121CDD28D345F8AA6ECF49 /* DMSans-ExtraBold.ttf */,
+				9BD38F276E62449280FE3B28 /* DMSans-ExtraBoldItalic.ttf */,
+				E479C1D8C4C7423497E06456 /* DMSans-ExtraLight.ttf */,
+				B497A3141F244906A626E123 /* DMSans-ExtraLightItalic.ttf */,
+				940396C6F1684F42B5A4DB8E /* DMSans-Italic-VariableFont_opsz,wght.ttf */,
+				22488FE174114F568C46429E /* DMSans-Italic.ttf */,
+				37A2D5454C68452E9A67922E /* DMSans-Light.ttf */,
+				A3C893A2C54C401085FFB3E2 /* DMSans-LightItalic.ttf */,
+				4DA30E6B91DF4CC9AC656A51 /* DMSans-Medium.ttf */,
+				FDF6BB5B905A444BB11E9D63 /* DMSans-MediumItalic.ttf */,
+				61C18BCBF58B4F0CA7EC7AD3 /* DMSans-Regular.ttf */,
+				18AFAFC93E4346138979D686 /* DMSans-SemiBold.ttf */,
+				CEE6F13DEEBD42BA9368E37C /* DMSans-SemiBoldItalic.ttf */,
+				3C70A7EE6900451594238489 /* DMSans-Thin.ttf */,
+				81F2A5804A964936A14E8DE6 /* DMSans-ThinItalic.ttf */,
+				C32C0BAA07AF4AFDB67DCE3A /* DMSans-VariableFont_opsz,wght.ttf */,
+				782EEA4B8DF94CC0BE0797F1 /* DMMono-Italic.ttf */,
+				C79A3981731345769F6CC2A4 /* DMMono-Light.ttf */,
+				B15C1B1A3C11488EA221D20C /* DMMono-LightItalic.ttf */,
+				5979637A8F28429A984EAE85 /* DMMono-Medium.ttf */,
+				865F7D82A35B41FC955578C8 /* DMMono-MediumItalic.ttf */,
+				BAA9AD4FEB644C87ACB835B6 /* DMMono-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* MoreExcitingLife */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,7 +157,7 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				7ED84E712D03833600990335 /* libReactNativeKCKeepAwake.a */,
-				58EEBF8E8E6FB1BC6CAF49B5 /* libPods-MoreExcitingLife.a */,
+				9FAD157C28A84D6F024D9833 /* libPods-MoreExcitingLife.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -93,6 +178,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				D65327D7A22EEC0BE12398D9 /* Pods */,
 				D7E4C46ADA2E9064B798F356 /* ExpoModulesProviders */,
+				00B32ECA423E4EFB9589C7BD /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -127,8 +213,8 @@
 		D65327D7A22EEC0BE12398D9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6C2E3173556A471DD304B334 /* Pods-MoreExcitingLife.debug.xcconfig */,
-				7A4D352CD337FB3A3BF06240 /* Pods-MoreExcitingLife.release.xcconfig */,
+				1C018B80BA6F2BAF718D6C1C /* Pods-MoreExcitingLife.debug.xcconfig */,
+				682812DB0B150DDD753762A9 /* Pods-MoreExcitingLife.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -148,14 +234,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "MoreExcitingLife" */;
 			buildPhases = (
-				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
+				893413DBC44D90BF3117C331 /* [CP] Check Pods Manifest.lock */,
 				F7F45ED4A7E9C8470F2F4296 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				F2A347D6B1F7971CA34F8512 /* [CP] Embed Pods Frameworks */,
+				19D58C84FF4EB94F8C12A40E /* [CP] Embed Pods Frameworks */,
+				8181BD54AB825B6135750511 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -204,8 +290,34 @@
 			files = (
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				7EA10F0D2D119BBE0017542D /* DMSans-ExtraBoldItalic.ttf in Resources */,
+				7EA10F0E2D119BBE0017542D /* DMSans-VariableFont_opsz,wght.ttf in Resources */,
+				7EA10F0F2D119BBE0017542D /* DMSans-Italic.ttf in Resources */,
+				7EA10F102D119BBE0017542D /* DMSans-ExtraBold.ttf in Resources */,
+				7EA10F112D119BBE0017542D /* DMSans-Regular.ttf in Resources */,
+				7EA10F122D119BBE0017542D /* DMSans-Italic-VariableFont_opsz,wght.ttf in Resources */,
+				7EA10F132D119BBE0017542D /* DMSans-ExtraLight.ttf in Resources */,
+				7EA10F142D119BBE0017542D /* DMSans-BlackItalic.ttf in Resources */,
+				7EA10F152D119BBE0017542D /* DMSans-Bold.ttf in Resources */,
+				7EA10F162D119BBE0017542D /* DMSans-BoldItalic.ttf in Resources */,
+				7EA10F172D119BBE0017542D /* DMSans-SemiBold.ttf in Resources */,
+				7EA10F182D119BBE0017542D /* DMSans-Thin.ttf in Resources */,
+				7EA10F192D119BBE0017542D /* DMSans-ExtraLightItalic.ttf in Resources */,
+				7EA10F1A2D119BBE0017542D /* DMSans-Medium.ttf in Resources */,
+				7EA10F1B2D119BBE0017542D /* DMSans-MediumItalic.ttf in Resources */,
+				7EA10F1C2D119BBE0017542D /* DMSans-Black.ttf in Resources */,
+				7EA10F1D2D119BBE0017542D /* DMSans-LightItalic.ttf in Resources */,
+				7EA10F1E2D119BBE0017542D /* DMSans-ThinItalic.ttf in Resources */,
+				7EA10F1F2D119BBE0017542D /* DMSans-Light.ttf in Resources */,
+				7EA10F202D119BBE0017542D /* DMSans-SemiBoldItalic.ttf in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
 				79E109CF7A6B545134C55EED /* PrivacyInfo.xcprivacy in Resources */,
+				7AEA87C266F34C11B80FBEFA /* DMMono-Italic.ttf in Resources */,
+				CE6AA586DE594C00B559AA6C /* DMMono-Light.ttf in Resources */,
+				EF42716B3F384E8CB1A678BA /* DMMono-LightItalic.ttf in Resources */,
+				788D6072E3724963AB2962D9 /* DMMono-Medium.ttf in Resources */,
+				B23B114B89BF42A092605C33 /* DMMono-MediumItalic.ttf in Resources */,
+				6213E6F8F4714CA5AB324966 /* DMMono-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,29 +339,25 @@
 			shellPath = /bin/sh;
 			shellScript = "if [[ -f \"$PODS_ROOT/../.xcode.env\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env\"\nfi\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n# The project root by default is one level up from the ios directory\nexport PROJECT_ROOT=\"$PROJECT_DIR\"/..\n\nif [[ \"$CONFIGURATION\" = *Debug* ]]; then\n  export SKIP_BUNDLING=1\nfi\nif [[ -z \"$ENTRY_FILE\" ]]; then\n  # Set the entry JS file using the bundler's entry resolution.\n  export ENTRY_FILE=\"$(\"$NODE_BINARY\" -e \"require('expo/scripts/resolveAppEntry')\" \"$PROJECT_ROOT\" ios absolute | tail -n 1)\"\nfi\n\nif [[ -z \"$CLI_PATH\" ]]; then\n  # Use Expo CLI\n  export CLI_PATH=\"$(\"$NODE_BINARY\" --print \"require.resolve('@expo/cli', { paths: [require.resolve('expo/package.json')] })\")\"\nfi\nif [[ -z \"$BUNDLE_COMMAND\" ]]; then\n  # Default Expo CLI command for bundling\n  export BUNDLE_COMMAND=\"export:embed\"\nfi\n\n# Source .xcode.env.updates if it exists to allow\n# SKIP_BUNDLING to be unset if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.updates\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.updates\"\nfi\n# Source local changes to allow overrides\n# if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n`\"$NODE_BINARY\" --print \"require('path').dirname(require.resolve('react-native/package.json')) + '/scripts/react-native-xcode.sh'\"`\n\n";
 		};
-		08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */ = {
+		19D58C84FF4EB94F8C12A40E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
+				"${PODS_ROOT}/Target Support Files/Pods-MoreExcitingLife/Pods-MoreExcitingLife-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
 			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MoreExcitingLife-checkManifestLockResult.txt",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoreExcitingLife/Pods-MoreExcitingLife-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
+		8181BD54AB825B6135750511 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -283,22 +391,26 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoreExcitingLife/Pods-MoreExcitingLife-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F2A347D6B1F7971CA34F8512 /* [CP] Embed Pods Frameworks */ = {
+		893413DBC44D90BF3117C331 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoreExcitingLife/Pods-MoreExcitingLife-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
+			inputFileListPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
+				"$(DERIVED_FILE_DIR)/Pods-MoreExcitingLife-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoreExcitingLife/Pods-MoreExcitingLife-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F7F45ED4A7E9C8470F2F4296 /* [Expo] Configure project */ = {
@@ -339,7 +451,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C2E3173556A471DD304B334 /* Pods-MoreExcitingLife.debug.xcconfig */;
+			baseConfigurationReference = 1C018B80BA6F2BAF718D6C1C /* Pods-MoreExcitingLife.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -382,7 +494,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7A4D352CD337FB3A3BF06240 /* Pods-MoreExcitingLife.release.xcconfig */;
+			baseConfigurationReference = 682812DB0B150DDD753762A9 /* Pods-MoreExcitingLife.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
