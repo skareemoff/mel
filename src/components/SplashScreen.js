@@ -102,7 +102,7 @@ const styles = EStyleSheet.create({
     },
     text: {
         color: "black",
-        fontFamily: "DM Sans",
+        fontFamily: 'DMSans-Regular',
         fontSize: 24,
         textAlign: "center",
         width: "100%",

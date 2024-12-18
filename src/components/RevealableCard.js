@@ -32,6 +32,10 @@ const RevealableCard = (cardData) => {
                 text={cardData.text}
                 cardTextStyle={cardData.cardTextStyle}
                 cardStyle={cardData.cardStyle}
+                subText={cardData.subText}
+                cardSubTextStyle={cardData.cardSubTextStyle}
+                deckTextStyle={cardData.deckTextStyle}
+                deckSubTextStyle={cardData.deckSubTextStyle}
             />
             {isShowRevealButton ?
             <Animated.View name="cover" style={[styles.cover, { height: calculateCardHeight(cardData) * 0.8, width: width * 0.85 }, opacityStyle ]} >
@@ -87,7 +91,7 @@ const styles = EStyleSheet.create({
     textAlign: "center",
     justifyContent: 'center',
     color: "black",
-    fontFamily: "DM Sans",
+    fontFamily: "DMSans-Regular",
     fontSize: 24,
   }
 });

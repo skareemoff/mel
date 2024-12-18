@@ -140,7 +140,7 @@ const st = EStyleSheet.create({
         alignItems: 'center',
     },
     deckName: {
-        fontFamily: "DM Sans",
+        fontFamily: "DMSans-Regular",
         fontSize: 20,
         flex: 2,
         textAlign: 'center',
@@ -148,7 +148,7 @@ const st = EStyleSheet.create({
         width: '100%'
     },
     deckSubText: {
-        fontFamily: "DM Sans",
+        fontFamily: "DMSans-Regular",
         fontSize: 14,
         flex: 1,
         flexDirection: 'row',
@@ -158,7 +158,7 @@ const st = EStyleSheet.create({
         color: 'black',
     },
     cardText: {
-        fontFamily: "DM Sans",
+        fontFamily: "DMSans-Regular",
         fontSize: 28,
         color: 'black',
         textAlign: 'center',
@@ -167,7 +167,7 @@ const st = EStyleSheet.create({
         paddingRight: 20,
     },
     cardSubText: {
-        fontFamily: "DM Sans",
+        fontFamily: "DMSans-Regular",
         fontSize: 20,
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -184,7 +184,7 @@ const st = EStyleSheet.create({
         maxWidth: 400,
     },
     footerText: {
-        fontFamily: "DM Sans",
+        fontFamily: "DMSans-Regular",
         color: 'black',
         fontSize: 14,
         position: 'absolute',
@@ -220,7 +220,7 @@ const st = EStyleSheet.create({
     },
     shotDeckName: {
         backgroundColor: 'white',
-        fontWeight: 'bold',
+        fontFamily: "DMSans-Bold",
         textAlign: 'center',
         color: '#000',
     },
