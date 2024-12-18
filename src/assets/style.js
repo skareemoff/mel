@@ -17,6 +17,12 @@ export default EStyleSheet.create({
     headerStyle: {
         backgroundColor: '$containerColor',
     },
+    logo: {
+        width: '6.9375rem',
+        height: '3.125rem',
+        alignSelf: 'center',
+        backgroundColor: 'transparent',
+    },
     shadow: {
         shadowColor:'#000',
         shadowOpacity:0.5,
