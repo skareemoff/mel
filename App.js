@@ -16,7 +16,7 @@ export default function App() {
   const [isShowSplashScreen, setIsShowSplashScreen] = useState(true);
   const isShowOnboarding = true;
 
-  DeckData.inst(); // preload the deck while showing splashscreen
+  DeckData.inst(); // TODO: preload the deck while showing splashscreen
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -36,32 +36,14 @@ export default function App() {
   return (
     <View style={styles.container}>
       {
-        isShowSplashScreen ?
-          <SplashScreen  /> :
-          <NavigationContainer>
-              <Stack.Navigator initialRouteName={isShowOnboarding ? 'Onboarding' : 'Home'}
-                screenOptions={({ navigation, route }) => ({
-                  headerShadowVisible: false,
-                  headerStyle: styles.headerStyle,
-                  headerLeft: () => (
-                    route.name == 'Home' || route.name == 'Onboarding' ?
-                    null
-                    :
-                    <TouchableOpacity  onPress={() => navigation.goBack(null)}>
-                      <Image
-                        style={styles.smallButtonSize}
-                        source={require('./src/assets/images/button-small-back.png')}
-                      />
-                    </TouchableOpacity>
-                  ),
-                  headerTitle: () => (
-                    <Image source={require('./src/assets/images/logo.png')} style={styles.logoSize}/>
-                  ),
-                })}>
-                <Stack.Screen name="Home" component={HomeScreen} options={{  headerShown: true}} />
-                <Stack.Screen name="Deck" component={DeckInfoScreen} options={{  headerShown: true}} />
-                <Stack.Screen name="Play" component={PlayScreen} options= {{  headerShown: true }} />
-                <Stack.Screen name="Onboarding" component={Onboarding} options= {{  headerShown: true }} />
+        isShowSplashScreen
+        ?  <SplashScreen  />
+        :  <NavigationContainer>
+              <Stack.Navigator initialRouteName={isShowOnboarding ? 'Onboarding' : 'Home'}>
+                <Stack.Screen name="Onboarding" component={Onboarding} options= {{  headerShown: false }} />
+                <Stack.Screen name="Home" component={HomeScreen} options={{  headerShown: false}} />
+                <Stack.Screen name="Info" component={DeckInfoScreen} options={{  headerShown: false}} />
+                <Stack.Screen name="Play" component={PlayScreen} options= {{  headerShown: false }} />
               </Stack.Navigator>
           </NavigationContainer>
       }
