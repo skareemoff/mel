@@ -2,14 +2,15 @@ import { View, Image, TouchableOpacity, Text, Animated} from "react-native";
 import EStyleSheet from 'react-native-extended-stylesheet';
 import React, { useRef, useState } from "react";
 import Card from './Card'
-import st from '../assets/style'
-import { width, calculateCardHeight } from "./Utils";
+import styles from '../assets/style'
+import { calculateCardHeight } from "./Utils";
 
 
 const RevealableCard = (cardData) => {
   const [isShowRevealButton, setIsShowRevealButton] = useState(true);
   const opacityAnimation = useRef(new Animated.Value(1)).current;
   const opacityStyle = { opacity: opacityAnimation };
+  const cardHeight = calculateCardHeight(cardData);
 
   const clickReveal = () => {
     Animated.timing(opacityAnimation, {
@@ -22,8 +23,8 @@ const RevealableCard = (cardData) => {
   }
 
   return (
-    <View stylele={st.container}>
-        <Animated.View style={[styles.face]}>
+    <View stylele={styles.container}>
+        <Animated.View style={[st.face]}>
             <Card
                 type='card'
                 height={cardData.height}
@@ -38,10 +39,10 @@ const RevealableCard = (cardData) => {
                 deckSubTextStyle={cardData.deckSubTextStyle}
             />
             {isShowRevealButton ?
-            <Animated.View name="cover" style={[styles.cover, { height: calculateCardHeight(cardData) * 0.8, width: width * 0.85 }, opacityStyle ]} >
-                <Image source={require('../assets/images/qodmask-small.png')} style={styles.blurImage} />
-                <TouchableOpacity style={[styles.revealButton, styles.shadow]} onPressOut={() => clickReveal()}>
-                  <Text style={styles.revealButtonText} source={require("../assets/images/button-play.png")} >Reveal </Text>
+            <Animated.View name="cover" style={[st.cover, opacityStyle, styles.cardBlur ]} >
+                <Image source={require('../assets/images/qodmask-small.png')} style={st.blurImage} />
+                <TouchableOpacity style={[st.revealButton, st.shadow]} onPressOut={() => clickReveal()}>
+                  <Text style={st.revealButtonText} source={require("../assets/images/button-play.png")} >Reveal </Text>
                 </TouchableOpacity>
               </Animated.View>
             :
@@ -54,7 +55,7 @@ const RevealableCard = (cardData) => {
 
 export default RevealableCard;
 
-const styles = EStyleSheet.create({
+const st = EStyleSheet.create({
   face: {
     alignItems: "center",
     justifyContent: "center",
@@ -82,16 +83,18 @@ const styles = EStyleSheet.create({
   },
   revealButton: {
     justifyContent: 'center',
-    borderRadius: 24,
-    width: 120,
-    height: 60,
+    borderRadius: '2.5rem',
+    width: '10.0625rem',
+    height: '5.25rem',
     backgroundColor: "white",
   },
   revealButtonText: {
-    textAlign: "center",
-    justifyContent: 'center',
-    color: "black",
-    fontFamily: "DMSans-Regular",
+    color: 'black',
     fontSize: 24,
+    fontWeight: '400',
+    lineHeight: 28,
+    wordWrap: 'break-word',
+    textAlign: "center",
+    fontFamily: "DMSans-Light",
   }
 });
