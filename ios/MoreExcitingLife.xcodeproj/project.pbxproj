@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		115A44B4ECCCA180A1963416 /* libPods-MoreExcitingLife.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD217488BB1A6BC00B1E726 /* libPods-MoreExcitingLife.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -14,7 +15,6 @@
 		4DD6B3C4D8BB4F019F532B36 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42897212B9D4DC6907D57D2 /* noop-file.swift */; };
 		6213E6F8F4714CA5AB324966 /* DMMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAA9AD4FEB644C87ACB835B6 /* DMMono-Regular.ttf */; };
 		788D6072E3724963AB2962D9 /* DMMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5979637A8F28429A984EAE85 /* DMMono-Medium.ttf */; };
-		796C9BCB5A293CD9EA6ED25B /* libPods-MoreExcitingLife.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAD157C28A84D6F024D9833 /* libPods-MoreExcitingLife.a */; };
 		79E109CF7A6B545134C55EED /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A5509F5B174372437CDFD69C /* PrivacyInfo.xcprivacy */; };
 		7AEA87C266F34C11B80FBEFA /* DMMono-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 782EEA4B8DF94CC0BE0797F1 /* DMMono-Italic.ttf */; };
 		7EA10F0D2D119BBE0017542D /* DMSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD38F276E62449280FE3B28 /* DMSans-ExtraBoldItalic.ttf */; };
@@ -53,16 +53,15 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MoreExcitingLife/main.m; sourceTree = "<group>"; };
 		141749748A714B2598BA7786 /* DMSans-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-BlackItalic.ttf"; path = "../src/assets/fonts/DMSans-BlackItalic.ttf"; sourceTree = "<group>"; };
 		18AFAFC93E4346138979D686 /* DMSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-SemiBold.ttf"; path = "../src/assets/fonts/DMSans-SemiBold.ttf"; sourceTree = "<group>"; };
-		1C018B80BA6F2BAF718D6C1C /* Pods-MoreExcitingLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoreExcitingLife.debug.xcconfig"; path = "Target Support Files/Pods-MoreExcitingLife/Pods-MoreExcitingLife.debug.xcconfig"; sourceTree = "<group>"; };
 		22488FE174114F568C46429E /* DMSans-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Italic.ttf"; path = "../src/assets/fonts/DMSans-Italic.ttf"; sourceTree = "<group>"; };
 		37A2D5454C68452E9A67922E /* DMSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Light.ttf"; path = "../src/assets/fonts/DMSans-Light.ttf"; sourceTree = "<group>"; };
 		3C70A7EE6900451594238489 /* DMSans-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Thin.ttf"; path = "../src/assets/fonts/DMSans-Thin.ttf"; sourceTree = "<group>"; };
 		410412682CFA40D99DCB4B04 /* MoreExcitingLife-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "MoreExcitingLife-Bridging-Header.h"; path = "MoreExcitingLife/MoreExcitingLife-Bridging-Header.h"; sourceTree = "<group>"; };
+		467227DA70A5ED09E3BCBD2C /* Pods-MoreExcitingLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoreExcitingLife.release.xcconfig"; path = "Target Support Files/Pods-MoreExcitingLife/Pods-MoreExcitingLife.release.xcconfig"; sourceTree = "<group>"; };
 		4DA30E6B91DF4CC9AC656A51 /* DMSans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Medium.ttf"; path = "../src/assets/fonts/DMSans-Medium.ttf"; sourceTree = "<group>"; };
 		5979637A8F28429A984EAE85 /* DMMono-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "DMMono-Medium.ttf"; path = "../src/assets/fonts/DMMono-Medium.ttf"; sourceTree = "<group>"; };
 		61C18BCBF58B4F0CA7EC7AD3 /* DMSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Regular.ttf"; path = "../src/assets/fonts/DMSans-Regular.ttf"; sourceTree = "<group>"; };
 		61E184DCB059491981DEA1BF /* DMSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Bold.ttf"; path = "../src/assets/fonts/DMSans-Bold.ttf"; sourceTree = "<group>"; };
-		682812DB0B150DDD753762A9 /* Pods-MoreExcitingLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoreExcitingLife.release.xcconfig"; path = "Target Support Files/Pods-MoreExcitingLife/Pods-MoreExcitingLife.release.xcconfig"; sourceTree = "<group>"; };
 		782EEA4B8DF94CC0BE0797F1 /* DMMono-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "DMMono-Italic.ttf"; path = "../src/assets/fonts/DMMono-Italic.ttf"; sourceTree = "<group>"; };
 		7ED84E712D03833600990335 /* libReactNativeKCKeepAwake.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReactNativeKCKeepAwake.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F2A5804A964936A14E8DE6 /* DMSans-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-ThinItalic.ttf"; path = "../src/assets/fonts/DMSans-ThinItalic.ttf"; sourceTree = "<group>"; };
@@ -70,7 +69,6 @@
 		91D79E09A17340AEB9CA630F /* DMSans-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-BoldItalic.ttf"; path = "../src/assets/fonts/DMSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		940396C6F1684F42B5A4DB8E /* DMSans-Italic-VariableFont_opsz,wght.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Italic-VariableFont_opsz,wght.ttf"; path = "../src/assets/fonts/DMSans-Italic-VariableFont_opsz,wght.ttf"; sourceTree = "<group>"; };
 		9BD38F276E62449280FE3B28 /* DMSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-ExtraBoldItalic.ttf"; path = "../src/assets/fonts/DMSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
-		9FAD157C28A84D6F024D9833 /* libPods-MoreExcitingLife.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoreExcitingLife.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C893A2C54C401085FFB3E2 /* DMSans-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-LightItalic.ttf"; path = "../src/assets/fonts/DMSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		A5509F5B174372437CDFD69C /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = MoreExcitingLife/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = MoreExcitingLife/SplashScreen.storyboard; sourceTree = "<group>"; };
@@ -87,7 +85,9 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F9B61B522ACB4D429226D65A /* DMSans-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Black.ttf"; path = "../src/assets/fonts/DMSans-Black.ttf"; sourceTree = "<group>"; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-MoreExcitingLife/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		FDD217488BB1A6BC00B1E726 /* libPods-MoreExcitingLife.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoreExcitingLife.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDF6BB5B905A444BB11E9D63 /* DMSans-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-MediumItalic.ttf"; path = "../src/assets/fonts/DMSans-MediumItalic.ttf"; sourceTree = "<group>"; };
+		FF61E7B35E012F662D5148F5 /* Pods-MoreExcitingLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoreExcitingLife.debug.xcconfig"; path = "Target Support Files/Pods-MoreExcitingLife/Pods-MoreExcitingLife.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				796C9BCB5A293CD9EA6ED25B /* libPods-MoreExcitingLife.a in Frameworks */,
+				115A44B4ECCCA180A1963416 /* libPods-MoreExcitingLife.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,7 +157,7 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				7ED84E712D03833600990335 /* libReactNativeKCKeepAwake.a */,
-				9FAD157C28A84D6F024D9833 /* libPods-MoreExcitingLife.a */,
+				FDD217488BB1A6BC00B1E726 /* libPods-MoreExcitingLife.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -213,8 +213,8 @@
 		D65327D7A22EEC0BE12398D9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1C018B80BA6F2BAF718D6C1C /* Pods-MoreExcitingLife.debug.xcconfig */,
-				682812DB0B150DDD753762A9 /* Pods-MoreExcitingLife.release.xcconfig */,
+				FF61E7B35E012F662D5148F5 /* Pods-MoreExcitingLife.debug.xcconfig */,
+				467227DA70A5ED09E3BCBD2C /* Pods-MoreExcitingLife.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -234,14 +234,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "MoreExcitingLife" */;
 			buildPhases = (
-				893413DBC44D90BF3117C331 /* [CP] Check Pods Manifest.lock */,
+				723BE58364497C1F6C177D04 /* [CP] Check Pods Manifest.lock */,
 				F7F45ED4A7E9C8470F2F4296 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				19D58C84FF4EB94F8C12A40E /* [CP] Embed Pods Frameworks */,
-				8181BD54AB825B6135750511 /* [CP] Copy Pods Resources */,
+				5CFE2E16E5F70563B93AC98A /* [CP] Embed Pods Frameworks */,
+				29C615A194E2D6C3D6B5540F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -339,25 +339,7 @@
 			shellPath = /bin/sh;
 			shellScript = "if [[ -f \"$PODS_ROOT/../.xcode.env\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env\"\nfi\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n# The project root by default is one level up from the ios directory\nexport PROJECT_ROOT=\"$PROJECT_DIR\"/..\n\nif [[ \"$CONFIGURATION\" = *Debug* ]]; then\n  export SKIP_BUNDLING=1\nfi\nif [[ -z \"$ENTRY_FILE\" ]]; then\n  # Set the entry JS file using the bundler's entry resolution.\n  export ENTRY_FILE=\"$(\"$NODE_BINARY\" -e \"require('expo/scripts/resolveAppEntry')\" \"$PROJECT_ROOT\" ios absolute | tail -n 1)\"\nfi\n\nif [[ -z \"$CLI_PATH\" ]]; then\n  # Use Expo CLI\n  export CLI_PATH=\"$(\"$NODE_BINARY\" --print \"require.resolve('@expo/cli', { paths: [require.resolve('expo/package.json')] })\")\"\nfi\nif [[ -z \"$BUNDLE_COMMAND\" ]]; then\n  # Default Expo CLI command for bundling\n  export BUNDLE_COMMAND=\"export:embed\"\nfi\n\n# Source .xcode.env.updates if it exists to allow\n# SKIP_BUNDLING to be unset if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.updates\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.updates\"\nfi\n# Source local changes to allow overrides\n# if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n`\"$NODE_BINARY\" --print \"require('path').dirname(require.resolve('react-native/package.json')) + '/scripts/react-native-xcode.sh'\"`\n\n";
 		};
-		19D58C84FF4EB94F8C12A40E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoreExcitingLife/Pods-MoreExcitingLife-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoreExcitingLife/Pods-MoreExcitingLife-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8181BD54AB825B6135750511 /* [CP] Copy Pods Resources */ = {
+		29C615A194E2D6C3D6B5540F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -391,7 +373,25 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoreExcitingLife/Pods-MoreExcitingLife-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		893413DBC44D90BF3117C331 /* [CP] Check Pods Manifest.lock */ = {
+		5CFE2E16E5F70563B93AC98A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoreExcitingLife/Pods-MoreExcitingLife-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoreExcitingLife/Pods-MoreExcitingLife-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		723BE58364497C1F6C177D04 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -451,7 +451,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C018B80BA6F2BAF718D6C1C /* Pods-MoreExcitingLife.debug.xcconfig */;
+			baseConfigurationReference = FF61E7B35E012F662D5148F5 /* Pods-MoreExcitingLife.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -494,7 +494,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 682812DB0B150DDD753762A9 /* Pods-MoreExcitingLife.release.xcconfig */;
+			baseConfigurationReference = 467227DA70A5ED09E3BCBD2C /* Pods-MoreExcitingLife.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
