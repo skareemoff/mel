@@ -1,9 +1,12 @@
+import { StatusBar } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 EStyleSheet.build({
     $textColor: 'black',
     $backgroundColor: 'white',
     $containerColor: '#FBF7EF',
+    $mainLogoWidth: 111,
+    $mainLogoHeight: 50,
 });
 
 export default EStyleSheet.create({
@@ -13,28 +16,34 @@ export default EStyleSheet.create({
         flexDirection: "column",
         justifyContent: "center",
         alignContent: "center",
+        marginTop: StatusBar.currentHeight+20,
     },
-    headerStyle: {
+    cardContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    flatList: {
         backgroundColor: '$containerColor',
     },
-    logo: {
-        width: '6.9375rem',
-        height: '3.125rem',
-        alignSelf: 'center',
-        backgroundColor: 'transparent',
+    cardFull: {
+        width: 353,
+        height: 570
+    },
+    cardHalf: {
+        width: 353,
+        height: 260
+    },
+    cardBlur: {
+        width: 333,
+        height: 442,
+        borderRadius: 20,
+        backgroundColor: 'rgba(238, 238, 238, 0.35)'
     },
     shadow: {
         shadowColor:'#000',
         shadowOpacity:0.5,
         shadowOffset:{width: 2, height: 2 }
-    },
-    flatList: {
-        backgroundColor: '$containerColor',
-    },
-    cardContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'baseline',
     },
     appbarBottom: {
         justifyContent: 'space-evenly',
@@ -55,7 +64,7 @@ export default EStyleSheet.create({
         marginLeft: 20,
         marginRight: 20,
       },
-      roundButtonImage: {
+    roundButtonImage: {
         height: 60,
         width: 60,
     },

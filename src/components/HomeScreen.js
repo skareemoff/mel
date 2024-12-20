@@ -1,12 +1,14 @@
-import { FlatList, StatusBar, View } from 'react-native';
+import { FlatList, Image, StatusBar, View } from 'react-native';
 import Card from './Card';
 import styles from '../assets/style'
 import DeckData from './DeckData.js'
 import {HALF_CARD_HEIGHT} from './Utils'
 import RevealableCard from './RevealableCard';
+import { HeaderBar } from './HeaderBar';
 
 const HomeScreen = ({navigation}) => {
     const cards = [
+        {'id':'header'},
         {
             id: 'questionOfTheDay',
             deckName: 'Question of the day',
@@ -23,39 +25,42 @@ const HomeScreen = ({navigation}) => {
     ];
 
     const clickDeck = (cardData) => {
-        navigation.navigate('Deck', { deckID: cardData.deckID, deckName: cardData.text })
+        navigation.navigate('Info', { deckID: cardData.deckID, deckName: cardData.text })
     }
 
-    const renderCard = ({ item }) => (
-        item.id == 'questionOfTheDay'
-        ? <RevealableCard
-            id='questionOfTheDay'
-            deckName='Question of the day'
-            text={DeckData.getQuestionOfTheDay()}
-            type='deck'
-            height='full'
+    const renderCard = ({ item }) => {
+        switch(item.id) {
+            case 'header': return (<HeaderBar isHomeScreen={true} navigation={navigation} />)
+            case 'questionOfTheDay':
+                return (<RevealableCard
+                    id='questionOfTheDay'
+                    deckName='Question of the day'
+                    text={DeckData.getQuestionOfTheDay()}
+                    type='deck'
+                    height='full'
             deckBackground='homeBG'
             cardTextStyle='qODCardText'
             deckTextStyle='qODDeckText'
             cardStyle='qODCard'
-            deckStyle='qODDeck'
-        />
-        :  <Card
-                type='deck'
-                height={item.height}
-                deckID={item.id}
-                text={item.deckName}
-                deckBackground={item.deckBackground}
+                    deckStyle='qODDeck'
+                />)
+            default:
+                return (<Card
+                    type='deck'
+                    height={item.height}
+                    deckID={item.id}
+                    text={item.deckName}
+                    deckBackground={item.deckBackground}
                 clickHandler={clickDeck}
                 cardTextStyle={item.deckTextStyle}
                 cardStyle={item.deckStyle}
                 subText={item.subText}
                 cardSubTextStyle={item.cardSubTextStyle}
-            />
-    );
+            />)
+    }};
 
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, styles.headerContainer]}>
             <FlatList
                 style={styles.flatList}
                 data={cards}

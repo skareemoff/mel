@@ -12,6 +12,8 @@ import DeckData from './DeckData'
 import {BOTTOM_APPBAR_HEIGHT, specialShuffle} from './Utils'
 import st from '../assets/style'
 import { ShareableCard } from './ShareableCard';
+import { HeaderBar } from './HeaderBar';
+// import KeepAwake from '@sayem314/react-native-keep-awake';
 
 export default function PlayScreen({route, navigation}) {
   const MAX = 3;
@@ -26,6 +28,7 @@ export default function PlayScreen({route, navigation}) {
   const [deckKey, setDeckKey] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const animatedValue = useSharedValue(0);
+
   const [shareModalVisible, setShareModalVisible] = useState(false);
 
   useEffect(() => {
@@ -100,10 +103,11 @@ export default function PlayScreen({route, navigation}) {
   return (
     <GestureHandlerRootView>
       <SafeAreaView edges={['right', 'left']} style={st.container}>
+        <HeaderBar isHomeScreen={false} navigation={navigation} />
+        <KeepAwake />
         <ImageBackground
           source={DeckData.getDeckImage(deckData.deckBackground)}
-          style={{ height: '100%', width: '100%'}}
-        >
+          style={{ height: '100%', width: '100%'}} >
           <View style={[st.cardContainer, {paddingTop: Math.max(insets.top, 100), }]} key={deckKey}>
             {visibleCards.map((item) => {
               return (

@@ -123,7 +123,7 @@ const styles = EStyleSheet.create({
     image: {
         justifyContent: "center",
         alignItems: "center",
-        width: 72,
-        height: 32,
+        width: '$mainLogoWidth',
+        height: '$mainLogoHeight',
     }
 });
