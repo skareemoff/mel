@@ -104,7 +104,7 @@ const SwipableCard = ({
       <Animated.View style={[
         { zIndex: deckSize - index},
         animatedStyle,
-        styles.container
+        styles.onboardingContainer
         ]}>
           <Card
             type='card'
@@ -131,16 +131,16 @@ const SwipableCard = ({
 export default SwipableCard;
 
 const styles = EStyleSheet.create({
-  container: {
+  onboardingContainer: {
     position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'transparent',
     margin: 0,
     padding: 0,
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-},
+    backgroundColor: 'transparent',
+  },
 });

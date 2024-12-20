@@ -12,20 +12,20 @@ const Card = (cardData) => {
     const getShareableView = () => {
         return (
             <>
-              <View style={[st.top, st.shotTop]}>
-                <View style={[st.cardHeader, st.shotCardHeader]}>
-                  <Text style={[st.deckName, styles[cardData.deckTextStyle], st.shotDeckName]}>{cardData.deckName}</Text>
-                  <Text style={[st.deckSubText, styles[cardData.deckSubTextStyle], st.shotDeckSubText]}>{cardData.deckSubText}</Text>
+              <View style={[stl.top, stl.shotTop]}>
+                <View style={[stl.cardHeader, stl.shotCardHeader]}>
+                  <Text style={[stl.deckName, styles[cardData.deckTextStyle], stl.shotDeckName]}>{cardData.deckName}</Text>
+                  <Text style={[stl.deckSubText, styles[cardData.deckSubTextStyle], stl.shotDeckSubText]}>{cardData.deckSubText}</Text>
                 </View>
               </View>
-              <View style={[st.middle, st.shotMiddle]}>
-                <Text style={[st.cardText, styles[cardData.cardTextStyle], st.shotCardText]}>{cardData.text}</Text>
-                <Text style={[st.cardSubText, styles[cardData.cardSubTextStyle], st.shotCardSubText]}>{cardData.subText}</Text>
-                <View style={st.shotCommentBox}></View>
+              <View style={[stl.middle, stl.shotMiddle]}>
+                <Text style={[stl.cardText, styles[cardData.cardTextStyle], stl.shotCardText]}>{cardData.text}</Text>
+                <Text style={[stl.cardSubText, styles[cardData.cardSubTextStyle], stl.shotCardSubText]}>{cardData.subText}</Text>
+                <View style={stl.shotCommentBox}></View>
               </View>
-              <View style={[st.bottom, st.shotBottom]}>
-                <Text style={[st.footerText, st.footerTextLeft, styles[cardData.infoTextStyleLeft], st.shotFooterTextLeft]}>{cardData.infoLeft}</Text>
-                <Text style={[st.footerText, st.footerTextRight, styles[cardData.infoTextStyleRight], st.shotFooterTextRight]}>{cardData.infoRight}</Text>
+              <View style={[stl.bottom, stl.shotBottom]}>
+                <Text style={[stl.footerText, stl.footerTextLeft, styles[cardData.infoTextStyleLeft], stl.shotFooterTextLeft]}>{cardData.infoLeft}</Text>
+                <Text style={[stl.footerText, stl.footerTextRight, styles[cardData.infoTextStyleRight], stl.shotFooterTextRight]}>{cardData.infoRight}</Text>
               </View>
             </>
         );
@@ -40,44 +40,44 @@ const Card = (cardData) => {
         ? ( getShareableView() )
         : (
             <>
-                <View style={[st.top]}>
+                <View style={[stl.top]}>
                     {cardData.isFavourite == 'yes' ? (
                         <Image
                             source={require('../assets/images/like.png')}
-                            style={st.likeIcon}
+                            style={stl.likeIcon}
                         />
                     ) : null}
-                    <View style={[st.cardHeader]}>
-                        <Text style={[st.deckName, styles[cardData.deckTextStyle]]}>{cardData.deckName}</Text>
-                        <Text style={[st.deckSubText, styles[cardData.deckSubTextStyle]]}>{cardData.deckSubText}</Text>
+                    <View style={[stl.cardHeader]}>
+                        <Text style={[stl.deckName, styles[cardData.deckTextStyle]]}>{cardData.deckName}</Text>
+                        <Text style={[stl.deckSubText, styles[cardData.deckSubTextStyle]]}>{cardData.deckSubText}</Text>
                     </View>
                 </View>
                 {cardData.useMarkdown == 'yes'
                 ? (
-                    <View style={st.middle}>
+                    <View style={stl.middle}>
                         {cardData.text && <Markdown style={styles[cardData.cardTextStyle]}>{cardData.text}</Markdown>}
                         {cardData.subText && <Markdown style={styles[cardData.cardSubTextStyle]}>{cardData.subText}</Markdown>}
                     </View>
                 )
                 : (
-                    <View style={st.middle}>
-                        <Text style={[st.cardText, styles[cardData.cardTextStyle]]}>{cardData.text}</Text>
-                        <Text style={[st.cardSubText, styles[cardData.cardSubTextStyle]]}>{cardData.subText}</Text>
+                    <View style={stl.middle}>
+                        <Text style={[stl.cardText, styles[cardData.cardTextStyle]]}>{cardData.text}</Text>
+                        <Text style={[stl.cardSubText, styles[cardData.cardSubTextStyle]]}>{cardData.subText}</Text>
                     </View>
                 )}
-                <View style={[st.bottom]}>
-                    <Text style={[st.footerText, st.footerTextLeft, styles[cardData.infoTextStyleLeft]]}>{cardData.infoLeft}</Text>
-                    <Text style={[st.footerText, st.footerTextRight, styles[cardData.infoTextStyleRight]]}>{cardData.infoRight}</Text>
+                <View style={[stl.bottom]}>
+                    <Text style={[stl.footerText, stl.footerTextLeft, styles[cardData.infoTextStyleLeft]]}>{cardData.infoLeft}</Text>
+                    <Text style={[stl.footerText, stl.footerTextRight, styles[cardData.infoTextStyleRight]]}>{cardData.infoRight}</Text>
                 </View>
             </>
         );
 
         return (
             <View style={[
-                st.card,
+                stl.card,
                 styles.shadow,
                 styles[cardData.cardStyle],
-                cardHeight == 'full' ? st.cardFull : st.cardHalf,
+                cardHeight == 'full' ? stl.cardFull : stl.cardHalf,
             ]}>
                 {img
                 ? (
@@ -91,7 +91,7 @@ const Card = (cardData) => {
 
     if(cardData.clickHandler != null)
         return (
-            <Pressable style={st.deckVisible} onPress={() => cardData.clickHandler(cardData)}>
+            <Pressable style={stl.deckVisible} onPress={() => cardData.clickHandler(cardData)}>
                 {buildCard()}
             </Pressable>
         );
@@ -101,7 +101,7 @@ const Card = (cardData) => {
 
 export default Card;
 
-const st = EStyleSheet.create({
+const stl = EStyleSheet.create({
     card: {
         justifyContent: 'center',
         borderRadius: 30,

@@ -9,7 +9,7 @@ import Share from 'react-native-share';
 import SwipableCard from './SwipableCard';
 import DeckData from './DeckData'
 import {BOTTOM_APPBAR_HEIGHT, specialShuffle} from './Utils'
-import st from '../assets/style'
+import styles from '../assets/style'
 import { ShareableCard } from './ShareableCard';
 import { HeaderBar } from './HeaderBar';
 import EStyleSheet from 'react-native-extended-stylesheet';
@@ -102,7 +102,7 @@ export default function PlayScreen({route, navigation}) {
 
   return (
     <GestureHandlerRootView>
-      <View edges={['right', 'left']} style={st.container}>
+      <View edges={['right', 'left']} style={styles.container}>
         {/* <KeepAwake /> */}
         <ImageBackground
           source={DeckData.getDeckImage(deckData.deckBackground)}
@@ -140,16 +140,16 @@ export default function PlayScreen({route, navigation}) {
               setShareModalVisible={setShareModalVisible}
             />
           </Modal>
-          <Appbar style={[ st.appbarBottom, { bottom: -60, height: BOTTOM_APPBAR_HEIGHT + insets.top }]} safeAreaInsets={{ insets }} >
-            <TouchableOpacity style={styles.roundButton} onPress={toggleFavourite}>
-              <Image name="heart" style={styles.roundButtonImage} source={require("../assets/images/like.png")}/>
+          <Appbar style={[ styles.appbarBottom, { bottom: -60, height: BOTTOM_APPBAR_HEIGHT + insets.top, backgroundColor: 'transparent' }]} safeAreaInsets={{ insets }} >
+            <TouchableOpacity style={stl.roundButton} onPress={toggleFavourite}>
+              <Image name="heart" style={stl.roundButtonImage} source={require("../assets/images/like.png")}/>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.roundButton} onPress={shareSnapshot}>
-              <Image name="share" style={styles.roundButtonImage} source={require("../assets/images/share.png")} />
+            <TouchableOpacity style={stl.roundButton} onPress={shareSnapshot}>
+              <Image name="share" style={stl.roundButtonImage} source={require("../assets/images/share.png")} />
             </TouchableOpacity>
             {/* TODO: Reset doesn't redraw properly */}
-            <TouchableOpacity style={styles.roundButton} onPress={() => handleSetCurrentIndex(-1)}>
-              <Image name="restart" style={styles.roundButtonImage} source={require("../assets/images/undo.png")} />
+            <TouchableOpacity style={stl.roundButton} onPress={() => handleSetCurrentIndex(-1)}>
+              <Image name="restart" style={stl.roundButtonImage} source={require("../assets/images/undo.png")} />
             </TouchableOpacity>
           </Appbar>
         </ImageBackground>
@@ -158,7 +158,7 @@ export default function PlayScreen({route, navigation}) {
   );
 }
 
-const styles = EStyleSheet.create({
+const stl = EStyleSheet.create({
     roundButton: {
         borderRadius: "50%",
         justifyContent: 'space-evenly',
@@ -175,5 +175,5 @@ const styles = EStyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-  },
+  }
 });

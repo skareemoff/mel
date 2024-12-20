@@ -60,37 +60,37 @@ export default function SplashScreen() {
     });
 
     return (
-        <View style={styles.container}>
-            <Animated.View style={[styles.container, {opacity:fadeAnim5}]}>
+        <View style={stl.container}>
+            <Animated.View style={[stl.container, {opacity:fadeAnim5}]}>
                 <Animated.View style={[{opacity:fadeAnim1}]}>
-                    <Text style={[styles.text, styles.text1]}>
+                    <Text style={[stl.text, stl.text1]}>
                         You are
                     </Text>
                 </Animated.View>
                 <Animated.View style={[{opacity:fadeAnim2}]}>
-                    <Text style={[styles.text, styles.text2]}>
+                    <Text style={[stl.text, stl.text2]}>
                         one question away
                     </Text>
                 </Animated.View>
                 <Animated.View style={[{opacity:fadeAnim3}]}>
-                    <Text style={[styles.text, styles.text3]}>
+                    <Text style={[stl.text, stl.text3]}>
                         from a
                     </Text>
                 </Animated.View>
                 <Animated.View style={[{opacity:fadeAnim4}]}>
-                    <Text style={[styles.text, styles.text4]}>
+                    <Text style={[stl.text, stl.text4]}>
                         More Exciting Life
                     </Text>
                 </Animated.View>
             </Animated.View>
-            <Animated.View style={[styles.container, {opacity:fadeAnim6}, {transform: [{translateY: slideAnim1}]} ]}>
-                <Image source={require("../assets/images/logo.png")} style={[styles.image]}/>
+            <Animated.View style={[stl.container, {opacity:fadeAnim6}, {transform: [{translateY: slideAnim1}]} ]}>
+                <Image source={require("../assets/images/logo.png")} style={[stl.image]}/>
             </Animated.View>
         </View>
     );
 }
 
-const styles = EStyleSheet.create({
+const stl = EStyleSheet.create({
     container: {
         flex: 1,
         height: "100%",

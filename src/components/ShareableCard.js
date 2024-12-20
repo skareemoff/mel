@@ -4,18 +4,18 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import ViewShot from 'react-native-view-shot';
 import DeckData from './DeckData';
-import st from '../assets/style'
+import styles from '../assets/style'
 import Card from './Card';
 
 export const ShareableCard = ({deckData, cardDeck, currentIndex, viewShotRef, setShareModalVisible}) => {
     const insets = useSafeAreaInsets();
 
     return (
-        <SafeAreaView edges={['right', 'left']} style={st.container}>
-            <ViewShot ref={viewShotRef} collapsable={false} style={styles.fullScreen}>
+        <SafeAreaView edges={['right', 'left']} style={styles.container}>
+            <ViewShot ref={viewShotRef} collapsable={false} style={stl.fullScreen}>
                 <ImageBackground
                     source={DeckData.getDeckImage(deckData.deckBackground)}
-                    style={styles.fullScreen}>
+                    style={stl.fullScreen}>
                     <Image source={require('../assets/images/logo.png')} style={{width:'72', height: 32, marginBottom: '40'}}/>
                     <Card
                         type='card'
@@ -39,7 +39,7 @@ export const ShareableCard = ({deckData, cardDeck, currentIndex, viewShotRef, se
     );
 }
 
-const styles = EStyleSheet.create({
+const stl = EStyleSheet.create({
     fullScreen: {
         flex: 1,
         width: '100%',

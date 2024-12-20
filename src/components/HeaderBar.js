@@ -28,13 +28,11 @@ const st = EStyleSheet.create({
     headerContainer: {
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        backgroundColor: 'transparent',
         position: 'fixed',
         left: 0,
         right: 0,
         bottom: 0,
         display: 'flex',
-
         backgroundColor: 'transparent',
     },
     backButton: {

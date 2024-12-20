@@ -12,11 +12,10 @@ EStyleSheet.build({
 export default EStyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'transparent',
+        backgroundColor: '$containerColor',
     },
     flatList: {
         backgroundColor: 'transparent',
-        flex: 1
     },
     shadow: {
         shadowColor:'#000',
@@ -32,17 +31,6 @@ export default EStyleSheet.create({
         right: 0,
         bottom: 0,
         display: 'flex',
-    },
-    largeButton: {
-        borderRadius: "20%",
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        overflow: 'hidden',
-        marginBottom: 10,
-    },
-    largeButtonImage: {
-        height: 60,
-        width: 140,
     },
     smallButtonSize: {
         width: 32,

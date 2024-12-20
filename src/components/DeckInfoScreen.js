@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, SafeAreaView, StatusBar, View, TouchableOpacity, Image } from 'react-native';
+import { FlatList, View, TouchableOpacity, Image } from 'react-native';
 import Card from './Card';
 import styles from '../assets/style'
 import DeckData from './DeckData'
@@ -8,6 +8,7 @@ import {HALF_CARD_HEIGHT} from './Utils'
 import { Appbar } from 'react-native-paper';
 import {BOTTOM_APPBAR_HEIGHT} from './Utils'
 import { HeaderBar } from './HeaderBar';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 const DeckInfoScreen = ({route, navigation}) => {
     const { deckID } = route.params;
@@ -32,7 +33,7 @@ const DeckInfoScreen = ({route, navigation}) => {
                     subText={deckData.subText}
                     cardSubTextStyle={deckData.cardSubTextStyle}/>)
             case 'description':
-                return ( <SafeAreaView> { deckData.description && <Markdown style={styles.deckInfoDescription}>{deckData.description}</Markdown> } </SafeAreaView>)
+                return ( <View> { deckData.description && <Markdown style={styles.deckInfoDescription}>{deckData.description}</Markdown> } </View>)
             case 'example':
                 return ( <Card
                     type='card'
@@ -47,22 +48,21 @@ const DeckInfoScreen = ({route, navigation}) => {
                     isFavourite='no'
                     />)
             case 'rules':
-                return ( <SafeAreaView> { deckData.rules && <Markdown style={styles.deckInfoRules}>{deckData.rules}</Markdown> } </SafeAreaView> )
+                return ( <View> { deckData.rules && <Markdown style={styles.deckInfoRules}>{deckData.rules}</Markdown> } </View> )
             default:
                 return null;
         }
     }
 
     return (
-        <View style={[styles.container, styles.shadow]}>
+        <View style={styles.container}>
             <FlatList
                 style={styles.flatList}
                 data={cards}
                 keyExtractor={(item) => item.id}
                 renderItem={renderCard}
                 contentContainerStyle={{
-                    paddingTop: StatusBar.currentHeight + 30, // Add padding at the top to avoid status bar overlap
-                    paddingBottom: HALF_CARD_HEIGHT / 2, // Ensure padding for the last card
+                    paddingBottom: HALF_CARD_HEIGHT / 2,
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}
@@ -72,15 +72,28 @@ const DeckInfoScreen = ({route, navigation}) => {
                 snapToAlignment="start"
                 decelerationRate="fast"
             />
-
-            <Appbar style={[ styles.appbarBottom, { height: BOTTOM_APPBAR_HEIGHT - 80 }]} >
-            <TouchableOpacity style={[styles.largeButton, styles.buttonMiddle]} onPressOut={() => clickDeck()}>
-                <Image name="share" style={styles.largeButtonImage} source={require("../assets/images/button-play.png")} />
-            </TouchableOpacity>
+            <Appbar style={[ styles.appbarBottom, { height: BOTTOM_APPBAR_HEIGHT - 80, backgroundColor: 'transparent' }]} >
+                <TouchableOpacity style={[stl.largeButton, styles.buttonMiddle]} onPressOut={() => clickDeck()}>
+                    <Image name="share" style={stl.largeButtonImage} source={require("../assets/images/button-play.png")} />
+                </TouchableOpacity>
             </Appbar>
-
         </View>
     )
 }
 
 export default DeckInfoScreen
+
+
+const stl = EStyleSheet.create({
+  largeButton: {
+    borderRadius: "20%",
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    overflow: 'hidden',
+    marginBottom: 10,
+  },
+  largeButtonImage: {
+      height: 60,
+      width: 140,
+  },
+});

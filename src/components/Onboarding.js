@@ -29,7 +29,7 @@ export default function Onboarding({navigation}) {
   return (
     <GestureHandlerRootView style={styles.container}>
         <HeaderBar isHomeScreen={false} navigation={navigation}/>
-        <View style={st.onboardingContainer}>
+        <View style={stl.onboardingContainer}>
           {cardDeck.map((item, index) => {
             return (
               <SwipableCard
@@ -51,7 +51,7 @@ export default function Onboarding({navigation}) {
   );
 }
 
-const st = EStyleSheet.create({
+const stl = EStyleSheet.create({
     onboardingContainer: {
         flex: 1,
         backgroundColor: 'transparent'
