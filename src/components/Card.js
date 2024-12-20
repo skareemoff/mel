@@ -6,7 +6,7 @@ import DeckData from './DeckData.js'
 import styles from '../assets/style'
 import Markdown from 'react-native-markdown-display';
 
-const Card = (cardData, props) => {
+const Card = (cardData) => {
     const cardHeight = calculateCardHeight(cardData);
 
     const getShareableView = () => {
@@ -36,9 +36,9 @@ const Card = (cardData, props) => {
             ? DeckData.getDeckImage(cardData.deckBackground)
             : null;
 
-        const cardContent = cardData.shareable == 'yes' ? (
-            getShareableView()
-        ) : (
+        const cardContent = cardData.shareable == 'yes'
+        ? ( getShareableView() )
+        : (
             <>
                 <View style={[st.top]}>
                     {cardData.isFavourite == 'yes' ? (
@@ -52,12 +52,14 @@ const Card = (cardData, props) => {
                         <Text style={[st.deckSubText, styles[cardData.deckSubTextStyle]]}>{cardData.deckSubText}</Text>
                     </View>
                 </View>
-                {cardData.useMarkdown == 'yes' ? (
+                {cardData.useMarkdown == 'yes'
+                ? (
                     <View style={st.middle}>
                         {cardData.text && <Markdown style={styles[cardData.cardTextStyle]}>{cardData.text}</Markdown>}
                         {cardData.subText && <Markdown style={styles[cardData.cardSubTextStyle]}>{cardData.subText}</Markdown>}
                     </View>
-                ) : (
+                )
+                : (
                     <View style={st.middle}>
                         <Text style={[st.cardText, styles[cardData.cardTextStyle]]}>{cardData.text}</Text>
                         <Text style={[st.cardSubText, styles[cardData.cardSubTextStyle]]}>{cardData.subText}</Text>
@@ -71,23 +73,18 @@ const Card = (cardData, props) => {
         );
 
         return (
-            <View style={[st.card, styles.shadow,
-                {height: cardHeight, width: width * 0.9, marginHorizontal: width * 0.05},
-                styles[cardData.cardStyle]
+            <View style={[
+                st.card,
+                styles.shadow,
+                styles[cardData.cardStyle],
+                cardHeight == 'full' ? st.cardFull : st.cardHalf,
             ]}>
-                {img ? (
-                    <ImageBackground
-                        source={img}
-                        imageStyle={{ borderRadius: 30}}
-                        style={{
-                            height: '100%',
-                            width: '100%',
-                        }}>
+                {img
+                ? (
+                    <ImageBackground source={img} imageStyle={{ borderRadius: 30}} style={{ height: '100%', width: '100%' }}>
                         {cardContent}
-                    </ImageBackground>
-                ) : (
-                    cardContent
-                )}
+                    </ImageBackground>)
+                : ( cardContent )}
             </View>
         );
     };
@@ -109,9 +106,17 @@ const st = EStyleSheet.create({
         justifyContent: 'center',
         borderRadius: 30,
         alignItems: 'center',
-        maxWidth: 400,
-        marginBottom: 20,
+        margin: 0,
+        padding: 0,
         backgroundColor: 'white'
+    },
+    cardFull: {
+        width: 353,
+        height: 570
+    },
+    cardHalf: {
+        width: 353,
+        height: 260
     },
     top: {
         flex: 1,
@@ -120,7 +125,6 @@ const st = EStyleSheet.create({
         justifyContent: 'center',
         alignItems: 'baseline',
         position: 'relative',
-        maxWidth: 400,
         paddingTop: 20,
         justifyContent: 'center',
         width: '100%',
@@ -132,7 +136,6 @@ const st = EStyleSheet.create({
         alignContent: "center",
         width: "100%",
         height: "100%",
-        maxWidth: 400,
         padding: 20,
         paddingTop: 0,
     },
@@ -181,7 +184,6 @@ const st = EStyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
-        maxWidth: 400,
     },
     footerText: {
         fontFamily: "DMSans-Regular",

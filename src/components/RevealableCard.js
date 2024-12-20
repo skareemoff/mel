@@ -39,7 +39,7 @@ const RevealableCard = (cardData) => {
                 deckSubTextStyle={cardData.deckSubTextStyle}
             />
             {isShowRevealButton ?
-            <Animated.View name="cover" style={[st.cover, opacityStyle, styles.cardBlur ]} >
+            <Animated.View name="cover" style={[st.cover, opacityStyle, st.cardBlur ]} >
                 <Image source={require('../assets/images/qodmask-small.png')} style={st.blurImage} />
                 <TouchableOpacity style={[st.revealButton, st.shadow]} onPressOut={() => clickReveal()}>
                   <Text style={st.revealButtonText} source={require("../assets/images/button-play.png")} >Reveal </Text>
@@ -70,6 +70,12 @@ const st = EStyleSheet.create({
     maxWidth: 400,
     zIndex: 1,
     top: 0,
+  },
+  cardBlur: {
+    width: 333,
+    height: 442,
+    borderRadius: 20,
+    backgroundColor: 'rgba(238, 238, 238, 0.35)'
   },
   blurImage: {
     width: '100%',

@@ -12,33 +12,11 @@ EStyleSheet.build({
 export default EStyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '$containerColor',
-        flexDirection: "column",
-        justifyContent: "center",
-        alignContent: "center",
-        marginTop: StatusBar.currentHeight+20,
-    },
-    cardContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        backgroundColor: 'transparent',
     },
     flatList: {
-        backgroundColor: '$containerColor',
-    },
-    cardFull: {
-        width: 353,
-        height: 570
-    },
-    cardHalf: {
-        width: 353,
-        height: 260
-    },
-    cardBlur: {
-        width: 333,
-        height: 442,
-        borderRadius: 20,
-        backgroundColor: 'rgba(238, 238, 238, 0.35)'
+        backgroundColor: 'transparent',
+        flex: 1
     },
     shadow: {
         shadowColor:'#000',
@@ -48,25 +26,12 @@ export default EStyleSheet.create({
     appbarBottom: {
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        maxWidth: 400,
         backgroundColor: 'transparent',
         position: 'fixed',
         left: 0,
         right: 0,
         bottom: 0,
         display: 'flex',
-    },
-    roundButton: {
-        borderRadius: "50%",
-        justifyContent: 'space-evenly',
-        alignItems: 'center',
-        overflow: 'hidden',
-        marginLeft: 20,
-        marginRight: 20,
-      },
-    roundButtonImage: {
-        height: 60,
-        width: 60,
     },
     largeButton: {
         borderRadius: "20%",

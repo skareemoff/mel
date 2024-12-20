@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { View, Image, TouchableOpacity, Platform, InteractionManager } from "react-native";
+import { View, Platform, InteractionManager, StatusBar } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashScreen from "./src/components/SplashScreen";
@@ -34,11 +34,12 @@ export default function App() {
   }, []);
 
   return (
-    <View style={styles.container}>
-      {
-        isShowSplashScreen
-        ?  <SplashScreen  />
-        :  <NavigationContainer>
+      <View style={[styles.container, {backgroundColor: 'red'}]}>
+        <StatusBar hidden={true} />
+        {
+          isShowSplashScreen
+          ?  <SplashScreen  />
+          :  <NavigationContainer>
               <Stack.Navigator initialRouteName={isShowOnboarding ? 'Onboarding' : 'Home'}>
                 <Stack.Screen name="Onboarding" component={Onboarding} options= {{  headerShown: false }} />
                 <Stack.Screen name="Home" component={HomeScreen} options={{  headerShown: false}} />
@@ -47,6 +48,6 @@ export default function App() {
               </Stack.Navigator>
           </NavigationContainer>
       }
-    </View>
+      </View>
   );
 }

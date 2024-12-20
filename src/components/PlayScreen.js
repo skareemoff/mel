@@ -1,7 +1,6 @@
 import { ImageBackground, View, Image, TouchableOpacity, Modal } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import React, { useState, useEffect, useRef } from 'react';
 import { useSharedValue } from 'react-native-reanimated';
 import { captureRef } from 'react-native-view-shot';
@@ -13,6 +12,7 @@ import {BOTTOM_APPBAR_HEIGHT, specialShuffle} from './Utils'
 import st from '../assets/style'
 import { ShareableCard } from './ShareableCard';
 import { HeaderBar } from './HeaderBar';
+import EStyleSheet from 'react-native-extended-stylesheet';
 // import KeepAwake from '@sayem314/react-native-keep-awake';
 
 export default function PlayScreen({route, navigation}) {
@@ -102,13 +102,13 @@ export default function PlayScreen({route, navigation}) {
 
   return (
     <GestureHandlerRootView>
-      <SafeAreaView edges={['right', 'left']} style={st.container}>
-        <HeaderBar isHomeScreen={false} navigation={navigation} />
-        <KeepAwake />
+      <View edges={['right', 'left']} style={st.container}>
+        {/* <KeepAwake /> */}
         <ImageBackground
           source={DeckData.getDeckImage(deckData.deckBackground)}
           style={{ height: '100%', width: '100%'}} >
-          <View style={[st.cardContainer, {paddingTop: Math.max(insets.top, 100), }]} key={deckKey}>
+        <HeaderBar isHomeScreen={false} navigation={navigation} />
+        <View style={[styles.cardContainer, {top: 160,paddingTop: Math.max(insets.top, 100), }]} key={deckKey}>
             {visibleCards.map((item) => {
               return (
                 <SwipableCard
@@ -141,19 +141,39 @@ export default function PlayScreen({route, navigation}) {
             />
           </Modal>
           <Appbar style={[ st.appbarBottom, { bottom: -60, height: BOTTOM_APPBAR_HEIGHT + insets.top }]} safeAreaInsets={{ insets }} >
-            <TouchableOpacity style={st.roundButton} onPress={toggleFavourite}>
-              <Image name="heart" style={st.roundButtonImage} source={require("../assets/images/like.png")}/>
+            <TouchableOpacity style={styles.roundButton} onPress={toggleFavourite}>
+              <Image name="heart" style={styles.roundButtonImage} source={require("../assets/images/like.png")}/>
             </TouchableOpacity>
-            <TouchableOpacity style={st.roundButton} onPress={shareSnapshot}>
-              <Image name="share" style={st.roundButtonImage} source={require("../assets/images/share.png")} />
+            <TouchableOpacity style={styles.roundButton} onPress={shareSnapshot}>
+              <Image name="share" style={styles.roundButtonImage} source={require("../assets/images/share.png")} />
             </TouchableOpacity>
             {/* TODO: Reset doesn't redraw properly */}
-            <TouchableOpacity style={st.roundButton} onPress={() => handleSetCurrentIndex(-1)}>
-              <Image name="restart" style={st.roundButtonImage} source={require("../assets/images/undo.png")} />
+            <TouchableOpacity style={styles.roundButton} onPress={() => handleSetCurrentIndex(-1)}>
+              <Image name="restart" style={styles.roundButtonImage} source={require("../assets/images/undo.png")} />
             </TouchableOpacity>
           </Appbar>
         </ImageBackground>
-      </SafeAreaView>
+      </View>
     </GestureHandlerRootView>
   );
 }
+
+const styles = EStyleSheet.create({
+    roundButton: {
+        borderRadius: "50%",
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        overflow: 'hidden',
+        marginLeft: 20,
+        marginRight: 20,
+      },
+    roundButtonImage: {
+        height: 60,
+        width: 60,
+    },
+    cardContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+  },
+});

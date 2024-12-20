@@ -30,7 +30,8 @@ const HomeScreen = ({navigation}) => {
 
     const renderCard = ({ item }) => {
         switch(item.id) {
-            case 'header': return (<HeaderBar isHomeScreen={true} navigation={navigation} />)
+            case 'header':
+                return (<HeaderBar isHomeScreen={true} navigation={navigation} />)
             case 'questionOfTheDay':
                 return (<RevealableCard
                     id='questionOfTheDay'
@@ -60,22 +61,23 @@ const HomeScreen = ({navigation}) => {
     }};
 
     return (
-        <View style={[styles.container, styles.headerContainer]}>
-            <FlatList
-                style={styles.flatList}
-                data={cards}
-                renderItem={renderCard}
-                contentContainerStyle={{
-                    paddingTop: StatusBar.currentHeight + 40, // Add padding at the top to avoid status bar overlap
-                    paddingBottom: HALF_CARD_HEIGHT / 2, // Ensure padding for the last card
-                }}
-                keyExtractor={(item) => item.id}
-                showsVerticalScrollIndicator={false}
-                bounces={false} // Prevent overscrolling past the first card
-                snapToAlignment="start"
-                decelerationRate="fast"
-            />
-        </View>
+        <FlatList
+            style={styles.flatList}
+            data={cards}
+            renderItem={renderCard}
+            contentContainerStyle={{
+                paddingBottom: HALF_CARD_HEIGHT / 2, // Ensure padding for the last card
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'transparent'
+            }}
+            ItemSeparatorComponent={() => <View style={{backgroundColor: 'transparent', height: 20}} />}
+            keyExtractor={(item) => item.id}
+            showsVerticalScrollIndicator={false}
+            bounces={false} // Prevent overscrolling past the first card
+            snapToAlignment="start"
+            decelerationRate="fast"
+        />
     );
 };
 

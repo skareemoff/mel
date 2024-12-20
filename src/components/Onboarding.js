@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { useSharedValue, } from 'react-native-reanimated';
-import { View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import SwipableCard from './SwipableCard';
 import DeckData from './DeckData'
-import styles from '../assets/style'
+import { HeaderBar } from './HeaderBar';
+import styles from '../assets/style';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 export default function Onboarding({navigation}) {
-  const insets = useSafeAreaInsets();
-
   const deckData = DeckData.data().onboarding;
   const cardDeck = [...deckData.cards];
 
@@ -29,9 +27,9 @@ export default function Onboarding({navigation}) {
   };
 
   return (
-    <GestureHandlerRootView>
-      <SafeAreaView edges={['right', 'left']} style={[styles.container]}>
-        <View style={[styles.cardContainer, { paddingTop: Math.max(insets.top, 100)}]}>
+    <GestureHandlerRootView style={styles.container}>
+        <HeaderBar isHomeScreen={false} navigation={navigation}/>
+        <View style={st.onboardingContainer}>
           {cardDeck.map((item, index) => {
             return (
               <SwipableCard
@@ -49,7 +47,13 @@ export default function Onboarding({navigation}) {
             );
           })}
         </View>
-      </SafeAreaView>
     </GestureHandlerRootView>
   );
 }
+
+const st = EStyleSheet.create({
+    onboardingContainer: {
+        flex: 1,
+        backgroundColor: 'transparent'
+    }
+});

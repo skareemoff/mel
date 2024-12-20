@@ -101,7 +101,11 @@ const SwipableCard = ({
 
   return (
     <GestureDetector gesture={pan}>
-      <Animated.View style={[ styles.container, { zIndex: deckSize - index}, animatedStyle ]}>
+      <Animated.View style={[
+        { zIndex: deckSize - index},
+        animatedStyle,
+        styles.container
+        ]}>
           <Card
             type='card'
             deckName={deckName}
@@ -129,9 +133,14 @@ export default SwipableCard;
 const styles = EStyleSheet.create({
   container: {
     position: 'absolute',
-    width: '100%',
-    height: '100%',
-    borderRadius: 30,
-    maxWidth: 400,
-  },
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    margin: 0,
+    padding: 0,
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+},
 });

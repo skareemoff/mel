@@ -20,7 +20,8 @@ const DeckInfoScreen = ({route, navigation}) => {
 
     const renderCard = ({ item }) => {
         switch(item.id) {
-            case 'header': return (<HeaderBar isHomeScreen={false} navigation={navigation} />)
+            case 'header':
+                return (<HeaderBar isHomeScreen={false} navigation={navigation} />)
             case 'deck':
                 return( <Card
                     type='deck'
@@ -45,14 +46,15 @@ const DeckInfoScreen = ({route, navigation}) => {
                     infoTextStyleLeft='shareableInfoLeft'
                     isFavourite='no'
                     />)
-            default:
+            case 'rules':
                 return ( <SafeAreaView> { deckData.rules && <Markdown style={styles.deckInfoRules}>{deckData.rules}</Markdown> } </SafeAreaView> )
+            default:
+                return null;
         }
     }
 
     return (
         <View style={[styles.container, styles.shadow]}>
-            <HeaderBar isHomeScreen={false} navigation={navigation} />
             <FlatList
                 style={styles.flatList}
                 data={cards}
@@ -61,7 +63,10 @@ const DeckInfoScreen = ({route, navigation}) => {
                 contentContainerStyle={{
                     paddingTop: StatusBar.currentHeight + 30, // Add padding at the top to avoid status bar overlap
                     paddingBottom: HALF_CARD_HEIGHT / 2, // Ensure padding for the last card
+                    justifyContent: 'center',
+                    alignItems: 'center',
                 }}
+                ItemSeparatorComponent={() => <View style={{height: 20}} />}
                 showsVerticalScrollIndicator={false}
                 bounces={false} // Prevent overscrolling past the first card
                 snapToAlignment="start"
