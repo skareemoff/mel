@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 import styles from '../assets/style'
 import stl from './cardStyle'
 
-const ShareableView = (cardData) => {
+const ShareableView = ({cardData}) => {
     return (
         <>
         <View style={[stl.top, stl.shotTop]}>
