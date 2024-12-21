@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSharedValue, } from 'react-native-reanimated';
-import { StatusBar, View } from 'react-native';
+import { View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import SwipableCard from './SwipableCard';
 import DeckData from './DeckData'

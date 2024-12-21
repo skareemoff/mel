@@ -1,4 +1,4 @@
-import { FlatList, Image, StatusBar, View } from 'react-native';
+import { FlatList, View } from 'react-native';
 import Card from './Card';
 import styles from '../assets/style'
 import DeckData from './DeckData.js'
