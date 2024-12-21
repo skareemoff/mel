@@ -29,14 +29,14 @@ export default function Onboarding({navigation}) {
   };
 
   return (
-    <GestureHandlerRootView style={styles.container}>
+    <GestureHandlerRootView>
         <SvgXml
           xml={DeckData.getDeckImageSvg(deckData.deckBackgroundSvg)}
           width={width}
           height={height}
           preserveAspectRatio="xMinYMin slice"
           style={{
-            backgroundColor: 'lime',
+            backgroundColor: deckData.deckBackgroundColor,
             zIndex: 0,
             position: 'absolute',
             overflow: 'hidden'
