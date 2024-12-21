@@ -29,20 +29,20 @@ const Card = (cardData) => {
                     ) : null}
                     <View style={[stl.cardHeader]}>
                         <Text style={[stl.deckName, styles[cardData.deckTextStyle]]}>{cardData.deckName}</Text>
-                        <Text style={[stl.deckSubText, styles[cardData.deckSubTextStyle]]}>{cardData.deckSubText}</Text>
+                        {cardData.deckSubText && <Text style={[stl.deckSubText, styles[cardData.deckSubTextStyle]]}>{cardData.deckSubText}</Text>}
                     </View>
                 </View>
                 {cardData.useMarkdown == 'yes'
                 ? (
                     <View style={stl.middle}>
                         {cardData.text && <Markdown style={styles[cardData.cardTextStyle]}>{cardData.text}</Markdown>}
-                        {cardData.subText && <Markdown style={styles[cardData.cardSubTextStyle]}>{cardData.subText}</Markdown>}
+                        {cardData.subText && cardData.subText && <Markdown style={styles[cardData.cardSubTextStyle]}>{cardData.subText}</Markdown>}
                     </View>
                 )
                 : (
                     <View style={stl.middle}>
                         <Text style={[stl.cardText, styles[cardData.cardTextStyle]]}>{cardData.text}</Text>
-                        <Text style={[stl.cardSubText, styles[cardData.cardSubTextStyle]]}>{cardData.subText}</Text>
+                        {cardData.subText && <Text style={[stl.cardSubText, styles[cardData.cardSubTextStyle]]}>{cardData.subText}</Text>}
                     </View>
                 )}
                 <View style={[stl.bottom]}>
