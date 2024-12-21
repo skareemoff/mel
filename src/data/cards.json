@@ -3,9 +3,9 @@
         {
             "id": 1,
             "deckName": "Ice Breakers",
-            "deckTextStyle": "deck1",
-            "deckBackgroundSvg": "SVG_CONN",
-            "deckBackgroundColor": "lime",
+            "deckTextStyle": "deckIce",
+            "deckBackgroundSvg": "SVG_ICE",
+            "deckBackgroundColor": "#62f2ff",
             "description": "> Effortless questions to move beyond small talk and kick off authentic, engaging conversations.",
             "rules": "### How to Play ###\n##### In this collection, you\\'ll find fun and easy questions to start conversations and move beyond small talk. Whether you\\'re with friends, colleagues, or meeting someone new, these questions make every interaction a little more exciting! #####\n\n> 1. Decide who goes first. Tap **Play** \n> 2. The first person picks someone to answer the question and hands them the phone. That person shares their answer with the group.\n> 3. After answering, the person who just spoke selects the next question and chooses someone else to answer. The gameplay continues until everyone has had a turn.\n\n ###### **Pro Tip:** If an Action Card appears, everyone must do the action written on the card. ######",
             "cards": [
@@ -514,9 +514,9 @@
         {
             "id": 2,
             "deckName": "Confessions",
-            "deckTextStyle": "deck2",
-            "deckBackgroundSvg": "SVG_CONN",
-            "deckBackgroundColor": "lime",
+            "deckTextStyle": "deckConfes",
+            "deckBackgroundSvg": "SVG_CONFES",
+            "deckBackgroundColor": "#7c25ff",
             "description": "> Thought-provoking prompts for those ready to open up and share a bit more of their story.",
             "rules": "### How to Play ###\n##### This deck is for those who are ready to open up and share a bit more. Dive into honest and vulnerable conversations with friends, partners, or family. #####\n\n> 1. Decide who goes first. Tap **Play.**\n> 2. The first person reads the question and answers as honestly as they feel comfortable.\n> 3. After answering, they can either:\n>    + Pass the next turn to anyone, or \n>     + Use the **Switch It** card to make someone else answer the same question before continuing. \n\n ###### **Pro Tip:** Use the **Challenge Card** to push yourself or someone else to reveal more or complete a fun task! ######",
             "cards": [
@@ -1123,9 +1123,9 @@
         {
             "id": 3,
             "deckName": "Going Deep",
-            "deckTextStyle": "deck3",
-            "deckBackgroundSvg": "SVG_CONN",
-            "deckBackgroundColor": "lime",
+            "deckTextStyle": "deckDeep",
+            "deckBackgroundSvg": "SVG_DEEP",
+            "deckBackgroundColor": "#5744ff",
             "description": "> Honest and heartfelt questions about the most meaningful aspects of your life, designed to inspire real talk.",
             "rules": "### How to Play ###\n##### This collection is all about exploring life’s most meaningful topics. Expect heartfelt, honest conversations that connect on a deeper level. #####\n\n> 1. Decide who goes first. Tap **Play.**\n> 2. The first person reads the question, reflects for a moment, and shares their thoughts.\n> 3. After answering, the group can ask one follow-up question to dive deeper.\n> 4. The answering player then selects someone to go next and passes them the phone. \n\n ###### **Pro Tip:** If an **All Play Card** appears, everyone answers the same question for a group discussion. ######",
             "cards": [
@@ -1685,9 +1685,9 @@
         {
             "id": 4,
             "deckName": "End of the Year",
-            "deckTextStyle": "deck4",
-            "deckBackgroundSvg": "SVG_CONN",
-            "deckBackgroundColor": "lime",
+            "deckTextStyle": "deckEOY",
+            "deckBackgroundSvg": "SVG_EOY",
+            "deckBackgroundColor": "#ff4444",
             "description": "> A reflective journey through the highs, lows, and lessons of the past year, promoting personal growth and closure.",
             "rules": "### How to Play ###\n##### Reflect on the highs, lows, and lessons of the past year. Perfect for wrapping up the year with gratitude and introspection. #####\n\n> 1. Decide who goes first. Tap **Play.**\n> 2. The first person reads a reflection question and answers it thoughtfully.\n> 3. If a **Gratitude Card** appears, pause the game and everyone must share one thing they are grateful for.\n> 4. The person answering selects who goes next and passes them the phone.\n\n ###### **Pro Tip:** End the game by summarizing everyone’s biggest takeaways or highlights from the session! ######",
             "cards": [
@@ -2338,9 +2338,9 @@
         {
             "id": 5,
             "deckName": "Connection 101",
-            "deckTextStyle": "deck5",
+            "deckTextStyle": "deckConnect",
             "deckBackgroundSvg": "SVG_CONN",
-            "deckBackgroundColor": "lime",
+            "deckBackgroundColor": "#00bc38",
             "description": "> This collection helps people to connect and get to know each other on a human level and spark a meaningful exchange.",
             "rules": "### How to Play ###\n##### In this collection you'll find 100 questions that you can ask yourself, your friends, colleagues, lovers or family members — hey are all safe to pull out with pretty much anyone. #####\n\n> 1. Decide who goes first. Tap **Play.**\n> 2. The first person reads the question out loud and shares their answer with the rest.\n> 3. After their answer, the person choses who goes next and passes them phone.\n> 4. The next person swipes the card to reveal the next question, and the gameplay repeats itself.\n\n ###### **Pro Tip:** For deeper understanding and connection, ask the speaker follow up questions, especially about the points, that seem obvious to you. _\"What does X mean to you?\"_ can be quite revealing. ######",
             "cards": [
@@ -3004,9 +3004,9 @@
         {
             "id": 6,
             "deckName": "Tiny Talks",
-            "deckTextStyle": "deck6",
-            "deckBackgroundSvg": "SVG_CONN",
-            "deckBackgroundColor": "lime",
+            "deckTextStyle": "deckTiny",
+            "deckBackgroundSvg": "SVG_TINY",
+            "deckBackgroundColor": "#b5ff72",
             "description": "> Simple yet impactful questions crafted to spark meaningful exchanges with kids and nurture connection.",
             "rules": "### How to Play ###\n##### This deck is designed for meaningful conversations with kids! The questions are simple, fun, and perfect for bonding with little ones. #####\n\n> 1. Decide who goes first. Tap **Play.**\n> 2. Pick a question together, reading it out loud, and letting the child say if it is a good question first.\n> 3. Offer the child to answer it first, but be ready to answer it first yourself, if the child prefers that.\n> 4. After the child’s response, the grown up answers the same question to model sharing.\n> 5. If a **Challenge Card** appears, everyone does a fun action like drawing their answer, acting it out, or finding an object in the room related to the question.\n\n ###### **Pro Tip:** Keep it playful! Award stars for creative answers and completed challenges. ######",
             "cards": [
@@ -3869,13 +3869,22 @@
         "id": "favourites",
         "deckName": "Favourites",
         "deckTextStyle": "favDeck",
-        "deckBackgroundSvg": "SVG_CONN",
-        "deckBackgroundColor": "lime",
+        "deckBackgroundSvg": "SVG_FAV",
+        "deckBackgroundColor": "black",
         "cardSubTextStyle": "favSubText",
         "description": "> These are all of your favourite questions from all of your decks.",
         "rules": "### How to Play ###\n##### Just enjoy revisiting and finding new depth and insights. ######",
         "deckBackground": "deckBGFav",
         "exampleText": "You have no Favourite questions yet.",
         "cards": []
+    },
+    "svgLibrary": {
+        "SVG_CONN": "<svg width='393' height='852' viewBox='0 0 393 852' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M-363.442 909.777C-424.53 661.663 -485.718 165.434 -241.766 165.434C63.1735 165.434 277.341 879.675 38.4968 879.675C-129.444 879.675 -243.004 655.388 -112.315 417.308C18.3731 179.227 97.718 -349.038 277.978 -20.6514C458.238 307.735 277.978 778.422 277.978 471.928C277.978 165.434 384.632 -20.6514 441.714 -20.6514C498.796 -20.6514 560.385 614.229 441.714 830.417C323.043 1046.6 250.939 855.046 264.458 830.417C275.274 810.714 399.153 583.215 459.74 471.928' stroke='black' stroke-width='12' stroke-linejoin='round'/></svg>",
+        "SVG_TINY": "<svg width='353' height='260' viewBox='0 0 353 260' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M10.3691 294.539C10.3691 243.031 121.538 90.2975 158.5 115.5C183.963 132.862 87.5 247 148.5 258C209.5 269 159.5 157.5 188.5 138.5C231.093 110.594 251 368.5 365.471 279.578C463.615 203.339 231.515 212.059 231.515 126.698C231.515 76.4471 346.722 50.5884 382.5 38M306 -10.5C289.915 -10.8963 230.278 86.5001 220 86.5001C199.5 86.5001 266 -11.7728 266 -37.9999C266 -56.7305 34.8747 -56.9856 40.5 -37.9999C44.4999 -24.5 126 16.6682 126 69.5001C126 135.611 -39.0002 106 -44.026 118.871C-74.6074 197.186 35.777 133.534 44.4999 148C52.0962 160.598 9.34676 204.476 -20.8413 204.476' stroke='white' stroke-width='12'/></svg>",
+        "SVG_EOY":  "<svg width='353' height='260' viewBox='0 0 353 260' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M25.8503 160.359L133.296 62.9146L228.226 137.845L312.276 53.7954L369.31 110.83L300.644 179.496H236.481V230.151H177.946V160.359H110.405L75.1343 195.63H3.84159V110.83L86.0153 35.6558H223.722V89.8169L312.276 1.26304L382.443 71.43L443.23 132.216L351.674 223.772H281.507V282.682H153.931V195.63L75.1343 274.427V212.891H-17.1719V42.9146H39.114V-5.49011H138.924V13.5207H240.234V-5.49011' stroke='black' stroke-width='12' stroke-linejoin='round'/></svg>",
+        "SVG_DEEP": "<svg width='343' height='253' viewBox='0 0 343 253' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8.59112 261.134C8.59112 240.72 -4.57119 147.72 28.7739 145.965C54.7406 144.599 55.357 249.5 76 228.5C111.276 192.614 64.9419 148.607 55.357 137.71C42.3702 122.947 6.43153 95.4929 16.5551 74.653C28.7739 49.4999 65.5739 104.946 82.7765 128.183C103 155.5 150.231 254.106 171.581 222.587C199.073 182 -15.6524 31.6316 38.5534 10.5516C74.5534 -3.44843 113.322 30.2895 146.29 74.653C199.285 145.965 192.5 216 210.71 224.333C223.911 230.374 221.973 192.72 221.692 189.349C216.595 128.183 214.875 -3.96746 251.382 6.99988C279.676 15.5 223.646 204.072 261.549 227.897C281.236 240.271 283.89 180.5 280.168 137.965C279.132 126.131 264.152 18.7415 294.241 28.8689C308 33.5 299.878 61.158 299.878 107.782C299.878 171.5 324 189.03 324 156.5C324 130.183 329.5 107.782 369.918 100.763' stroke='black' stroke-width='12' stroke-linecap='round'/></svg>",
+        "SVG_FAV":  "<svg width='71' height='58' viewBox='0 0 71 58' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M20.3986 1.20526C20.193 0.993823 19.914 0.875004 19.623 0.875004C19.3321 0.875003 19.0531 0.993823 18.8475 1.20526L0.32019 20.2641C-0.10673 20.7033 -0.10673 21.4144 0.32019 21.8536L34.287 56.7947C34.4925 57.0062 34.7715 57.125 35.0625 57.125C35.3535 57.125 35.6325 57.0062 35.838 56.7947L69.8048 21.8536C70.2317 21.4144 70.2317 20.7032 69.8048 20.2641L51.2775 1.20526C51.0719 0.99382 50.7929 0.875001 50.5019 0.875C50.211 0.875 49.932 0.993823 49.7264 1.20526L35.0625 16.2899L20.3986 1.20526Z' fill='white'/></svg>",
+        "SVG_CONFES": "<svg width='234' height='228' viewBox='0 0 234 228' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M10.5166 6.26611C6.89442 10.3411 5.79138 15.2345 6.10687 20.5978C6.40047 25.589 16.7066 25.0076 19.8873 25.0076C25.3708 25.0076 25.7008 18.6464 24.7871 14.5344C23.9819 10.911 16.167 6.26611 12.7215 6.26611' stroke='black' stroke-width='12' stroke-linecap='round'/><path d='M67.4806 6.55154C61.9331 6.55154 56.3826 6 50.7172 6C44.7278 6 40.0622 7.2033 34.7476 8.72706C19.1174 13.2084 9.00281 29.4738 7.05275 45.1287C4.92716 62.1928 4.61196 83.4469 20.091 94.798C25.4791 98.7492 29.764 104.993 37.1293 105.277C40.6093 105.412 44.524 107.05 47.6942 108.464C50.3009 109.627 53.7682 109.69 56.6103 109.69C63.9564 109.69 72.2171 110.686 79.2975 109.107C85.5442 107.714 91.0461 105.675 96.8854 103.071C99.2203 102.03 102.793 99.5159 104.03 97.28C104.938 95.6408 106.116 94.3189 106.931 92.5919C107.619 91.1356 107.909 88.9454 108.977 87.6587C110.772 85.4968 110.901 79.5972 110.901 76.8423C110.901 73.3568 112 69.8546 112 66.3631C112 57.9844 110.939 49.9547 107.176 42.4017C104.297 36.6249 100.419 31.5385 97.5877 25.8555C94.7314 20.123 89.8892 16.4626 84.5189 13.2926C82.0633 11.843 79.9637 10.3418 77.3738 9.18668C75.0083 8.13168 72.3728 8.17883 70.2287 7.10308' stroke='black' stroke-width='12' stroke-linecap='round'/><path d='M116.619 6.66113C90.28 6.66113 65.1648 9.27426 43.8584 26.015C17.7394 46.5371 6.37549 75.5249 6.37549 108.085C6.37549 126.153 11.5581 140.704 16.8486 157.634C21.7305 173.256 35.1045 184.259 47.6557 193.463C56.228 199.749 65.1633 207.93 75.8903 210.612C91.2351 214.448 106.252 219.432 122.131 219.432C130.123 219.432 137.916 220.534 145.956 220.534C153.772 220.534 164.023 222.272 171.374 219.432C187.677 213.133 197.23 202.762 209.224 190.768C231.034 168.958 228.258 132.673 226.863 104.778C225.979 87.0949 216.104 71.7861 205.672 58.4757C198.55 49.3892 189.405 40.9803 180.561 33.6096C174.383 28.462 170.226 23.2977 162.922 19.6454C154.676 15.5227 145.529 15.4674 137.566 11.9283C130.158 8.63629 122.623 7.76357 114.414 7.76357' stroke='black' stroke-width='12' stroke-linecap='round'/><path d='M240.38 -18.2314C240.572 -16.6962 246.459 -13.4999 247.852 -12.9642C251.244 -11.6596 252.859 -8.70036 255.814 -6.96199C261.416 -3.66652 266.788 0.531831 271.799 4.42987C278.743 9.8304 283.553 18.3268 289.745 24.5187C298.319 33.0933 305.17 43.251 313.692 51.7734C319.752 57.8334 323.219 66.2497 326.37 74.1284C332.869 90.3749 335.943 110.528 337.333 127.903C337.867 134.582 338.497 141.555 338.497 148.237C338.497 151.902 339.753 158.088 338.252 161.466C335.452 167.765 332.813 174.274 330.78 180.881C327.601 191.212 321.169 199.107 315.346 208.013C307.817 219.528 300.899 230.266 289.928 239.127C280.237 246.954 269.288 253.201 260.224 261.788C252.761 268.858 244.309 274.104 235.296 278.876C211.689 291.373 173.346 293.148 149.49 281.632C135.931 275.086 122.16 268.679 108.332 262.89C99.8412 259.336 90.8722 256.967 83.2212 251.866C72.3246 244.602 62.9884 236.329 53.0267 227.612C45.2467 220.805 39.4443 212.191 31.4066 205.809C27.1765 202.449 24.5659 194.508 21.8522 189.884C18.0292 183.371 15.2828 175.672 12.7264 168.571C9.07371 158.424 9.16242 148.917 8.86791 138.315C8.18133 113.598 2.77898 83.8564 14.1351 61.1442C24.1632 41.0881 42.6394 27.6748 55.1703 9.57457C59.9111 2.72679 67.3942 -0.584956 73.483 -5.73706C81.1058 -12.1871 92.34 -20.0332 102.82 -20.4362C111.658 -20.7762 122.659 -23.0139 131.239 -25.3972C137.37 -27.1005 144.578 -26.993 150.96 -28.1533C157.041 -29.2589 162.763 -29.2557 168.966 -29.2557C185.125 -29.2557 201.711 -25.1938 216.126 -17.9864C226.815 -12.6419 239.776 -11.3675 250.302 -6.10454' stroke='black' stroke-width='12' stroke-linecap='round'/></svg>",
+        "SVG_ICE":    "<svg width='108' height='88' viewBox='0 0 108 88' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M3 40L26.5 53.5L50 -7' stroke='white' stroke-width='12'/><path d='M15 53L7.5 31.5L62 6' stroke='white' stroke-width='12'/><path d='M6 84L34.5 8.5L63 20.0631' stroke='white' stroke-width='12'/><path d='M5 62L60.5 8.5L84 31' stroke='white' stroke-width='12'/><path d='M3 68.5L73 30.5L59 3.5' stroke='white' stroke-width='12'/><path d='M3 68.5L31 79.5L59 3' stroke='white' stroke-width='12'/><path d='M1 79L64.5 70L80 0' stroke='white' stroke-width='12'/><path d='M-5 66L18.5 8.5L42 19' stroke='white' stroke-width='12'/><path d='M3 48L26 58.5L56.5 3' stroke='white' stroke-width='12'/><path d='M20 79L8 58.5L85 5' stroke='white' stroke-width='12'/><path d='M6 61L15 7.5L59 13' stroke='white' stroke-width='12'/><path d='M3 82L99.5 33.5L82 3' stroke='white' stroke-width='12'/></svg>",
     }
 }

@@ -45,29 +45,29 @@ export default EStyleSheet.create({
         height: '$mainLogoHeight',
         backgroundColor: 'transparent',
     },
-    deck1: {
-        color: 'white',
+    deckIce: {
+        color: 'black',
         fontFamily: 'DMSans-Bold',
     },
-    deck2: {
+    deckConfes: {
         color: 'white',
         fontFamily: 'DMSans-Bold'
     },
-    deck3: {
+    deckDeep: {
         color: 'white',
         fontFamily: 'DMSans-Bold'
     },
-    deck4: {
-        color: 'darkgreen',
-        fontFamily: 'DMSans-Bold'
-    },
-    deck5: {
+    deckEOY: {
         color: 'white',
         fontFamily: 'DMSans-Bold'
     },
-    deck6: {
+    deckConnect: {
+        color: 'white',
+        fontFamily: 'DMSans-Bold'
+    },
+    deckTiny: {
         fontFamily: 'DMSans-Bold',
-        color: '#53B0CF',
+        color: 'black',
     },
     favDeck: {
         fontFamily: 'DMSans-Bold',
