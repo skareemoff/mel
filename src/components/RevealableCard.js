@@ -3,14 +3,12 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import React, { useRef, useState } from "react";
 import Card from './Card'
 import styles from '../assets/style'
-import { calculateCardHeight } from "./Utils";
 
 
 const RevealableCard = (cardData) => {
   const [isShowRevealButton, setIsShowRevealButton] = useState(true);
   const opacityAnimation = useRef(new Animated.Value(1)).current;
   const opacityStyle = { opacity: opacityAnimation };
-  const cardHeight = calculateCardHeight(cardData);
 
   const clickReveal = () => {
     Animated.timing(opacityAnimation, {

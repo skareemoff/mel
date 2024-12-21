@@ -28,7 +28,7 @@ export default function Onboarding({navigation}) {
 
   return (
     <GestureHandlerRootView style={styles.container}>
-        <HeaderBar isHomeScreen={false} navigation={navigation}/>
+        <HeaderBar showBackButton={false} navigation={navigation}/>
         <View style={stl.onboardingContainer}>
           {cardDeck.map((item, index) => {
             return (
@@ -54,6 +54,9 @@ export default function Onboarding({navigation}) {
 const stl = EStyleSheet.create({
     onboardingContainer: {
         flex: 1,
+        width: 353,
+        justifyContent: 'center',
+        alignSelf: 'center',
         backgroundColor: 'transparent'
     }
 });

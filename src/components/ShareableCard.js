@@ -1,22 +1,20 @@
 import React from 'react';
-import { Image, ImageBackground, SafeAreaView } from 'react-native';
+import { View, Image, ImageBackground } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import ViewShot from 'react-native-view-shot';
 import DeckData from './DeckData';
 import styles from '../assets/style'
 import Card from './Card';
 
 export const ShareableCard = ({deckData, cardDeck, currentIndex, viewShotRef, setShareModalVisible}) => {
-    const insets = useSafeAreaInsets();
 
     return (
-        <SafeAreaView edges={['right', 'left']} style={styles.container}>
+        <View edges={['right', 'left']} style={[styles.container, {backgroundColor: 'transparent'}]}>
             <ViewShot ref={viewShotRef} collapsable={false} style={stl.fullScreen}>
                 <ImageBackground
                     source={DeckData.getDeckImage(deckData.deckBackground)}
                     style={stl.fullScreen}>
-                    <Image source={require('../assets/images/logo.png')} style={{width:'72', height: 32, marginBottom: '40'}}/>
+                    <Image source={require('../assets/images/logo.png')} style={[styles.logo, {top: -10}]}/>
                     <Card
                         type='card'
                         deckName={DeckData.getDeckName(cardDeck.value[currentIndex].deckID)}
@@ -28,24 +26,23 @@ export const ShareableCard = ({deckData, cardDeck, currentIndex, viewShotRef, se
                         deckSubTextStyle={cardDeck.value[currentIndex].deckSubTextStyle}
                         cardTextStyle={cardDeck.value[currentIndex].cardTextStyle}
                         cardSubTextStyle={cardDeck.value[currentIndex].cardSubTextStyle}
-                        cardStyle={st.shareableCard}
+                        cardStyle={stl.shareableCard}
                         infoLeft='More Exciting Life'
                         infoTextStyleLeft='shareableInfoLeft'
                         shareable='yes'
                     />
                 </ImageBackground>
             </ViewShot>
-        </SafeAreaView>
+        </View>
     );
 }
 
 const stl = EStyleSheet.create({
     fullScreen: {
-        flex: 1,
         width: '100%',
         height: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '$containerColor',
+        backgroundColor: 'transparent',
     }
 });

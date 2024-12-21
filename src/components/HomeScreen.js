@@ -31,33 +31,42 @@ const HomeScreen = ({navigation}) => {
     const renderCard = ({ item }) => {
         switch(item.id) {
             case 'header':
-                return (<HeaderBar isHomeScreen={true} navigation={navigation} />)
+                return (
+                    <HeaderBar showBackButton={false} navigation={navigation} />
+                )
             case 'questionOfTheDay':
-                return (<RevealableCard
-                    id='questionOfTheDay'
-                    deckName='Question of the day'
-                    text={DeckData.getQuestionOfTheDay()}
-                    type='deck'
-                    height='full'
-            deckBackground='homeBG'
-            cardTextStyle='qODCardText'
-            deckTextStyle='qODDeckText'
-            cardStyle='qODCard'
-                    deckStyle='qODDeck'
-                />)
+                return (
+                    <View style={styles.flatListItem}>
+                        <RevealableCard
+                            id='questionOfTheDay'
+                            deckName='Question of the day'
+                            text={DeckData.getQuestionOfTheDay()}
+                            type='deck'
+                            height='full'
+                            deckBackground='homeBG'
+                            cardTextStyle='qODCardText'
+                            deckTextStyle='qODDeckText'
+                            cardStyle='qODCard'
+                            deckStyle='qODDeck'
+                        />
+                    </View>
+            )
             default:
-                return (<Card
-                    type='deck'
-                    height={item.height}
-                    deckID={item.id}
-                    text={item.deckName}
-                    deckBackground={item.deckBackground}
-                clickHandler={clickDeck}
-                cardTextStyle={item.deckTextStyle}
-                cardStyle={item.deckStyle}
-                subText={item.subText}
-                cardSubTextStyle={item.cardSubTextStyle}
-            />)
+                return (
+                    <View style={styles.flatListItem}>
+                        <Card
+                            type='deck'
+                            height={item.height}
+                            deckID={item.id}
+                            text={item.deckName}
+                            deckBackground={item.deckBackground}
+                            clickHandler={clickDeck}
+                            cardTextStyle={item.deckTextStyle}
+                            cardStyle={item.deckStyle}
+                            subText={item.subText}
+                            cardSubTextStyle={item.cardSubTextStyle}
+                        />
+                </View>)
     }};
 
     return (
@@ -69,7 +78,9 @@ const HomeScreen = ({navigation}) => {
                 paddingBottom: HALF_CARD_HEIGHT / 2, // Ensure padding for the last card
                 justifyContent: 'center',
                 alignItems: 'center',
-                backgroundColor: 'transparent'
+                alignSelf: 'center',
+                backgroundColor: 'transparent',
+                width: 353,
             }}
             ItemSeparatorComponent={() => <View style={{backgroundColor: 'transparent', height: 20}} />}
             keyExtractor={(item) => item.id}

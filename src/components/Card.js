@@ -208,7 +208,7 @@ const stl = EStyleSheet.create({
 
 
     shotTop: {
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         paddingTop: 10,
@@ -221,19 +221,19 @@ const stl = EStyleSheet.create({
         paddingHorizontal: 15,
     },
     shotDeckName: {
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
         fontFamily: "DMSans-Bold",
         textAlign: 'center',
         color: '#000',
     },
     shotDeckSubText: {
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
         textAlign: 'center',
         color: '#666',
         marginTop: 5,
     },
     shotMiddle: {
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
         padding: 20,
         paddingTop: 10,
         flexDirection: 'column',
@@ -243,12 +243,12 @@ const stl = EStyleSheet.create({
         width: '100%',
     },
     shotCardText: {
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
         textAlign: 'center',
         color: '#000',
     },
     shotCardSubText: {
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
         color: '#000',
         marginTop: 20,
     },
@@ -264,7 +264,7 @@ const stl = EStyleSheet.create({
         marginBottom: 10,
     },
     shotBottom: {
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
         flex: 0.1,
         minHeight: 40,
         justifyContent: 'center',

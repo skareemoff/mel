@@ -8,12 +8,11 @@ import { Appbar } from 'react-native-paper';
 import Share from 'react-native-share';
 import SwipableCard from './SwipableCard';
 import DeckData from './DeckData'
-import {BOTTOM_APPBAR_HEIGHT, specialShuffle} from './Utils'
+import {height, width, specialShuffle} from './Utils'
 import styles from '../assets/style'
 import { ShareableCard } from './ShareableCard';
 import { HeaderBar } from './HeaderBar';
 import EStyleSheet from 'react-native-extended-stylesheet';
-// import KeepAwake from '@sayem314/react-native-keep-awake';
 
 export default function PlayScreen({route, navigation}) {
   const MAX = 3;
@@ -102,13 +101,10 @@ export default function PlayScreen({route, navigation}) {
 
   return (
     <GestureHandlerRootView>
-      <View edges={['right', 'left']} style={styles.container}>
-        {/* <KeepAwake /> */}
-        <ImageBackground
-          source={DeckData.getDeckImage(deckData.deckBackground)}
-          style={{ height: '100%', width: '100%'}} >
-        <HeaderBar isHomeScreen={false} navigation={navigation} />
-        <View style={[styles.cardContainer, {top: 160,paddingTop: Math.max(insets.top, 100), }]} key={deckKey}>
+      <View style={styles.container}>
+        <ImageBackground source={DeckData.getDeckImage(deckData.deckBackground)} style={{ height: '100%', width: '100%'}} >
+        <HeaderBar showBackButton={true} navigation={navigation} />
+        <View key={deckKey} style={stl.cardContainer}>
             {visibleCards.map((item) => {
               return (
                 <SwipableCard
@@ -122,58 +118,62 @@ export default function PlayScreen({route, navigation}) {
                   setCurrentIndex={handleSetCurrentIndex}
                   key={item.index}
                 />
-              );
+              )
             })}
           </View>
           <Modal
             visible={shareModalVisible}
             onRequestClose={() => setShareModalVisible(false)}
-            transparent={true}
-            animationType="none"
-            style={{ margin: 0 }}
-          >
+            transparent={false}
+            presentationStyle='fullScreen'
+            animationType='none'>
             <ShareableCard
               deckData={deckData}
               cardDeck={cardDeck}
               currentIndex={currentIndex}
               viewShotRef={viewShotRef}
-              setShareModalVisible={setShareModalVisible}
+              navigation={navigation}
             />
           </Modal>
-          <Appbar style={[ styles.appbarBottom, { bottom: -60, height: BOTTOM_APPBAR_HEIGHT + insets.top, backgroundColor: 'transparent' }]} safeAreaInsets={{ insets }} >
-            <TouchableOpacity style={stl.roundButton} onPress={toggleFavourite}>
-              <Image name="heart" style={stl.roundButtonImage} source={require("../assets/images/like.png")}/>
-            </TouchableOpacity>
-            <TouchableOpacity style={stl.roundButton} onPress={shareSnapshot}>
-              <Image name="share" style={stl.roundButtonImage} source={require("../assets/images/share.png")} />
-            </TouchableOpacity>
-            {/* TODO: Reset doesn't redraw properly */}
+          <Appbar style={[
+            styles.appbarBottom,
+            {
+              backgroundColor: 'transparent',
+              position: 'absolute',
+              top: height - 88,
+              left: 0,
+              width: width,
+            }]}>
             <TouchableOpacity style={stl.roundButton} onPress={() => handleSetCurrentIndex(-1)}>
               <Image name="restart" style={stl.roundButtonImage} source={require("../assets/images/undo.png")} />
+            </TouchableOpacity>
+            <TouchableOpacity style={stl.roundButton} onPress={toggleFavourite}>
+              <Image name="heart"   style={stl.roundButtonImage} source={require("../assets/images/like.png")}/>
+            </TouchableOpacity>
+            <TouchableOpacity style={stl.roundButton} onPress={shareSnapshot}>
+              <Image name="share"   style={stl.roundButtonImage} source={require("../assets/images/share.png")} />
             </TouchableOpacity>
           </Appbar>
         </ImageBackground>
       </View>
     </GestureHandlerRootView>
-  );
+  )
 }
 
 const stl = EStyleSheet.create({
-    roundButton: {
-        borderRadius: "50%",
-        justifyContent: 'space-evenly',
-        alignItems: 'center',
-        overflow: 'hidden',
-        marginLeft: 20,
-        marginRight: 20,
-      },
-    roundButtonImage: {
-        height: 60,
-        width: 60,
-    },
-    cardContainer: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
+  cardContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignSelf: 'center',
+  },
+  roundButton: {
+    borderRadius: '50%',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    overflow: 'hidden',
+  },
+  roundButtonImage: {
+    height: 72,
+    width: 72,
   }
 });

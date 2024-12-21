@@ -1,25 +1,26 @@
 import React, { useCallback } from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import { Appbar } from 'react-native-paper';
+import {width} from './Utils';
+import styles from '../assets/style';
 
-export const HeaderBar = ({ isHomeScreen, navigation}) => {
+export const HeaderBar = ({ showBackButton, navigation}) => {
     const clickGoBack = useCallback(() => {
         navigation.goBack(null)
     }, [navigation]);
 
     return (
-        <View style={st.headerContainer} >
+        <View style={[st.headerContainer, {width: width}]} >
         {
-            !isHomeScreen &&
-            <TouchableOpacity style={st.backButton}onPress={clickGoBack}>
+            showBackButton &&
+            <TouchableOpacity style={st.backButton} onPress={clickGoBack}>
                 <Image
                     style={st.backButtonImage}
                     source={require('../assets/images/button-small-back.png')}
                 />
             </TouchableOpacity>
         }
-            <Image source={require('../assets/images/logo.png')} style={st.logo} />
+            <Image source={require('../assets/images/logo.png')} style={styles.logo} />
         </View>
     );
 }
@@ -29,17 +30,15 @@ const st = EStyleSheet.create({
         justifyContent: 'space-evenly',
         alignItems: 'center',
         position: 'fixed',
-        left: 0,
-        right: 0,
-        bottom: 0,
         display: 'flex',
+        width: '100%',
         backgroundColor: 'transparent',
     },
     backButton: {
         width: 42,
         height: 42,
-        left: 20,
-        top: 20,
+        left: 30,
+        top: 30,
         position: 'absolute',
         backgroundColor: 'transparent',
         opacity: 0.7
@@ -47,12 +46,6 @@ const st = EStyleSheet.create({
     backButtonImage: {
         width: 42,
         height: 42,
-        backgroundColor: 'transparent',
-    },
-    logo: {
-        top: 60,
-        width: '$mainLogoWidth',
-        height: '$mainLogoHeight',
         backgroundColor: 'transparent',
     },
 });

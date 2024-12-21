@@ -2,11 +2,10 @@ import { StatusBar } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 EStyleSheet.build({
-    $textColor: 'black',
-    $backgroundColor: 'white',
     $containerColor: '#FBF7EF',
     $mainLogoWidth: 111,
     $mainLogoHeight: 50,
+    $headerTopPadding: 60,
 });
 
 export default EStyleSheet.create({
@@ -15,7 +14,10 @@ export default EStyleSheet.create({
         backgroundColor: '$containerColor',
     },
     flatList: {
-        backgroundColor: 'transparent',
+        backgroundColor: '$containerColor',
+    },
+    flatListItem: {
+        top: '$headerTopPadding'
     },
     shadow: {
         shadowColor:'#000',
@@ -23,22 +25,26 @@ export default EStyleSheet.create({
         shadowOffset:{width: 2, height: 2 }
     },
     appbarBottom: {
+        backgroundColor: '$containerColor',
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        backgroundColor: 'transparent',
         position: 'fixed',
         left: 0,
         right: 0,
         bottom: 0,
+        top: -100,
         display: 'flex',
+        height: 84,
     },
     smallButtonSize: {
         width: 32,
         height: 32,
     },
-    logoSize: {
-        width: 72,
-        height: 32,
+    logo: {
+        top: '$headerTopPadding',
+        width: '$mainLogoWidth',
+        height: '$mainLogoHeight',
+        backgroundColor: 'transparent',
     },
     deck1: {
         color: 'white',

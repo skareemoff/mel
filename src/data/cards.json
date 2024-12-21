@@ -3000,7 +3000,7 @@
             "id": 6,
             "deckName": "Tiny Talks",
             "description": "> Simple yet impactful questions crafted to spark meaningful exchanges with kids and nurture connection.",
-            "rules": "### How to Play ###\n##### This deck is designed for meaningful conversations with kids! The questions are simple, fun, and perfect for bonding with little ones.#####\n\n> 1. Decide who goes first. Tap **Play.**\n> 2. Pick a question together, reading it out loud, and letting the child say if it is a good question first.\n> 3. Offer the child to answer it first, but be ready to answer it first yourself, if the child prefers that.\n> 4. After the child’s response, the grown up answers the same question to model sharing.\n> 5. If a **Challenge Card** appears, everyone does a fun action like drawing their answer, acting it out, or finding an object in the room related to the question.\n\n ###### **Pro Tip:** Keep it playful! Award stars for creative answers and completed challenges. ######",
+            "rules": "### How to Play ###\n##### This deck is designed for meaningful conversations with kids! The questions are simple, fun, and perfect for bonding with little ones. #####\n\n> 1. Decide who goes first. Tap **Play.**\n> 2. Pick a question together, reading it out loud, and letting the child say if it is a good question first.\n> 3. Offer the child to answer it first, but be ready to answer it first yourself, if the child prefers that.\n> 4. After the child’s response, the grown up answers the same question to model sharing.\n> 5. If a **Challenge Card** appears, everyone does a fun action like drawing their answer, acting it out, or finding an object in the room related to the question.\n\n ###### **Pro Tip:** Keep it playful! Award stars for creative answers and completed challenges. ######",
             "deckBackground": "deckBG6",
             "deckTextStyle": "deck6",
             "cards": [
@@ -3866,7 +3866,7 @@
         "description": "> These are all of your favourite questions from all of your decks.",
         "rules": "### How to Play ###\n##### Just enjoy revisiting and finding new depth and insights. ######",
         "deckBackground": "deckBGFav",
-        "exampleText": "What connection does the quick brown fox feel to the lazy dog?",
+        "exampleText": "You have no Favourite questions yet.",
         "cards": [
 
         ]
