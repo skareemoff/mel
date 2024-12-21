@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, Pressable, ImageBackground, Image } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import {calculateCardHeight} from './Utils'
+import {calculateCardHeight, BG_SVG_1} from './Utils'
 import DeckData from './DeckData.js'
 import styles from '../assets/style'
 import Markdown from 'react-native-markdown-display';

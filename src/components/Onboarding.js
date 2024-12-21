@@ -7,6 +7,9 @@ import DeckData from './DeckData'
 import { HeaderBar } from './HeaderBar';
 import styles from '../assets/style';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import BGImage from "../assets/images/BGImage.svg";
+import { SvgXml } from 'react-native-svg';
+import {height, width, BG_SVG_1} from './Utils'
 
 export default function Onboarding({navigation}) {
   const deckData = DeckData.data().onboarding;
@@ -28,6 +31,7 @@ export default function Onboarding({navigation}) {
 
   return (
     <GestureHandlerRootView style={styles.container}>
+        <SvgXml xml={BG_SVG_1} width={width} height={height} style={{ zIndex: 1, position: 'absolute', top: 0, left: 0}}/>
         <HeaderBar showBackButton={false} navigation={navigation}/>
         <View style={stl.onboardingContainer}>
           {cardDeck.map((item, index) => {
