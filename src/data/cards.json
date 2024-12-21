@@ -3836,7 +3836,8 @@
     "onboarding": {
         "id": "onboarding",
         "deckName": "Onboarding",
-        "deckBackground": "deckBG2",
+        "deckBackgroundSvg": "SVG_CONN",
+        "deckBackgroundColor": "lime",
         "cards": [
             {
                 "deckID": "onboarding",

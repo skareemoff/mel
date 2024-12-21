@@ -5,7 +5,7 @@ import ShareableView from './ShareableView'
 import DeckData from './DeckData.js'
 import styles from '../assets/style'
 import stl from './cardStyle'
-import {calculateCardHeight, SVG_CONN} from './Utils'
+import {calculateCardHeight} from './Utils'
 import { SvgXml } from 'react-native-svg';
 
 const Card = (cardData) => {
@@ -52,9 +52,6 @@ const Card = (cardData) => {
             </>
         );
 
-        console.log("SVG: ", cardData.deckBackgroundSvg);
-        const xml = DeckData.getDeckImageSvg(cardData.deckBackgroundSvg)
-        console.log(xml)
         return (
             <View style={[
                 stl.card,
@@ -63,7 +60,7 @@ const Card = (cardData) => {
                 cardHeight == 'full' ? stl.cardFull : stl.cardHalf,
             ]}>
                 {cardData.deckBackgroundSvg &&
-                    <SvgXml xml={xml}
+                    <SvgXml xml={DeckData.getDeckImageSvg(cardData.deckBackgroundSvg)}
                         width='100%'
                         height='100%'
                         preserveAspectRatio="xMinYMin slice"

@@ -8,7 +8,7 @@ import DeckData from './DeckData'
 import { HeaderBar } from './HeaderBar';
 import styles from '../assets/style';
 import { SvgXml } from 'react-native-svg';
-import {height, width, SVG_CONN} from './Utils'
+import {height, width} from './Utils'
 
 export default function Onboarding({navigation}) {
   const deckData = DeckData.data().onboarding;
@@ -31,7 +31,7 @@ export default function Onboarding({navigation}) {
   return (
     <GestureHandlerRootView style={styles.container}>
         <SvgXml
-          xml={SVG_CONN}
+          xml={DeckData.getDeckImageSvg(deckData.deckBackgroundSvg)}
           width={width}
           height={height}
           preserveAspectRatio="xMinYMin slice"
