@@ -83,7 +83,7 @@ const HomeScreen = ({navigation}) => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 alignSelf: 'center',
-                backgroundColor: 'transparent',
+                backgroundColor: '$containerColor',
                 width: 353,
             }}
             ItemSeparatorComponent={() => <View style={{backgroundColor: 'transparent', height: 20}} />}
