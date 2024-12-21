@@ -1,4 +1,4 @@
-import { FlatList, View } from 'react-native';
+import { FlatList, Pressable, View } from 'react-native';
 import Card from './Card';
 import styles from '../assets/style'
 import DeckData from './DeckData.js'
@@ -24,8 +24,8 @@ const HomeScreen = ({navigation}) => {
         DeckData.getFavDeck()
     ];
 
-    const clickDeck = (cardData) => {
-        navigation.navigate('Info', { deckID: cardData.deckID, deckName: cardData.text })
+    const clickDeck = (deckData) => {
+        navigation.navigate('Info', { deckID: deckData.id, deckName: deckData.deckName })
     }
 
     const renderCard = ({ item }) => {
@@ -54,19 +54,21 @@ const HomeScreen = ({navigation}) => {
             default:
                 return (
                     <View style={styles.flatListItem}>
-                        <Card
-                            type='deck'
-                            height={item.height}
-                            deckID={item.id}
-                            text={item.deckName}
-                            deckBackground={item.deckBackground}
-                            clickHandler={clickDeck}
-                            cardTextStyle={item.deckTextStyle}
-                            cardStyle={item.deckStyle}
-                            subText={item.subText}
-                            cardSubTextStyle={item.cardSubTextStyle}
-                        />
-                </View>)
+                        <Pressable onPress={() => clickDeck(item)}>
+                            <Card
+                                type='deck'
+                                height={item.height}
+                                deckID={item.id}
+                                text={item.deckName}
+                                deckBackground={item.deckBackground}
+                                cardTextStyle={item.deckTextStyle}
+                                cardStyle={item.deckStyle}
+                                subText={item.subText}
+                                cardSubTextStyle={item.cardSubTextStyle}
+                            />
+                        </Pressable>
+                    </View>
+                )
     }};
 
     return (
