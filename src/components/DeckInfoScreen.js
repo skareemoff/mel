@@ -38,6 +38,8 @@ const DeckInfoScreen = ({route, navigation}) => {
                             cardTextStyle={deckData.deckTextStyle}
                             cardStyle={deckData.deckStyle}
                             subText={deckData.subText}
+                            deckBackgroundSvg={deckData.deckBackgroundSvg}
+                            deckBackgroundColor={deckData.deckBackgroundColor}
                             cardSubTextStyle={deckData.cardSubTextStyle}/>
                     </View>
                 )

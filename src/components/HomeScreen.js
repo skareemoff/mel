@@ -65,6 +65,8 @@ const HomeScreen = ({navigation}) => {
                                 cardStyle={item.deckStyle}
                                 subText={item.subText}
                                 cardSubTextStyle={item.cardSubTextStyle}
+                                deckBackgroundSvg={item.deckBackgroundSvg}
+                                deckBackgroundColor={item.deckBackgroundColor}
                             />
                         </Pressable>
                     </View>

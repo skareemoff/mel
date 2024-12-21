@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { useSharedValue, } from 'react-native-reanimated';
 import { View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import SwipableCard from './SwipableCard';
 import DeckData from './DeckData'
 import { HeaderBar } from './HeaderBar';
 import styles from '../assets/style';
-import EStyleSheet from 'react-native-extended-stylesheet';
-import BGImage from "../assets/images/BGImage.svg";
 import { SvgXml } from 'react-native-svg';
-import {height, width, BG_SVG_1} from './Utils'
+import {height, width, SVG_CONN} from './Utils'
 
 export default function Onboarding({navigation}) {
   const deckData = DeckData.data().onboarding;
@@ -31,7 +30,17 @@ export default function Onboarding({navigation}) {
 
   return (
     <GestureHandlerRootView style={styles.container}>
-        <SvgXml xml={BG_SVG_1} width={width} height={height} style={{ zIndex: 1, position: 'absolute', top: 0, left: 0}}/>
+        <SvgXml
+          xml={SVG_CONN}
+          width={width}
+          height={height}
+          preserveAspectRatio="xMinYMin slice"
+          style={{
+            backgroundColor: 'lime',
+            zIndex: 0,
+            position: 'absolute',
+            overflow: 'hidden'
+        }}/>
         <HeaderBar showBackButton={false} navigation={navigation}/>
         <View style={stl.onboardingContainer}>
           {cardDeck.map((item, index) => {

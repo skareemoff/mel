@@ -27,7 +27,8 @@ export default EStyleSheet.create({
         paddingTop: 20,
         justifyContent: 'center',
         width: '100%',
-        height: '100%'
+        height: '100%',
+        backgroundColor: 'transparent'
     },
     middle: {
         flex: 4,
@@ -37,6 +38,7 @@ export default EStyleSheet.create({
         height: "100%",
         padding: 20,
         paddingTop: 0,
+        backgroundColor: 'transparent'
     },
     cardHeader:{
         alignItems: 'center',
@@ -83,6 +85,7 @@ export default EStyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
+        backgroundColor: 'transparent'
     },
     footerText: {
         fontFamily: "DMSans-Regular",

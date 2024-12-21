@@ -13,6 +13,7 @@ import styles from '../assets/style'
 import { ShareableCard } from './ShareableCard';
 import { HeaderBar } from './HeaderBar';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import { SvgXml } from 'react-native-svg';
 
 export default function PlayScreen({route, navigation}) {
   const MAX = 3;
@@ -102,7 +103,17 @@ export default function PlayScreen({route, navigation}) {
   return (
     <GestureHandlerRootView>
       <View style={styles.container}>
-        <ImageBackground source={DeckData.getDeckImage(deckData.deckBackground)} style={{ height: '100%', width: '100%'}} >
+      <SvgXml
+          xml={DeckData.getDeckImageSvg(deckData.deckBackgroundSvg)}
+          width={width}
+          height={height}
+          preserveAspectRatio="xMinYMin slice"
+          style={{
+            backgroundColor: deckData.deckBackgroundColor,
+            zIndex: 0,
+            position: 'absolute',
+            overflow: 'hidden'
+        }}/>
         <HeaderBar showBackButton={true} navigation={navigation} />
         <View key={deckKey} style={stl.cardContainer}>
             {visibleCards.map((item) => {
@@ -154,7 +165,6 @@ export default function PlayScreen({route, navigation}) {
               <Image name="share"   style={stl.roundButtonImage} source={require("../assets/images/share.png")} />
             </TouchableOpacity>
           </Appbar>
-        </ImageBackground>
       </View>
     </GestureHandlerRootView>
   )

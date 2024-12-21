@@ -52,6 +52,9 @@ const Card = (cardData) => {
             </>
         );
 
+        console.log("SVG: ", cardData.deckBackgroundSvg);
+        const xml = DeckData.getDeckImageSvg(cardData.deckBackgroundSvg)
+        console.log(xml)
         return (
             <View style={[
                 stl.card,
@@ -59,13 +62,22 @@ const Card = (cardData) => {
                 styles[cardData.cardStyle],
                 cardHeight == 'full' ? stl.cardFull : stl.cardHalf,
             ]}>
-                {img
-                ?   (
-                        <ImageBackground source={img} imageStyle={{ borderRadius: 30}} style={{ height: '100%', width: '100%' }}>
-                            {cardContent}
-                        </ImageBackground>
-                    )
-                :   ( cardContent )}
+                {cardData.deckBackgroundSvg &&
+                    <SvgXml xml={xml}
+                        width='100%'
+                        height='100%'
+                        preserveAspectRatio="xMinYMin slice"
+                        style={
+                        {
+                            position: 'absolute',
+                            borderRadius: 30,
+                            zIndex: 0,
+                            overflow: 'hidden',
+                            backgroundColor: cardData.deckBackgroundColor
+                        }}
+                    />
+                }
+                { cardContent}
             </View>
         );
     };
