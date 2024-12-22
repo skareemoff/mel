@@ -102,7 +102,7 @@ const stl = EStyleSheet.create({
     },
     text: {
         color: "black",
-        fontFamily: 'DMSans-Regular',
+        fontFamily: 'DMSans',
         fontSize: 24,
         textAlign: "center",
         width: "100%",

@@ -99,6 +99,7 @@ const st = EStyleSheet.create({
     lineHeight: 28,
     wordWrap: 'break-word',
     textAlign: "center",
-    fontFamily: "DMSans-Light",
+    fontWeight: 300,
+    fontFamily: "DMSans",
   }
 });

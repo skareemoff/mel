@@ -50,30 +50,37 @@ export default EStyleSheet.create({
 
     deckIce: {
         color: 'black',
-        fontFamily: 'DMSans-Bold',
+        fontWeight: 700,
+        fontFamily: 'DMSans',
     },
     deckConfes: {
         color: 'white',
-        fontFamily: 'DMSans-Bold'
+        fontWeight: 700,
+        fontFamily: 'DMSans',
     },
     deckDeep: {
         color: 'white',
-        fontFamily: 'DMSans-Bold'
+        fontWeight: 700,
+        fontFamily: 'DMSans',
     },
     deckEOY: {
         color: 'white',
-        fontFamily: 'DMSans-Bold'
+        fontWeight: 700,
+        fontFamily: 'DMSans',
     },
     deckConnect: {
         color: 'white',
-        fontFamily: 'DMSans-Bold'
+        fontWeight: 700,
+        fontFamily: 'DMSans',
     },
     deckTiny: {
-        fontFamily: 'DMSans-Bold',
+        fontWeight: 700,
+        fontFamily: 'DMSans',
         color: 'black',
     },
     favDeck: {
-        fontFamily: 'DMSans-Bold',
+        fontWeight: 700,
+        fontFamily: 'DMSans',
         color: 'white',
     },
     favSubText: {
@@ -158,7 +165,7 @@ export default EStyleSheet.create({
             backgroundColor: '#FBF7EF',
         },
         blockquote: {
-            fontFamily: "DMSans-Regular",
+            fontFamily: "DMSans",
             paddingLeft: 10,
             fontWeight: 600,
             fontSize: 16,
@@ -216,8 +223,9 @@ export default EStyleSheet.create({
             height: "30",
             borderRadius: "50%",
             textAlign: "center",
-            fontFamily: 'DMSans-Bold',
-            justifyContent: 'center',
+            fontWeight: 700,
+            fontFamily: 'DMSans',
+                justifyContent: 'center',
             alignItems: 'center',
             fontSize: 22,
             lineHeight: "0",
@@ -239,7 +247,7 @@ export default EStyleSheet.create({
     onboardingText: {
         heading1: {
             flexDirection: 'column',
-            fontFamily: "DMSans-Regular",
+            fontFamily: "DMSans",
             color: "black",
             textAlign: 'lefyt',
             fontSize: 40,
@@ -247,7 +255,7 @@ export default EStyleSheet.create({
             marginBottom: 20
         },
         heading2: {
-            fontFamily: "DMSans-Regular",
+            fontFamily: "DMSans",
             marginBottom: 20,
             fontWeight: 600,
             fontSize: 40,
@@ -255,7 +263,7 @@ export default EStyleSheet.create({
             color: 'black'
         },
         heading3: {
-            fontFamily: "DMSans-Regular",
+            fontFamily: "DMSans",
             marginTop: 10,
             marginBottom: 10,
             fontWeight: 500,
@@ -264,7 +272,7 @@ export default EStyleSheet.create({
             color: 'black'
         },
         heading4: {
-            fontFamily: "DMSans-Regular",
+            fontFamily: "DMSans",
             marginTop: 20,
             fontWeight: 400,
             fontSize: 16,
@@ -272,7 +280,7 @@ export default EStyleSheet.create({
             color: 'black'
         },
         blockquote: {
-            fontFamily: "DMSans-Regular",
+            fontFamily: "DMSans",
             fontSize: 16,
             backgroundColor: '#FBF7EF',
             borderLeftWidth: 0,
@@ -293,7 +301,8 @@ export default EStyleSheet.create({
             height: "30",
             borderRadius: "50%",
             textAlign: "center",
-            fontFamily: 'DMSans-Bold',
+            fontWeight: 700,
+            fontFamily: 'DMSans',
             fontSize: 22,
             lineHeight: "0",
         },
@@ -309,7 +318,7 @@ export default EStyleSheet.create({
             marginTop: 16
         },
         body: {
-            fontFamily: "DMSans-Regular",
+            fontFamily: "DMSans",
             margin: 20,
             marginBottom: 40,
             marginTop: 40

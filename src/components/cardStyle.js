@@ -44,7 +44,7 @@ export default EStyleSheet.create({
         alignItems: 'center',
     },
     deckName: {
-        fontFamily: "DMSans-Regular",
+        fontFamily: "DMSans",
         fontSize: 20,
         flex: 2,
         textAlign: 'center',
@@ -52,7 +52,7 @@ export default EStyleSheet.create({
         width: '100%'
     },
     deckSubText: {
-        fontFamily: "DMSans-Regular",
+        fontFamily: "DMSans",
         fontSize: 14,
         flex: 1,
         flexDirection: 'row',
@@ -62,8 +62,8 @@ export default EStyleSheet.create({
         color: 'black',
     },
     cardText: {
-        fontFamily: "DMSans-Regular",
-        fontSize: 28,
+        fontFamily: "DMSans",
+        fontSize: 30,
         color: 'black',
         textAlign: 'center',
         width: '100%',
@@ -71,7 +71,7 @@ export default EStyleSheet.create({
         paddingRight: "1rem",
     },
     cardSubText: {
-        fontFamily: "DMSans-Regular",
+        fontFamily: "DMSans",
         fontSize: 20,
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -88,7 +88,7 @@ export default EStyleSheet.create({
         backgroundColor: 'transparent'
     },
     footerText: {
-        fontFamily: "DMSans-Regular",
+        fontFamily: "DMSans",
         color: 'black',
         fontSize: 14,
         position: 'absolute',
@@ -124,15 +124,17 @@ export default EStyleSheet.create({
     },
     shotDeckName: {
         backgroundColor: 'transparent',
-        fontFamily: "DMSans-Bold",
+        fontFamily: 'DMSans',
         textAlign: 'center',
         color: '#000',
+        fontFamily: 'DMSans',
     },
     shotDeckSubText: {
         backgroundColor: 'transparent',
         textAlign: 'center',
         color: '#666',
         marginTop: 5,
+        fontFamily: 'DMSans',
     },
     shotMiddle: {
         backgroundColor: 'transparent',
@@ -148,11 +150,13 @@ export default EStyleSheet.create({
         backgroundColor: 'transparent',
         textAlign: 'center',
         color: '#000',
+        fontFamily: 'DMSans',
     },
     shotCardSubText: {
         backgroundColor: 'transparent',
         color: '#000',
         marginTop: 20,
+        fontFamily: 'DMSans',
     },
     shotCommentBox: {
         borderWidth: 1,
@@ -175,8 +179,10 @@ export default EStyleSheet.create({
     },
     shotFooterTextLeft: {
         color: '#666',
+        fontFamily: 'DMSans',
     },
     shotFooterTextRight: {
         color: '#666',
+        fontFamily: 'DMSans',
     },
 });
