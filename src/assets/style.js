@@ -47,7 +47,6 @@ export default EStyleSheet.create({
         backgroundColor: 'transparent',
     },
 
-
     deckIce: {
         color: 'black',
         fontWeight: 700,
@@ -142,7 +141,14 @@ export default EStyleSheet.create({
     },
     specialCardInfoTextStyleLeft: {
         backgroundColor: 'black',
-        color: 'white'
+        fontFamily: "DMMono-Regular",
+        color: 'white',
+        fontWeight: '400',
+        fontSize: 14,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        textAlign: 'center'
     },
     specialCardInfoTextStyleRight: {
         backgroundColor: 'black',

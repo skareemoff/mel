@@ -8,18 +8,13 @@ import DeckData from './DeckData'
 
 configureReanimatedLogger({ level: ReanimatedLogLevel.warn, strict: false });
 
-const SwipableCard = ({
-  deckName,
-  maxVisibleItems,
-  item,
-  index,
-  deckSize,
-  animatedValue,
-  currentIndex,
-  setCurrentIndex
-}) => {
+const SwipableCard = (data) => {
   const translateX = useSharedValue(0);
   const direction = useSharedValue(0);
+  const item = data.item;
+  const index = data.index;
+  const animatedValue = data.animatedValue;
+  const currentIndex = data.currentIndex;
 
   React.useEffect(() => {
     translateX.value = 0; // Reset translation
@@ -49,7 +44,7 @@ const SwipableCard = ({
       if (currentIndex === index) {
         if (Math.abs(e.translationX) > 150 || Math.abs(e.velocityX) > 1000) {
           translateX.value = withTiming(width * direction.value, {}, () => {
-            runOnJS(setCurrentIndex)(currentIndex + 1); // Increment index
+            runOnJS(data.setCurrentIndex)(currentIndex + 1); // Increment index
           });
           animatedValue.value = withTiming(currentIndex + 1);
         } else {
@@ -81,7 +76,7 @@ const SwipableCard = ({
     );
 
     const opacity = interpolate(
-      animatedValue.value + maxVisibleItems,
+      animatedValue.value + data.maxVisibleItems,
       [index, index + 1],
       [0, 1],
     );
@@ -95,32 +90,43 @@ const SwipableCard = ({
           rotateZ: currentItem ? `${direction.value * rotateZ}deg` : '0deg',
         },
       ],
-      opacity: index < currentIndex + maxVisibleItems ? 1 : opacity,
+      opacity: index < currentIndex + data.maxVisibleItems ? 1 : opacity,
     };
   });
+
+  const param = (pName) => {
+    return data[pName]
+    ? data[pName]
+    : item[pName];
+  };
 
   return (
     <GestureDetector gesture={pan}>
       <Animated.View style={[
-        { zIndex: deckSize - index},
+        { zIndex: data.deckSize - index},
         animatedStyle,
         styles.onboardingContainer
         ]}>
           <Card
             type='card'
-            deckName={deckName}
-            // infoLeft={(index+1)+" / "+deckSize}
-            text={item.text}
-            subText={item.subText}
-            height={item.height}
-            useMarkdown={item.useMarkdown}
-            deckTextStyle={item.deckTextStyle}
-            deckSubTextStyle={item.deckSubTextStyle}
-            cardTextStyle={item.cardTextStyle}
-            cardSubTextStyle={item.cardSubTextStyle}
-            cardStyle={item.cardStyle}
-            infoTextStyleLeft={item.infoTextStyleLeft}
-            infoTextStyleRight={item.infoTextStyleRight}
+            height = {param('height')}
+            shareable = {param('shareable')}
+            useMarkdown = {param('useMarkdown')}
+            deckTextStyle = {param('deckTextStyle')}
+            deckSubTextStyle = {param('deckSubTextStyle')}
+            deckName = {param('deckName')}
+            deckSubText = {param('deckSubText')}
+            text = {param('text')}
+            subText = {param('subText')}
+            infoLeft = {param('infoLeft')}
+            infoRight = {param('infoRight')}
+            deckBackgroundSvg = {param('deckBackgroundSvg')}
+            deckBackgroundColor = {param('deckBackgroundColor')}
+            cardStyle = {param('cardStyle')}
+            cardTextStyle = {param('cardTextStyle')}
+            cardSubTextStyle = {param('cardSubTextStyle')}
+            infoTextStyleLeft = {param('infoTextStyleLeft')}
+            infoTextStyleRight = {param('infoTextStyleRight')}
           />
       </Animated.View>
     </GestureDetector>

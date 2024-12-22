@@ -47,7 +47,7 @@ export default EStyleSheet.create({
         fontFamily: "DMMono-Regular",
         fontWeight: '400',
         fontSize: 14,
-        color: '#4B677D',
+        color: '#6F6F6F',
         flex: 2,
         textAlign: 'center',
         width: '100%'
@@ -64,14 +64,12 @@ export default EStyleSheet.create({
     },
     cardText: {
         fontFamily: "DMSans",
-        color: '#4B677D',
+        color: 'black',
         fontWeight: '400',
         fontSize: 24,
         lineHeight: 28,
         textAlign: 'center',
         width: '100%',
-        paddingLeft: "1rem",
-        paddingRight: "1rem",
     },
     cardSubText: {
         fontFamily: "DMSans",

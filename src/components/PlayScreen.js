@@ -116,6 +116,7 @@ export default function PlayScreen({route, navigation}) {
                   deckName={DeckData.getDeckName(item.deckID)}
                   maxVisibleItems={MAX}
                   item={item}
+                  infoLeft={currentIndex+' / ' + cardDeck.value.length}
                   index={item.index}
                   deckSize={cardDeck.value.length}
                   animatedValue={animatedValue}

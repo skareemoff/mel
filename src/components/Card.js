@@ -8,6 +8,31 @@ import stl from './cardStyle'
 import {calculateCardHeight} from './Utils'
 import { SvgXml } from 'react-native-svg';
 
+/**
+ * Possible card parameters:
+ *
+ * height ('full', 'half')
+ * shareable ('yes, 'no')
+ * useMarkdown ('yes, 'no')
+ * deckName
+ * deckSubText
+ * text
+ * subText
+ * infoLeft
+ * infoRight
+ *
+ *
+ * deckTextStyle
+ * deckSubTextStyle
+ * cardTextStyle
+ * cardSubTextStyle
+ * infoTextStyleLeft
+ * infoTextStyleRight
+ * cardStyle
+ * deckBackgroundSvg
+ * deckBackgroundColor
+ *
+ */
 const Card = (cardData) => {
     const cardHeight = calculateCardHeight(cardData);
 
