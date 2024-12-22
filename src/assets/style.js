@@ -13,6 +13,7 @@ EStyleSheet.build({
     $cardHeightFull: 570,
     $cardHeightHalf: HALF_CARD_HEIGHT,
     $cardWidth: 353,
+    $sideMargin: '(width - $cardWidth)/2'
 });
 
 export default EStyleSheet.create({
@@ -204,8 +205,8 @@ export default EStyleSheet.create({
             fontWeight: 400,
             fontSize: 24,
             paddingLeft: 10,
-            marginLeft: 44,
-            marginRight: 10,
+            marginLeft: 30,
+            marginRight: 30,
             borderLeftWidth: 10,
             borderLeftColor: '#00BC38',
             backgroundColor: '$containerColor',
@@ -237,7 +238,8 @@ export default EStyleSheet.create({
             fontWeight: 400,
             fontSize: 16,
             textAlign: 'center',
-            color: 'black'
+            color: 'black',
+
         },
         blockquote: {
             fontFamily: "DMSans",
@@ -246,6 +248,7 @@ export default EStyleSheet.create({
             borderLeftColor: "red",
             padding: 20,
             backgroundColor: '$containerColor',
+
         },
         ordered_list:{
             counterReset: 'item',
@@ -260,8 +263,8 @@ export default EStyleSheet.create({
             color: "black",
             width: 42,
             height: 42,
-            paddingTop: 8,
-            paddingLeft: 7,
+            paddingTop: 10,
+            paddingLeft: 10,
             borderRadius: "50%",
             textAlign: "center",
             fontWeight: 400,
@@ -280,6 +283,9 @@ export default EStyleSheet.create({
             margin: 20,
             paddingLeft: 10,
             backgroundColor: '$containerColor',
+            marginLeft: 30,
+            marginRight: 30,
+
         }
     },
     onboardingDeckText: {
