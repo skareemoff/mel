@@ -2,7 +2,7 @@ import { FlatList, Pressable, View } from 'react-native';
 import Card from './Card';
 import styles from '../assets/style'
 import DeckData from './DeckData.js'
-import {HALF_CARD_HEIGHT} from './Utils'
+import {HALF_CARD_HEIGHT} from '../assets/style'
 import RevealableCard from './RevealableCard';
 import { HeaderBar } from './HeaderBar';
 
@@ -80,12 +80,12 @@ const HomeScreen = ({navigation}) => {
             data={cards}
             renderItem={renderCard}
             contentContainerStyle={{
-                paddingBottom: HALF_CARD_HEIGHT / 2, // Ensure padding for the last card
+                paddingBottom: HALF_CARD_HEIGHT,
                 justifyContent: 'center',
                 alignItems: 'center',
                 alignSelf: 'center',
                 backgroundColor: '$containerColor',
-                width: 353,
+                width: '$cardWidth',
             }}
             ItemSeparatorComponent={() => <View style={{backgroundColor: 'transparent', height: 20}} />}
             keyExtractor={(item) => item.id}

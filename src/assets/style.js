@@ -1,5 +1,8 @@
 import EStyleSheet from 'react-native-extended-stylesheet';
-import { StatusBar } from 'react-native';
+import { Dimensions } from 'react-native';
+
+export const HALF_CARD_HEIGHT = 260;
+export const { height, width } = Dimensions.get('window');
 
 EStyleSheet.build({
     $containerColor: '#FBF7EF',
@@ -7,6 +10,9 @@ EStyleSheet.build({
     $mainLogoHeight: 50,
     $headerTopPadding: 60,
     $logoOffset: -100,
+    $cardHeightFull: 570,
+    $cardHeightHalf: HALF_CARD_HEIGHT,
+    $cardWidth: 353,
 });
 
 export default EStyleSheet.create({

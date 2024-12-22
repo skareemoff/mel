@@ -1,8 +1,7 @@
 import React, { useCallback } from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import {width} from './Utils';
-import styles from '../assets/style';
+import styles, {width} from '../assets/style';
 
 export const HeaderBar = ({ showBackButton, navigation}) => {
     const clickGoBack = useCallback(() => {

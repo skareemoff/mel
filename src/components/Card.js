@@ -21,7 +21,6 @@ import { SvgXml } from 'react-native-svg';
  * infoLeft
  * infoRight
  *
- *
  * deckTextStyle
  * deckSubTextStyle
  * cardTextStyle

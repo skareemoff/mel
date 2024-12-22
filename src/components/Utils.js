@@ -29,8 +29,3 @@ export const calculateCardHeight = (cardData) => {
     ? (cardData.height == 'full' ? 'full' : 'half')
     : ((cardData.type == 'card') ? 'full' : 'half');
 }
-
-// Screen dimensions
-export const { height, width } = Dimensions.get('window');
-
-export const HALF_CARD_HEIGHT = 260;

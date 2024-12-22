@@ -3,7 +3,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import Animated, { interpolate, useAnimatedStyle, useSharedValue, runOnJS, withTiming, configureReanimatedLogger, ReanimatedLogLevel } from 'react-native-reanimated';
 import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 import Card from './Card';
-import {width} from './Utils'
+import {width} from '../assets/style'
 
 configureReanimatedLogger({ level: ReanimatedLogLevel.warn, strict: false });
 

@@ -10,12 +10,12 @@ export default EStyleSheet.create({
         backgroundColor: 'white'
     },
     cardFull: {
-        width: 353,
-        height: 570
+        width: '$cardWidth',
+        height: '$cardHeightFull'
     },
     cardHalf: {
-        width: 353,
-        height: 260
+        width: '$cardWidth',
+        height: '$cardHeightHalf'
     },
     top: {
         flex: 1,

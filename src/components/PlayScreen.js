@@ -7,8 +7,8 @@ import { Appbar } from 'react-native-paper';
 import Share from 'react-native-share';
 import SwipableCard from './SwipableCard';
 import DeckData from './DeckData'
-import {height, width, specialShuffle} from './Utils'
-import styles from '../assets/style'
+import {specialShuffle} from './Utils'
+import styles, {height, width} from '../assets/style'
 import { ShareableCard } from './ShareableCard';
 import { HeaderBar } from './HeaderBar';
 import EStyleSheet from 'react-native-extended-stylesheet';
@@ -145,7 +145,7 @@ export default function PlayScreen({route, navigation}) {
             {
               backgroundColor: 'transparent',
               position: 'absolute',
-              top: height - 88,
+              top: height - 94,
               left: 0,
               width: width,
             }]}>

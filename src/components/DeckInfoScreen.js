@@ -6,7 +6,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import Card from './Card';
 import styles from '../assets/style'
 import DeckData from './DeckData'
-import {HALF_CARD_HEIGHT} from './Utils'
+import {HALF_CARD_HEIGHT} from '../assets/style'
 import { HeaderBar } from './HeaderBar';
 
 const DeckInfoScreen = ({route, navigation}) => {

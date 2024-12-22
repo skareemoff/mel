@@ -7,7 +7,7 @@ import SwipableCard from './SwipableCard';
 import DeckData from './DeckData'
 import { HeaderBar } from './HeaderBar';
 import { SvgXml } from 'react-native-svg';
-import {height, width} from './Utils'
+import {height, width} from '../assets/style'
 
 export default function Onboarding({navigation}) {
   const deckData = DeckData.data().onboarding;
@@ -69,7 +69,7 @@ export default function Onboarding({navigation}) {
 const stl = EStyleSheet.create({
     onboardingContainer: {
         flex: 1,
-        width: 353,
+        width: '$cardWidth',
         justifyContent: 'center',
         alignSelf: 'center',
         backgroundColor: 'transparent'
