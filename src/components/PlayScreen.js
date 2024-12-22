@@ -56,18 +56,10 @@ export default function PlayScreen({route, navigation}) {
   };
 
   const handleSetCurrentIndex = (newIndex) => {
-    if(newIndex == -1) {
-      if(currentIndex != 0 ) {
-        cardDeck.value = specialShuffle(cardDeck.value);
-        setCurrentIndex(0);
-        animatedValue.value = 0;
-        setDeckKey(prevKey => prevKey + 1);
-        updateVisibleCards();
-      }
-    }
-    else if(newIndex >= cardDeck.value.length) {
-      cardDeck.value.splice(0, cardDeck.value.length, cardDeck.value);
+    if((newIndex == -1 && currentIndex != 0) || newIndex >= cardDeck.value.length) {
+      cardDeck.value = specialShuffle(cardDeck.value);
       setCurrentIndex(0);
+      animatedValue.value = 0;
       setDeckKey(prevKey => prevKey + 1);
       updateVisibleCards();
     }
@@ -103,17 +95,19 @@ export default function PlayScreen({route, navigation}) {
   return (
     <GestureHandlerRootView>
       <View style={styles.container}>
+      {deckData.deckBackgroundSvg &&
       <SvgXml
           xml={DeckData.getDeckImageSvg(deckData.deckBackgroundSvg)}
           width={width}
           height={height}
           preserveAspectRatio="xMinYMin slice"
           style={{
-            backgroundColor: deckData.deckBackgroundColor,
+            backgroundColor: deckData.deckBackgroundColor ? deckData.deckBackgroundColor : 'white',
             zIndex: 0,
             position: 'absolute',
             overflow: 'hidden'
         }}/>
+      }
         <HeaderBar showBackButton={true} navigation={navigation} />
         <View key={deckKey} style={stl.cardContainer}>
             {visibleCards.map((item) => {
@@ -158,9 +152,20 @@ export default function PlayScreen({route, navigation}) {
             <TouchableOpacity style={stl.roundButton} onPress={() => handleSetCurrentIndex(-1)}>
               <Image name="restart" style={stl.roundButtonImage} source={require("../assets/images/undo.png")} />
             </TouchableOpacity>
-            <TouchableOpacity style={stl.roundButton} onPress={toggleFavourite}>
-              <Image name="heart"   style={stl.roundButtonImage} source={require("../assets/images/like.png")}/>
-            </TouchableOpacity>
+            {cardDeck.value[currentIndex].type!='special'
+              ? <TouchableOpacity style={stl.roundButton} onPress={toggleFavourite}>
+                  <Image name="heart" style={stl.roundButtonImage} source={
+                    DeckData.isFavourite(cardDeck.value[currentIndex].id)
+                      ? require("../assets/images/like-filled.png")
+                      : require("../assets/images/like.png")
+                  }
+                />
+              </TouchableOpacity>
+
+              : <View style={[stl.roundButton, {filter: "brightness(40%)", backgroundColor: 'transparent'}]}>
+                  <Image name="heart" style={stl.roundButtonImage} source={require("../assets/images/like.png")}/>
+                </View>
+            }
             <TouchableOpacity style={stl.roundButton} onPress={shareSnapshot}>
               <Image name="share"   style={stl.roundButtonImage} source={require("../assets/images/share.png")} />
             </TouchableOpacity>

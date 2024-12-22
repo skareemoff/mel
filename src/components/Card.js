@@ -21,12 +21,6 @@ const Card = (cardData) => {
         : (
             <>
                 <View style={[stl.top]}>
-                    {cardData.isFavourite == 'yes' ? (
-                        <Image
-                            source={require('../assets/images/like.png')}
-                            style={stl.likeIcon}
-                        />
-                    ) : null}
                     <View style={[stl.cardHeader]}>
                         <Text style={[stl.deckName, styles[cardData.deckTextStyle]]}>{cardData.deckName}</Text>
                         {cardData.deckSubText && <Text style={[stl.deckSubText, styles[cardData.deckSubTextStyle]]}>{cardData.deckSubText}</Text>}
@@ -70,7 +64,7 @@ const Card = (cardData) => {
                             borderRadius: 30,
                             zIndex: 0,
                             overflow: 'hidden',
-                            backgroundColor: cardData.deckBackgroundColor
+                            backgroundColor: cardData.deckBackgroundColor ? cardData.deckBackgroundColor : 'white'
                         }}
                     />
                 }

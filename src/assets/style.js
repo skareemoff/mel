@@ -5,6 +5,7 @@ EStyleSheet.build({
     $mainLogoWidth: 111,
     $mainLogoHeight: 50,
     $headerTopPadding: 60,
+    $logoOffset: -110, // -1 * ( $mainLogoHeight + $headerTopPadding )'
 });
 
 export default EStyleSheet.create({
