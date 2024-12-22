@@ -84,7 +84,7 @@ const DeckInfoScreen = ({route, navigation}) => {
                 keyExtractor={(item) => item.id}
                 renderItem={renderCard}
                 contentContainerStyle={{
-                    paddingBottom: HALF_CARD_HEIGHT / 2,
+                    paddingBottom: HALF_CARD_HEIGHT,
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}
