@@ -46,6 +46,8 @@ export default EStyleSheet.create({
         height: '$mainLogoHeight',
         backgroundColor: 'transparent',
     },
+
+
     deckIce: {
         color: 'black',
         fontFamily: 'DMSans-Bold',
@@ -92,6 +94,8 @@ export default EStyleSheet.create({
         fontWeight: '400',
         fontSize: '0.875rem',
     },
+
+
     specialCardDeckTextStyle: {
         backgroundColor: 'black',
         color: 'white'
@@ -121,10 +125,8 @@ export default EStyleSheet.create({
         backgroundColor: 'black',
         color: 'white'
     },
-    exampleInfoTextStyleRight: {
-        color: 'black',
-        fontWeight: '500'
-    },
+
+
     shareableCard: {
         marginRight: 150,
     },
@@ -133,6 +135,13 @@ export default EStyleSheet.create({
         justifyContent: 'center',
         width: '100%',
         textAlign: 'center'
+    },
+
+
+    exampleInfoTextStyleRight: {
+        color: 'black',
+        fontWeight: '500',
+        fontFamily: "DMSans",
     },
     deckTitle: {
         marginBottom: -10,
@@ -144,7 +153,7 @@ export default EStyleSheet.create({
     },
     deckInfoDescription: {
         body: {
-            fontFamily: "DMSans-Regular",
+            fontFamily: "DMSans",
             margin: 20,
             backgroundColor: '#FBF7EF',
         },
@@ -163,10 +172,11 @@ export default EStyleSheet.create({
             color: "black",
             textAlign: 'center',
             fontSize: 20,
-            fontFamily: 'DMSans-Bold'
+            fontWeight: 700,
+            fontFamily: 'DMSans'
         },
         heading5: {
-            fontFamily: "DMSans-Regular",
+            fontFamily: "DMSans",
             marginTop: 20,
             marginBottom: 20,
             fontWeight: 400,
@@ -175,7 +185,7 @@ export default EStyleSheet.create({
             color: 'black'
         },
         heading6: {
-            fontFamily: "DMSans-Regular",
+            fontFamily: "DMSans",
             marginTop: 20,
             marginBottom: 20,
             fontWeight: 400,
@@ -184,7 +194,7 @@ export default EStyleSheet.create({
             color: 'black'
         },
         blockquote: {
-            fontFamily: "DMSans-Regular",
+            fontFamily: "DMSans",
             fontSize: 16,
             borderLeftWidth: 0,
             borderLeftColor: "red",
@@ -217,7 +227,7 @@ export default EStyleSheet.create({
             lineHeight: 24,
         },
         body: {
-            fontFamily: "DMSans-Regular",
+            fontFamily: "DMSans",
             margin: 20,
             paddingLeft: 10,
             backgroundColor: '#FBF7EF',
