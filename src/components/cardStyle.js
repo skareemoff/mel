@@ -125,10 +125,14 @@ export default EStyleSheet.create({
     },
     shotDeckName: {
         backgroundColor: 'transparent',
-        fontFamily: 'DMSans',
-        textAlign: 'center',
-        color: '#000',
-        fontFamily: 'DMSans',
+        fontFamily: "DMMono-Regular",
+        color: '#6F6F6F',
+        fontWeight: '400',
+        fontSize: 14,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        textAlign: 'center'
     },
     shotDeckSubText: {
         backgroundColor: 'transparent',
@@ -148,10 +152,13 @@ export default EStyleSheet.create({
         width: '100%',
     },
     shotCardText: {
-        backgroundColor: 'transparent',
+        fontFamily: "DMSans",
+        color: 'black',
+        fontWeight: '400',
+        fontSize: 24,
+        lineHeight: 28,
         textAlign: 'center',
-        color: '#000',
-        fontFamily: 'DMSans',
+        width: '100%',
     },
     shotCardSubText: {
         backgroundColor: 'transparent',
@@ -179,8 +186,14 @@ export default EStyleSheet.create({
         width: '100%',
     },
     shotFooterTextLeft: {
-        color: '#666',
-        fontFamily: 'DMSans',
+        fontFamily: "DMMono-Regular",
+        color: '#6F6F6F',
+        fontWeight: '400',
+        fontSize: 14,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        textAlign: 'center'
     },
     shotFooterTextRight: {
         color: '#666',

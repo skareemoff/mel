@@ -1,11 +1,12 @@
 import EStyleSheet from 'react-native-extended-stylesheet';
+import { StatusBar } from 'react-native';
 
 EStyleSheet.build({
     $containerColor: '#FBF7EF',
     $mainLogoWidth: 111,
     $mainLogoHeight: 50,
     $headerTopPadding: 60,
-    $logoOffset: -110, // -1 * ( $mainLogoHeight + $headerTopPadding )'
+    $logoOffset: -100,
 });
 
 export default EStyleSheet.create({
@@ -119,20 +120,16 @@ export default EStyleSheet.create({
 
 
     specialCardDeckTextStyle: {
-        backgroundColor: 'black',
         color: 'white'
     },
     specialCardDeckSubTextStyle: {
-        backgroundColor: 'black',
         color: 'white'
 
     },
     specialCardTextStyle: {
-        backgroundColor: 'black',
         color: 'white'
     },
     specialCardSubTextStyle: {
-        backgroundColor: 'black',
         color: 'white'
     },
     specialCardStyle: {
@@ -140,7 +137,6 @@ export default EStyleSheet.create({
         color: 'white'
     },
     specialCardInfoTextStyleLeft: {
-        backgroundColor: 'black',
         fontFamily: "DMMono-Regular",
         color: 'white',
         fontWeight: '400',
@@ -151,21 +147,19 @@ export default EStyleSheet.create({
         textAlign: 'center'
     },
     specialCardInfoTextStyleRight: {
-        backgroundColor: 'black',
         color: 'white'
     },
 
-
-    shareableCard: {
-        marginRight: 150,
-    },
-    shareableInfoLeft: {
+    playInfoText: {
+        fontFamily: "DMMono-Regular",
+        color: '#6F6F6F',
+        fontWeight: '400',
+        fontSize: 14,
         alignSelf: 'center',
         justifyContent: 'center',
         width: '100%',
         textAlign: 'center'
     },
-
 
     exampleDeckTitle: {
         fontFamily: "DMMono-Regular",

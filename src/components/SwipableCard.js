@@ -4,7 +4,6 @@ import Animated, { interpolate, useAnimatedStyle, useSharedValue, runOnJS, withT
 import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 import Card from './Card';
 import {width} from './Utils'
-import DeckData from './DeckData'
 
 configureReanimatedLogger({ level: ReanimatedLogLevel.warn, strict: false });
 

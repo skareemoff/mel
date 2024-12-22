@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Pressable, ImageBackground, Image } from 'react-native';
+import { Text, View } from 'react-native';
 import Markdown from 'react-native-markdown-display';
 import ShareableView from './ShareableView'
 import DeckData from './DeckData.js'

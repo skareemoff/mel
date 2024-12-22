@@ -1,6 +1,5 @@
-import { ImageBackground, View, Image, TouchableOpacity, Modal } from 'react-native';
+import { View, Image, TouchableOpacity, Modal } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import React, { useState, useEffect, useRef } from 'react';
 import { useSharedValue } from 'react-native-reanimated';
 import { captureRef } from 'react-native-view-shot';
@@ -18,7 +17,6 @@ import { SvgXml } from 'react-native-svg';
 export default function PlayScreen({route, navigation}) {
   const MAX = 3;
   const { deckID } = route.params;
-  const insets = useSafeAreaInsets();
   const viewShotRef = useRef(null);
 
   const deckData = DeckData.getDeck(deckID);
@@ -116,7 +114,8 @@ export default function PlayScreen({route, navigation}) {
                   deckName={DeckData.getDeckName(item.deckID)}
                   maxVisibleItems={MAX}
                   item={item}
-                  infoLeft={currentIndex+' / ' + cardDeck.value.length}
+                  infoLeft={(1+currentIndex)+' / ' + cardDeck.value.length}
+                  infoTextStyleLeft={cardDeck.value[currentIndex].type != 'special' ? 'playInfoText' : cardDeck.value[currentIndex].infoTextStyleLeft}
                   index={item.index}
                   deckSize={cardDeck.value.length}
                   animatedValue={animatedValue}

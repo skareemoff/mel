@@ -6,7 +6,6 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import SwipableCard from './SwipableCard';
 import DeckData from './DeckData'
 import { HeaderBar } from './HeaderBar';
-import styles from '../assets/style';
 import { SvgXml } from 'react-native-svg';
 import {height, width} from './Utils'
 

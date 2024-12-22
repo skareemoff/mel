@@ -1,13 +1,14 @@
 import React from 'react';
-import { View, Image, ImageBackground } from 'react-native';
+import { View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import ViewShot from 'react-native-view-shot';
 import DeckData from './DeckData';
 import styles from '../assets/style'
 import Card from './Card';
 import { SvgXml } from 'react-native-svg';
+import { HeaderBar } from './HeaderBar';
 
-export const ShareableCard = ({deckData, cardDeck, currentIndex, viewShotRef, setShareModalVisible}) => {
+export const ShareableCard = ({deckData, cardDeck, currentIndex, viewShotRef}) => {
 
     return (
         <View edges={['right', 'left']} style={[styles.container, {backgroundColor: 'transparent'}]}>
@@ -24,7 +25,9 @@ export const ShareableCard = ({deckData, cardDeck, currentIndex, viewShotRef, se
                         overflow: 'hidden'
                     }}
                 />
-                <Image source={require('../assets/images/logo.png')} style={[styles.logo, stl.logoOffset]}/>
+                <View style={{position:'absolute', top: 0}}>
+                    <HeaderBar showBackButton={false} navigation={null} />
+                </View>
                 <Card
                     type='card'
                     deckName={DeckData.getDeckName(cardDeck.value[currentIndex].deckID)}
@@ -32,13 +35,7 @@ export const ShareableCard = ({deckData, cardDeck, currentIndex, viewShotRef, se
                     subText={cardDeck.value[currentIndex].subText}
                     height={cardDeck.value[currentIndex].height}
                     useMarkdown={cardDeck.value[currentIndex].useMarkdown}
-                    deckTextStyle={cardDeck.value[currentIndex].deckTextStyle}
-                    deckSubTextStyle={cardDeck.value[currentIndex].deckSubTextStyle}
-                    cardTextStyle={cardDeck.value[currentIndex].cardTextStyle}
-                    cardSubTextStyle={cardDeck.value[currentIndex].cardSubTextStyle}
-                    cardStyle={stl.shareableCard}
                     infoLeft='More Exciting Life'
-                    infoTextStyleLeft='shareableInfoLeft'
                     shareable='yes'
                 />
             </ViewShot>
