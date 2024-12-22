@@ -30,17 +30,20 @@ export default function Onboarding({navigation}) {
 
   return (
     <GestureHandlerRootView>
+      {
+        deckData.deckBackgroundSvg &&
         <SvgXml
           xml={DeckData.getDeckImageSvg(deckData.deckBackgroundSvg)}
           width={width}
           height={height}
           preserveAspectRatio="xMinYMin slice"
           style={{
-            backgroundColor: deckData.deckBackgroundColor,
+            backgroundColor: deckData.deckBackgroundColor ? deckData.deckBackgroundColor : 'white',
             zIndex: 0,
             position: 'absolute',
             overflow: 'hidden'
         }}/>
+      }
         <HeaderBar showBackButton={false} navigation={navigation}/>
         <View style={stl.onboardingContainer}>
           {cardDeck.map((item, index) => {
