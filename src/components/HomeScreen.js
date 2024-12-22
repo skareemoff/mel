@@ -15,7 +15,6 @@ const HomeScreen = ({navigation}) => {
             text: DeckData.getQuestionOfTheDay(),
             type: 'deck',
             height: 'full',
-            deckBackground: 'homeBG',
             cardTextStyle: 'qODCardText',
             deckTextStyle: 'qODDeckText',
             cardStyle: 'qODCard',
@@ -45,7 +44,6 @@ const HomeScreen = ({navigation}) => {
                             infoRight={DeckData.getQoDTTLHours() + ' H'}
                             type='deck'
                             height='full'
-                            deckBackground='homeBG'
                             deckTextStyle='qODDeckText'
                             cardTextStyle='qODCardText'
                             deckStyle='qODDeck'
@@ -64,7 +62,6 @@ const HomeScreen = ({navigation}) => {
                                 height={item.height}
                                 deckID={item.id}
                                 text={item.deckName}
-                                deckBackground={item.deckBackground}
                                 cardTextStyle={item.deckTextStyle}
                                 cardStyle={item.deckStyle}
                                 subText={item.subText}

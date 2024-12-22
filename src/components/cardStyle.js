@@ -44,11 +44,12 @@ export default EStyleSheet.create({
         alignItems: 'center',
     },
     deckName: {
-        fontFamily: "DMSans",
-        fontSize: 20,
+        fontFamily: "DMMono-Regular",
+        fontWeight: '400',
+        fontSize: 14,
+        color: '#4B677D',
         flex: 2,
         textAlign: 'center',
-        color: 'black',
         width: '100%'
     },
     deckSubText: {
@@ -63,8 +64,10 @@ export default EStyleSheet.create({
     },
     cardText: {
         fontFamily: "DMSans",
-        fontSize: 30,
-        color: 'black',
+        color: '#4B677D',
+        fontWeight: '400',
+        fontSize: 24,
+        lineHeight: 28,
         textAlign: 'center',
         width: '100%',
         paddingLeft: "1rem",

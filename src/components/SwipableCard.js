@@ -121,7 +121,6 @@ const SwipableCard = ({
             cardStyle={item.cardStyle}
             infoTextStyleLeft={item.infoTextStyleLeft}
             infoTextStyleRight={item.infoTextStyleRight}
-            isFavourite={DeckData.isFavourite(item.id) ? 'yes' : 'no'}
           />
       </Animated.View>
     </GestureDetector>

@@ -86,6 +86,7 @@ export default EStyleSheet.create({
     favSubText: {
         color: 'white',
     },
+
     qODCard: {
         backgroundColor: '#F9F9F9',
     },
@@ -160,41 +161,58 @@ export default EStyleSheet.create({
     },
 
 
-    exampleInfoTextStyleRight: {
-        color: 'black',
-        fontWeight: '500',
+    exampleDeckTitle: {
+        fontFamily: "DMMono-Regular",
+        color: '#4B677D',
+        fontWeight: '400',
+        fontSize: 14,
+    },
+    exampleDeckText: {
+        fontFamily: "DMSans-Regular",
+        color: '#4B677D',
+        fontSize: 24,
+        lineHeight: 28,
+    },
+    exampleInfoLeft: {
+        fontFamily: "DMMono-Regular",
+        color: '#4B677D',
+        fontWeight: '400',
+        fontSize: 14,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        textAlign: 'center'
+    },
+    deckTextStyle: {
         fontFamily: "DMSans",
-    },
-    deckTitle: {
-        marginBottom: -10,
-    },
-    deckInfoText: {
-        fontSize: 16,
-    },
-    deckInfoCard: {
+        fontWeight: 400,
+        fontSize: 24,
     },
     deckInfoDescription: {
         body: {
             fontFamily: "DMSans",
-            margin: 20,
-            backgroundColor: '#FBF7EF',
+            backgroundColor: '$containerColor',
         },
         blockquote: {
             fontFamily: "DMSans",
+            fontWeight: 400,
+            fontSize: 24,
             paddingLeft: 10,
-            fontWeight: 600,
-            fontSize: 16,
-            borderLeftWidth: 7,
-            borderLeftColor: "red",
-            backgroundColor: '#FBF7EF',
+            marginLeft: 44,
+            marginRight: 10,
+            borderLeftWidth: 10,
+            borderLeftColor: '#00BC38',
+            backgroundColor: '$containerColor',
         },
     },
     deckInfoRules: {
         heading3: {
             color: "black",
             textAlign: 'center',
-            fontSize: 20,
-            fontWeight: 700,
+            alignSelf: 'center',
+            fontSize: 24,
+            lineHeight: 28,
+            fontWeight: 400,
             fontFamily: 'DMSans'
         },
         heading5: {
@@ -221,13 +239,13 @@ export default EStyleSheet.create({
             borderLeftWidth: 0,
             borderLeftColor: "red",
             padding: 20,
-            backgroundColor: '#FBF7EF',
+            backgroundColor: '$containerColor',
         },
         ordered_list:{
             counterReset: 'item',
             listStyleType: 'upper-roman',
             lineHeight: 26,
-            backgroundColor: '#FBF7EF',
+            backgroundColor: '$containerColor',
         },
         ordered_list_icon: {
             marginRight: 20,
@@ -255,7 +273,7 @@ export default EStyleSheet.create({
             fontFamily: "DMSans",
             margin: 20,
             paddingLeft: 10,
-            backgroundColor: '#FBF7EF',
+            backgroundColor: '$containerColor',
         }
     },
     onboardingDeckText: {
@@ -299,7 +317,7 @@ export default EStyleSheet.create({
         blockquote: {
             fontFamily: "DMSans",
             fontSize: 16,
-            backgroundColor: '#FBF7EF',
+            backgroundColor: '$containerColor',
             borderLeftWidth: 0,
             borderLeftColor: "red",
             padding: 20

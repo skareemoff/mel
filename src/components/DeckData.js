@@ -11,18 +11,6 @@ export default class DeckData {
     _favourites = [];
     _deckNames = {};
 
-    _images = {
-        deckBG1: require("../assets/images/deckBG1.png"),
-        deckBG2: require("../assets/images/deckBG2.png"),
-        deckBG3: require("../assets/images/deckBG3.png"),
-        deckBG4: require("../assets/images/deckBG4.png"),
-        deckBG5: require("../assets/images/deckBG5.png"),
-        deckBG6: require("../assets/images/deckBG6.png"),
-        homeBG:  require("../assets/images/homeBG.png"),
-        deckBGFav: require("../assets/images/deckBGFav.png"),
-      };
-
-
     static inst() {
         if (DeckData._instance == null) {
             DeckData._instance = new DeckData();
@@ -185,10 +173,6 @@ export default class DeckData {
             return 'Favourites';
         }
         return DeckData.inst()._deckNames[deckID];
-    }
-
-    static getDeckImage(imageName){
-        return DeckData.inst()._images[imageName];
     }
 
     static getDeckImageSvg(imageName){

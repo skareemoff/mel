@@ -12,10 +12,6 @@ const Card = (cardData) => {
     const cardHeight = calculateCardHeight(cardData);
 
     const buildCard = () => {
-        const img = (typeof(cardData.deckBackground) !== 'undefined' && cardData.deckBackground != null)
-            ? DeckData.getDeckImage(cardData.deckBackground)
-            : null;
-
         const cardContent = cardData.shareable == 'yes'
         ? ( <ShareableView cardData={cardData} /> )
         : (

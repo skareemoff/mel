@@ -34,10 +34,7 @@ const DeckInfoScreen = ({route, navigation}) => {
                         <Card
                             type='deck'
                             text={deckData.deckName}
-                            deckBackground={deckData.deckBackground}
                             cardTextStyle={deckData.deckTextStyle}
-                            cardStyle={deckData.deckStyle}
-                            subText={deckData.subText}
                             deckBackgroundSvg={deckData.deckBackgroundSvg}
                             deckBackgroundColor={deckData.deckBackgroundColor}
                             cardSubTextStyle={deckData.cardSubTextStyle}/>
@@ -59,12 +56,11 @@ const DeckInfoScreen = ({route, navigation}) => {
                             height='half'
                             deckName={DeckData.getDeckName(deckData.id)}
                             text={deckData.cards.length > 0 ? deckData.cards[0].text : deckData.exampleText }
-                            deckTextStyle='deckTitle'
-                            cardTextStyle='deckInfoText'
+                            deckTextStyle='exampleDeckTitle'
+                            cardTextStyle='exampleDeckText'
                             cardStyle='deckInfoCard'
                             infoLeft='Example'
-                            infoTextStyleLeft='shareableInfoLeft'
-                            isFavourite='no'
+                            infoTextStyleLeft='exampleInfoLeft'
                         />
                     </View>
                 )
