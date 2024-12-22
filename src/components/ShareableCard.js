@@ -24,7 +24,7 @@ export const ShareableCard = ({deckData, cardDeck, currentIndex, viewShotRef, se
                         overflow: 'hidden'
                     }}
                 />
-                <Image source={require('../assets/images/logo.png')} style={[styles.logo, {top: -10}]}/>
+                <Image source={require('../assets/images/logo.png')} style={[styles.logo, stl.logoOffset]}/>
                 <Card
                     type='card'
                     deckName={DeckData.getDeckName(cardDeck.value[currentIndex].deckID)}
@@ -53,5 +53,8 @@ const stl = EStyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'transparent',
+    },
+    logoOffset: {
+        top: '$logoOffset',
     }
 });
