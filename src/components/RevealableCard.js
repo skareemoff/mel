@@ -93,9 +93,10 @@ const st = EStyleSheet.create({
   },
   revealButton: {
     justifyContent: 'center',
-    borderRadius: '2.5rem',
-    width: '10.0625rem',
-    height: '5.25rem',
+    border: 1,
+    borderRadius: 40,
+    width: 161,
+    height: 84,
     backgroundColor: "white",
   },
   revealButtonText: {
