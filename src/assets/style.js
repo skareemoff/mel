@@ -87,19 +87,34 @@ export default EStyleSheet.create({
         color: 'white',
     },
     qODCard: {
-        backgroundColor: '#FFE770',
+        backgroundColor: '#F9F9F9',
     },
     qODCardText: {
-        fontFamily: "DMMono-Regular",
+        fontFamily: "DMSans",
         color: '#4B677D',
         fontWeight: '400',
-        fontSize: '1.5rem',
-        lineHeight: '1.75rem',
+        fontSize: 24,
+        lineHeight: 28,
     },
     qODDeckText: {
         fontFamily: "DMMono-Regular",
         fontWeight: '400',
-        fontSize: '0.875rem',
+        fontSize: 14,
+        color: '#4B677D',
+    },
+    qODInfoTextLeft: {
+        fontFamily: "DMMono-Regular",
+        fontWeight: '400',
+        fontSize: 14,
+        color: '#4B677D',
+        left: 35,
+    },
+    qODInfoTextRight: {
+        fontFamily: "DMMono-Regular",
+        fontWeight: '400',
+        fontSize: 14,
+        color: '#4B677D',
+        right: 35,
     },
 
 

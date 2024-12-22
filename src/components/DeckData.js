@@ -93,7 +93,9 @@ export default class DeckData {
     }
 
     _verifyQoD= () =>  {
-        if(this._questionOfTheDay != null && this._dayOfTheQuestion != null && this._isToday(this._dayOfTheQuestion)) {
+        if(this._questionOfTheDay != null &&
+            this._dayOfTheQuestion != null &&
+            this._isToday(this._dayOfTheQuestion)) {
             return true;
         }
         this._dayOfTheQuestion = null;
@@ -106,6 +108,10 @@ export default class DeckData {
         return curDate.getFullYear() == date.getFullYear()
                 && curDate.getMonth() == date.getMonth()
                 && curDate.getDate() == date.getDate();
+    }
+
+    static revealQoD() {
+        //TODO: this requres creation of profiles, logins etc. to uniquely count users, who revealed thr QoD
     }
 
     static addFavourite(cardID) {
@@ -134,6 +140,17 @@ export default class DeckData {
             });
         });
         return favourites;
+    }
+
+    static getQoDTTLHours() {
+        if(DeckData.inst()._dayOfTheQuestion == null) {
+            return (24 - new Date().getHours());
+        }
+        return (24 - (new Date().getHours() -DeckData.inst()._dayOfTheQuestion.getHours()));
+    }
+
+    static getQoDRevealedCount() {
+        return 1;
     }
 
     static getFavDeck() {

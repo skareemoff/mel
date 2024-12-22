@@ -3,7 +3,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import React, { useRef, useState } from "react";
 import Card from './Card'
 import styles from '../assets/style'
-
+import DeckData from "./DeckData";
 
 const RevealableCard = (cardData) => {
   const [isShowRevealButton, setIsShowRevealButton] = useState(true);
@@ -11,6 +11,8 @@ const RevealableCard = (cardData) => {
   const opacityStyle = { opacity: opacityAnimation };
 
   const clickReveal = () => {
+    DeckData.revealQoD();
+
     Animated.timing(opacityAnimation, {
       toValue: 0,
       duration: 1000,
@@ -29,12 +31,16 @@ const RevealableCard = (cardData) => {
                 deckID={cardData.id}
                 deckName={cardData.deckName}
                 text={cardData.text}
+                infoLeft={cardData.infoLeft}
+                infoRight={cardData.infoRight}
                 cardTextStyle={cardData.cardTextStyle}
                 cardStyle={cardData.cardStyle}
                 subText={cardData.subText}
                 cardSubTextStyle={cardData.cardSubTextStyle}
                 deckTextStyle={cardData.deckTextStyle}
                 deckSubTextStyle={cardData.deckSubTextStyle}
+                infoTextStyleLeft={cardData.infoTextStyleLeft}
+                infoTextStyleRight={cardData.infoTextStyleRight}
             />
             {isShowRevealButton ?
             <Animated.View name="cover" style={[st.cover, opacityStyle, st.cardBlur ]} >

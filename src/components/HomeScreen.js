@@ -41,13 +41,17 @@ const HomeScreen = ({navigation}) => {
                             id='questionOfTheDay'
                             deckName='Question of the day'
                             text={DeckData.getQuestionOfTheDay()}
+                            // infoLeft={'' + DeckData.getQoDRevealedCount() + ' reflecting'}
+                            infoRight={DeckData.getQoDTTLHours() + ' H'}
                             type='deck'
                             height='full'
                             deckBackground='homeBG'
-                            cardTextStyle='qODCardText'
                             deckTextStyle='qODDeckText'
-                            cardStyle='qODCard'
+                            cardTextStyle='qODCardText'
                             deckStyle='qODDeck'
+                            cardStyle='qODCard'
+                            infoTextStyleLeft='qODInfoTextLeft'
+                            infoTextStyleRight='qODInfoTextRight'
                         />
                     </View>
             )
