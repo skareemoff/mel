@@ -61,7 +61,7 @@ export default function PlayScreen({route, navigation}) {
       setDeckKey(prevKey => prevKey + 1);
       updateVisibleCards();
     }
-    else {
+    else if(newIndex > -1) {
       setCurrentIndex(newIndex);
       updateVisibleCards();
     }
@@ -115,7 +115,7 @@ export default function PlayScreen({route, navigation}) {
                   maxVisibleItems={MAX}
                   item={item}
                   infoLeft={(1+currentIndex)+' / ' + cardDeck.value.length}
-                  infoTextStyleLeft={cardDeck.value[currentIndex].type != 'special' ? 'playInfoText' : cardDeck.value[currentIndex].infoTextStyleLeft}
+                  infoTextStyleLeft={cardDeck.value[currentIndex].type == 'special' ?  cardDeck.value[currentIndex].infoTextStyleLeft : 'playInfoText'}
                   index={item.index}
                   deckSize={cardDeck.value.length}
                   animatedValue={animatedValue}
