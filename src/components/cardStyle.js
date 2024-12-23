@@ -164,7 +164,10 @@ export default EStyleSheet.create({
         backgroundColor: 'transparent',
         color: '#000',
         marginTop: 20,
-        fontFamily: 'DMSans',
+        fontWeight: '400',
+        fontSize: 24,
+        lineHeight: 28,
+        fontFamily: 'DMSans-Regular',
     },
     shotCommentBox: {
         borderWidth: 1,
