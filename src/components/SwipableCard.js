@@ -7,6 +7,9 @@ import {width} from '../assets/style'
 
 configureReanimatedLogger({ level: ReanimatedLogLevel.warn, strict: false });
 
+/**
+ * Animation made following this video: https://www.youtube.com/watch?v=-JoQ5Y_unl8
+ */
 const SwipableCard = (data) => {
   const translateX = useSharedValue(0);
   const direction = useSharedValue(0);
@@ -74,12 +77,6 @@ const SwipableCard = (data) => {
       [0, 20],
     );
 
-    const opacity = interpolate(
-      animatedValue.value + data.maxVisibleItems,
-      [index, index + 1],
-      [0, 1],
-    );
-
     return {
       transform: [
         {translateY: currentItem ? 0 : translateY},
@@ -89,7 +86,6 @@ const SwipableCard = (data) => {
           rotateZ: currentItem ? `${direction.value * rotateZ}deg` : '0deg',
         },
       ],
-      opacity: index < currentIndex + data.maxVisibleItems ? 1 : opacity,
     };
   });
 
@@ -104,8 +100,8 @@ const SwipableCard = (data) => {
       <Animated.View style={[
         { zIndex: data.deckSize - index},
         animatedStyle,
-        styles.onboardingContainer
-        ]}>
+        styles.cardContainer
+      ]}>
           <Card
             type='card'
             height = {param('height')}
@@ -135,7 +131,7 @@ const SwipableCard = (data) => {
 export default SwipableCard;
 
 const styles = EStyleSheet.create({
-  onboardingContainer: {
+  cardContainer: {
     flexDirection: 'column',
     position: 'absolute',
     alignSelf: 'center',

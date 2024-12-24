@@ -13,21 +13,22 @@ import { ShareableCard } from './ShareableCard';
 import { HeaderBar } from './HeaderBar';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import { SvgXml } from 'react-native-svg';
+import { useKeepAwake } from '@sayem314/react-native-keep-awake';
 
 export default function PlayScreen({route, navigation}) {
+  useKeepAwake();
+
   const MAX = 3;
   const { deckID } = route.params;
-  const viewShotRef = useRef(null);
-
   const deckData = DeckData.getDeck(deckID);
   const cardDeck = useSharedValue(specialShuffle(deckData.cards));
-  const [visibleCards, setVisibleCards] = useState([]);
-
+  const viewShotRef = useRef(null);
   const [deckKey, setDeckKey] = useState(0);
+  const [likeKey, setLikeKey] = useState(0);
+  const [visibleCards, setVisibleCards] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const animatedValue = useSharedValue(0);
-
   const [shareModalVisible, setShareModalVisible] = useState(false);
+  const animatedValue = useSharedValue(0);
 
   useEffect(() => {
     updateVisibleCards();
@@ -49,21 +50,28 @@ export default function PlayScreen({route, navigation}) {
     else {
       DeckData.addFavourite(cardID);
     }
-    setCurrentIndex(currentIndex);
-    updateVisibleCards();
+    setLikeKey(prevKey => prevKey + 1);
   };
 
   const handleSetCurrentIndex = (newIndex) => {
-    if((newIndex == -1 && currentIndex != 0) || newIndex >= cardDeck.value.length) {
-      cardDeck.value = specialShuffle(cardDeck.value);
-      setCurrentIndex(0);
-      animatedValue.value = 0;
+    if(newIndex == -1 && currentIndex > 0) {
+      // go back one
+      setCurrentIndex(currentIndex-1);
       setDeckKey(prevKey => prevKey + 1);
-      updateVisibleCards();
+      animatedValue.value = currentIndex;
     }
-    else if(newIndex > -1) {
-      setCurrentIndex(newIndex);
-      updateVisibleCards();
+    else if(newIndex > 0) {
+      if(newIndex < cardDeck.value.length) {
+        // progress one forward
+        setCurrentIndex(newIndex);
+      }
+      else {
+        // reached the end of the deck
+        cardDeck.value = specialShuffle(cardDeck.value);
+        animatedValue.value = 0;
+        setDeckKey(prevKey => prevKey + 1);
+        setCurrentIndex(0);
+      }
     }
   };
 
@@ -153,7 +161,7 @@ export default function PlayScreen({route, navigation}) {
               <Image name="restart" style={stl.roundButtonImage} source={require("../assets/images/undo.png")} />
             </TouchableOpacity>
             {cardDeck.value[currentIndex].type!='special'
-              ? <TouchableOpacity style={stl.roundButton} onPress={toggleFavourite}>
+              ? <TouchableOpacity style={stl.roundButton} key={likeKey} onPress={toggleFavourite}>
                   <Image name="heart" style={stl.roundButtonImage} source={
                     DeckData.isFavourite(cardDeck.value[currentIndex].id)
                       ? require("../assets/images/like-filled.png")
