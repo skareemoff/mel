@@ -5,7 +5,7 @@ export const HALF_CARD_HEIGHT = 260;
 export const { height, width } = Dimensions.get('window');
 
 EStyleSheet.build({
-    $containerColor: '#FBF7EF',
+    $containerColor: 'white',
     $mainLogoWidth: 111,
     $mainLogoHeight: 50,
     $headerTopPadding: 60,
@@ -29,8 +29,9 @@ export default EStyleSheet.create({
     },
     shadow: {
         shadowColor:'#000',
-        shadowOpacity:0.5,
-        shadowOffset:{width: 2, height: 2 }
+        shadowOpacity:0.17,
+        shadowOffset:{width: 0, height: 0 },
+        shadowRadius: 54
     },
     appbarBottom: {
         backgroundColor: '$containerColor',

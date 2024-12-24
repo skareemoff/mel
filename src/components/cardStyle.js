@@ -4,6 +4,8 @@ export default EStyleSheet.create({
     card: {
         justifyContent: 'center',
         borderRadius: 30,
+        borderColor: 'rgba(0, 0, 0, 0.05)',
+        borderWidth: 0.1,
         alignItems: 'center',
         margin: 0,
         padding: 0,
@@ -167,7 +169,7 @@ export default EStyleSheet.create({
         fontWeight: '400',
         fontSize: 24,
         lineHeight: 28,
-        fontFamily: 'DMSans-Regular',
+        fontFamily: 'DMSans',
     },
     shotCommentBox: {
         borderWidth: 1,
