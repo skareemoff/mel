@@ -101,12 +101,12 @@ const stl = EStyleSheet.create({
         backgroundColor: '$containerColor'
     },
     text: {
-        color: "black",
-        fontFamily: 'DMSans',
-        fontSize: 24,
+        color: "#6F6F6F",
+        fontFamily: 'DMMono-Regular',
+        fontSize: 14,
+        lineHeight: 18,
         textAlign: "center",
         width: "100%",
-        lineHeight: 40,
     },
 
     text1: {
@@ -118,7 +118,7 @@ const stl = EStyleSheet.create({
     text3: {
     },
     text4: {
-        fontSize: 36,
+        color: "black",
     },
     image: {
         justifyContent: "center",
