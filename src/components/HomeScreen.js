@@ -3,22 +3,13 @@ import Card from './Card';
 import styles from '../assets/style'
 import DeckData from './DeckData.js'
 import {HALF_CARD_HEIGHT} from '../assets/style'
-import RevealableCard from './RevealableCard';
+import QoDCard from './QoDCard';
 import { HeaderBar } from './HeaderBar';
 
 const HomeScreen = ({navigation}) => {
     const cards = [
         {'id':'header'},
-        {
-            id: 'questionOfTheDay',
-            deckName: 'Question of the day',
-            text: DeckData.getQuestionOfTheDay(),
-            type: 'deck',
-            height: 'full',
-            cardTextStyle: 'qODCardText',
-            deckTextStyle: 'qODDeckText',
-            cardStyle: 'qODCard',
-        },
+        {'id': 'questionOfTheDay'},
         ...DeckData.decks(),
         DeckData.getFavDeck()
     ];
@@ -36,21 +27,7 @@ const HomeScreen = ({navigation}) => {
             case 'questionOfTheDay':
                 return (
                     <View style={styles.flatListItem}>
-                        <RevealableCard
-                            id='questionOfTheDay'
-                            deckName='Question of the day'
-                            text={DeckData.getQuestionOfTheDay()}
-                            // infoLeft={'' + DeckData.getQoDRevealedCount() + ' reflecting'}
-                            infoRight={DeckData.getQoDTTLHours() + ' H'}
-                            type='deck'
-                            height='full'
-                            deckTextStyle='qODDeckText'
-                            cardTextStyle='qODCardText'
-                            deckStyle='qODDeck'
-                            cardStyle='qODCard'
-                            infoTextStyleLeft='qODInfoTextLeft'
-                            infoTextStyleRight='qODInfoTextRight'
-                        />
+                        <QoDCard />
                     </View>
             )
             default:

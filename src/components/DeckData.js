@@ -1,19 +1,24 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { MMKV } from 'react-native-mmkv'
 
 const _SUFFIX_FAVOURITE = "favourite_";
+const URL = 'https://script.google.com/macros/s/AKfycbyGVjLmAHYviTXCulytpptgo-g9t6TbCNmEAJ4QUsDTZ28yBmkYr56mtzBuiOvvSOFD/exec?';
+
 export const ID_FAVOURITES = 'favourites';
 
 export default class DeckData {
     static _instance = null;
     _questionOfTheDay = null;
     _dayOfTheQuestion = null;
+    _revealed = 0;
     _data = require('../data/cards.json');
     _favourites = [];
     _deckNames = {};
+    _storage = null;
 
     static inst() {
         if (DeckData._instance == null) {
             DeckData._instance = new DeckData();
+            DeckData._instance._storage = new MMKV();
             DeckData._instance._loadQoD();
             DeckData._instance._loadFavourites();
             DeckData.decks().map((deck) => {
@@ -24,37 +29,27 @@ export default class DeckData {
         return DeckData._instance;
     }
 
-    _loadFavourites = async () => {
-        try {
-            try {
-                const keys = await AsyncStorage.getAllKeys();
-                const favourites = [];
-                keys.forEach((item) => {
-                    if(item.startsWith(_SUFFIX_FAVOURITE)) {
-                        favourites.push(item.substring(10));
-                    }
-                });
-                this._favourites = [...favourites];
-            } catch (error) {
-                console.error(error)
+    _loadFavourites(){
+        const keys = this._storage.getAllKeys();
+        const favourites = [];
+        keys.forEach((key) => {
+            if(key.startsWith(_SUFFIX_FAVOURITE)) {
+                favourites.push(this._storage.getString(key).substring(10));
             }
-        } catch (e) {
-            console.error("Failed to load Favourites: ", e)
-        }
+        });
+        this._favourites = [...favourites];
       };
 
-      _storeValue = async (key, value) => {
-        try {
-          await AsyncStorage.setItem(key, value);
-        } catch (e) {
-        }
+      _readValue(key){
+        return this._storage.getString(key);
       };
 
-      _removeValue = async (key) => {
-        try {
-          await AsyncStorage.removeItem(key);
-        } catch(e) {
-        }
+      _storeValue(key, value){
+        this._storage.set(key, value);
+      };
+
+      _removeValue(key){
+        this._storage.delete(key);
       };
 
     _loadQoD() {
@@ -63,13 +58,14 @@ export default class DeckData {
         }
 
         try {
-            const url = 'https://script.google.com/macros/s/AKfycbyGVjLmAHYviTXCulytpptgo-g9t6TbCNmEAJ4QUsDTZ28yBmkYr56mtzBuiOvvSOFD/exec?action=questionOfTheDay';
-            const response = fetch(url).then((response) => response.json() ).then((response) => {
+            const url = URL+'action=questionOfTheDay';
+            fetch(url).then((response) => response.json() ).then((response) => {
                 if(response.status == 'ok') {
                     const tmpDate = new Date(response.date);
                     if(this._isToday(tmpDate)) {
                         this._dayOfTheQuestion = tmpDate;
                         this._questionOfTheDay = response.question;
+                        this._revealed = response.revealed;
                     }
                 }
             });
@@ -98,22 +94,45 @@ export default class DeckData {
                 && curDate.getDate() == date.getDate();
     }
 
-    static revealQoD() {
-        //TODO: this requres creation of profiles, logins etc. to uniquely count users, who revealed thr QoD
+    static isRevealedToday() {
+        const storedVal = DeckData.inst()._readValue("REVEALED");
+        return typeof(storedVal) !== 'undefined'
+                && storedVal != null
+                && DeckData.inst()._isToday(new Date(storedVal));
+    }
+
+    static revealQoD(callBack) {
+        if(!DeckData.isRevealedToday()) {
+            try {
+                const url = URL+'action=addRevealed';
+                fetch(url).then((response) => response.json() ).then((response) => {
+                    if(response.status == 'ok') {
+                        DeckData.inst()._revealed = response.revealed;
+                        const dateKey = DeckData.inst()._dayOfTheQuestion.toISOString().split('T')[0];
+                        DeckData.inst()._storeValue("REVEALED", dateKey);
+                        callBack(DeckData.inst()._revealed);
+                    }
+                });
+            }
+            catch(err) {
+                setError(true);
+            }
+        }
+        return DeckData.inst()._revealed;
     }
 
     static addFavourite(cardID) {
-        DeckData.inst()._storeValue(_SUFFIX_FAVOURITE+cardID, ''+cardID);
-        DeckData.inst()._favourites.push(''+cardID);
+        DeckData.inst()._storeValue(_SUFFIX_FAVOURITE+cardID, cardID);
+        DeckData.inst()._favourites.push(cardID.toString());
     }
 
     static removeFavourite(cardID) {
-        DeckData.inst()._favourites = DeckData.inst()._favourites.filter(item => item != ''+cardID);
+        DeckData.inst()._favourites = DeckData.inst()._favourites.filter(item => item != cardID.toString());
         DeckData.inst()._removeValue(_SUFFIX_FAVOURITE+cardID);
     }
 
     static isFavourite(cardID) {
-        return DeckData.inst()._favourites.includes(''+cardID);
+        return DeckData.inst()._favourites.includes(cardID.toString());
     }
 
     static gatherFavourites() {
@@ -134,11 +153,11 @@ export default class DeckData {
         if(DeckData.inst()._dayOfTheQuestion == null) {
             return (24 - new Date().getHours());
         }
-        return (24 - (new Date().getHours() -DeckData.inst()._dayOfTheQuestion.getHours()));
+        return (24 - (new Date().getHours() - DeckData.inst()._dayOfTheQuestion.getHours()));
     }
 
     static getQoDRevealedCount() {
-        return 1;
+        return DeckData.inst()._revealed;
     }
 
     static getFavDeck() {

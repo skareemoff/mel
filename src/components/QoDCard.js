@@ -1,59 +1,64 @@
-import { View, Image, TouchableOpacity, Text, Animated} from "react-native";
+import { Image, TouchableOpacity, Text, Animated} from "react-native";
 import EStyleSheet from 'react-native-extended-stylesheet';
 import React, { useRef, useState } from "react";
 import Card from './Card'
-import styles from '../assets/style'
 import DeckData from "./DeckData";
 
-const RevealableCard = (cardData) => {
-  const [isShowRevealButton, setIsShowRevealButton] = useState(true);
+const RevealableCard = () => {
+  const [isShowRevealButton, setIsShowRevealButton] = useState(!DeckData.isRevealedToday());
+  const [cardKey, setCardKey] = useState(DeckData.getQoDRevealedCount());
+
   const opacityAnimation = useRef(new Animated.Value(1)).current;
   const opacityStyle = { opacity: opacityAnimation };
 
   const clickReveal = () => {
-    DeckData.revealQoD();
+    DeckData.revealQoD(updateRevealed);
 
     Animated.timing(opacityAnimation, {
       toValue: 0,
       duration: 1000,
-      useNativeDriver: true
+      useNativeDriver: true,
     }).start(() => {
-      setIsShowRevealButton(false);
-    })
+    });
+  }
+
+  const updateRevealed = (revealed) => {
+    setIsShowRevealButton(false);
+    setCardKey(prevKey => prevKey + 1);
   }
 
   return (
-    <View stylele={styles.container}>
-        <Animated.View style={[st.face]}>
+    <>
+        <Animated.View key={cardKey} style={[st.face]}>
             <Card
                 type='card'
-                height={cardData.height}
-                deckID={cardData.id}
-                deckName={cardData.deckName}
-                text={cardData.text}
-                infoLeft={cardData.infoLeft}
-                infoRight={cardData.infoRight}
-                cardTextStyle={cardData.cardTextStyle}
-                cardStyle={cardData.cardStyle}
-                subText={cardData.subText}
-                cardSubTextStyle={cardData.cardSubTextStyle}
-                deckTextStyle={cardData.deckTextStyle}
-                deckSubTextStyle={cardData.deckSubTextStyle}
-                infoTextStyleLeft={cardData.infoTextStyleLeft}
-                infoTextStyleRight={cardData.infoTextStyleRight}
-            />
+                deckID='qod'
+                deckName='Question of the day'
+                height='full'
+
+                text={ DeckData.getQuestionOfTheDay() }
+                infoLeft={DeckData.getQoDRevealedCount() < 1 ? 'be the first to reveal' : DeckData.getQoDRevealedCount() + ' reflecting'}
+                infoRight={DeckData.getQoDTTLHours() + ' H'}
+
+                deckTextStyle='qODDeckText'
+                cardTextStyle='qODCardText'
+                deckStyle='qODDeck'
+                cardStyle='qODCard'
+                infoTextStyleLeft='qODInfoTextLeft'
+                infoTextStyleRight='qODInfoTextRight'
+                />
             {isShowRevealButton ?
             <Animated.View name="cover" style={[st.cover, opacityStyle, st.cardBlur ]} >
                 <Image source={require('../assets/images/qodmask-small.png')} style={st.blurImage} />
                 <TouchableOpacity style={[st.revealButton, st.shadow]} onPressOut={() => clickReveal()}>
-                  <Text style={st.revealButtonText} source={require("../assets/images/button-play.png")} >Reveal </Text>
+                  <Text style={st.revealButtonText} source={require("../assets/images/button-play.png")}>Reveal</Text>
                 </TouchableOpacity>
               </Animated.View>
             :
             null
             }
         </Animated.View>
-    </View>
+    </>
   );
 };
 
