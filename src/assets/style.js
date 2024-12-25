@@ -87,13 +87,8 @@ export default EStyleSheet.create({
         color: 'black',
     },
     favDeck: {
-        fontFamily: 'DMMono-Regular',
-        color: '#4B677D',
     },
     favSubText: {
-        fontFamily: 'DMMono-Regular',
-        color: '#4B677D',
-        fontSize: 14
     },
 
     qODCard: {
