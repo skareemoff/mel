@@ -87,8 +87,15 @@ export default EStyleSheet.create({
         color: 'black',
     },
     favDeck: {
+        fontFamily: 'DMMono-Regular',
     },
     favSubText: {
+        fontFamily: 'DMMono-Regular',
+        color: 'black',
+        width: '100%',
+        fontSize: 14,
+        top: 60,
+        backgroundColor: 'transparent'
     },
 
     qODCard: {
@@ -195,7 +202,7 @@ export default EStyleSheet.create({
     deckInfoDescription: {
         body: {
             fontFamily: "DMSans",
-            backgroundColor: '$containerColor',
+            backgroundColor: 'transparent',
         },
         blockquote: {
             fontFamily: "DMSans",
@@ -206,7 +213,7 @@ export default EStyleSheet.create({
             marginRight: 30,
             borderLeftWidth: 10,
             borderLeftColor: '#00BC38',
-            backgroundColor: '$containerColor',
+            backgroundColor: 'transparent',
         },
     },
     deckInfoRules: {
@@ -279,12 +286,16 @@ export default EStyleSheet.create({
             fontFamily: "DMSans",
             margin: 20,
             paddingLeft: 10,
-            backgroundColor: '$containerColor',
+            backgroundColor: 'transparent',
             marginLeft: 30,
             marginRight: 30,
 
         }
     },
+
+
+
+
     onboardingDeckText: {
         color: "transparent"
     },

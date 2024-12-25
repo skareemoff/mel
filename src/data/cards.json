@@ -3869,12 +3869,9 @@
         "id": "favourites",
         "deckName": "Favourites",
         "deckTextStyle": "favDeck",
-        "deckBackgroundSvg": "SVG_FAV",
-        "deckBackgroundColor": "white",
         "cardSubTextStyle": "favSubText",
         "description": "> These are all of your favourite questions from all of your decks.",
         "rules": "### How to Play ###\n##### Just enjoy revisiting and finding new depth and insights. ######",
-        "exampleText": "You have no Favourite questions yet.",
         "cards": []
     },
     "svgLibrary": {
