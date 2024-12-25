@@ -7,7 +7,7 @@ import { Appbar } from 'react-native-paper';
 import Share from 'react-native-share';
 import SwipableCard from './SwipableCard';
 import DeckData from './DeckData'
-import {specialShuffle} from './Utils'
+import {specialShuffle, CARD_FULL} from './Utils'
 import styles, {height, width} from '../assets/style'
 import { ShareableCard } from './ShareableCard';
 import { HeaderBar } from './HeaderBar';
@@ -35,7 +35,7 @@ export default function PlayScreen({route, navigation}) {
   }, [currentIndex]);
 
   const updateVisibleCards = () => {
-    const visible = cardDeck.value.slice(currentIndex, currentIndex + MAX + 1).map((item, index) => ({
+    const visible = cardDeck.value.slice(currentIndex, currentIndex + MAX).map((item, index) => ({
         ...item,
         index: currentIndex + index,
       }));
@@ -103,7 +103,7 @@ export default function PlayScreen({route, navigation}) {
       <View style={styles.container}>
       {deckData.deckBackgroundSvg &&
       <SvgXml
-          xml={DeckData.getDeckImageSvg(deckData.deckBackgroundSvg)}
+          xml={DeckData.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL)}
           width={width}
           height={height}
           preserveAspectRatio="xMinYMin slice"
@@ -120,7 +120,6 @@ export default function PlayScreen({route, navigation}) {
               return (
                 <SwipableCard
                   deckName={DeckData.getDeckName(item.deckID)}
-                  maxVisibleItems={MAX}
                   item={item}
                   infoLeft={(1+currentIndex)+' / ' + cardDeck.value.length}
                   infoTextStyleLeft={cardDeck.value[currentIndex].type == 'special' ?  cardDeck.value[currentIndex].infoTextStyleLeft : 'playInfoText'}

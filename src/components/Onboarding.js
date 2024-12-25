@@ -8,6 +8,8 @@ import DeckData from './DeckData'
 import { HeaderBar } from './HeaderBar';
 import { SvgXml } from 'react-native-svg';
 import {height, width} from '../assets/style'
+import { CARD_FULL} from './Utils';
+
 
 export default function Onboarding({navigation}) {
   const deckData = DeckData.data().onboarding;
@@ -32,7 +34,7 @@ export default function Onboarding({navigation}) {
       {
         deckData.deckBackgroundSvg &&
         <SvgXml
-          xml={DeckData.getDeckImageSvg(deckData.deckBackgroundSvg)}
+          xml={DeckData.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL)}
           width={width}
           height={height}
           preserveAspectRatio="xMinYMin slice"

@@ -14,7 +14,7 @@ export const ShareableCard = ({deckData, cardDeck, currentIndex, viewShotRef}) =
         <View edges={['right', 'left']} style={[styles.container, {backgroundColor: 'transparent'}]}>
             <ViewShot ref={viewShotRef} collapsable={false} style={stl.fullScreen}>
                 <SvgXml
-                    xml={DeckData.getDeckImageSvg(deckData.deckBackgroundSvg)}
+                    xml={DeckData.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL)}
                     width='100%'
                     height='100%'
                     preserveAspectRatio="xMinYMin slice"

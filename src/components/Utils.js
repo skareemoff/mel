@@ -24,8 +24,11 @@ export const getAllFiles = async (folder) => {
   return [...files];
 };
 
+export const CARD_FULL = 'full';
+export const CARD_HALF = 'half';
+
 export const calculateCardHeight = (cardData) => {
   return (typeof(cardData.height) !== 'undefined' && cardData.height != null)
-    ? (cardData.height == 'full' ? 'full' : 'half')
-    : ((cardData.type == 'card') ? 'full' : 'half');
+    ? (cardData.height == CARD_FULL ? CARD_FULL : CARD_HALF)
+    : ((cardData.type == 'card') ? CARD_FULL : CARD_HALF);
 }

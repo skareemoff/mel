@@ -194,7 +194,10 @@ export default class DeckData {
         return DeckData.inst()._deckNames[deckID];
     }
 
-    static getDeckImageSvg(imageName){
+    static getDeckImageSvg(imageName, cardHeight){
+        if(DeckData.data().svgLibrary[imageName+'-'+cardHeight])
+            return DeckData.data().svgLibrary[imageName+'-'+cardHeight];
+        else
         return DeckData.data().svgLibrary[imageName];
     }
 
