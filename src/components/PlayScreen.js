@@ -156,10 +156,17 @@ export default function PlayScreen({route, navigation}) {
               left: 0,
               width: width,
             }]}>
-            <TouchableOpacity style={stl.roundButton} onPress={() => handleSetCurrentIndex(-1)}>
-              <Image name="restart" style={stl.roundButtonImage} source={require("../assets/images/undo.png")} />
-            </TouchableOpacity>
-            {cardDeck.value[currentIndex].type!='special'
+
+            {currentIndex > 0 ?
+              <TouchableOpacity style={stl.roundButton} onPress={() => handleSetCurrentIndex(-1)}>
+                <Image name="restart" style={stl.roundButtonImage} source={require("../assets/images/undo.png")} />
+              </TouchableOpacity>
+            : <View style={[stl.roundButton, {filter: "brightness(40%)", backgroundColor: 'transparent'}]}>
+                <Image name="restart" style={stl.roundButtonImage} source={require("../assets/images/undo.png")} />
+              </View>
+            }
+
+            {cardDeck.value.length > 0 && cardDeck.value[currentIndex].type!='special'
               ? <TouchableOpacity style={stl.roundButton} key={likeKey} onPress={toggleFavourite}>
                   <Image name="heart" style={stl.roundButtonImage} source={
                     DeckData.isFavourite(cardDeck.value[currentIndex].id)
@@ -168,14 +175,19 @@ export default function PlayScreen({route, navigation}) {
                   }
                 />
               </TouchableOpacity>
-
               : <View style={[stl.roundButton, {filter: "brightness(40%)", backgroundColor: 'transparent'}]}>
                   <Image name="heart" style={stl.roundButtonImage} source={require("../assets/images/like.png")}/>
                 </View>
             }
-            <TouchableOpacity style={stl.roundButton} onPress={shareSnapshot}>
-              <Image name="share"   style={stl.roundButtonImage} source={require("../assets/images/share.png")} />
-            </TouchableOpacity>
+
+            {cardDeck.value.length > 0
+            ? <TouchableOpacity style={stl.roundButton} onPress={shareSnapshot}>
+                <Image name="share"   style={stl.roundButtonImage} source={require("../assets/images/share.png")} />
+              </TouchableOpacity>
+            : <View style={[stl.roundButton, {filter: "brightness(40%)", backgroundColor: 'transparent'}]}>
+                  <Image name="share"   style={stl.roundButtonImage} source={require("../assets/images/share.png")} />
+                </View>
+        }
           </Appbar>
       </View>
     </GestureHandlerRootView>
