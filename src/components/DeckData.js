@@ -34,7 +34,7 @@ export default class DeckData {
         const favourites = [];
         keys.forEach((key) => {
             if(key.startsWith(_SUFFIX_FAVOURITE)) {
-                favourites.push(this._storage.getString(key).substring(10));
+                favourites.push(key.substring(10));
             }
         });
         this._favourites = [...favourites];
