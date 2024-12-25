@@ -32,7 +32,7 @@ export default function Onboarding({navigation}) {
   return (
     <GestureHandlerRootView>
       {
-        deckData.deckBackgroundSvg &&
+        deckData.deckBackgroundSvg && DeckData.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL) &&
         <SvgXml
           xml={DeckData.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL)}
           width={width}

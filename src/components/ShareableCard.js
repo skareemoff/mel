@@ -13,18 +13,20 @@ export const ShareableCard = ({deckData, cardDeck, currentIndex, viewShotRef}) =
     return (
         <View edges={['right', 'left']} style={[styles.container, {backgroundColor: 'transparent'}]}>
             <ViewShot ref={viewShotRef} collapsable={false} style={stl.fullScreen}>
-                <SvgXml
-                    xml={DeckData.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL)}
-                    width='100%'
-                    height='100%'
-                    preserveAspectRatio="xMinYMin slice"
-                    style={{
-                        backgroundColor: deckData.deckBackgroundColor,
-                        zIndex: 0,
-                        position: 'absolute',
-                        overflow: 'hidden'
-                    }}
-                />
+                {deckData.deckBackgroundSvg && DeckData.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL) &&
+                    <SvgXml
+                        xml={DeckData.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL)}
+                        width='100%'
+                        height='100%'
+                        preserveAspectRatio="xMinYMin slice"
+                        style={{
+                            backgroundColor: deckData.deckBackgroundColor,
+                            zIndex: 0,
+                            position: 'absolute',
+                            overflow: 'hidden'
+                        }}
+                    />
+                }
                 <View style={{position:'absolute', top: 0}}>
                     <HeaderBar showBackButton={false} navigation={null} />
                 </View>

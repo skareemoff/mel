@@ -101,7 +101,7 @@ export default function PlayScreen({route, navigation}) {
   return (
     <GestureHandlerRootView>
       <View style={styles.container}>
-      {deckData.deckBackgroundSvg &&
+      {deckData.deckBackgroundSvg && DeckData.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL) &&
       <SvgXml
           xml={DeckData.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL)}
           width={width}
@@ -122,7 +122,7 @@ export default function PlayScreen({route, navigation}) {
                   deckName={DeckData.getDeckName(item.deckID)}
                   item={item}
                   infoLeft={(1+currentIndex)+' / ' + cardDeck.value.length}
-                  infoTextStyleLeft={cardDeck.value[currentIndex].type == 'special' ?  cardDeck.value[currentIndex].infoTextStyleLeft : 'playInfoText'}
+                  infoTextStyleLeft={item.type == 'special' ?  item.infoTextStyleLeft : 'playInfoText'}
                   index={item.index}
                   deckSize={cardDeck.value.length}
                   animatedValue={animatedValue}

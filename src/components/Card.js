@@ -73,7 +73,7 @@ const Card = (cardData) => {
                 styles[cardData.cardStyle],
                 cardHeight == CARD_FULL ? stl.cardFull : stl.cardHalf,
             ]}>
-                {cardData.deckBackgroundSvg &&
+                {cardData.deckBackgroundSvg && DeckData.getDeckImageSvg(cardData.deckBackgroundSvg, cardHeight) &&
                     <SvgXml xml={DeckData.getDeckImageSvg(cardData.deckBackgroundSvg, cardHeight)}
                         width='100%'
                         height='100%'
