@@ -17,6 +17,7 @@
 		788D6072E3724963AB2962D9 /* DMMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5979637A8F28429A984EAE85 /* DMMono-Medium.ttf */; };
 		79E109CF7A6B545134C55EED /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A5509F5B174372437CDFD69C /* PrivacyInfo.xcprivacy */; };
 		7AEA87C266F34C11B80FBEFA /* DMMono-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 782EEA4B8DF94CC0BE0797F1 /* DMMono-Italic.ttf */; };
+		7E6116192D1C9FCE005D7845 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6116182D1C9FCE005D7845 /* StoreKit.framework */; };
 		7EA10F0D2D119BBE0017542D /* DMSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BD38F276E62449280FE3B28 /* DMSans-ExtraBoldItalic.ttf */; };
 		7EA10F0E2D119BBE0017542D /* DMSans-VariableFont_opsz,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C32C0BAA07AF4AFDB67DCE3A /* DMSans-VariableFont_opsz,wght.ttf */; };
 		7EA10F0F2D119BBE0017542D /* DMSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22488FE174114F568C46429E /* DMSans-Italic.ttf */; };
@@ -64,6 +65,7 @@
 		61E184DCB059491981DEA1BF /* DMSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Bold.ttf"; path = "../src/assets/fonts/DMSans-Bold.ttf"; sourceTree = "<group>"; };
 		6DB24D78FEBA7C40FC6F329A /* Pods-MoreExcitingLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoreExcitingLife.debug.xcconfig"; path = "Target Support Files/Pods-MoreExcitingLife/Pods-MoreExcitingLife.debug.xcconfig"; sourceTree = "<group>"; };
 		782EEA4B8DF94CC0BE0797F1 /* DMMono-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMMono-Italic.ttf"; path = "../src/assets/fonts/DMMono-Italic.ttf"; sourceTree = "<group>"; };
+		7E6116182D1C9FCE005D7845 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7ED84E712D03833600990335 /* libReactNativeKCKeepAwake.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReactNativeKCKeepAwake.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F2A5804A964936A14E8DE6 /* DMSans-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-ThinItalic.ttf"; path = "../src/assets/fonts/DMSans-ThinItalic.ttf"; sourceTree = "<group>"; };
 		865F7D82A35B41FC955578C8 /* DMMono-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMMono-MediumItalic.ttf"; path = "../src/assets/fonts/DMMono-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44E38C16F9ED0D9C2B70AFAB /* libPods-MoreExcitingLife.a in Frameworks */,
+				7E6116192D1C9FCE005D7845 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +158,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7E6116182D1C9FCE005D7845 /* StoreKit.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				7ED84E712D03833600990335 /* libReactNativeKCKeepAwake.a */,
 				D63F04C4EC7E082344F5D76F /* libPods-MoreExcitingLife.a */,
