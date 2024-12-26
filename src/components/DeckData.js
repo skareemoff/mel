@@ -98,15 +98,15 @@ export default class DeckData {
     }
 
     revealQoD(callBack) {
-        if(!isRevealedToday()) {
+        if(!this.isRevealedToday()) {
             try {
                 const url = URL+'action=addRevealed';
                 fetch(url).then((response) => response.json() ).then((response) => {
                     if(response.status == 'ok') {
-                        _revealed = response.revealed;
+                        this._revealed = response.revealed;
                         const dateKey = this._dayOfTheQuestion.toISOString().split('T')[0];
                         this.storeValue("REVEALED", dateKey);
-                        callBack(_revealed);
+                        callBack(this._revealed);
                     }
                 });
             }
