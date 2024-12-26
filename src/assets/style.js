@@ -155,7 +155,8 @@ export default EStyleSheet.create({
         alignSelf: 'center',
         justifyContent: 'center',
         width: '100%',
-        textAlign: 'center'
+        textAlign: 'center',
+        left: 0
     },
     specialCardInfoTextStyleRight: {
         color: 'white'
@@ -192,7 +193,8 @@ export default EStyleSheet.create({
         alignSelf: 'center',
         justifyContent: 'center',
         width: '100%',
-        textAlign: 'center'
+        textAlign: 'center',
+        left: 0
     },
     deckTextStyle: {
         fontFamily: "DMSans",
