@@ -2,11 +2,11 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import Markdown from 'react-native-markdown-display';
 import ShareableView from './ShareableView'
-import DeckData from './DeckData.js'
 import styles from '../assets/style'
 import stl from './cardStyle'
 import {calculateCardHeight, CARD_FULL} from './Utils'
 import { SvgXml } from 'react-native-svg';
+import MELContext from './MELContext';
 
 /**
  * Possible card parameters:
@@ -33,6 +33,8 @@ import { SvgXml } from 'react-native-svg';
  *
  */
 const Card = (cardData) => {
+    const {dd} = React.useContext(MELContext);
+
     const cardHeight = calculateCardHeight(cardData);
 
     const buildCard = () => {
@@ -73,8 +75,8 @@ const Card = (cardData) => {
                 styles[cardData.cardStyle],
                 cardHeight == CARD_FULL ? stl.cardFull : stl.cardHalf,
             ]}>
-                {cardData.deckBackgroundSvg && DeckData.getDeckImageSvg(cardData.deckBackgroundSvg, cardHeight) &&
-                    <SvgXml xml={DeckData.getDeckImageSvg(cardData.deckBackgroundSvg, cardHeight)}
+                {cardData.deckBackgroundSvg && dd.getDeckImageSvg(cardData.deckBackgroundSvg, cardHeight) &&
+                    <SvgXml xml={dd.getDeckImageSvg(cardData.deckBackgroundSvg, cardHeight)}
                         width='100%'
                         height='100%'
                         style={

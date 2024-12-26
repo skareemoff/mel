@@ -2,17 +2,19 @@ import { Image, TouchableOpacity, Text, Animated} from "react-native";
 import EStyleSheet from 'react-native-extended-stylesheet';
 import React, { useRef, useState } from "react";
 import Card from './Card'
-import DeckData from "./DeckData";
+import MELContext from "./MELContext";
 
-const RevealableCard = () => {
-  const [isShowRevealButton, setIsShowRevealButton] = useState(!DeckData.isRevealedToday());
-  const [cardKey, setCardKey] = useState(DeckData.getQoDRevealedCount());
+const QoDCard = () => {
+  const {dd} = React.useContext(MELContext);
+
+  const [isShowRevealButton, setIsShowRevealButton] = useState(!dd.isRevealedToday());
+  const [cardKey, setCardKey] = useState(dd.getQoDRevealedCount());
 
   const opacityAnimation = useRef(new Animated.Value(1)).current;
   const opacityStyle = { opacity: opacityAnimation };
 
   const clickReveal = () => {
-    DeckData.revealQoD(updateRevealed);
+    dd.revealQoD(updateRevealed);
 
     Animated.timing(opacityAnimation, {
       toValue: 0,
@@ -36,9 +38,9 @@ const RevealableCard = () => {
                 deckName='Question of the day'
                 height='full'
 
-                text={ DeckData.getQuestionOfTheDay() }
-                infoLeft={DeckData.getQoDRevealedCount() < 1 ? 'be the first to reveal' : DeckData.getQoDRevealedCount() + ' reflecting'}
-                infoRight={DeckData.getQoDTTLHours() + ' H'}
+                text={ dd.getQuestionOfTheDay() }
+                infoLeft={dd.getQoDRevealedCount() < 1 ? 'be the first to reveal' : dd.getQoDRevealedCount() + ' reflecting'}
+                infoRight={dd.getQoDTTLHours() + ' H'}
 
                 deckTextStyle='qODDeckText'
                 cardTextStyle='qODCardText'
@@ -62,7 +64,7 @@ const RevealableCard = () => {
   );
 };
 
-export default RevealableCard;
+export default QoDCard;
 
 const st = EStyleSheet.create({
   face: {

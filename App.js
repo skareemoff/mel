@@ -7,16 +7,16 @@ import HomeScreen from "./src/components/HomeScreen";
 import DeckInfoScreen from "./src/components/DeckInfoScreen";
 import PlayScreen from "./src/components/PlayScreen";
 import Onboarding from "./src/components/Onboarding";
-import DeckData from './src/components/DeckData'
 import EStyleSheet from "react-native-extended-stylesheet";
+import MELContext from './src/components/MELContext'
+import DeckData from "./src/components/DeckData";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [isShowSplashScreen, setIsShowSplashScreen] = useState(true);
+  const [favouriteState, setFavouriteState] = useState({});
   const isShowOnboarding = true;
-
-  DeckData.inst(); // TODO: preload the deck while showing splashscreen
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -41,21 +41,27 @@ export default function App() {
     },
   };
   return (
-      <View style={stl.container}>
-        <StatusBar hidden={true} />
-        {
-          isShowSplashScreen
-          ?  <SplashScreen  />
-          :  <NavigationContainer theme={navTheme}>
-              <Stack.Navigator initialRouteName={isShowOnboarding ? 'Onboarding' : 'Home'}>
-                <Stack.Screen name="Onboarding" component={Onboarding} options= {{  headerShown: false }} />
-                <Stack.Screen name="Home" component={HomeScreen} options={{  headerShown: false}} />
-                <Stack.Screen name="Info" component={DeckInfoScreen} options={{  headerShown: false}} />
-                <Stack.Screen name="Play" component={PlayScreen} options= {{  headerShown: false }} />
-              </Stack.Navigator>
-          </NavigationContainer>
-      }
-      </View>
+      <MELContext.Provider value={{
+        dd: new DeckData(),
+        fav: favouriteState,
+        setFav: setFavouriteState
+        }}>
+        <View style={stl.container}>
+          <StatusBar hidden={true} />
+          {
+            isShowSplashScreen
+            ?  <SplashScreen  />
+            :  <NavigationContainer theme={navTheme}>
+                <Stack.Navigator initialRouteName={isShowOnboarding ? 'Onboarding' : 'Home'}>
+                  <Stack.Screen name="Onboarding" component={Onboarding} options= {{  headerShown: false }} />
+                  <Stack.Screen name="Home" component={HomeScreen} options={{  headerShown: false}} />
+                  <Stack.Screen name="Info" component={DeckInfoScreen} options={{  headerShown: false}} />
+                  <Stack.Screen name="Play" component={PlayScreen} options= {{  headerShown: false }} />
+                </Stack.Navigator>
+            </NavigationContainer>
+        }
+        </View>
+      </MELContext.Provider>
   );
 }
 

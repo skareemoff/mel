@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useSharedValue, } from 'react-native-reanimated';
 import { View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import SwipableCard from './SwipableCard';
-import DeckData from './DeckData'
 import { HeaderBar } from './HeaderBar';
 import { SvgXml } from 'react-native-svg';
 import {height, width} from '../assets/style'
+import MELContext from './MELContext'
 import { CARD_FULL} from './Utils';
 
 
 export default function Onboarding({navigation}) {
-  const deckData = DeckData.data().onboarding;
+  const {dd} = useContext(MELContext);
+
+  const deckData = dd.data().onboarding;
   const cardDeck = [...deckData.cards];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -32,9 +34,9 @@ export default function Onboarding({navigation}) {
   return (
     <GestureHandlerRootView>
       {
-        deckData.deckBackgroundSvg && DeckData.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL) &&
+        deckData.deckBackgroundSvg && dd.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL) &&
         <SvgXml
-          xml={DeckData.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL)}
+          xml={dd.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL)}
           width={width}
           height={height}
           preserveAspectRatio="xMinYMin slice"

@@ -6,7 +6,6 @@ import { captureRef } from 'react-native-view-shot';
 import { Appbar } from 'react-native-paper';
 import Share from 'react-native-share';
 import SwipableCard from './SwipableCard';
-import DeckData from './DeckData'
 import {specialShuffle, CARD_FULL} from './Utils'
 import styles, {height, width} from '../assets/style'
 import { ShareableCard } from './ShareableCard';
@@ -14,17 +13,20 @@ import { HeaderBar } from './HeaderBar';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import { SvgXml } from 'react-native-svg';
 import { useKeepAwake } from '@sayem314/react-native-keep-awake';
+import MELContext from './MELContext';
+import {ID_FAVOURITES} from './DeckData';
 
 export default function PlayScreen({route, navigation}) {
   useKeepAwake();
 
+  const {dd, setFav} = React.useContext(MELContext);
+
   const MAX = 3;
   const { deckID } = route.params;
-  const deckData = DeckData.getDeck(deckID);
+  const deckData = dd.getDeck(deckID);
   const cardDeck = useSharedValue(specialShuffle(deckData.cards));
   const viewShotRef = useRef(null);
   const [deckKey, setDeckKey] = useState(0);
-  const [likeKey, setLikeKey] = useState(0);
   const [visibleCards, setVisibleCards] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [shareModalVisible, setShareModalVisible] = useState(false);
@@ -44,13 +46,15 @@ export default function PlayScreen({route, navigation}) {
 
   const toggleFavourite = () => {
     const cardID = cardDeck.value[currentIndex].id;
-    if(DeckData.isFavourite(cardID)) {
-      DeckData.removeFavourite(cardID);
+    if(dd.isFavourite(cardID)) {
+      dd.removeFavourite(cardID);
     }
     else {
-      DeckData.addFavourite(cardID);
+      dd.addFavourite(cardID);
     }
-    setLikeKey(prevKey => prevKey + 1);
+    setFav(prevKey => prevKey + 1);
+    if(deckID == ID_FAVOURITES)
+      setDeckKey(prevKey => prevKey + 1);
   };
 
   const handleSetCurrentIndex = (newIndex) => {
@@ -101,9 +105,9 @@ export default function PlayScreen({route, navigation}) {
   return (
     <GestureHandlerRootView>
       <View style={styles.container}>
-      {deckData.deckBackgroundSvg && DeckData.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL) &&
+      {deckData.deckBackgroundSvg && dd.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL) &&
       <SvgXml
-          xml={DeckData.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL)}
+          xml={dd.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL)}
           width={width}
           height={height}
           preserveAspectRatio="xMinYMin slice"
@@ -115,11 +119,11 @@ export default function PlayScreen({route, navigation}) {
         }}/>
       }
         <HeaderBar showBackButton={true} navigation={navigation} />
-        <View key={deckKey} style={stl.cardContainer}>
+        <View key={deckKey} style={stl.cardContainer} >
             {visibleCards.map((item) => {
               return (
                 <SwipableCard
-                  deckName={DeckData.getDeckName(item.deckID)}
+                  deckName={dd.getDeckName(item.deckID)}
                   item={item}
                   infoLeft={(1+currentIndex)+' / ' + cardDeck.value.length}
                   infoTextStyleLeft={item.type == 'special' ?  item.infoTextStyleLeft : 'playInfoText'}
@@ -167,9 +171,9 @@ export default function PlayScreen({route, navigation}) {
             }
 
             {cardDeck.value.length > 0 && cardDeck.value[currentIndex].type!='special'
-              ? <TouchableOpacity style={stl.roundButton} key={likeKey} onPress={toggleFavourite}>
+              ? <TouchableOpacity style={stl.roundButton} onPress={toggleFavourite}>
                   <Image name="heart" style={stl.roundButtonImage} source={
-                    DeckData.isFavourite(cardDeck.value[currentIndex].id)
+                    dd.isFavourite(cardDeck.value[currentIndex].id)
                       ? require("../assets/images/like-filled.png")
                       : require("../assets/images/like.png")
                   }

@@ -1,21 +1,24 @@
 import { FlatList, Pressable, View } from 'react-native';
 import Card from './Card';
 import styles from '../assets/style'
-import DeckData from './DeckData.js'
 import {HALF_CARD_HEIGHT} from '../assets/style'
 import QoDCard from './QoDCard';
 import { HeaderBar } from './HeaderBar';
+import MELContext from './MELContext';
+import { useContext } from 'react';
+import {ID_FAVOURITES} from './DeckData'
 
 const HomeScreen = ({navigation}) => {
+    const {dd, fav, setFav} = useContext(MELContext);
     const cards = [
         {'id':'header'},
         {'id': 'questionOfTheDay'},
-        ...DeckData.decks(),
-        DeckData.getFavDeck()
+        ...dd.decks(),
+        dd.getFavDeck()
     ];
 
-    const clickDeck = (deckData) => {
-        navigation.navigate('Info', { deckID: deckData.id, deckName: deckData.deckName })
+    const clickDeck = (dd) => {
+        navigation.navigate('Info', { deckID: dd.id, deckName: dd.deckName })
     }
 
     const renderCard = ({ item }) => {
@@ -31,8 +34,9 @@ const HomeScreen = ({navigation}) => {
                     </View>
             )
             default:
+                const viewKey = item.id == ID_FAVOURITES ? fav : 0;
                 return (
-                    <View style={styles.flatListItem}>
+                    <View style={styles.flatListItem} key={viewKey}>
                         <Pressable onPress={() => clickDeck(item)}>
                             <Card
                                 type='deck'

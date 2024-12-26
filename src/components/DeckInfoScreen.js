@@ -5,13 +5,14 @@ import { Appbar } from 'react-native-paper';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import Card from './Card';
 import styles from '../assets/style'
-import DeckData from './DeckData'
 import {HALF_CARD_HEIGHT} from '../assets/style'
 import { HeaderBar } from './HeaderBar';
+import MELContext from './MELContext';
 
 const DeckInfoScreen = ({route, navigation}) => {
+    const {dd} = React.useContext(MELContext);
     const { deckID } = route.params;
-    const deckData = DeckData.getDeck(deckID);
+    const deckData = dd.getDeck(deckID);
 
     const cards = [
         {'id': 'header'},
@@ -54,7 +55,7 @@ const DeckInfoScreen = ({route, navigation}) => {
                         <Card
                             type='card'
                             height='half'
-                            deckName={DeckData.getDeckName(deckData.id)}
+                            deckName={dd.getDeckName(deckData.id)}
                             text={deckData.cards.length > 0 ? deckData.cards[0].text : deckData.exampleText }
                             deckTextStyle='exampleDeckTitle'
                             cardTextStyle='exampleDeckText'
