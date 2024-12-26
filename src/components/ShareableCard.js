@@ -7,6 +7,7 @@ import styles from '../assets/style'
 import Card from './Card';
 import { SvgXml } from 'react-native-svg';
 import { HeaderBar } from './HeaderBar';
+import { CARD_FULL } from './Utils';
 
 export const ShareableCard = ({deckData, cardDeck, currentIndex, viewShotRef}) => {
 
