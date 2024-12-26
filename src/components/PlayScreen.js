@@ -53,8 +53,6 @@ export default function PlayScreen({route, navigation}) {
       dd.addFavourite(cardID);
     }
     setFav(prevKey => prevKey + 1);
-    if(deckID == ID_FAVOURITES)
-      setDeckKey(prevKey => prevKey + 1);
   };
 
   const handleSetCurrentIndex = (newIndex) => {
