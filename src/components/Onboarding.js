@@ -7,7 +7,7 @@ import SwipableCard from './SwipableCard';
 import { HeaderBar } from './HeaderBar';
 import { SvgXml } from 'react-native-svg';
 import {height, width} from '../assets/style'
-import MELContext from './MELContext'
+import {MELContext} from './MELContext'
 import { CARD_FULL} from './Utils';
 
 

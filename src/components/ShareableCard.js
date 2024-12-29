@@ -7,7 +7,7 @@ import Card from './Card';
 import { SvgXml } from 'react-native-svg';
 import { HeaderBar } from './HeaderBar';
 import { CARD_FULL } from './Utils';
-import MELContext from './MELContext';
+import {MELContext} from './MELContext'
 
 export const ShareableCard = ({deckData, cardDeck, currentIndex, viewShotRef}) => {
     const {dd} = React.useContext(MELContext);

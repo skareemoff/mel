@@ -13,13 +13,13 @@ import { HeaderBar } from './HeaderBar';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import { SvgXml } from 'react-native-svg';
 import { useKeepAwake } from '@sayem314/react-native-keep-awake';
-import MELContext from './MELContext';
+import {MELContext} from './MELContext'
 import {ID_FAVOURITES} from './DeckData';
 
 export default function PlayScreen({route, navigation}) {
   useKeepAwake();
 
-  const {dd, setFav} = React.useContext(MELContext);
+  const {dd, setFavouriteState} = React.useContext(MELContext);
 
   const MAX = 3;
   const { deckID } = route.params;
@@ -52,7 +52,7 @@ export default function PlayScreen({route, navigation}) {
     else {
       dd.addFavourite(cardID);
     }
-    setFav(prevKey => prevKey + 1);
+    setFavouriteState(prevKey => prevKey + 1);
   };
 
   const handleSetCurrentIndex = (newIndex) => {

@@ -2,7 +2,7 @@ import { Image, TouchableOpacity, Text, Animated} from "react-native";
 import EStyleSheet from 'react-native-extended-stylesheet';
 import React, { useRef, useState } from "react";
 import Card from './Card'
-import MELContext from "./MELContext";
+import {MELContext} from './MELContext'
 
 const QoDCard = () => {
   const {dd} = React.useContext(MELContext);

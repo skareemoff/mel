@@ -5,7 +5,7 @@ const _SUFFIX_FAVOURITE = "favourite_";
 const URL = 'https://script.google.com/macros/s/AKfycbyGVjLmAHYviTXCulytpptgo-g9t6TbCNmEAJ4QUsDTZ28yBmkYr56mtzBuiOvvSOFD/exec?';
 export const ID_FAVOURITES = 'favourites';
 
-export default class DeckData {
+export class DeckData {
 
     constructor() {
         this._questionOfTheDay = null;

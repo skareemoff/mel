@@ -6,7 +6,7 @@ import styles from '../assets/style'
 import stl from './cardStyle'
 import {calculateCardHeight, CARD_FULL} from './Utils'
 import { SvgXml } from 'react-native-svg';
-import MELContext from './MELContext';
+import {MELContext} from './MELContext'
 
 /**
  * Possible card parameters:

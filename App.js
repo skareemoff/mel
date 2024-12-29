@@ -8,14 +8,12 @@ import DeckInfoScreen from "./src/components/DeckInfoScreen";
 import PlayScreen from "./src/components/PlayScreen";
 import Onboarding from "./src/components/Onboarding";
 import EStyleSheet from "react-native-extended-stylesheet";
-import MELContext from './src/components/MELContext'
-import DeckData from "./src/components/DeckData";
+import {MELContextProvider} from './src/components/MELContext'
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [isShowSplashScreen, setIsShowSplashScreen] = useState(true);
-  const [favouriteState, setFavouriteState] = useState({});
   const isShowOnboarding = true;
 
   useEffect(() => {
@@ -41,11 +39,7 @@ export default function App() {
     },
   };
   return (
-      <MELContext.Provider value={{
-        dd: new DeckData(),
-        fav: favouriteState,
-        setFav: setFavouriteState
-        }}>
+      <MELContextProvider>
         <View style={stl.container}>
           <StatusBar hidden={true} />
           {
@@ -61,7 +55,7 @@ export default function App() {
             </NavigationContainer>
         }
         </View>
-      </MELContext.Provider>
+      </MELContextProvider>
   );
 }
 

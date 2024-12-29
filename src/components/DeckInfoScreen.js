@@ -7,7 +7,7 @@ import Card from './Card';
 import styles from '../assets/style'
 import {HALF_CARD_HEIGHT} from '../assets/style'
 import { HeaderBar } from './HeaderBar';
-import MELContext from './MELContext';
+import {MELContext} from './MELContext'
 
 const DeckInfoScreen = ({route, navigation}) => {
     const {dd} = React.useContext(MELContext);
