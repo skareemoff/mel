@@ -18,7 +18,6 @@ export default function App() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      // Clean up WebView processes before hiding splash screen
       if (Platform.OS === 'ios') {
         InteractionManager.runAfterInteractions(() => {
           setIsShowSplashScreen(false);
