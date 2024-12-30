@@ -19,22 +19,24 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.1</string>
+	<string>1.0.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>life.moreexciting.mel</string>
+				<string>life.moreexciting.app</string>
 			</array>
 		</dict>
 	</array>
+	<key>CFBundleVersion</key>
+	<string>1</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
-	<key>CFBundleVersion</key>
-	<string>10</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>12.0</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -78,6 +80,86 @@
 		<string>DMMono-Medium.ttf</string>
 		<string>DMMono-MediumItalic.ttf</string>
 		<string>DMMono-Regular.ttf</string>
+		<string>DMMonoItalic.ttf</string>
+		<string>DMMonoLight.ttf</string>
+		<string>DMMonoLightItalic.ttf</string>
+		<string>DMMonoMedium.ttf</string>
+		<string>DMMonoMediumItalic.ttf</string>
+		<string>DMMonoRegular.ttf</string>
+		<string>DMSansBlack.ttf</string>
+		<string>DMSansBlackItalic.ttf</string>
+		<string>DMSansBold.ttf</string>
+		<string>DMSansBoldItalic.ttf</string>
+		<string>DMSansExtraBold.ttf</string>
+		<string>DMSansExtraBoldItalic.ttf</string>
+		<string>DMSansExtraLight.ttf</string>
+		<string>DMSansExtraLightItalic.ttf</string>
+		<string>DMSansItalic.ttf</string>
+		<string>DMSansItalicVariableFont_opsz,wght.ttf</string>
+		<string>DMSansLight.ttf</string>
+		<string>DMSansLightItalic.ttf</string>
+		<string>DMSansMedium.ttf</string>
+		<string>DMSansMediumItalic.ttf</string>
+		<string>DMSansRegular.ttf</string>
+		<string>DMSansSemiBold.ttf</string>
+		<string>DMSansSemiBoldItalic.ttf</string>
+		<string>DMSansThin.ttf</string>
+		<string>DMSansThinItalic.ttf</string>
+		<string>DMSansVariableFont_opsz,wght.ttf</string>
+		<string>DMSans_18ptBlack.ttf</string>
+		<string>DMSans_18ptBlackItalic.ttf</string>
+		<string>DMSans_18ptBold.ttf</string>
+		<string>DMSans_18ptBoldItalic.ttf</string>
+		<string>DMSans_18ptExtraBold.ttf</string>
+		<string>DMSans_18ptExtraBoldItalic.ttf</string>
+		<string>DMSans_18ptExtraLight.ttf</string>
+		<string>DMSans_18ptExtraLightItalic.ttf</string>
+		<string>DMSans_18ptItalic.ttf</string>
+		<string>DMSans_18ptLight.ttf</string>
+		<string>DMSans_18ptLightItalic.ttf</string>
+		<string>DMSans_18ptMedium.ttf</string>
+		<string>DMSans_18ptMediumItalic.ttf</string>
+		<string>DMSans_18ptRegular.ttf</string>
+		<string>DMSans_18ptSemiBold.ttf</string>
+		<string>DMSans_18ptSemiBoldItalic.ttf</string>
+		<string>DMSans_18ptThin.ttf</string>
+		<string>DMSans_18ptThinItalic.ttf</string>
+		<string>DMSans_24ptBlack.ttf</string>
+		<string>DMSans_24ptBlackItalic.ttf</string>
+		<string>DMSans_24ptBold.ttf</string>
+		<string>DMSans_24ptBoldItalic.ttf</string>
+		<string>DMSans_24ptExtraBold.ttf</string>
+		<string>DMSans_24ptExtraBoldItalic.ttf</string>
+		<string>DMSans_24ptExtraLight.ttf</string>
+		<string>DMSans_24ptExtraLightItalic.ttf</string>
+		<string>DMSans_24ptItalic.ttf</string>
+		<string>DMSans_24ptLight.ttf</string>
+		<string>DMSans_24ptLightItalic.ttf</string>
+		<string>DMSans_24ptMedium.ttf</string>
+		<string>DMSans_24ptMediumItalic.ttf</string>
+		<string>DMSans_24ptRegular.ttf</string>
+		<string>DMSans_24ptSemiBold.ttf</string>
+		<string>DMSans_24ptSemiBoldItalic.ttf</string>
+		<string>DMSans_24ptThin.ttf</string>
+		<string>DMSans_24ptThinItalic.ttf</string>
+		<string>DMSans_36ptBlack.ttf</string>
+		<string>DMSans_36ptBlackItalic.ttf</string>
+		<string>DMSans_36ptBold.ttf</string>
+		<string>DMSans_36ptBoldItalic.ttf</string>
+		<string>DMSans_36ptExtraBold.ttf</string>
+		<string>DMSans_36ptExtraBoldItalic.ttf</string>
+		<string>DMSans_36ptExtraLight.ttf</string>
+		<string>DMSans_36ptExtraLightItalic.ttf</string>
+		<string>DMSans_36ptItalic.ttf</string>
+		<string>DMSans_36ptLight.ttf</string>
+		<string>DMSans_36ptLightItalic.ttf</string>
+		<string>DMSans_36ptMedium.ttf</string>
+		<string>DMSans_36ptMediumItalic.ttf</string>
+		<string>DMSans_36ptRegular.ttf</string>
+		<string>DMSans_36ptSemiBold.ttf</string>
+		<string>DMSans_36ptSemiBoldItalic.ttf</string>
+		<string>DMSans_36ptThin.ttf</string>
+		<string>DMSans_36ptThinItalic.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
@@ -90,7 +172,7 @@
 		<string>arm64</string>
 	</array>
 	<key>UIRequiresFullScreen</key>
-	<true/>
+	<false/>
 	<key>UIStatusBarStyle</key>
 	<string></string>
 	<key>UISupportedInterfaceOrientations</key>
