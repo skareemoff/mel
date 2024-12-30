@@ -46,14 +46,28 @@ export default function App() {
     console.log('Permission status:', authStatus);
   };
 
+  messaging().onMessage(remoteMessage => {
+    // Display the notification to the user
+    console.log('Foreground message:', remoteMessage);
+  });
+  messaging().onNotificationOpenedApp(remoteMessage => {
+      // Handle notification interaction when the app is in the foreground
+      console.log('App opened by notification while in foreground:', remoteMessage);
+  });
+  messaging().getInitialNotification().then(remoteMessage => {
+      // Handle notification interaction when the app is opened from a closed state
+      console.log('App opened by notification from closed state:', remoteMessage);
+  });
 
-const navTheme = {
+
+  const navTheme = {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
       background: 'transparent',
     },
   };
+
   return (
       <MELContextProvider>
         <View style={stl.container}>
