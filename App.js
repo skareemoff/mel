@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { View, Platform, InteractionManager, StatusBar } from "react-native";
+import { View, Platform, InteractionManager, StatusBar, Alert } from "react-native";
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashScreen from "./src/components/SplashScreen";
@@ -28,37 +28,43 @@ export default function App() {
       }
     }, 5000);
 
+    const checkToken = async () => {
+      const fcmToken = await messaging().getToken();
+      if (fcmToken) {
+          console.log("Token: "+fcmToken);
+      }
+    }
+
+    async function requestUserPermission() {
+      const authStatus = await messaging().requestPermission();
+      const enabled =
+        authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+        authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+      if (enabled) {
+        console.log('Authorization status:', authStatus);
+      }
+    }
+
     checkToken();
-    requestPermission();
+    requestUserPermission();
+
+    messaging().onMessage(remoteMessage => {
+      Alert.alert('A new push message arrived: ', JSON.stringify(remoteMessage));
+      console.log('A new push message arrived: ' + remoteMessage);
+    });
+
+    messaging().onNotificationOpenedApp(remoteMessage => {
+      Alert.alert('A new push message arrived while open: ', JSON.stringify(remoteMessage));
+      console.log('A new push message arrived while open: ' + remoteMessage);
+    });
+
+    messaging().getInitialNotification().then(remoteMessage => {
+      Alert.alert('App opened by notification from closed state:', JSON.stringify(remoteMessage));
+      console.log('App opened by notification from closed state: '+ remoteMessage);
+    });
 
     return () => clearTimeout(timer);
   }, []);
-
-  const checkToken = async () => {
-    const fcmToken = await messaging().getToken();
-    if (fcmToken) {
-        console.log(fcmToken);
-    }
-  }
-
-  const requestPermission = async () => {
-    const authStatus = await messaging().requestPermission();
-    console.log('Permission status:', authStatus);
-  };
-
-  messaging().onMessage(remoteMessage => {
-    // Display the notification to the user
-    console.log('Foreground message:', remoteMessage);
-  });
-  messaging().onNotificationOpenedApp(remoteMessage => {
-      // Handle notification interaction when the app is in the foreground
-      console.log('App opened by notification while in foreground:', remoteMessage);
-  });
-  messaging().getInitialNotification().then(remoteMessage => {
-      // Handle notification interaction when the app is opened from a closed state
-      console.log('App opened by notification from closed state:', remoteMessage);
-  });
-
 
   const navTheme = {
     ...DefaultTheme,
