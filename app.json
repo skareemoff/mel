@@ -10,7 +10,7 @@
     "ios": {
       "supportsTablet": true,
       "googleServicesFile": "./ios/GoogleService-Info.plist",
-      "bundleIdentifier": "life.moreexciting.mel",
+      "bundleIdentifier": "life.moreexciting.app",
       "icon": "./src/assets/images/app-icon.png"
     }
   }
