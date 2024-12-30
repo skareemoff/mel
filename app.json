@@ -9,7 +9,7 @@
     "icon": "./src/assets/images/app-icon.png",
     "ios": {
       "supportsTablet": true,
-      "googleServicesFile": "./src/GoogleService-Info.plist",
+      "googleServicesFile": "./ios/GoogleService-Info.plist",
       "bundleIdentifier": "life.moreexciting.mel",
       "icon": "./src/assets/images/app-icon.png"
     }
