@@ -9,6 +9,7 @@ import PlayScreen from "./src/components/PlayScreen";
 import Onboarding from "./src/components/Onboarding";
 import EStyleSheet from "react-native-extended-stylesheet";
 import {MELContextProvider} from './src/components/MELContext'
+import messaging from '@react-native-firebase/messaging';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,10 +28,26 @@ export default function App() {
       }
     }, 5000);
 
+    checkToken();
+    requestPermission();
+
     return () => clearTimeout(timer);
   }, []);
 
-  const navTheme = {
+  const checkToken = async () => {
+    const fcmToken = await messaging().getToken();
+    if (fcmToken) {
+        console.log(fcmToken);
+    }
+  }
+
+  const requestPermission = async () => {
+    const authStatus = await messaging().requestPermission();
+    console.log('Permission status:', authStatus);
+  };
+
+
+const navTheme = {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,

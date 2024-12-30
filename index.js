@@ -6,20 +6,6 @@ import { name as appName } from './app.json';
 
 registerRootComponent(App);
 
-const checkToken = async () => {
-    const fcmToken = await messaging().getToken();
-    if (fcmToken) {
-        console.log(fcmToken);
-    }
-}
-
-checkToken();
-
-const requestPermission = async () => {
-    const authStatus = await messaging().requestPermission();
-    console.log('Permission status:', authStatus);
-};
-
 messaging().setBackgroundMessageHandler(async remoteMessage => {
     console.log('Background message handled:', remoteMessage);
 });
