@@ -1,7 +1,6 @@
-import { useState } from 'react';
-import { MMKV } from 'react-native-mmkv'
+import { localStorage } from "./storage";
 
-const _SUFFIX_FAVOURITE = "favourite_";
+const _SUFFIX_FAVOURITE = "FAV_";
 const URL = 'https://script.google.com/macros/s/AKfycbyGVjLmAHYviTXCulytpptgo-g9t6TbCNmEAJ4QUsDTZ28yBmkYr56mtzBuiOvvSOFD/exec?';
 export const ID_FAVOURITES = 'favourites';
 
@@ -14,7 +13,7 @@ export class DeckData {
         this._data = require('../data/cards.json');
         this._favourites = [];
         this._deckNames = {};
-        this._storage = new MMKV();
+        this._storage = localStorage;
 
         this.loadQoD();
         this.loadFavourites();
@@ -24,25 +23,12 @@ export class DeckData {
         return this;
     }
 
-    readValue(key){
-        return this._storage.getString(key);
-    };
-
-    storeValue(key, value){
-        this._storage.set(key, value);
-    };
-
-    removeValue(key){
-        this._storage.delete(key);
-    };
-
-
     loadFavourites(){
         const keys = this._storage.getAllKeys();
         const favourites = [];
         keys.forEach((key) => {
             if(key.startsWith(_SUFFIX_FAVOURITE)) {
-                favourites.push(key.substring(10));
+                favourites.push(key.substring(_SUFFIX_FAVOURITE.length));
             }
         });
         this._favourites = [...favourites];
@@ -91,7 +77,7 @@ export class DeckData {
     }
 
     isRevealedToday() {
-        const storedVal = this.readValue("REVEALED");
+        const storedVal = this._storage.getString("REVEALED");
         return typeof(storedVal) !== 'undefined'
                 && storedVal != null
                 && this.isToday(new Date(storedVal));
@@ -105,7 +91,7 @@ export class DeckData {
                     if(response.status == 'ok') {
                         this._revealed = response.revealed;
                         const dateKey = this._dayOfTheQuestion.toISOString().split('T')[0];
-                        this.storeValue("REVEALED", dateKey);
+                        this._storage.set("REVEALED", dateKey);
                         callBack(this._revealed);
                     }
                 });
@@ -118,13 +104,13 @@ export class DeckData {
     }
 
     addFavourite(cardID) {
-        this.storeValue(_SUFFIX_FAVOURITE+cardID, cardID);
+        this._storage.set(_SUFFIX_FAVOURITE+cardID, cardID);
         this._favourites.push(cardID.toString());
     }
 
     removeFavourite(cardID) {
         this._favourites = this._favourites.filter(item => item != cardID.toString());
-        this.removeValue(_SUFFIX_FAVOURITE+cardID);
+        this._storage.delete(_SUFFIX_FAVOURITE+cardID);
     }
 
     isFavourite(cardID) {
