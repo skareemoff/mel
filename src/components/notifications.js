@@ -21,30 +21,36 @@ const getFcmToken = async ({localStorage}) => {
 
 const notificationListener = () => {
     messaging().onNotificationOpenedApp(remoteMessage => {
-      showNotification(remoteMessage);
+      showNotification(remoteMessage.notification);
     });
 
     // Quiet and Background State -> Check whether an initial notification is available
     messaging().getInitialNotification().then(remoteMessage => {
-      showNotification(remoteMessage);
+      showNotification(remoteMessage.notification);
     }).catch(error => console.log('failed', error));
 
     // Foreground State
     messaging().onMessage(async remoteMessage => {
-      showNotification(remoteMessage);
+      showNotification(remoteMessage.notification);
     });
+
+    subscribeToTopic('broadcast_to_all_users');
 };
 
-const showNotification = async ({remoteMessage}) => {
-  if (remoteMessage) {
-    const {title, body} = remoteMessage.notification;
-    await notifee.displayNotification({
-      title: title,
-      body: body,
-    });
+const showNotification = async ({title, body}) => {
+  await notifee.displayNotification({
+    title: title,
+    body: body,
+  });
+};
+
+const subscribeToTopic = async (topicName) => {
+  try {
+    await messaging().subscribeToTopic(topicName);
+    console.log('Successfully subscribed to topic:', topicName);
+  } catch (error) {
+    console.log('Error subscribing to topic:', error);
   }
-  else
-    console.log("NO Message in the notification")
 };
 
 export {
@@ -52,5 +58,6 @@ export {
     getFcmToken,
     requestUserPermission,
     notificationListener,
+    subscribeToTopic,
     showNotification
 };

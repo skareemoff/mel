@@ -11,5 +11,5 @@ if (!firebase.apps.length) {
 };
 
 messaging().setBackgroundMessageHandler(async remoteMessage => {
-    showNotification(remoteMessage);
+    showNotification(remoteMessage.notification);
 });
