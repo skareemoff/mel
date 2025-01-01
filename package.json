@@ -8,6 +8,7 @@
     "android": "expo run:android"
   },
   "dependencies": {
+    "@notifee/react-native": "^9.1.8",
     "@react-native-firebase/app": "^21.6.1",
     "@react-native-firebase/messaging": "^21.6.1",
     "@react-navigation/elements": "^2.2.5",

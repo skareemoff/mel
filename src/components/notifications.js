@@ -1,17 +1,10 @@
 import messaging from '@react-native-firebase/messaging';
-import {Alert} from 'react-native';
+import notifee from "@notifee/react-native";
 
 const FCM_TOKEN = 'FCM_TOKEN';
 
 const requestUserPermission = async () => {
-  const authStatus = await messaging().requestPermission();
-  const enabled =
-    authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
-    authStatus === messaging.AuthorizationStatus.PROVISIONAL;
-
-  if (enabled) {
-    console.log('Authorization status:', authStatus);
-  }
+  return await messaging().requestPermission();
 };
 
 const getFcmToken = async ({localStorage}) => {
@@ -19,7 +12,6 @@ const getFcmToken = async ({localStorage}) => {
   // if (!fcmtoken) {
     try {
       const newFcmToken = await messaging().getToken();
-      console.log("Downloaded FCM token: ", newFcmToken);
       // localStorage.set(FCM_TOKEN, newFcmToken);
     } catch (error) {
       console.error(error);
@@ -29,44 +21,36 @@ const getFcmToken = async ({localStorage}) => {
 
 const notificationListener = () => {
     messaging().onNotificationOpenedApp(remoteMessage => {
-        if (remoteMessage) {
-            Alert.alert('A new push message arrived while open: ', JSON.stringify(remoteMessage.notification));
-            console.log('A new push message arrived while open: ' + remoteMessage.notification);
-        }
+      showNotification(remoteMessage);
     });
 
     // Quiet and Background State -> Check whether an initial notification is available
     messaging().getInitialNotification().then(remoteMessage => {
-        if (remoteMessage) {
-            Alert.alert('App opened by notification from closed state:', JSON.stringify(remoteMessage.notification));
-            console.log('App opened by notification from closed state: '+ remoteMessage.notification);
-        }
+      showNotification(remoteMessage);
     }).catch(error => console.log('failed', error));
 
     // Foreground State
     messaging().onMessage(async remoteMessage => {
-        if (remoteMessage) {
-            Alert.alert('A new push message arrived: ', JSON.stringify(remoteMessage.notification));
-            console.log('A new push message arrived: ' + remoteMessage.notification);
-        }
+      showNotification(remoteMessage);
     });
 };
 
-const subscribeToTopic = async (topicName) => {
-  try {
-    await messaging().subscribeToTopic(topicName);
-    console.log('Successfully subscribed to topic:', topicName);
-  } catch (error) {
-    console.log('Error subscribing to topic:', error);
+const showNotification = async ({remoteMessage}) => {
+  if (remoteMessage) {
+    const {title, body} = remoteMessage.notification;
+    await notifee.displayNotification({
+      title: title,
+      body: body,
+    });
   }
+  else
+    console.log("NO Message in the notification")
 };
-
 
 export {
     FCM_TOKEN,
     getFcmToken,
     requestUserPermission,
     notificationListener,
-    subscribeToTopic
+    showNotification
 };
-

@@ -9,7 +9,7 @@ import PlayScreen from "./src/components/PlayScreen";
 import Onboarding from "./src/components/Onboarding";
 import EStyleSheet from "react-native-extended-stylesheet";
 import {MELContextProvider} from './src/components/MELContext'
-import { getFcmToken, subscribeToTopic, requestUserPermission, notificationListener } from './src/components/notifications';
+import { getFcmToken, requestUserPermission, notificationListener } from './src/components/notifications';
 import { localStorage } from "./src/components/storage";
 
 const Stack = createNativeStackNavigator();
@@ -33,7 +33,6 @@ export default function App() {
     void getFcmToken(localStorage);
     void requestUserPermission();
     void notificationListener();
-    void subscribeToTopic('all_users');
 
     return () => clearTimeout(timer);
   }, []);
