@@ -1,5 +1,6 @@
 import messaging from '@react-native-firebase/messaging';
 import notifee from "@notifee/react-native";
+import TriggerType from "@notifee/react-native";
 
 const FCM_TOKEN = 'FCM_TOKEN';
 
@@ -38,11 +39,38 @@ const notificationListener = () => {
 };
 
 const showNotification = async ({title, body}) => {
-  await notifee.displayNotification({
-    title: title,
-    body: body,
-  });
+  if(title === 'Question of the day')
+    notifee.setBadgeCount(1);
+
+  const curDate = new Date();
+  if(curDate.getHours() < 9 || curDate.getHours() > 21) {
+    scheduleNotification(title, body);
+  }
+  else {
+    await notifee.displayNotification({
+      title: title,
+      body: body,
+    });
+  }
 };
+
+const scheduleNotification = async ({title, body}) => {
+  date = new Date(Date.now());
+  date.setHours(9);
+  date.setMinutes(0);
+  date.setSeconds(0);
+
+  // Create a trigger notification
+  await notifee.createTriggerNotification({
+      title: title,
+      body: body
+    },
+    {
+      type: TriggerType.TIMESTAMP,
+      timestamp: date.getTime(),
+    }
+  );
+}
 
 const subscribeToTopic = async (topicName) => {
   try {

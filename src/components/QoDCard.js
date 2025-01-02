@@ -3,6 +3,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import React, { useRef, useState } from "react";
 import Card from './Card'
 import {MELContext} from './MELContext'
+import notifee from "@notifee/react-native";
 
 const QoDCard = () => {
   const {dd} = React.useContext(MELContext);
@@ -15,13 +16,12 @@ const QoDCard = () => {
 
   const clickReveal = () => {
     dd.revealQoD(updateRevealed);
-
+    notifee.setBadgeCount(0);
     Animated.timing(opacityAnimation, {
       toValue: 0,
       duration: 1000,
       useNativeDriver: true,
-    }).start(() => {
-    });
+    }).start(() => {});
   }
 
   const updateRevealed = (revealed) => {
