@@ -15,8 +15,8 @@ import { localStorage } from "./src/components/storage";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  const [isShowSplashScreen, setIsShowSplashScreen] = useState(true);
-  const isShowOnboarding = true;
+  const [isShowSplashScreen, setIsShowSplashScreen] = useState(localStorage.getString("SHOW_ONBOARDING") != 'NO');
+  const [isShowOnboarding, setIsShowOnboarding] = useState(localStorage.getString("SHOW_ONBOARDING") != 'NO');
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -54,10 +54,10 @@ export default function App() {
             ?  <SplashScreen  />
             :  <NavigationContainer theme={navTheme}>
                 <Stack.Navigator initialRouteName={isShowOnboarding ? 'Onboarding' : 'Home'}>
-                  <Stack.Screen name="Onboarding" component={Onboarding} options= {{  headerShown: false }} />
-                  <Stack.Screen name="Home" component={HomeScreen} options={{  headerShown: false}} />
-                  <Stack.Screen name="Info" component={DeckInfoScreen} options={{  headerShown: false}} />
-                  <Stack.Screen name="Play" component={PlayScreen} options= {{  headerShown: false }} />
+                  <Stack.Screen name="Onboarding" component={Onboarding}     options={{ headerShown: false}} />
+                  <Stack.Screen name="Home"       component={HomeScreen}     options={{ headerShown: false}} />
+                  <Stack.Screen name="Info"       component={DeckInfoScreen} options={{ headerShown: false}} />
+                  <Stack.Screen name="Play"       component={PlayScreen}     options={{ headerShown: false}} />
                 </Stack.Navigator>
             </NavigationContainer>
         }
