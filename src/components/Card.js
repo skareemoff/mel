@@ -2,9 +2,9 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import Markdown from 'react-native-markdown-display';
 import ShareableView from './ShareableView'
-import styles from '../assets/style'
+import styles from './style'
 import stl from './cardStyle'
-import {calculateCardHeight, CARD_FULL} from './Utils'
+import {CARD_FULL, CARD_HALF} from './Utils'
 import { SvgXml } from 'react-native-svg';
 import {MELContext} from './MELContext'
 
@@ -35,7 +35,10 @@ import {MELContext} from './MELContext'
 const Card = (cardData) => {
     const {dd} = React.useContext(MELContext);
 
-    const cardHeight = calculateCardHeight(cardData);
+    const cardHeight = (typeof(cardData.height) !== 'undefined' && cardData.height != null)
+    ? (cardData.height == CARD_FULL ? CARD_FULL : CARD_HALF)
+    : ((cardData.type == 'card') ? CARD_FULL : CARD_HALF);
+
 
     const buildCard = () => {
         const cardContent = cardData.shareable == 'yes'

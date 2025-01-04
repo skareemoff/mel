@@ -6,7 +6,7 @@ import SplashScreen from "./src/components/SplashScreen";
 import HomeScreen from "./src/components/HomeScreen";
 import DeckInfoScreen from "./src/components/DeckInfoScreen";
 import PlayScreen from "./src/components/PlayScreen";
-import Onboarding from "./src/components/Onboarding";
+import Onboarding from "./src/components/onboarding/Onboarding";
 import EStyleSheet from "react-native-extended-stylesheet";
 import {MELContextProvider} from './src/components/MELContext'
 import { getFcmToken, requestUserPermission, notificationListener } from './src/components/notifications';

@@ -4,8 +4,8 @@ import Markdown from 'react-native-markdown-display';
 import { Appbar } from 'react-native-paper';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import Card from './Card';
-import styles from '../assets/style'
-import {HALF_CARD_HEIGHT} from '../assets/style'
+import styles from './style'
+import {HALF_CARD_HEIGHT} from './style'
 import { HeaderBar } from './HeaderBar';
 import {MELContext} from './MELContext'
 

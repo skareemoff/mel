@@ -1,5 +1,3 @@
-import { Dimensions } from 'react-native';
-
 export const shuffle = (array) => {
   const sortedList = [...array];
   for (let i = sortedList.length - 1; i > 0; i--) {
@@ -18,17 +16,5 @@ export const specialShuffle = (array) => {
   return tmpArray;
 };
 
-export const getAllFiles = async (folder) => {
-  const reader = RNFS.readDirAssets(folder);
-  const files = reader.filter((item) => item.isFile()).map((file) => file.name);
-  return [...files];
-};
-
 export const CARD_FULL = 'full';
 export const CARD_HALF = 'half';
-
-export const calculateCardHeight = (cardData) => {
-  return (typeof(cardData.height) !== 'undefined' && cardData.height != null)
-    ? (cardData.height == CARD_FULL ? CARD_FULL : CARD_HALF)
-    : ((cardData.type == 'card') ? CARD_FULL : CARD_HALF);
-}

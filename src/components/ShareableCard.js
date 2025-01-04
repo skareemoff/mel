@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import ViewShot from 'react-native-view-shot';
-import styles from '../assets/style'
+import styles from './style'
 import Card from './Card';
 import { SvgXml } from 'react-native-svg';
 import { HeaderBar } from './HeaderBar';

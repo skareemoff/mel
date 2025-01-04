@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import styles, {width} from '../assets/style';
+import styles, {width} from './style';
 
 export const HeaderBar = ({ showBackButton, navigation}) => {
     const clickGoBack = useCallback(() => {
@@ -31,6 +31,7 @@ const st = EStyleSheet.create({
         position: 'fixed',
         display: 'flex',
         width: '100%',
+        top: 0,
         backgroundColor: 'transparent',
     },
     backButton: {

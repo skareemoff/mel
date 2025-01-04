@@ -57,7 +57,7 @@ export default EStyleSheet.create({
     },
 
     deckIce: {
-        color: 'black',
+        color: 'white',
         fontWeight: 700,
         fontFamily: 'DMSans',
     },

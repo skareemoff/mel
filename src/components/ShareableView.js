@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import styles from '../assets/style'
+import styles from './style'
 import stl from './cardStyle'
 
 const ShareableView = ({cardData}) => {
