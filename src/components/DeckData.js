@@ -103,6 +103,24 @@ export class DeckData {
         return this._revealed;
     }
 
+    getQuestionOfTheDay() {
+        return this._questionOfTheDay;
+    }
+
+    getQoDTTLHours() {
+        if(this._dayOfTheQuestion == null) {
+            return (24 - new Date().getHours());
+        }
+        return (24 - (new Date().getHours() - this._dayOfTheQuestion.getHours()));
+    }
+
+    getQoDRevealedCount() {
+        return this._revealed;
+    }
+
+
+
+
     addFavourite(cardID) {
         this._storage.set(_SUFFIX_FAVOURITE+cardID, cardID);
         this._favourites.push(cardID.toString());
@@ -131,17 +149,6 @@ export class DeckData {
         return favourites;
     }
 
-    getQoDTTLHours() {
-        if(this._dayOfTheQuestion == null) {
-            return (24 - new Date().getHours());
-        }
-        return (24 - (new Date().getHours() - this._dayOfTheQuestion.getHours()));
-    }
-
-    getQoDRevealedCount() {
-        return this._revealed;
-    }
-
     getFavDeck() {
         const favDeck = this.data().favourites;
         favDeck.cards = this.gatherFavourites();
@@ -149,17 +156,15 @@ export class DeckData {
         return favDeck;
     }
 
+
+
+
     data() {
         return this._data;
     }
 
     decks() {
         return this.data().decks;
-    }
-
-    getRandomCard(deckID) {
-        const cards = this.getDeck(deckID).cards;
-        return cards[Math.round(Math.random() * (cards.length - 1))];
     }
 
     getDeck(id) {
@@ -180,10 +185,6 @@ export class DeckData {
         if(this.data().svgLibrary[imageName+'-'+cardHeight])
             return this.data().svgLibrary[imageName+'-'+cardHeight];
         else
-        return this.data().svgLibrary[imageName];
-    }
-
-    getQuestionOfTheDay() {
-        return this._questionOfTheDay;
+            return this.data().svgLibrary[imageName];
     }
 }
