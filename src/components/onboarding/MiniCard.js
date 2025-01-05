@@ -66,22 +66,22 @@ const stl = EStyleSheet.create({
     },
     miniCard1: {
         position: 'absolute',
-        top: 273.13,
-        left: 3,
+        top: 223.13,
+        left: 23,
         transform: [{rotateZ: '-23.3deg'}],
         zIndex: 4
     },
     miniCard2: {
         position: 'absolute',
-        top: 236.98,
-        left: 13,
+        top: 100.98,
+        left: 33,
         transform: [{rotateZ: '-60deg'}],
         zIndex: 3
     },
     miniCard3: {
         position: 'absolute',
-        top: 214.41,
-        left: 95.39,
+        top: 164.41,
+        left: 130.39,
         transform: [{rotateZ: '-30deg'}],
         zIndex: 2
     },
