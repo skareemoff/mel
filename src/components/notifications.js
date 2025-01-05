@@ -22,16 +22,19 @@ const getFcmToken = async ({localStorage}) => {
 
 const notificationListener = () => {
     messaging().onNotificationOpenedApp(remoteMessage => {
+      if(remoteMessage)
       showNotification(remoteMessage.notification);
     });
 
     // Quiet and Background State -> Check whether an initial notification is available
     messaging().getInitialNotification().then(remoteMessage => {
+      if(remoteMessage)
       showNotification(remoteMessage.notification);
     }).catch(error => console.log('failed', error));
 
     // Foreground State
     messaging().onMessage(async remoteMessage => {
+      if(remoteMessage)
       showNotification(remoteMessage.notification);
     });
 
