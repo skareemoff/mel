@@ -23,19 +23,19 @@ const getFcmToken = async ({localStorage}) => {
 const notificationListener = () => {
     messaging().onNotificationOpenedApp(remoteMessage => {
       if(remoteMessage)
-      showNotification(remoteMessage.notification);
+        showNotification(remoteMessage.notification);
     });
 
     // Quiet and Background State -> Check whether an initial notification is available
     messaging().getInitialNotification().then(remoteMessage => {
       if(remoteMessage)
-      showNotification(remoteMessage.notification);
+        showNotification(remoteMessage.notification);
     }).catch(error => console.log('failed', error));
 
     // Foreground State
     messaging().onMessage(async remoteMessage => {
       if(remoteMessage)
-      showNotification(remoteMessage.notification);
+        showNotification(remoteMessage.notification);
     });
 
     subscribeToTopic('broadcast_to_all_users');
@@ -58,10 +58,13 @@ const showNotification = async ({title, body}) => {
 };
 
 const scheduleNotification = async ({title, body}) => {
-  date = new Date(Date.now());
-  date.setHours(9);
-  date.setMinutes(0);
-  date.setSeconds(0);
+  date = new Date();
+  if(date.getHours() < 9 )
+    date.setHours(9, 0, 0);
+  else if(date.getHours() > 21) {
+    date.setHours(9, 0, 0);
+    date.setDate(date.getDate() + 1)
+  }
 
   // Create a trigger notification
   await notifee.createTriggerNotification({
@@ -78,7 +81,6 @@ const scheduleNotification = async ({title, body}) => {
 const subscribeToTopic = async (topicName) => {
   try {
     await messaging().subscribeToTopic(topicName);
-    console.log('Successfully subscribed to topic:', topicName);
   } catch (error) {
     console.log('Error subscribing to topic:', error);
   }
