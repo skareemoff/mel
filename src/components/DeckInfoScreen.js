@@ -98,9 +98,13 @@ const DeckInfoScreen = ({route, navigation}) => {
             <Appbar style={[ styles.appbarBottom,
                 { backgroundColor: 'transparent'}
             ]} >
-                <TouchableOpacity style={[stl.largeButton, styles.buttonMiddle]} onPressOut={() => clickDeck()}>
-                    <Image name="share" style={stl.largeButtonImage} source={require("../assets/images/button-play.png")} />
-                </TouchableOpacity>
+            {
+                deckData.cards.length > 0
+               ?    <TouchableOpacity style={[stl.largeButton, styles.buttonMiddle]} onPressOut={() => clickDeck()}>
+                        <Image name="share" style={stl.largeButtonImage} source={require("../assets/images/button-play.png")} />
+                    </TouchableOpacity>
+                :   <Image name="share" style={[stl.largeButton, styles.buttonMiddle, stl.largeButtonImage, stl.buttonDimmed]} source={require("../assets/images/button-play.png")} />
+            }
             </Appbar>
         </View>
     )
@@ -121,4 +125,9 @@ const stl = EStyleSheet.create({
       height: 60,
       width: 140,
   },
+  buttonDimmed: {
+    filter: "brightness(10%)",
+    blurRadius: 100,
+    opacity: 0.9
+  }
 });
