@@ -16,23 +16,27 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [isShowSplashScreen, setIsShowSplashScreen] = useState(localStorage.getString("SHOW_ONBOARDING") != 'NO');
-  const [isShowOnboarding, setIsShowOnboarding] = useState(localStorage.getString("SHOW_ONBOARDING") != 'NO');
+  const isShowOnboarding = localStorage.getString("SHOW_ONBOARDING") != 'NO';
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (Platform.OS === 'ios') {
+
+    if (Platform.OS === 'ios') {
+      const timer = setTimeout(() => {
         InteractionManager.runAfterInteractions(() => {
           setIsShowSplashScreen(false);
         });
-      }
-      else {
-        setIsShowSplashScreen(false);
-      }
-    }, 5000);
+      }, 6000);
+    }
+    else {
+      setIsShowSplashScreen(false);
+    }
 
     void getFcmToken(localStorage);
     void requestUserPermission();
     void notificationListener();
+    if(isShowOnboarding) {
+      localStorage.set("SHOW_ONBOARDING", 'NO');
+    }
 
     return () => clearTimeout(timer);
   }, []);
