@@ -4193,8 +4193,6 @@
           "deckID": "onboarding",
           "id": "onboarding2",
           "screenBackgroundSvg": "SVG_ONB2",
-          "deckTextStyle": "onboardingDeckText",
-          "cardTextStyle": "onboardingText",
           "title": "Connection\nstarts within",
           "text": "Use your Playground to reflect on your journey, train skills and learn something new about yourself."
         },
