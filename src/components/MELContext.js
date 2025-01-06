@@ -7,7 +7,6 @@ const MELContextProvider = ({ children }) => {
     const [dd, setDD] = useState(null);
     const [favouriteState, setFavouriteState] = useState(0);
 
-    // fetch a user from a fake backend API
     useEffect(() => {
         setDD(new DeckData());
     }, []);
