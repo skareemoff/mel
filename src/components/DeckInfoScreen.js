@@ -13,7 +13,7 @@ const DeckInfoScreen = ({route, navigation}) => {
     const {dd} = React.useContext(MELContext);
     const { deckID } = route.params;
     const deckData = dd.getDeck(deckID);
-
+    const descrColor = deckData.deckBackgroundColor ? deckData.deckBackgroundColor : 'darkGrey'
     const cards = [
         {'id': 'header'},
         {'id': 'deck'},
@@ -21,6 +21,27 @@ const DeckInfoScreen = ({route, navigation}) => {
         {'id': 'example'},
         {'id': 'rules'}
     ];
+
+    const descrStyle = function(deckColor) {
+        return {
+            body: {
+                fontFamily: "DMSans",
+                backgroundColor: 'transparent',
+            },
+            blockquote: {
+                fontFamily: "DMSans",
+                fontWeight: 400,
+                fontSize: 24,
+                paddingLeft: 10,
+                marginLeft: 30,
+                marginRight: 30,
+                borderLeftWidth: 10,
+                backgroundColor: 'transparent',
+                borderLeftColor: deckColor
+            },
+        };
+    };
+
     const clickDeck = () => {
         navigation.navigate('Play', { deckID: deckID });
     };
@@ -45,7 +66,7 @@ const DeckInfoScreen = ({route, navigation}) => {
                 return (
                     <View style={styles.flatListItem}>
                         { deckData.description &&
-                            <Markdown style={styles.deckInfoDescription}>{deckData.description}</Markdown>
+                            <Markdown style={descrStyle(descrColor)}>{deckData.description}</Markdown>
                         }
                     </View>
                 )
@@ -69,7 +90,7 @@ const DeckInfoScreen = ({route, navigation}) => {
                 return (
                 <View style={{top: 60}}>
                     { deckData.rules &&
-                        <Markdown style={styles.deckInfoRules}>{deckData.rules}</Markdown>
+                        <Markdown style={stl.deckInfoRules}>{deckData.rules}</Markdown>
                     }
                 </View> )
             default:
@@ -114,20 +135,124 @@ export default DeckInfoScreen
 
 
 const stl = EStyleSheet.create({
-  largeButton: {
-    borderRadius: '20%',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    overflow: 'hidden',
-    marginBottom: 10,
-  },
-  largeButtonImage: {
-      height: 60,
-      width: 140,
-  },
-  buttonDimmed: {
-    filter: "brightness(10%)",
-    blurRadius: 100,
-    opacity: 0.9
-  }
+    largeButton: {
+        borderRadius: '20%',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        overflow: 'hidden',
+        marginBottom: 10,
+    },
+    largeButtonImage: {
+        height: 60,
+        width: 140,
+    },
+    buttonDimmed: {
+        filter: "brightness(10%)",
+        blurRadius: 100,
+        opacity: 0.9
+    },
+
+    exampleDeckTitle: {
+        fontFamily: "DMMono-Regular",
+        color: '#4B677D',
+        fontWeight: '400',
+        fontSize: 14,
+    },
+    exampleDeckText: {
+        fontFamily: "DMSans-Regular",
+        color: '#4B677D',
+        fontSize: 24,
+        lineHeight: 28,
+    },
+    exampleInfoLeft: {
+        fontFamily: "DMMono-Regular",
+        color: '#4B677D',
+        fontWeight: '400',
+        fontSize: 14,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        textAlign: 'center',
+        left: 0
+    },
+    deckTextStyle: {
+        fontFamily: "DMSans",
+        fontWeight: 400,
+        fontSize: 24,
+    },
+    deckInfoRules: {
+        heading3: {
+            color: "black",
+            textAlign: 'center',
+            alignSelf: 'center',
+            fontSize: 24,
+            lineHeight: 28,
+            fontWeight: 400,
+            fontFamily: 'DMSans'
+        },
+        heading5: {
+            fontFamily: "DMSans",
+            marginTop: 20,
+            marginBottom: 20,
+            fontWeight: 400,
+            fontSize: 16,
+            textAlign: 'center',
+            color: 'black'
+        },
+        heading6: {
+            fontFamily: "DMSans",
+            marginTop: 20,
+            marginBottom: 20,
+            fontWeight: 400,
+            fontSize: 16,
+            textAlign: 'center',
+            color: 'black',
+
+        },
+        blockquote: {
+            fontFamily: "DMSans",
+            fontSize: 16,
+            borderLeftWidth: 0,
+            padding: 20,
+            backgroundColor: '$containerColor',
+
+        },
+        ordered_list:{
+            counterReset: 'item',
+            listStyleType: 'upper-roman',
+            lineHeight: 26,
+            backgroundColor: '$containerColor',
+        },
+        ordered_list_icon: {
+            marginRight: 20,
+            marginBottom: 20,
+            backgroundColor: "#EEEEEE",
+            color: "black",
+            width: 42,
+            height: 42,
+            paddingTop: 10,
+            paddingLeft: 10,
+            borderRadius: "50%",
+            textAlign: "center",
+            fontWeight: 400,
+            fontFamily: 'DMMono-Regular',
+            fontSize: 16,
+            lineHeight: 0,
+            justifyContent: 'center',
+            alignItems: 'center',
+        },
+        bullet_list: {
+            padding: 10,
+            lineHeight: 24,
+        },
+        body: {
+            fontFamily: "DMSans",
+            margin: 20,
+            paddingLeft: 10,
+            backgroundColor: 'transparent',
+            marginLeft: 30,
+            marginRight: 30,
+
+        }
+    }
 });
