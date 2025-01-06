@@ -1,35 +1,34 @@
 import React, { useEffect, useState } from "react";
-import { View, Platform, InteractionManager, StatusBar } from "react-native";
-import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SplashScreen from "./src/components/SplashScreen";
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
+import { View, Platform, InteractionManager, StatusBar } from "react-native";
 import HomeScreen from "./src/components/HomeScreen";
-import DeckInfoScreen from "./src/components/DeckInfoScreen";
 import PlayScreen from "./src/components/PlayScreen";
-import Onboarding from "./src/components/onboarding/Onboarding";
-import EStyleSheet from "react-native-extended-stylesheet";
-import {MELContextProvider} from './src/components/MELContext'
-import { getFcmToken, requestUserPermission, notificationListener } from './src/components/notifications';
 import { localStorage } from "./src/components/storage";
+import SplashScreen from "./src/components/SplashScreen";
+import EStyleSheet from "react-native-extended-stylesheet";
+import DeckInfoScreen from "./src/components/DeckInfoScreen";
+import {MELContextProvider} from './src/components/MELContext'
+import Onboarding from "./src/components/onboarding/Onboarding";
+import { getFcmToken, requestUserPermission, notificationListener } from './src/components/notifications';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  const [isShowSplashScreen, setIsShowSplashScreen] = useState(localStorage.getString("SHOW_ONBOARDING") != 'NO');
+  const [isShowSplashScreen, setIsShowSplashScreen] = useState(true);
   const isShowOnboarding = localStorage.getString("SHOW_ONBOARDING") != 'NO';
 
   useEffect(() => {
-
-    if (Platform.OS === 'ios') {
-      const timer = setTimeout(() => {
+    const timer = setTimeout(() => {
+      if (Platform.OS === 'ios') {
         InteractionManager.runAfterInteractions(() => {
           setIsShowSplashScreen(false);
         });
-      }, 6000);
-    }
-    else {
-      setIsShowSplashScreen(false);
-    }
+      }
+      else {
+        setIsShowSplashScreen(false);
+      }
+    }, 6000);
 
     void getFcmToken(localStorage);
     void requestUserPermission();
