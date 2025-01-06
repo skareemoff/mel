@@ -6,7 +6,6 @@ import styles from '../style'
 import cstl from '../cardStyle'
 import {MELContext} from '../MELContext'
 import {CARD_HALF} from "../Utils"
-import { Dimensions } from 'react-native';
 
 const MiniCard = (cardData) => {
     const {dd} = React.useContext(MELContext);

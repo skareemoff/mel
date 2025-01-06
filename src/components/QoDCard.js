@@ -86,7 +86,6 @@ const st = EStyleSheet.create({
     width: 333,
     height: 442,
     borderRadius: 20,
-    backgroundColor: 'rgba(238, 238, 238, 0.35)'
   },
   blurImage: {
     width: '100%',

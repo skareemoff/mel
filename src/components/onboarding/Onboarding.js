@@ -76,6 +76,6 @@ const stl = EStyleSheet.create({
         height: '100%',
         justifyContent: 'center',
         alignSelf: 'center',
-        backgroundColor: 'transparent'
+        backgroundColor: '$containerColor'
     }
 });

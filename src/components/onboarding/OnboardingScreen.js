@@ -3,7 +3,6 @@ import { SvgXml } from "react-native-svg";
 import { Appbar } from 'react-native-paper';
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { MELContext } from "../MELContext";
 import { CARD_FULL } from "../Utils";
 import { HeaderBar } from "../HeaderBar"
@@ -30,10 +29,10 @@ export default function OnboardingScreen({
     }, [navigation])
 
     return (
-        <GestureHandlerRootView>
+        <View style={styles.container}>
             <View style={stl.onboardingContainer}>
                 { index == 1 &&
-                    <View style={{position: 'absolute', top: 0}}>
+                    <View style={{position: 'absolute', top: 0, backgroundColor: '$containerColor'}}>
                         <HeaderBar showBackButton={false} navigation={navigation} />
                     </View>
                 }
@@ -47,7 +46,7 @@ export default function OnboardingScreen({
                             alignSelf: 'center',
                             overflow: 'hidden',
                             width: '100%',
-                            backgroundColor: 'transparent'
+                            backgroundColor: '$containerColor'
                         }}
                     />
                 }
@@ -131,7 +130,7 @@ export default function OnboardingScreen({
             }
                 </Appbar>
             </View>
-        </GestureHandlerRootView>
+        </View>
     );
 };
 
@@ -143,7 +142,7 @@ const stl = EStyleSheet.create({
         alignSelf: 'center',
         margin: 0,
         padding: 0,
-        backgroundColor: 'white'
+        backgroundColor: '$containerColor'
     },
     title: {
         top: -64,
@@ -153,6 +152,7 @@ const stl = EStyleSheet.create({
         fontWeight: 900,
         lineHeight: 32,
         marginLeft: 20,
+        backgroundColor: 'transparent'
     },
 
     cardText: {
@@ -173,7 +173,7 @@ const stl = EStyleSheet.create({
     },
 
     appbar: {
-        backgroundColor: 'white',
+        backgroundColor: '$containerColor',
         justifyContent: 'space-evenly',
         alignItems: 'center',
         position: 'absolute',
@@ -187,7 +187,7 @@ const stl = EStyleSheet.create({
     navButton: {
         width: 42,
         height: 42,
-        backgroundColor: 'white',
+        backgroundColor: '$containerColor',
         opacity: 0.7
     },
     buttonLeft: {
@@ -201,6 +201,6 @@ const stl = EStyleSheet.create({
     navButtonImage: {
         width: 42,
         height: 42,
-        backgroundColor: 'white',
+        backgroundColor: '$containerColor',
     }
 });
