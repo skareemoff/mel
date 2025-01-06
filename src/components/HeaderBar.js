@@ -9,22 +9,22 @@ export const HeaderBar = ({ showBackButton, navigation}) => {
     }, [navigation]);
 
     return (
-        <View style={[st.headerContainer, {width: width}]} >
+        <View style={[stl.headerContainer, {width: width}]} >
         {
             showBackButton &&
-            <TouchableOpacity style={st.backButton} onPress={clickGoBack}>
+            <TouchableOpacity style={stl.backButton} onPress={clickGoBack}>
                 <Image
-                    style={st.backButtonImage}
+                    style={stl.backButtonImage}
                     source={require('../assets/images/button-small-back.png')}
                 />
             </TouchableOpacity>
         }
-            <Image source={require('../assets/images/logo.png')} style={styles.logo} />
+            <Image source={require('../assets/images/logo.png')} style={stl.logo} />
         </View>
     );
 }
 
-const st = EStyleSheet.create({
+const stl = EStyleSheet.create({
     headerContainer: {
         justifyContent: 'space-evenly',
         alignItems: 'center',
@@ -32,6 +32,12 @@ const st = EStyleSheet.create({
         display: 'flex',
         width: '100%',
         top: 0,
+        backgroundColor: 'transparent',
+    },
+    logo: {
+        top: '$headerTopPadding',
+        width: '$mainLogoWidth',
+        height: '$mainLogoHeight',
         backgroundColor: 'transparent',
     },
     backButton: {

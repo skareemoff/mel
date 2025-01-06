@@ -1,8 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import {View, Text, Animated, Easing, Image, Dimensions} from 'react-native';
+import {View, Text, Animated, Easing, Dimensions} from 'react-native';
+import { HeaderBar } from './HeaderBar';
 
-export default function SplashScreen() {
+export default function SplashScreen({navigation}) {
     const fadeAnim1 = useRef(new Animated.Value(0)).current;
     const fadeAnim2 = useRef(new Animated.Value(0)).current;
     const fadeAnim3 = useRef(new Animated.Value(0)).current;
@@ -51,8 +52,8 @@ export default function SplashScreen() {
                 }),
             ]),
             Animated.timing(slideAnim1, {
-                toValue: 0 - (Dimensions.get('window').height * 0.4),
-                duration: 750,
+                toValue: 0 - ((Dimensions.get('window').height - 50) /2), // 50 is $mainLogoHeight in styles
+                duration: 1000,
                 easing: Easing.ease,
                 useNativeDriver: true
             })
@@ -84,7 +85,7 @@ export default function SplashScreen() {
                 </Animated.View>
             </Animated.View>
             <Animated.View style={[stl.container, {opacity:fadeAnim6}, {transform: [{translateY: slideAnim1}]} ]}>
-                <Image source={require("../assets/images/logo.png")} style={[stl.image]}/>
+                <HeaderBar showBackButton={false} navigation={navigation} />
             </Animated.View>
         </View>
     );

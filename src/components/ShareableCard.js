@@ -54,8 +54,5 @@ const stl = EStyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'transparent',
-    },
-    logoOffset: {
-        top: '$logoOffset',
     }
 });

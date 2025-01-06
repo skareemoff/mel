@@ -9,7 +9,6 @@ EStyleSheet.build({
     $mainLogoWidth: 111,
     $mainLogoHeight: 50,
     $headerTopPadding: 60,
-    $logoOffset: -100,
     $cardHeightFull: 570,
     $cardHeightHalf: HALF_CARD_HEIGHT,
     $cardWidth: 353,
@@ -48,12 +47,6 @@ export default EStyleSheet.create({
     smallButtonSize: {
         width: 32,
         height: 32,
-    },
-    logo: {
-        top: '$headerTopPadding',
-        width: '$mainLogoWidth',
-        height: '$mainLogoHeight',
-        backgroundColor: 'transparent',
     },
 
     deckIce: {
@@ -251,7 +244,6 @@ export default EStyleSheet.create({
             fontFamily: "DMSans",
             fontSize: 16,
             borderLeftWidth: 0,
-            borderLeftColor: "red",
             padding: 20,
             backgroundColor: '$containerColor',
 
