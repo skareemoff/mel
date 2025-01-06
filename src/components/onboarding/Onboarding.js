@@ -4,13 +4,11 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import {MELContext} from '../MELContext'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import OnboardingScreen from './OnboardingScreen'
-import Card from '../Card'
 
 const Stack = createNativeStackNavigator();
 
 export default function Onboarding() {
   const {dd} = useContext(MELContext);
-
   const deckData = dd.data().onboarding;
   const screens = [...deckData.screens];
 
