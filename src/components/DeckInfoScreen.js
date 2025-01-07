@@ -25,13 +25,14 @@ const DeckInfoScreen = ({route, navigation}) => {
     const descrStyle = function(deckColor) {
         return {
             body: {
-                fontFamily: "DMSans",
+                fontFamily: "DMSerifText-Regular",
                 backgroundColor: 'transparent',
             },
             blockquote: {
-                fontFamily: "DMSans",
+                fontFamily: "DMSerifText-Regular",
                 fontWeight: 400,
                 fontSize: 24,
+                lineHeight: 28,
                 paddingLeft: 10,
                 marginLeft: 30,
                 marginRight: 30,
@@ -125,8 +126,7 @@ const DeckInfoScreen = ({route, navigation}) => {
                         <Text style={stl.playButtonText}>Play</Text>
                     </Pressable>
 
-                :   <></>
-                // <View style={stl.playButtonDimmed}><Text style={[stl.playButtonText]}>Play</Text></View>
+                : <View style={stl.playButtonDimmed}><Text style={[stl.playButtonText]}>Play</Text></View>
             }
             </Appbar>
         </View>
@@ -162,7 +162,8 @@ const stl = EStyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: 10,
-        backgroundColor: '#eeeeee',
+        backgroundColor: 'black',
+        filter: "brightness(40%)"
     },
     largeButtonImage: {
         height: 84,
