@@ -4,7 +4,7 @@ import Markdown from 'react-native-markdown-display';
 import { Appbar } from 'react-native-paper';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import Card from './Card';
-import styles from './style'
+import styles, { height } from './style'
 import {HALF_CARD_HEIGHT} from './style'
 import { HeaderBar } from './HeaderBar';
 import {MELContext} from './MELContext'
@@ -118,7 +118,7 @@ const DeckInfoScreen = ({route, navigation}) => {
                 decelerationRate="fast"
             />
             <Appbar style={[ styles.appbarBottom,
-                { backgroundColor: 'transparent'}
+                { position: 'absolute', top: height - 118, backgroundColor: 'transparent'}
             ]} >
             {
                 deckData.cards.length > 0
