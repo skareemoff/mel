@@ -140,6 +140,8 @@
 		<string>DMSans_36pt-SemiBoldItalic.ttf</string>
 		<string>DMSans_36pt-Thin.ttf</string>
 		<string>DMSans_36pt-ThinItalic.ttf</string>
+		<string>DMSerifText-Italic.ttf</string>
+		<string>DMSerifText-Regular.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
@@ -156,7 +158,7 @@
 	<key>UIRequiresFullScreen</key>
 	<false/>
 	<key>UIStatusBarStyle</key>
-	<string></string>
+	<string/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

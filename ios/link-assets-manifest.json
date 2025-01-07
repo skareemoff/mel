@@ -312,6 +312,14 @@
     {
       "path": "src/assets/fonts/DMSans_36pt-ThinItalic.ttf",
       "sha1": "e36769d70362b1b745bd999b074fdf7d1f927108"
+    },
+    {
+      "path": "src/assets/fonts/DMSerifText-Italic.ttf",
+      "sha1": "9831d1dfa193ea2f3137ed122387efada0ba3144"
+    },
+    {
+      "path": "src/assets/fonts/DMSerifText-Regular.ttf",
+      "sha1": "9ea45f47df2fdae5a9a69e56801ee9d55f9cc576"
     }
   ]
 }
