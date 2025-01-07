@@ -21,7 +21,7 @@ export default function PlayScreen({route, navigation}) {
 
   const {dd, setFavouriteState} = React.useContext(MELContext);
 
-  const MAX = 1;
+  const MAX = 3;
   const { deckID } = route.params;
   const deckData = dd.getDeck(deckID);
   const cardDeck = useSharedValue(specialShuffle(deckData.cards));
@@ -151,19 +151,16 @@ export default function PlayScreen({route, navigation}) {
           </Modal>
           <Appbar style={[
             styles.appbarBottom,
+            stl.appbarBottom,
             {
-              backgroundColor: 'transparent',
-              position: 'absolute',
-              top: height - 94,
-              left: 0,
               width: width,
             }]}>
 
             {currentIndex > 0 ?
-              <TouchableOpacity style={stl.roundButton} onPress={() => handleSetCurrentIndex(-1)}>
+              <TouchableOpacity style={[stl.roundButton, {position: 'absolute', left: 20}]} onPress={() => handleSetCurrentIndex(-1)}>
                 <Image name="restart" style={stl.roundButtonImage} source={require("../assets/images/undo.png")} />
               </TouchableOpacity>
-            : <View style={[stl.roundButton, {filter: "brightness(40%)", backgroundColor: 'transparent'}]}>
+            : <View style={[stl.roundButton, {position: 'absolute', left: 20, filter: "brightness(40%)", backgroundColor: 'transparent'}]}>
                 <Image name="restart" style={stl.roundButtonImage} source={require("../assets/images/undo.png")} />
               </View>
             }
@@ -183,10 +180,10 @@ export default function PlayScreen({route, navigation}) {
             }
 
             {cardDeck.value.length > 0
-            ? <TouchableOpacity style={stl.roundButton} onPress={shareSnapshot}>
+            ? <TouchableOpacity style={[stl.roundButton, {position: 'absolute', right: 20}]} onPress={shareSnapshot}>
                 <Image name="share"   style={stl.roundButtonImage} source={require("../assets/images/share.png")} />
               </TouchableOpacity>
-            : <View style={[stl.roundButton, {filter: "brightness(40%)", backgroundColor: 'transparent'}]}>
+            : <View style={[stl.roundButton, {position: 'absolute', right: 20, filter: "brightness(40%)", backgroundColor: 'transparent'}]}>
                   <Image name="share"   style={stl.roundButtonImage} source={require("../assets/images/share.png")} />
                 </View>
         }
@@ -199,13 +196,22 @@ export default function PlayScreen({route, navigation}) {
 const stl = EStyleSheet.create({
   cardContainer: {
     flex: 1,
-    justifyContent: 'center',
+    top: 100,
     alignSelf: 'center',
   },
+  appbarBottom: {
+    backgroundColor: 'transparent',
+    position: 'absolute',
+    top: height - 118,
+    margin: 0,
+    padding: 0,
+    width: '100%',
+    left: 0,
+    width: '100%',
+},
   roundButton: {
     borderRadius: '50%',
     justifyContent: 'space-evenly',
-    alignItems: 'center',
     overflow: 'hidden',
   },
   roundButtonImage: {

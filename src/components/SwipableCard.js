@@ -59,18 +59,11 @@ const SwipableCard = (data) => {
   const animatedStyle = useAnimatedStyle(() => {
     const currentItem = index === currentIndex;
 
-    const translateY = interpolate(
-      animatedValue.value,
-      [index - 1, index],
-      [-40, 0],
-    );
-
     const scale = interpolate(
       animatedValue.value,
       [index - 1, index],
-      [0.9, 1],
+      [0.95, 1],
     );
-
     const rotateZ = interpolate(
       Math.abs(translateX.value),
       [0, width],
@@ -79,7 +72,6 @@ const SwipableCard = (data) => {
 
     return {
       transform: [
-        {translateY: currentItem ? 0 : translateY},
         {scale: currentItem ? 1 : scale},
         {translateX: translateX.value},
         {
@@ -135,6 +127,5 @@ const styles = EStyleSheet.create({
     flexDirection: 'column',
     position: 'absolute',
     alignSelf: 'center',
-    backgroundColor: 'transparent',
   },
 });
