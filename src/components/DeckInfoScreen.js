@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, View, TouchableOpacity, Image } from 'react-native';
+import { FlatList, View, TouchableOpacity, Image, Text, Pressable } from 'react-native';
 import Markdown from 'react-native-markdown-display';
 import { Appbar } from 'react-native-paper';
 import EStyleSheet from 'react-native-extended-stylesheet';
@@ -121,10 +121,12 @@ const DeckInfoScreen = ({route, navigation}) => {
             ]} >
             {
                 deckData.cards.length > 0
-               ?    <TouchableOpacity style={[stl.largeButton, styles.buttonMiddle]} onPressOut={() => clickDeck()}>
-                        <Image name="share" style={stl.largeButtonImage} source={require("../assets/images/button-play.png")} />
-                    </TouchableOpacity>
-                :   <Image name="share" style={[stl.largeButton, styles.buttonMiddle, stl.largeButtonImage, stl.buttonDimmed]} source={require("../assets/images/button-play.png")} />
+               ?    <Pressable style={[stl.playButton]} onPressOut={() => clickDeck()}>
+                        <Text style={stl.playButtonText}>Play</Text>
+                    </Pressable>
+
+                :   <></>
+                // <View style={stl.playButtonDimmed}><Text style={[stl.playButtonText]}>Play</Text></View>
             }
             </Appbar>
         </View>
@@ -135,16 +137,36 @@ export default DeckInfoScreen
 
 
 const stl = EStyleSheet.create({
-    largeButton: {
-        borderRadius: '20%',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
+    playButtonText: {
+        color: 'white',
+        textAlign: 'center',
+        fontSize: 32,
+        fontFamily: "DMSans",
+        fontWeight: 500,
+    },
+    playButton: {
+        height: 84,
+        width: 151,
+        borderRadius: '25%',
         overflow: 'hidden',
+        justifyContent: 'center',
+        alignItems: 'center',
         marginBottom: 10,
+        backgroundColor: 'black',
+    },
+    playButtonDimmed: {
+        height: 84,
+        width: 151,
+        borderRadius: '25%',
+        overflow: 'hidden',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 10,
+        backgroundColor: '#eeeeee',
     },
     largeButtonImage: {
-        height: 60,
-        width: 140,
+        height: 84,
+        width: 151,
     },
     buttonDimmed: {
         filter: "brightness(10%)",
@@ -152,59 +174,37 @@ const stl = EStyleSheet.create({
         opacity: 0.9
     },
 
-    exampleDeckTitle: {
-        fontFamily: "DMMono-Regular",
-        color: '#4B677D',
-        fontWeight: '400',
-        fontSize: 14,
-    },
-    exampleDeckText: {
-        fontFamily: "DMSans-Regular",
-        color: '#4B677D',
-        fontSize: 24,
-        lineHeight: 28,
-    },
-    exampleInfoLeft: {
-        fontFamily: "DMMono-Regular",
-        color: '#4B677D',
-        fontWeight: '400',
-        fontSize: 14,
-        alignSelf: 'center',
-        justifyContent: 'center',
-        width: '100%',
-        textAlign: 'center',
-        left: 0
-    },
-    deckTextStyle: {
-        fontFamily: "DMSans",
-        fontWeight: 400,
-        fontSize: 24,
-    },
+
     deckInfoRules: {
         heading3: {
+            fontFamily: 'DMSerifText-Regular',
+            fontSize: 24,
+            lineHeight: 28,
+            letterSpacing: 0.5,
+            fontWeight: 400,
             color: "black",
             textAlign: 'center',
             alignSelf: 'center',
-            fontSize: 24,
-            lineHeight: 28,
-            fontWeight: 400,
-            fontFamily: 'DMSans'
         },
         heading5: {
             fontFamily: "DMSans",
+            fontWeight: 400,
+            fontSize: 18,
+            lineHeight: 24,
+            letterSpacing: 0.5,
             marginTop: 20,
             marginBottom: 20,
-            fontWeight: 400,
-            fontSize: 16,
             textAlign: 'center',
             color: 'black'
         },
         heading6: {
             fontFamily: "DMSans",
+            fontWeight: 400,
+            fontSize: 18,
+            letterSpacing: 0.5,
+            lineHeight: 26,
             marginTop: 20,
             marginBottom: 20,
-            fontWeight: 400,
-            fontSize: 16,
             textAlign: 'center',
             color: 'black',
 
@@ -220,6 +220,9 @@ const stl = EStyleSheet.create({
         ordered_list:{
             counterReset: 'item',
             listStyleType: 'upper-roman',
+            fontFamily: "DMSans",
+            fontSize: 18,
+            letterSpacing: 0.5,
             lineHeight: 26,
             backgroundColor: '$containerColor',
         },

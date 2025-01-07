@@ -33,6 +33,12 @@ const HomeScreen = ({navigation}) => {
                         <QoDCard />
                     </View>
             )
+            // case 'favourites':
+            //     return (
+            //         <View style={styles.flatListItem}>
+            //             <QoDCard />
+            //         </View>
+            // )
             default:
                 const viewKey = item.id == ID_FAVOURITES ? favouriteState : 0;
                 return (

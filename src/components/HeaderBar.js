@@ -47,6 +47,7 @@ const stl = EStyleSheet.create({
         top: 30,
         position: 'absolute',
         backgroundColor: 'transparent',
+        blurRadius: 10,
         opacity: 0.7
     },
     backButtonImage: {

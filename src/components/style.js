@@ -122,6 +122,29 @@ export default EStyleSheet.create({
         right: 35,
     },
 
+    exampleDeckTitle: {
+        fontFamily: "DMMono-Regular",
+        color: '#4B677D',
+        fontWeight: '400',
+        fontSize: 14,
+    },
+    exampleDeckText: {
+        fontFamily: "DMSans-Regular",
+        color: '#4B677D',
+        fontSize: 24,
+        lineHeight: 28,
+    },
+    exampleInfoLeft: {
+        fontFamily: "DMMono-Regular",
+        color: '#4B677D',
+        fontWeight: '400',
+        fontSize: 14,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        textAlign: 'center',
+        left: 0,
+    },
 
     specialCardDeckTextStyle: {
         color: 'white'

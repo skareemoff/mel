@@ -21,7 +21,7 @@ export default function PlayScreen({route, navigation}) {
 
   const {dd, setFavouriteState} = React.useContext(MELContext);
 
-  const MAX = 3;
+  const MAX = 1;
   const { deckID } = route.params;
   const deckData = dd.getDeck(deckID);
   const cardDeck = useSharedValue(specialShuffle(deckData.cards));
@@ -209,7 +209,7 @@ const stl = EStyleSheet.create({
     overflow: 'hidden',
   },
   roundButtonImage: {
-    height: 72,
-    width: 72,
+    height: 84,
+    width: 84,
   }
 });

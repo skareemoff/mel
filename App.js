@@ -16,7 +16,7 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [isShowSplashScreen, setIsShowSplashScreen] = useState(true);
-  const isShowOnboarding = localStorage.getString("SHOW_ONBOARDING") != 'NO';
+  const isShowOnboarding = localStorage.getString("SHOW_ONBOARDING") != 'NO1';
 
   useEffect(() => {
     const timer = setTimeout(() => {

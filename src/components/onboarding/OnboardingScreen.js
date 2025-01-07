@@ -46,6 +46,7 @@ export default function OnboardingScreen({
                             alignSelf: 'center',
                             overflow: 'hidden',
                             width: '100%',
+                            height: '100%',
                             backgroundColor: '$containerColor'
                         }}
                     />
@@ -121,12 +122,12 @@ export default function OnboardingScreen({
                     }
                     <Text style={stl.footerText}>{index} of {size}</Text>
                     { showNext
-                        ?  <TouchableOpacity style={[stl.navButton, stl.buttonRight]} onPress={() => navigation.push(nextScreen)}>
+                        ?   <TouchableOpacity style={[stl.navButton, stl.buttonRight]} onPress={() => navigation.push(nextScreen)}>
                                 <Image name="share" style={[stl.navButtonImage]} source={require("../../assets/images/button-small-next.png")} />
                             </TouchableOpacity>
-                        :  <TouchableOpacity style={[stl.navButton, stl.buttonRight]} onPress={clickEnd}>
-                        <Image name="share" style={[stl.navButtonImage]} source={require("../../assets/images/button-done.png")} />
-                    </TouchableOpacity>
+                        :   <TouchableOpacity style={[stl.navButton, stl.buttonRight]} onPress={clickEnd}>
+                                <Image name="share" style={[stl.navButtonImage]} source={require("../../assets/images/button-small-done.png")} />
+                            </TouchableOpacity>
             }
                 </Appbar>
             </View>
@@ -187,8 +188,6 @@ const stl = EStyleSheet.create({
     navButton: {
         width: 42,
         height: 42,
-        backgroundColor: '$containerColor',
-        opacity: 0.7
     },
     buttonLeft: {
         position: 'absolute',
@@ -201,6 +200,5 @@ const stl = EStyleSheet.create({
     navButtonImage: {
         width: 42,
         height: 42,
-        backgroundColor: '$containerColor',
     }
 });
