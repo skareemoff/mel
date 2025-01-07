@@ -56,8 +56,7 @@ export default function App() {
         <MELContextProvider>
           <View style={stl.container}>
             <StatusBar hidden={true} />
-            {
-              isShowSplashScreen
+            { isShowSplashScreen
               ?  <SplashScreen  />
               :  <NavigationContainer theme={navTheme}>
                   <Stack.Navigator initialRouteName={isShowOnboarding ? 'Onboarding' : 'Home'}>
