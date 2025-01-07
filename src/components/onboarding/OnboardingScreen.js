@@ -1,14 +1,16 @@
-import React, { useCallback } from "react";
 import { SvgXml } from "react-native-svg";
+import React, { useCallback } from "react";
 import { Appbar } from 'react-native-paper';
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import EStyleSheet from "react-native-extended-stylesheet";
-import { MELContext } from "../MELContext";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import { CARD_FULL } from "../Utils";
 import { HeaderBar } from "../HeaderBar"
+import { MELContext } from "../MELContext";
 import styles from '../style'
 import cstl from '../cardStyle'
 import MiniCard from './MiniCard'
+import { runOnJS } from "react-native-reanimated";
 
 export default function OnboardingScreen({
     navigation,
@@ -21,6 +23,26 @@ export default function OnboardingScreen({
 
     const { dd } = React.useContext(MELContext);
 
+    const navigateNext = () => {
+        navigation.push(nextScreen);
+    };
+
+    const navigateBack = () => {
+        if(showPrevious)navigation.goBack();
+    };
+
+    const swipe = Gesture.Pan()
+    .onEnd(e => {
+        const isSwipeLeft = e.translationX < 0;
+
+        if (Math.abs(e.translationX) > 20 || Math.abs(e.velocityX) > 500) {
+            if(isSwipeLeft)
+                runOnJS(navigateNext)();
+            else if(showPrevious)
+                runOnJS(navigateBack)();
+        }
+    });
+
     const clickEnd = useCallback (() => {
         navigation.reset({
             index: 0,
@@ -28,110 +50,114 @@ export default function OnboardingScreen({
        });
     }, [navigation])
 
+    const buildMiniCards = () => {
+        return (
+            <>
+            <MiniCard
+                text={dd.decks()[0].deckName}
+                cardTextStyle={dd.decks()[0].deckTextStyle}
+                deckBackgroundSvg={dd.decks()[0].deckBackgroundSvg}
+                deckBackgroundColor={dd.decks()[0].deckBackgroundColor}
+                cardStyle='miniCard1'
+                styleCardText='deckName1'
+            />
+            <MiniCard
+                text={dd.decks()[2].deckName}
+                cardTextStyle={dd.decks()[2].deckTextStyle}
+                deckBackgroundSvg={dd.decks()[2].deckBackgroundSvg}
+                deckBackgroundColor={dd.decks()[2].deckBackgroundColor}
+                cardStyle='miniCard2'
+                styleCardText='deckName1'
+            />
+            <MiniCard
+                text={dd.decks()[4].deckName}
+                cardTextStyle={dd.decks()[4].deckTextStyle}
+                deckBackgroundSvg={dd.decks()[4].deckBackgroundSvg}
+                deckBackgroundColor={dd.decks()[4].deckBackgroundColor}
+                cardStyle='miniCard3'
+                styleCardText='deckName1'
+            />
+            <MiniCard
+                text={dd.decks()[6].deckName}
+                cardTextStyle={dd.decks()[6].deckTextStyle}
+                deckBackgroundSvg={dd.decks()[6].deckBackgroundSvg}
+                deckBackgroundColor={dd.decks()[6].deckBackgroundColor}
+                cardStyle='miniCard4'
+                styleCardText='deckName1'
+            />
+        </>
+        );
+    };
+
     return (
-        <View style={styles.container}>
-            <View style={stl.onboardingContainer}>
-                { index == 1 &&
-                    <View style={{position: 'absolute', top: 0, backgroundColor: '$containerColor'}}>
-                        <HeaderBar showBackButton={false} navigation={navigation} />
+        <GestureDetector gesture={swipe}>
+            <View style={styles.container}>
+                    <View style={stl.onboardingContainer}>
+                        { index == 1 &&
+                            <View style={{position: 'absolute', top: 0, backgroundColor: '$containerColor'}}>
+                                <HeaderBar showBackButton={false} navigation={navigation} />
+                            </View>
+                        }
+                        { data.screenBackgroundSvg &&
+                            <SvgXml xml={dd.getDeckImageSvg(data.screenBackgroundSvg, CARD_FULL)}
+                                width='100%'
+                                height='100%'
+                                style={{
+                                    position: 'absolute',
+                                    zIndex: 0,
+                                    alignSelf: 'center',
+                                    overflow: 'hidden',
+                                    width: '100%',
+                                    height: '100%',
+                                    backgroundColor: '$containerColor'
+                                }}
+                            />
+                        }
+                        { index === 4 &&
+                            <MiniCard
+                                height='half'
+                                deckName='Question of the day'
+                                text="What's the highlight from your childhood you hold dear?"
+                                infoLeft='150 reflecting'
+                                infoRight='11 H'
+                                styleDeckName='deckName'
+                                styleCardText='cardText'
+                                styleFooterText='footerText'
+                            />
+                        }
+                        { index === 3 && buildMiniCards() }
                     </View>
-                }
-                { data.screenBackgroundSvg &&
-                    <SvgXml xml={dd.getDeckImageSvg(data.screenBackgroundSvg, CARD_FULL)}
-                        width='100%'
-                        height='100%'
-                        style={{
-                            position: 'absolute',
-                            zIndex: 0,
+                    <Text style={stl.title}>{data.title}</Text>
+                    <View style={[
+                        styles.shadow,
+                        cstl.card,
+                        cstl.cardHalf,
+                        {
+                            justifyContent: 'center',
                             alignSelf: 'center',
-                            overflow: 'hidden',
-                            width: '100%',
-                            height: '100%',
-                            backgroundColor: '$containerColor'
-                        }}
-                    />
-                }
-                { index === 4 &&
-                    <MiniCard
-                        height='half'
-                        deckName='Question of the day'
-                        text="What's the highlight from your childhood you hold dear?"
-                        infoLeft='150 reflecting'
-                        infoRight='11 H'
-
-                        styleDeckName='deckName'
-                        styleCardText='cardText'
-                        styleFooterText='footerText'
-                    />
-
-                }
-                {index === 3 &&
-                <>
-                    <MiniCard
-                        text={dd.decks()[0].deckName}
-                        cardTextStyle={dd.decks()[0].deckTextStyle}
-                        deckBackgroundSvg={dd.decks()[0].deckBackgroundSvg}
-                        deckBackgroundColor={dd.decks()[0].deckBackgroundColor}
-                        cardStyle='miniCard1'
-                        styleCardText='deckName1'
-                    />
-                    <MiniCard
-                        text={dd.decks()[2].deckName}
-                        cardTextStyle={dd.decks()[2].deckTextStyle}
-                        deckBackgroundSvg={dd.decks()[2].deckBackgroundSvg}
-                        deckBackgroundColor={dd.decks()[2].deckBackgroundColor}
-                        cardStyle='miniCard2'
-                        styleCardText='deckName1'
-                    />
-                    <MiniCard
-                        text={dd.decks()[4].deckName}
-                        cardTextStyle={dd.decks()[4].deckTextStyle}
-                        deckBackgroundSvg={dd.decks()[4].deckBackgroundSvg}
-                        deckBackgroundColor={dd.decks()[4].deckBackgroundColor}
-                        cardStyle='miniCard3'
-                        styleCardText='deckName1'
-                    />
-                    <MiniCard
-                        text={dd.decks()[6].deckName}
-                        cardTextStyle={dd.decks()[6].deckTextStyle}
-                        deckBackgroundSvg={dd.decks()[6].deckBackgroundSvg}
-                        deckBackgroundColor={dd.decks()[6].deckBackgroundColor}
-                        cardStyle='miniCard4'
-                        styleCardText='deckName1'
-                    />
-                </>
-                }
-            </View>
-            <Text style={stl.title}>{data.title}</Text>
-            <View style={[
-                styles.shadow,
-                cstl.card,
-                cstl.cardHalf,
-                {
-                    justifyContent: 'center',
-                    alignSelf: 'center',
-                    top: -50,
-                }
-            ]}>
-                <Text style={[stl.cardText]}>{data.text}</Text>
-                <Appbar style={[stl.appbar]}>
-                    { showPrevious &&
-                        <TouchableOpacity style={[stl.navButton, stl.buttonLeft]} onPress={() => navigation.goBack()}>
-                            <Image name="restart" style={[stl.navButtonImage]} source={require("../../assets/images/button-small-back.png")} />
-                        </TouchableOpacity>
+                            top: -50,
+                        }
+                    ]}>
+                        <Text style={[stl.cardText]}>{data.text}</Text>
+                        <Appbar style={[stl.appbar]}>
+                            { showPrevious &&
+                                <TouchableOpacity style={[stl.navButton, stl.buttonLeft]} onPress={navigateBack}>
+                                    <Image name="restart" style={[stl.navButtonImage]} source={require("../../assets/images/button-small-back.png")} />
+                                </TouchableOpacity>
+                            }
+                            <Text style={stl.footerText}>{index} of {size}</Text>
+                            { showNext
+                                ?   <TouchableOpacity style={[stl.navButton, stl.buttonRight]} onPress={navigateNext}>
+                                        <Image name="share" style={[stl.navButtonImage]} source={require("../../assets/images/button-small-next.png")} />
+                                    </TouchableOpacity>
+                                :   <TouchableOpacity style={[stl.navButton, stl.buttonRight]} onPress={clickEnd}>
+                                        <Image name="share" style={[stl.navButtonImage]} source={require("../../assets/images/button-small-done.png")} />
+                                    </TouchableOpacity>
                     }
-                    <Text style={stl.footerText}>{index} of {size}</Text>
-                    { showNext
-                        ?   <TouchableOpacity style={[stl.navButton, stl.buttonRight]} onPress={() => navigation.push(nextScreen)}>
-                                <Image name="share" style={[stl.navButtonImage]} source={require("../../assets/images/button-small-next.png")} />
-                            </TouchableOpacity>
-                        :   <TouchableOpacity style={[stl.navButton, stl.buttonRight]} onPress={clickEnd}>
-                                <Image name="share" style={[stl.navButtonImage]} source={require("../../assets/images/button-small-done.png")} />
-                            </TouchableOpacity>
-            }
-                </Appbar>
+                        </Appbar>
+                    </View>
             </View>
-        </View>
+        </GestureDetector>
     );
 };
 

@@ -11,6 +11,8 @@ import DeckInfoScreen from "./src/components/DeckInfoScreen";
 import {MELContextProvider} from './src/components/MELContext'
 import Onboarding from "./src/components/onboarding/Onboarding";
 import { getFcmToken, requestUserPermission, notificationListener } from './src/components/notifications';
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { GestureDetectorProvider } from "react-native-screens/gesture-handler";
 
 const Stack = createNativeStackNavigator();
 
@@ -49,23 +51,27 @@ export default function App() {
   };
 
   return (
-      <MELContextProvider>
-        <View style={stl.container}>
-          <StatusBar hidden={true} />
-          {
-            isShowSplashScreen
-            ?  <SplashScreen  />
-            :  <NavigationContainer theme={navTheme}>
-                <Stack.Navigator initialRouteName={isShowOnboarding ? 'Onboarding' : 'Home'}>
-                  <Stack.Screen name="Onboarding" component={Onboarding}     options={{ headerShown: false}} />
-                  <Stack.Screen name="Home"       component={HomeScreen}     options={{ headerShown: false}} />
-                  <Stack.Screen name="Info"       component={DeckInfoScreen} options={{ headerShown: false}} />
-                  <Stack.Screen name="Play"       component={PlayScreen}     options={{ headerShown: false}} />
-                </Stack.Navigator>
-            </NavigationContainer>
-        }
-        </View>
-      </MELContextProvider>
+    <GestureHandlerRootView>
+      <GestureDetectorProvider>
+        <MELContextProvider>
+          <View style={stl.container}>
+            <StatusBar hidden={true} />
+            {
+              isShowSplashScreen
+              ?  <SplashScreen  />
+              :  <NavigationContainer theme={navTheme}>
+                  <Stack.Navigator initialRouteName={isShowOnboarding ? 'Onboarding' : 'Home'}>
+                    <Stack.Screen name="Onboarding" component={Onboarding}     options={{ headerShown: false }} />
+                    <Stack.Screen name="Home"       component={HomeScreen}     options={{ headerShown: false, gestureEnabled: true, goBackGesture: "twoDimensionalSwipe"}} />
+                    <Stack.Screen name="Info"       component={DeckInfoScreen} options={{ headerShown: false, gestureEnabled: true, goBackGesture: "twoDimensionalSwipe"}} />
+                    <Stack.Screen name="Play"       component={PlayScreen}     options={{ headerShown: false, gestureEnabled: true, goBackGesture: "twoDimensionalSwipe"}} />
+                  </Stack.Navigator>
+              </NavigationContainer>
+          }
+          </View>
+        </MELContextProvider>
+      </GestureDetectorProvider>
+    </GestureHandlerRootView>
   );
 }
 

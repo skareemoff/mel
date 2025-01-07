@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, View, TouchableOpacity, Image, Text, Pressable } from 'react-native';
+import { FlatList, View, Text, Pressable } from 'react-native';
 import Markdown from 'react-native-markdown-display';
 import { Appbar } from 'react-native-paper';
 import EStyleSheet from 'react-native-extended-stylesheet';
@@ -117,11 +117,8 @@ const DeckInfoScreen = ({route, navigation}) => {
                 snapToAlignment="start"
                 decelerationRate="fast"
             />
-            <Appbar style={[ styles.appbarBottom,
-                { position: 'absolute', top: height - 118, backgroundColor: 'transparent'}
-            ]} >
-            {
-                deckData.cards.length > 0
+            <Appbar style={[ styles.appbarBottom, { position: 'absolute', top: height - 118, backgroundColor: 'transparent'} ] } >
+            { deckData.cards.length > 0
                ?    <Pressable style={[stl.playButton]} onPressOut={() => clickDeck()}>
                         <Text style={stl.playButtonText}>Play</Text>
                     </Pressable>

@@ -55,15 +55,14 @@ export default function Onboarding() {
   );
 
   return (
-    <View style={stl.container}>
-      <StatusBar hidden={true} />
-      <Stack.Navigator initialRouteName='Onboarding1'>
-        <Stack.Screen name="Onboarding1" component={OnboardingScreenWrapper1} options={{ headerShown: false }} />
-        <Stack.Screen name="Onboarding2" component={OnboardingScreenWrapper2} options={{ headerShown: false }} />
-        <Stack.Screen name="Onboarding3" component={OnboardingScreenWrapper3} options={{ headerShown: false }} />
-        <Stack.Screen name="Onboarding4" component={OnboardingScreenWrapper4} options={{ headerShown: false }} />
-      </Stack.Navigator>
-    </View>
+        <View style={stl.container}>
+          <Stack.Navigator initialRouteName='Onboarding1'>
+            <Stack.Screen name="Onboarding1" component={OnboardingScreenWrapper1} options={{ headerShown: false}} />
+            <Stack.Screen name="Onboarding2" component={OnboardingScreenWrapper2} options={{ headerShown: false }} />
+            <Stack.Screen name="Onboarding3" component={OnboardingScreenWrapper3} options={{ headerShown: false }} />
+            <Stack.Screen name="Onboarding4" component={OnboardingScreenWrapper4} options={{ headerShown: false }} />
+          </Stack.Navigator>
+        </View>
   );
 }
 
