@@ -14,7 +14,6 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import { SvgXml } from 'react-native-svg';
 import { useKeepAwake } from '@sayem314/react-native-keep-awake';
 import {MELContext} from './MELContext'
-import {ID_FAVOURITES} from './DeckData';
 
 export default function PlayScreen({route, navigation}) {
   useKeepAwake();
