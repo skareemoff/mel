@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { StatusBar, View } from 'react-native';
+import { View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import {MELContext} from '../MELContext'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
