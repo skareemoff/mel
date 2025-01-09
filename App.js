@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { View, Platform, InteractionManager, StatusBar } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { GestureDetectorProvider } from "react-native-screens/gesture-handler";
 import HomeScreen from "./src/components/HomeScreen";
 import PlayScreen from "./src/components/PlayScreen";
 import { localStorage } from "./src/components/storage";
@@ -11,8 +13,6 @@ import DeckInfoScreen from "./src/components/DeckInfoScreen";
 import {MELContextProvider} from './src/components/MELContext'
 import Onboarding from "./src/components/onboarding/Onboarding";
 import { getFcmToken, requestUserPermission, notificationListener } from './src/components/notifications';
-import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { GestureDetectorProvider } from "react-native-screens/gesture-handler";
 
 const Stack = createNativeStackNavigator();
 
