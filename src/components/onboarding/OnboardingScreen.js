@@ -118,7 +118,6 @@ export default function OnboardingScreen({
                                 height='half'
                                 deckName='Question of the day'
                                 text="What's the highlight from your childhood you hold dear?"
-                                infoLeft='150 reflecting'
                                 infoRight='11 H'
                                 styleDeckName='deckName'
                                 styleCardText='cardText'

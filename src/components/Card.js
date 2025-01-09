@@ -7,6 +7,7 @@ import stl from './cardStyle'
 import {CARD_FULL, CARD_HALF} from './Utils'
 import { SvgXml } from 'react-native-svg';
 import {MELContext} from './MELContext'
+import CardInfoBar from './CardInfoBar';
 
 /**
  * Possible card parameters:
@@ -18,14 +19,13 @@ import {MELContext} from './MELContext'
  * deckSubText
  * text
  * subText
- * infoLeft
+ * deckInfo
  * infoRight
  *
  * deckTextStyle
  * deckSubTextStyle
  * cardTextStyle
  * cardSubTextStyle
- * infoTextStyleLeft
  * infoTextStyleRight
  * cardStyle
  * deckBackgroundSvg
@@ -65,7 +65,7 @@ const Card = (cardData) => {
                     </View>
                 )}
                 <View style={[stl.bottom]}>
-                    <Text style={[stl.footerText, stl.footerTextLeft, styles[cardData.infoTextStyleLeft]]}>{cardData.infoLeft}</Text>
+                    { cardData.deckInfo && <CardInfoBar data={cardData.deckInfo} height={cardHeight}/> }
                     <Text style={[stl.footerText, stl.footerTextRight, styles[cardData.infoTextStyleRight]]}>{cardData.infoRight}</Text>
                 </View>
             </>

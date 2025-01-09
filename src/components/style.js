@@ -79,14 +79,18 @@ export default EStyleSheet.create({
         fontFamily: 'DMSans',
         color: 'black',
     },
+    favDeckHidden: {
+        color: 'transparent'
+    },
     favDeck: {
         fontFamily: 'DMMono-Regular',
     },
     favSubText: {
         fontFamily: 'DMMono-Regular',
-        color: 'black',
+        color: 'white',
         width: '100%',
         fontSize: 14,
+        lineHeight: 18,
         top: 60,
         backgroundColor: 'transparent'
     },
@@ -106,13 +110,6 @@ export default EStyleSheet.create({
         fontWeight: '400',
         fontSize: 14,
         color: '#4B677D',
-    },
-    qODInfoTextLeft: {
-        fontFamily: "DMMono-Regular",
-        fontWeight: '400',
-        fontSize: 14,
-        color: '#4B677D',
-        left: 35,
     },
     qODInfoTextRight: {
         fontFamily: "DMMono-Regular",
@@ -134,16 +131,13 @@ export default EStyleSheet.create({
         fontSize: 24,
         lineHeight: 28,
     },
-    exampleInfoLeft: {
+    exampleInfoRight: {
         fontFamily: "DMMono-Regular",
         color: '#4B677D',
         fontWeight: '400',
         fontSize: 14,
-        alignSelf: 'center',
-        justifyContent: 'center',
         width: '100%',
         textAlign: 'center',
-        left: 0,
     },
 
     specialCardDeckTextStyle: {
@@ -163,19 +157,14 @@ export default EStyleSheet.create({
         backgroundColor: 'black',
         color: 'white'
     },
-    specialCardInfoTextStyleLeft: {
+    specialCardInfoTextStyleRight: {
         fontFamily: "DMMono-Regular",
         color: 'white',
         fontWeight: '400',
         fontSize: 14,
-        alignSelf: 'center',
-        justifyContent: 'center',
         width: '100%',
         textAlign: 'center',
-        left: 0
-    },
-    specialCardInfoTextStyleRight: {
-        color: 'white'
+        right: 0
     },
 
     playInfoText: {

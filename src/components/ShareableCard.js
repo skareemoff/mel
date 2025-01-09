@@ -38,8 +38,7 @@ export const ShareableCard = ({deckData, cardDeck, currentIndex, viewShotRef}) =
                     text={cardDeck.value[currentIndex].text}
                     subText={cardDeck.value[currentIndex].subText}
                     height={cardDeck.value[currentIndex].height}
-                    useMarkdown={cardDeck.value[currentIndex].useMarkdown}
-                    infoLeft='More Exciting Life'
+                    shotFooterText='More Exciting Life'
                     shareable='yes'
                 />
             </ViewShot>

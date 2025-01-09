@@ -41,7 +41,6 @@ const MiniCard = (cardData) => {
                 {cardData.subText && <Text style={stl[cardData.styleCardSubText]}>{cardData.subText}</Text>}
             </View>
             <View style={[cstl.bottom]}>
-                <Text style={[stl[cardData.styleFooterText], stl.footerTextLeft]}>{cardData.infoLeft}</Text>
                 <Text style={[stl[cardData.styleFooterText], stl.footerTextRight]}>{cardData.infoRight}</Text>
             </View>
         </View>

@@ -87,6 +87,7 @@ export default EStyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        textAlign: 'center',
         width: '100%',
         backgroundColor: 'transparent'
     },
@@ -96,19 +97,8 @@ export default EStyleSheet.create({
         fontSize: 14,
         position: 'absolute',
     },
-    footerTextLeft: {
-        left: 15,
-    },
     footerTextRight: {
         right: 15,
-    },
-    likeIcon: {
-        width: 48,
-        height: 48,
-        position: 'absolute',
-        top: 20,
-        right: 20,
-        zIndex: 1
     },
 
 
@@ -190,18 +180,13 @@ export default EStyleSheet.create({
         alignItems: 'center',
         width: '100%',
     },
-    shotFooterTextLeft: {
+    shotFooterText: {
         fontFamily: "DMMono-Regular",
         color: '#6F6F6F',
         fontWeight: '400',
         fontSize: 14,
-        alignSelf: 'center',
-        justifyContent: 'center',
         width: '100%',
-        textAlign: 'center'
-    },
-    shotFooterTextRight: {
-        color: '#666',
-        fontFamily: 'DMSans',
+        textAlign: 'center',
+        right: 0
     },
 });

@@ -174,6 +174,15 @@ export class DeckData {
         return this.decks().filter(item => item.id == id)[0];
     }
 
+    getDeckInfo(deck) {
+        if(deck.id === ID_FAVOURITES)
+            return null;
+        const info = [];
+        info.push({'type': 'likedCount', 'info': Math.floor(Math.random() * 99)});
+        info.push({'type': 'cardCount',  'info': deck.cards ? deck.cards.length : 0});
+        return info;
+    }
+
     getDeckName(deckID) {
         if(deckID == ID_FAVOURITES) {
             return 'Favourites';

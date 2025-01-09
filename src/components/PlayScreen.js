@@ -122,8 +122,8 @@ export default function PlayScreen({route, navigation}) {
                 <SwipableCard
                   deckName={dd.getDeckName(item.deckID)}
                   item={item}
-                  infoLeft={(1+currentIndex)+' / ' + cardDeck.value.length}
-                  infoTextStyleLeft={item.type == 'special' ?  item.infoTextStyleLeft : 'playInfoText'}
+                  infoRight={(1+currentIndex)+' / ' + cardDeck.value.length}
+                  infoTextStyleRight={item.type == 'special' ?  item.infoTextStyleRight : 'playInfoText'}
                   index={item.index}
                   deckSize={cardDeck.value.length}
                   animatedValue={animatedValue}

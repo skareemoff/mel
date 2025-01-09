@@ -33,12 +33,6 @@ const HomeScreen = ({navigation}) => {
                         <QoDCard />
                     </View>
             )
-            // case 'favourites':
-            //     return (
-            //         <View style={styles.flatListItem}>
-            //             <QoDCard />
-            //         </View>
-            // )
             default:
                 const viewKey = item.id == ID_FAVOURITES ? favouriteState : 0;
                 return (
@@ -52,6 +46,7 @@ const HomeScreen = ({navigation}) => {
                                 cardTextStyle={item.deckTextStyle}
                                 cardStyle={item.deckStyle}
                                 subText={item.subText}
+                                deckInfo={dd.getDeckInfo(item)}
                                 cardSubTextStyle={item.cardSubTextStyle}
                                 deckBackgroundSvg={item.deckBackgroundSvg}
                                 deckBackgroundColor={item.deckBackgroundColor}

@@ -57,6 +57,7 @@ const DeckInfoScreen = ({route, navigation}) => {
                         <Card
                             type='deck'
                             text={deckData.deckName}
+                            deckInfo={dd.getDeckInfo(deckData)}
                             cardTextStyle={deckData.deckTextStyle}
                             deckBackgroundSvg={deckData.deckBackgroundSvg}
                             deckBackgroundColor={deckData.deckBackgroundColor}
@@ -82,8 +83,8 @@ const DeckInfoScreen = ({route, navigation}) => {
                             deckTextStyle='exampleDeckTitle'
                             cardTextStyle='exampleDeckText'
                             cardStyle='deckInfoCard'
-                            infoLeft='Example'
-                            infoTextStyleLeft='exampleInfoLeft'
+                            infoRight='Example'
+                            infoTextStyleRight='exampleInfoRight'
                         />
                     </View>
                 )

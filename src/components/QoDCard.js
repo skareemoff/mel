@@ -29,6 +29,10 @@ const QoDCard = () => {
     setCardKey(prevKey => prevKey + 1);
   }
 
+  const getDeckInfo = () => {
+    return [{'type': 'reflectingCount',  'info': dd.getQoDRevealedCount()+' reflecting'},];
+  }
+
   return (
     <>
         <Animated.View key={cardKey} style={[st.face]}>
@@ -39,14 +43,13 @@ const QoDCard = () => {
                 height='full'
 
                 text={ dd.getQuestionOfTheDay() }
-                infoLeft={dd.getQoDRevealedCount() < 1 ? 'be the first to reveal' : dd.getQoDRevealedCount() + ' reflecting'}
+                deckInfo={getDeckInfo()}
                 infoRight={dd.getQoDTTLHours() + ' H'}
 
                 deckTextStyle='qODDeckText'
                 cardTextStyle='qODCardText'
                 deckStyle='qODDeck'
                 cardStyle='qODCard'
-                infoTextStyleLeft='qODInfoTextLeft'
                 infoTextStyleRight='qODInfoTextRight'
                 />
             {isShowRevealButton ?

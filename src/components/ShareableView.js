@@ -18,8 +18,7 @@ const ShareableView = ({cardData}) => {
                 <View style={stl.shotCommentBox}></View>
             </View>
             <View style={[stl.bottom, stl.shotBottom]}>
-                <Text style={[stl.footerText, stl.footerTextLeft, styles[cardData.infoTextStyleLeft], stl.shotFooterTextLeft]}>{cardData.infoLeft}</Text>
-                <Text style={[stl.footerText, stl.footerTextRight, styles[cardData.infoTextStyleRight], stl.shotFooterTextRight]}>{cardData.infoRight}</Text>
+                <Text style={[stl.footerText, stl.footerText, styles[cardData.infoTextStyleRight], stl.shotFooterText]}>{cardData.shotFooterText}</Text>
             </View>
         </>
     );

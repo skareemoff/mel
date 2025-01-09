@@ -98,21 +98,18 @@ const SwipableCard = (data) => {
             type='card'
             height = {param('height')}
             shareable = {param('shareable')}
-            useMarkdown = {param('useMarkdown')}
             deckTextStyle = {param('deckTextStyle')}
             deckSubTextStyle = {param('deckSubTextStyle')}
             deckName = {param('deckName')}
             deckSubText = {param('deckSubText')}
             text = {param('text')}
             subText = {param('subText')}
-            infoLeft = {param('infoLeft')}
             infoRight = {param('infoRight')}
             deckBackgroundSvg = {param('deckBackgroundSvg')}
             deckBackgroundColor = {param('deckBackgroundColor')}
             cardStyle = {param('cardStyle')}
             cardTextStyle = {param('cardTextStyle')}
             cardSubTextStyle = {param('cardSubTextStyle')}
-            infoTextStyleLeft = {param('infoTextStyleLeft')}
             infoTextStyleRight = {param('infoTextStyleRight')}
           />
       </Animated.View>
