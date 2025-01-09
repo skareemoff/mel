@@ -105,8 +105,6 @@ export default function PlayScreen({route, navigation}) {
       {deckData.deckBackgroundSvg && dd.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL) &&
       <SvgXml
           xml={dd.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL)}
-          width={width}
-          height={height}
           preserveAspectRatio="xMinYMin slice"
           style={{
             backgroundColor: deckData.deckBackgroundColor ? deckData.deckBackgroundColor : 'white',
