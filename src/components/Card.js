@@ -71,17 +71,17 @@ const Card = (cardData) => {
             </>
         );
 
+        const bgColor = cardData.deckBackgroundColor ? cardData.deckBackgroundColor : 'white';
         return (
             <View style={[
                 stl.card,
                 styles.shadow,
                 styles[cardData.cardStyle],
                 cardHeight == CARD_FULL ? stl.cardFull : stl.cardHalf,
+                {backgroundColor: bgColor}
             ]}>
                 {cardData.deckBackgroundSvg && dd.getDeckImageSvg(cardData.deckBackgroundSvg, cardHeight) &&
                     <SvgXml xml={dd.getDeckImageSvg(cardData.deckBackgroundSvg, cardHeight)}
-                        width='100%'
-                        height='100%'
                         style={
                         {
                             position: 'absolute',
