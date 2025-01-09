@@ -61,9 +61,9 @@ const stl = EStyleSheet.create({
     pillImage: {
         width: 15,
         height: 12,
-        marginTop: 0,
-        marginBottom: 0,
+        resizeMode: 'contain',
         marginLeft: 15,
+        alignSelf: 'center',
     },
     pillText: {
         fontFamily: "DMMono-Regular",

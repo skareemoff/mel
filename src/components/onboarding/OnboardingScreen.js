@@ -89,6 +89,14 @@ export default function OnboardingScreen({
         );
     };
 
+    const attributes = {
+        width: "100%",
+    };
+
+    if(index > 1) {
+        attributes.height = "100%";
+    }
+
     return (
         <GestureDetector gesture={swipe}>
             <View style={styles.container}>
@@ -100,6 +108,7 @@ export default function OnboardingScreen({
                         }
                         { data.screenBackgroundSvg &&
                             <SvgXml
+                                {...attributes}
                                 xml={dd.getDeckImageSvg(data.screenBackgroundSvg, CARD_FULL)}
                                 style={{
                                     position: 'absolute',
@@ -177,7 +186,7 @@ const stl = EStyleSheet.create({
         fontWeight: 900,
         lineHeight: 32,
         marginLeft: 20,
-        backgroundColor: 'transparent'
+        paddingTop: 5
     },
 
     cardText: {

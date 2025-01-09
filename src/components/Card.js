@@ -81,7 +81,9 @@ const Card = (cardData) => {
                 {backgroundColor: bgColor}
             ]}>
                 {cardData.deckBackgroundSvg && dd.getDeckImageSvg(cardData.deckBackgroundSvg, cardHeight) &&
-                    <SvgXml xml={dd.getDeckImageSvg(cardData.deckBackgroundSvg, cardHeight)}
+                    <SvgXml
+                        xml={dd.getDeckImageSvg(cardData.deckBackgroundSvg, cardHeight)}
+                        width="100%"
                         style={
                         {
                             position: 'absolute',
@@ -97,7 +99,7 @@ const Card = (cardData) => {
         );
     };
 
-        return buildCard()
+    return buildCard()
 };
 
 export default Card;

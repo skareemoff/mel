@@ -104,6 +104,8 @@ export default function PlayScreen({route, navigation}) {
       <View style={styles.container}>
       {deckData.deckBackgroundSvg && dd.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL) &&
       <SvgXml
+          height="100%"
+          width="100%"
           xml={dd.getDeckImageSvg(deckData.deckBackgroundSvg, CARD_FULL)}
           preserveAspectRatio="xMinYMin slice"
           style={{

@@ -86,9 +86,10 @@ export default function SplashScreen({navigation}) {
                     height: "100%",
                     width: "100%",
                     position: 'absolute',
-                    opacity:fadeAnim7}}>
+                    opacity: fadeAnim7 }}>
                 <SvgXml
                     xml={bgXML}
+                    width="100%"
                     style={{
                         position: 'absolute',
                         zIndex: 0,
