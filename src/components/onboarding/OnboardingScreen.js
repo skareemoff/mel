@@ -99,9 +99,8 @@ export default function OnboardingScreen({
                             </View>
                         }
                         { data.screenBackgroundSvg &&
-                            <SvgXml xml={dd.getDeckImageSvg(data.screenBackgroundSvg, CARD_FULL)}
-                                width='100%'
-                                height='100%'
+                            <SvgXml
+                                xml={dd.getDeckImageSvg(data.screenBackgroundSvg, CARD_FULL)}
                                 style={{
                                     position: 'absolute',
                                     zIndex: 0,
@@ -114,6 +113,7 @@ export default function OnboardingScreen({
                             />
                         }
                         { index === 4 &&
+                            <View style={[stl.onboardingContainer, { justifyContent: 'center', alignSelf: 'center', backgroundColor:  'transparent' }]}>
                             <MiniCard
                                 height='half'
                                 deckName='Question of the day'
@@ -123,6 +123,7 @@ export default function OnboardingScreen({
                                 styleCardText='cardText'
                                 styleFooterText='footerText'
                             />
+                            </View>
                         }
                         { index === 3 && buildMiniCards() }
                     </View>
@@ -164,8 +165,6 @@ const stl = EStyleSheet.create({
     onboardingContainer: {
         flex: 1,
         width: '100%',
-        justifyContent: 'center',
-        alignSelf: 'center',
         margin: 0,
         padding: 0,
         backgroundColor: '$containerColor'
