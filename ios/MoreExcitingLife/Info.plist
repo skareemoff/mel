@@ -38,7 +38,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>8</string>
+	<string>9</string>
 	<key>FirebaseAutomaticScreenReportingEnabled</key>
 	<string>NO</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
