@@ -1,6 +1,7 @@
 {
   "expo": {
-    "name": "More Exciting Life",
+    "name": "MEL",
+    "description": "You are one question away from a More Exciting Life",
     "slug": "mel",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -11,7 +12,11 @@
       "supportsTablet": true,
       "googleServicesFile": "./ios/GoogleService-Info.plist",
       "bundleIdentifier": "life.moreexciting.app",
-      "icon": "./src/assets/images/app-icon.png"
+      "icon": "./src/assets/images/app-icon.png",
+      "usesAppleSignIn": true
+    },
+    "android": {
+      "package": "life.moreexciting.app"
     }
   }
 }

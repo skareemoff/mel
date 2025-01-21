@@ -50,38 +50,45 @@ export default function OnboardingScreen({
        });
     }, [navigation])
 
+    const buildStripes = () => {
+        return (
+            <>
+            </>
+        )
+    }
+
     const buildMiniCards = () => {
         return (
             <>
             <MiniCard
-                text={dd.decks()[0].deckName}
-                cardTextStyle={dd.decks()[0].deckTextStyle}
-                deckBackgroundSvg={dd.decks()[0].deckBackgroundSvg}
-                deckBackgroundColor={dd.decks()[0].deckBackgroundColor}
+                text="Ice Breakers"
+                cardTextStyle="deckIce"
+                deckBackgroundSvg="SVG_ICE"
+                deckBackgroundColor="#00B3E4"
                 cardStyle='miniCard1'
                 styleCardText='deckName1'
             />
             <MiniCard
-                text={dd.decks()[2].deckName}
-                cardTextStyle={dd.decks()[2].deckTextStyle}
-                deckBackgroundSvg={dd.decks()[2].deckBackgroundSvg}
-                deckBackgroundColor={dd.decks()[2].deckBackgroundColor}
+                text="Going Deep"
+                cardTextStyle="deckDeep"
+                deckBackgroundSvg="SVG_DEEP"
+                deckBackgroundColor="#5744ff"
                 cardStyle='miniCard2'
                 styleCardText='deckName1'
             />
             <MiniCard
-                text={dd.decks()[4].deckName}
-                cardTextStyle={dd.decks()[4].deckTextStyle}
-                deckBackgroundSvg={dd.decks()[4].deckBackgroundSvg}
-                deckBackgroundColor={dd.decks()[4].deckBackgroundColor}
+                text="Connection 101"
+                cardTextStyle="deckConnect"
+                deckBackgroundSvg="SVG_CONN"
+                deckBackgroundColor="#00bc38"
                 cardStyle='miniCard3'
                 styleCardText='deckName1'
             />
             <MiniCard
-                text={dd.decks()[6].deckName}
-                cardTextStyle={dd.decks()[6].deckTextStyle}
-                deckBackgroundSvg={dd.decks()[6].deckBackgroundSvg}
-                deckBackgroundColor={dd.decks()[6].deckBackgroundColor}
+                text="Love Life"
+                cardTextStyle="deckEOY"
+                deckBackgroundSvg="SVG_EOY"
+                deckBackgroundColor="#ff4444"
                 cardStyle='miniCard4'
                 styleCardText='deckName1'
             />
@@ -93,7 +100,7 @@ export default function OnboardingScreen({
         width: "100%",
     };
 
-    if(index > 1) {
+    if(index > 2) {
         attributes.height = "100%";
     }
 
@@ -134,8 +141,9 @@ export default function OnboardingScreen({
                             />
                             </View>
                         }
+                        { index === 2 && buildStripes() }
                         { index === 3 && buildMiniCards() }
-                    </View>
+                        </View>
                     <Text style={stl.title}>{data.title}</Text>
                     <View style={[
                         styles.shadow,

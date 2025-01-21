@@ -1,7 +1,8 @@
 import { localStorage } from "./storage";
+import { getUserID } from './authentication';
+import { ACTION_URL } from './Utils'
 
 const _SUFFIX_FAVOURITE = "FAV_";
-const URL = 'https://script.google.com/macros/s/AKfycbyGVjLmAHYviTXCulytpptgo-g9t6TbCNmEAJ4QUsDTZ28yBmkYr56mtzBuiOvvSOFD/exec?';
 export const ID_FAVOURITES = 'favourites';
 
 export class DeckData {
@@ -10,10 +11,14 @@ export class DeckData {
         this._questionOfTheDay = null;
         this._dayOfTheQuestion = null;
         this._revealed = 0;
-        this._data = require('../data/cards.json');
+        this._userData = {state: 'unknown'};
+        this._rawData = require('../data/cards.json');
         this._favourites = [];
         this._deckNames = {};
         this._storage = localStorage;
+        this._decks = [];
+
+        this._decks = this.doFilter([]); // default filter of data
 
         this.loadQoD();
         this.loadFavourites();
@@ -40,7 +45,7 @@ export class DeckData {
         }
 
         try {
-            const url = URL+'action=questionOfTheDay';
+            const url = ACTION_URL+'questionOfTheDay';
             fetch(url).then((response) => response.json() ).then((response) => {
                 if(response.status == 'ok') {
                     const tmpDate = new Date(response.date);
@@ -86,7 +91,7 @@ export class DeckData {
     revealQoD(callBack) {
         if(!this.isRevealedToday()) {
             try {
-                const url = URL+'action=addRevealed';
+                const url = ACTION_URL+'addRevealed';
                 fetch(url).then((response) => response.json() ).then((response) => {
                     if(response.status == 'ok') {
                         this._revealed = response.revealed;
@@ -102,6 +107,68 @@ export class DeckData {
         }
         return this._revealed;
     }
+
+    setLoggedIn() {
+        console.log("SETTING STATE");
+        var userID = getUserID();
+        if (typeof(userID) !== 'undefined' && userID != null) {
+            try {
+                    const url = ACTION_URL+'filterSettings';
+                    fetch(url, {
+                        method: 'POST',
+                        body: JSON.stringify({
+                            userID: userID
+                        }),
+                    }).then((response) => response.json() ).then((response) => {
+                        console.log("SET STATE: "+response.products);
+                        if(response.status == 'ok')
+                            this._decks = this.doFilter(response.products);
+                        else
+                            this._decks = this.doFilter([]);
+                    });
+            }
+            catch(err) {
+                setError(true);
+                this._decks = this.doFilter([]);
+            }
+        }
+    }
+
+    doFilter(products) {
+        const DEFAULT_ITEM_COUNT = 10;
+        const newDecks = [];
+
+        console.log("AUTHORIZATIONS: " + products);
+
+        this._rawData.decks.map((deck) => {
+            let filtered = false;
+            products.map((item) => {
+                if(item.type == 'deck' && item.id == deck.deckID) {
+                    if(item.status == 'authorized') {
+                        const newDeck = {...deck};
+                        newDeck.totalCards = deck.cards.length;
+                        newDecks.push(newDeck);
+                        filtered = true;
+                    }
+                }
+            });
+
+            if( !filtered ) {
+                if(deck.visibleByDefault) {
+                    const newDeck = {...deck};
+                    newDeck.totalCards = deck.cards.length;
+                    if(deck.cardsByDefault > 0)
+                        newDeck.cards = deck.cards.slice(0, deck.cardsByDefault);
+                    else
+                        newDeck.cards = deck.cards.slice(0, DEFAULT_ITEM_COUNT);
+                    newDecks.push(newDeck);
+                }
+            }
+        });
+        return newDecks;
+    }
+
+
 
     getQuestionOfTheDay() {
         return this._questionOfTheDay;
@@ -150,7 +217,7 @@ export class DeckData {
     }
 
     getFavDeck() {
-        const favDeck = this.data().favourites;
+        const favDeck = this._rawData.favourites;
         favDeck.cards = this.gatherFavourites();
         favDeck.subText = "You have " + (favDeck.cards.length > 0 ? favDeck.cards.length : "no") + " favourite questions";
         return favDeck;
@@ -159,12 +226,12 @@ export class DeckData {
 
 
 
-    data() {
-        return this._data;
+    decks() {
+        return this._decks;
     }
 
-    decks() {
-        return this.data().decks;
+    onboarding() {
+        return this._rawData.onboarding;
     }
 
     getDeck(id) {
@@ -179,7 +246,7 @@ export class DeckData {
             return null;
         const info = [];
         info.push({'type': 'likedCount', 'info': Math.floor(Math.random() * 99)});
-        info.push({'type': 'cardCount',  'info': deck.cards ? deck.cards.length : 0});
+        info.push({'type': 'cardCount',  'info': deck.cards ? deck.totalCards : 0});
         return info;
     }
 
@@ -191,9 +258,9 @@ export class DeckData {
     }
 
     getDeckImageSvg(imageName, cardHeight){
-        if(this.data().svgLibrary[imageName+'-'+cardHeight])
-            return this.data().svgLibrary[imageName+'-'+cardHeight];
+        if(this._rawData.svgLibrary[imageName+'-'+cardHeight])
+            return this._rawData.svgLibrary[imageName+'-'+cardHeight];
         else
-            return this.data().svgLibrary[imageName];
+            return this._rawData.svgLibrary[imageName];
     }
 }

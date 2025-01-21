@@ -18,3 +18,4 @@ export const specialShuffle = (array) => {
 
 export const CARD_FULL = 'full';
 export const CARD_HALF = 'half';
+export const ACTION_URL = 'https://script.google.com/macros/s/AKfycbyGVjLmAHYviTXCulytpptgo-g9t6TbCNmEAJ4QUsDTZ28yBmkYr56mtzBuiOvvSOFD/exec?action=';

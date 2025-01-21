@@ -6,6 +6,8 @@
         "deckTextStyle": "deckIce",
         "deckBackgroundSvg": "SVG_ICE",
         "deckBackgroundColor": "#00B3E4",
+        "visibleByDefault": true,
+        "cardsByDefault": 10,
         "description": "> Effortless questions to move beyond small talk and kick off authentic, engaging conversations.",
         "rules": "### How to Play ###\n##### In this collection, you\\'ll find fun and easy questions to start conversations and move beyond small talk. Whether you\\'re with friends, colleagues, or meeting someone new, these questions make every interaction a little more exciting! #####\n\n> 1. Decide who goes first. Tap **Play** \n> 2. The first person picks someone to answer the question and hands them the phone. That person shares their answer with the group.\n> 3. After answering, the person who just spoke selects the next question and chooses someone else to answer. The gameplay continues until everyone has had a turn.\n\n ###### **Pro Tip:** If an Action Card appears, everyone must do the action written on the card. ######",
         "cards": [
@@ -517,6 +519,8 @@
         "deckTextStyle": "deckConfes",
         "deckBackgroundSvg": "SVG_CONFES",
         "deckBackgroundColor": "#7c25ff",
+        "visibleByDefault": true,
+        "cardsByDefault": 10,
         "description": "> Thought-provoking prompts for those ready to open up and share a bit more of their story.",
         "rules": "### How to play ###\n##### This deck is for those who are ready to open up and share a bit more. Dive into honest and vulnerable conversations with friends, partners, or family. #####\n\n> 1. Decide who goes first. Tap **Play.**\n> 2. The first person reads the question and answers as honestly as they feel comfortable.\n> 3. After answering, they can either:\n>    + Pass the next turn to anyone, or \n>     + Use the **Switch It** card to make someone else answer the same question before continuing. \n\n ###### **Pro Tip:** Use the **Challenge Card** to push yourself or someone else to reveal more or complete a fun task! ######",
         "cards": [
@@ -1118,6 +1122,8 @@
         "deckName": "Going Deep",
         "deckTextStyle": "deckDeep",
         "deckBackgroundSvg": "SVG_DEEP",
+        "visibleByDefault": true,
+        "cardsByDefault": 10,
         "deckBackgroundColor": "#5744ff",
         "description": "> Honest and heartfelt questions about the most meaningful aspects of your life, designed to inspire real talk.",
         "rules": "### How to Play ###\n##### This collection is all about exploring life’s most meaningful topics. Expect heartfelt, honest conversations that connect on a deeper level. #####\n\n> 1. Decide who goes first. Tap **Play.**\n> 2. The first person reads the question, reflects for a moment, and shares their thoughts.\n> 3. After answering, the group can ask one follow-up question to dive deeper.\n> 4. The answering player then selects someone to go next and passes them the phone. \n\n ###### **Pro Tip:** If an **All Play Card** appears, everyone answers the same question for a group discussion. ######",
@@ -1677,6 +1683,8 @@
         "deckTextStyle": "deckEOY",
         "deckBackgroundSvg": "SVG_EOY",
         "deckBackgroundColor": "#ff4444",
+        "visibleByDefault": false,
+        "cardsByDefault": 10,
         "description": "> A reflective journey through the highs, lows, and lessons of the past year, promoting personal growth and closure.",
         "rules": "### How to Play ###\n##### Reflect on the highs, lows, and lessons of the past year. Perfect for wrapping up the year with gratitude and introspection. #####\n\n> 1. Decide who goes first. Tap **Play.**\n> 2. The first person reads a reflection question and answers it thoughtfully.\n> 3. If a **Gratitude Card** appears, pause the game and everyone must share one thing they are grateful for.\n> 4. The person answering selects who goes next and passes them the phone.\n\n ###### **Pro Tip:** End the game by summarizing everyone’s biggest takeaways or highlights from the session! ######",
         "cards": [
@@ -2327,6 +2335,8 @@
         "deckTextStyle": "deckConnect",
         "deckBackgroundSvg": "SVG_CONN",
         "deckBackgroundColor": "#00bc38",
+        "visibleByDefault": true,
+        "cardsByDefault": 10,
         "description": "> This collection helps people to connect and get to know each other on a human level and spark a meaningful exchange.",
         "cards": [
           {
@@ -2992,6 +3002,8 @@
         "deckTextStyle": "deckTiny",
         "deckBackgroundSvg": "SVG_TINY",
         "deckBackgroundColor": "#b5ff72",
+        "visibleByDefault": true,
+        "cardsByDefault": 10,
         "description": "> Simple yet impactful questions crafted to spark meaningful exchanges with kids and nurture connection.",
         "rules": "### How to Play ###\n##### This deck is designed for meaningful conversations with kids! The questions are simple, fun, and perfect for bonding with little ones. #####\n\n> 1. Decide who goes first. Tap **Play.**\n> 2. Pick a question together, reading it out loud, and letting the child say if it is a good question first.\n> 3. Offer the child to answer it first, but be ready to answer it first yourself, if the child prefers that.\n> 4. After the child’s response, the grown up answers the same question to model sharing.\n> 5. If a **Challenge Card** appears, everyone does a fun action like drawing their answer, acting it out, or finding an object in the room related to the question.\n\n ###### **Pro Tip:** Keep it playful! Award stars for creative answers and completed challenges. ######",
         "cards": [
@@ -3848,6 +3860,8 @@
         "deckTextStyle": "deckEOY",
         "deckBackgroundSvg": "SVG_EOY",
         "deckBackgroundColor": "#ff4444",
+        "visibleByDefault": true,
+        "cardsByDefault": 10,
         "description": "> Effortless questions to move beyond small talk and kick off authentic, engaging conversations.",
         "rules": "### How to Play ###\n##### In this collection, you\\'ll find fun and easy questions to start conversations and move beyond small talk. Whether you\\'re with friends, colleagues, or meeting someone new, these questions make every interaction a little more exciting! #####\n\n> 1. Decide who goes first. Tap **Play** \n> 2. The first person picks someone to answer the question and hands them the phone. That person shares their answer with the group.\n> 3. After answering, the person who just spoke selects the next question and chooses someone else to answer. The gameplay continues until everyone has had a turn.\n\n ###### **Pro Tip:** If an Action Card appears, everyone must do the action written on the card. ######",
         "cards":[

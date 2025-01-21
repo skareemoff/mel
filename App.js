@@ -21,6 +21,7 @@ export default function App() {
   const isShowOnboarding = localStorage.getString("SHOW_ONBOARDING") != 'NO1';
 
   useEffect(() => {
+    // SPLASH SCREEN procedure
     const timer = setTimeout(() => {
       if (Platform.OS === 'ios') {
         InteractionManager.runAfterInteractions(() => {
@@ -32,6 +33,7 @@ export default function App() {
       }
     }, 6000);
 
+    // PUSH NOTIFICATIONS procedure
     void getFcmToken(localStorage);
     void requestUserPermission();
     void notificationListener();
