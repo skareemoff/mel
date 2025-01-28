@@ -20,53 +20,60 @@ export const login = async ({updateLoggedInState}) => {
         return true;
     }
 
-    // performs login request
-    const appleAuthRequestResponse = await appleAuth.performRequest({
-        requestedOperation: appleAuth.Operation.LOGIN,
-        // Note: it appears putting FULL_NAME first is important, see issue #293
-        requestedScopes: [appleAuth.Scope.FULL_NAME, appleAuth.Scope.EMAIL],
-    });
+    try {
 
-    let userID = VAL_UNKNOWN;
-    let userEmail = VAL_UNKNOWN;
-    let userFName = VAL_UNKNOWN;
-    let userLName = VAL_UNKNOWN;
+        // performs login request
+        const appleAuthRequestResponse = await appleAuth.performRequest({
+            requestedOperation: appleAuth.Operation.LOGIN,
+            // Note: it appears putting FULL_NAME first is important, see issue #293
+            requestedScopes: [appleAuth.Scope.FULL_NAME, appleAuth.Scope.EMAIL],
+        });
 
-    const {
-        user: newUser,
-        email,
-        fullName,
-        identityToken,
-        nonce,
-        realUserStatus,
-    } = appleAuthRequestResponse;
+        let userID = VAL_UNKNOWN;
+        let userEmail = VAL_UNKNOWN;
+        let userFName = VAL_UNKNOWN;
+        let userLName = VAL_UNKNOWN;
 
-    userID = newUser;
-    if( email )
-        userEmail = email;
+        const {
+            user: newUser,
+            email,
+            fullName,
+            identityToken,
+            nonce,
+            realUserStatus,
+        } = appleAuthRequestResponse;
 
-    if (fullName && fullName.givenName && fullName.familyName) {
-        userFName = fullName.givenName;
-        userLName = fullName.familyName;
+        userID = newUser;
+        if( email )
+            userEmail = email;
+
+        if (fullName && fullName.givenName && fullName.familyName) {
+            userFName = fullName.givenName;
+            userLName = fullName.familyName;
+        }
+
+        // The email and fullName are only provided on the first sign in to an app.
+        // But, we can get the email from the JWT every time if we decode it.
+        if (userEmail === VAL_UNKNOWN) {
+            const decodedToken = jwtDecode(identityToken);
+            if (decodedToken.email)
+                userEmail = decodedToken.email;
+        }
+
+        // get current authentication state for user
+        // /!\ This method must be tested on a real device. On the iOS simulator it always throws an error.
+        const credentialState = await appleAuth.getCredentialStateForUser(appleAuthRequestResponse.user);
+
+        // use credentialState response to ensure the user is authenticated
+        if (credentialState === appleAuth.State.AUTHORIZED) {
+            storeUserData(identityToken, userID, userEmail, userFName, userLName);
+            registerUserData(userID);
+            updateLoggedInState();
+        }
     }
-
-    // The email and fullName are only provided on the first sign in to an app.
-    // But, we can get the email from the JWT every time if we decode it.
-    if (userEmail === VAL_UNKNOWN) {
-        const decodedToken = jwtDecode(identityToken);
-        if (decodedToken.email)
-            userEmail = decodedToken.email;
-    }
-
-    // get current authentication state for user
-    // /!\ This method must be tested on a real device. On the iOS simulator it always throws an error.
-    const credentialState = await appleAuth.getCredentialStateForUser(appleAuthRequestResponse.user);
-
-    // use credentialState response to ensure the user is authenticated
-    if (credentialState === appleAuth.State.AUTHORIZED) {
-        storeUserData(identityToken, userID, userEmail, userFName, userLName);
-        registerUserData(userID);
-        updateLoggedInState();
+    catch(err) {
+        setError(true);
+        console.log(err);
     }
 }
 
@@ -82,34 +89,24 @@ const registerUserData = ({userID}) => {
             body: JSON.stringify({
                 userID: userID
             }),
-        }).then((response) => response.json() ).then((response) => {
-            if(response.status == 'ok')
-                this._decks = this.doFilter(response.products);
-            else
-            this._decks = this.doFilter([]);
         });
     }
     catch(err) {
         setError(true);
-        this._decks = this.doFilter([]);
     }
 }
 
 const verifyLogin = () => {
     const userID = localStorage.getString(KEY_USER_ID);
-    console.log('verifying: '+userID);
     if(userID) {
         // TODO: verify token
-        console.log('verified: '+userID);
         return true;
     }
 
-    console.log('NOT verified: '+userID);
     return false;
 }
 
 const storeUserData = ({userIDToken, userID, userEmail, userFName, userLName}) => {
-    console.log("STORING: "+userID);
     storeVal(KEY_USER_ID_TOKEN, userIDToken);
     storeVal(KEY_USER_ID, userID);
     storeVal(KEY_USER_EMAIL, userEmail);

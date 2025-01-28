@@ -27,6 +27,7 @@
     "react-native-markdown-display": "^7.0.2",
     "react-native-mmkv": "^3.2.0",
     "react-native-paper": "^5.12.5",
+    "react-native-purchases": "^8.5.1",
     "react-native-reanimated": "^3.16.3",
     "react-native-safe-area-context": "^5.0.0",
     "react-native-screens": "^4.4.0",

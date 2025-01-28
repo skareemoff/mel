@@ -108,19 +108,17 @@ export class DeckData {
         return this._revealed;
     }
 
-    setLoggedIn() {
-        console.log("SETTING STATE");
+    async setLoggedIn() {
         var userID = getUserID();
         if (typeof(userID) !== 'undefined' && userID != null) {
             try {
                     const url = ACTION_URL+'filterSettings';
-                    fetch(url, {
+                    await fetch(url, {
                         method: 'POST',
                         body: JSON.stringify({
                             userID: userID
                         }),
                     }).then((response) => response.json() ).then((response) => {
-                        console.log("SET STATE: "+response.products);
                         if(response.status == 'ok')
                             this._decks = this.doFilter(response.products);
                         else
@@ -137,8 +135,6 @@ export class DeckData {
     doFilter(products) {
         const DEFAULT_ITEM_COUNT = 10;
         const newDecks = [];
-
-        console.log("AUTHORIZATIONS: " + products);
 
         this._rawData.decks.map((deck) => {
             let filtered = false;

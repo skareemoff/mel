@@ -9,15 +9,15 @@ const requestUserPermission = async () => {
 };
 
 const getFcmToken = async ({localStorage}) => {
-  // const fcmtoken = localStorage.getString('fcmtoken');
-  // if (!fcmtoken) {
+  const fcmtoken = localStorage.getString('fcmtoken');
+  if (!fcmtoken) {
     try {
       const newFcmToken = await messaging().getToken();
-      // localStorage.set(FCM_TOKEN, newFcmToken);
+      localStorage.set(FCM_TOKEN, newFcmToken);
     } catch (error) {
       console.error(error);
     }
-  // }
+  }
 };
 
 const notificationListener = () => {
@@ -30,7 +30,7 @@ const notificationListener = () => {
     messaging().getInitialNotification().then(remoteMessage => {
       if(remoteMessage)
         showNotification(remoteMessage.notification);
-    }).catch(error => console.log('failed', error));
+    }).catch(error => console.log(error));
 
     // Foreground State
     messaging().onMessage(async remoteMessage => {
@@ -39,6 +39,7 @@ const notificationListener = () => {
     });
 
     subscribeToTopic('broadcast_to_all_users');
+    subscribeToTopic('testing');
 };
 
 const showNotification = async ({title, body}) => {

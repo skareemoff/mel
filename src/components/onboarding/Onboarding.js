@@ -15,11 +15,10 @@ export default function Onboarding() {
 
   useEffect(() => {
     // AUTHENTICATION procedure
-    login(onLogin);
+    // login(onLogin);
   }, []);
 
   const onLogin = () => {
-    console.log("UPDATING STATE");
     dd.setLoggedIn();
   }
 

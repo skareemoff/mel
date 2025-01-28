@@ -2,16 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>BGTaskSchedulerPermittedIdentifiers</key>
-	<array>
-		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-	</array>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>CFBundleDisplayName</key>
-	<string>MEL: More Exciting Life</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -23,26 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.0</string>
+	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>life.moreexciting.app</string>
-			</array>
-		</dict>
-	</array>
 	<key>CFBundleVersion</key>
 	<string>9</string>
-	<key>FirebaseAutomaticScreenReportingEnabled</key>
-	<string>NO</string>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
 	<key>LSMinimumSystemVersion</key>
 	<string>12.0</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -54,12 +33,34 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>We need access to save shared images</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need access to save shared images</string>
+	<key>UILaunchStoryboardName</key>
+	<string>SplashScreen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>arm64</string>
+	</array>
+	<key>UIStatusBarStyle</key>
+	<string/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>DMMono-Italic.ttf</string>
+		<string>DMMono-Light.ttf</string>
+		<string>DMMono-LightItalic.ttf</string>
+		<string>DMMono-Medium.ttf</string>
+		<string>DMMono-MediumItalic.ttf</string>
+		<string>DMMono-Regular.ttf</string>
 		<string>DMSans-Black.ttf</string>
 		<string>DMSans-BlackItalic.ttf</string>
 		<string>DMSans-Bold.ttf</string>
@@ -68,7 +69,6 @@
 		<string>DMSans-ExtraBoldItalic.ttf</string>
 		<string>DMSans-ExtraLight.ttf</string>
 		<string>DMSans-ExtraLightItalic.ttf</string>
-		<string>DMSans-Italic-VariableFont_opsz,wght.ttf</string>
 		<string>DMSans-Italic.ttf</string>
 		<string>DMSans-Light.ttf</string>
 		<string>DMSans-LightItalic.ttf</string>
@@ -79,13 +79,6 @@
 		<string>DMSans-SemiBoldItalic.ttf</string>
 		<string>DMSans-Thin.ttf</string>
 		<string>DMSans-ThinItalic.ttf</string>
-		<string>DMSans-VariableFont_opsz,wght.ttf</string>
-		<string>DMMono-Italic.ttf</string>
-		<string>DMMono-Light.ttf</string>
-		<string>DMMono-LightItalic.ttf</string>
-		<string>DMMono-Medium.ttf</string>
-		<string>DMMono-MediumItalic.ttf</string>
-		<string>DMMono-Regular.ttf</string>
 		<string>DMSans_18pt-Black.ttf</string>
 		<string>DMSans_18pt-BlackItalic.ttf</string>
 		<string>DMSans_18pt-Bold.ttf</string>
@@ -143,29 +136,5 @@
 		<string>DMSerifText-Italic.ttf</string>
 		<string>DMSerifText-Regular.ttf</string>
 	</array>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>remote-notification</string>
-		<string>fetch</string>
-		<string>processing</string>
-	</array>
-	<key>UILaunchStoryboardName</key>
-	<string>SplashScreen</string>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>arm64</string>
-	</array>
-	<key>UIRequiresFullScreen</key>
-	<false/>
-	<key>UIStatusBarStyle</key>
-	<string></string>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
 </dict>
 </plist>

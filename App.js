@@ -13,6 +13,7 @@ import DeckInfoScreen from "./src/components/DeckInfoScreen";
 import {MELContextProvider} from './src/components/MELContext'
 import Onboarding from "./src/components/onboarding/Onboarding";
 import { getFcmToken, requestUserPermission, notificationListener } from './src/components/notifications';
+import Purchases from "react-native-purchases";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +33,12 @@ export default function App() {
         setIsShowSplashScreen(false);
       }
     }, 6000);
+
+    // IN_APP PURCHASE init procedure
+    Purchases.setLogLevel(Purchases.LOG_LEVEL.DEBUG);
+    if (Platform.OS === 'ios') {
+    	Purchases.configure({ apiKey: "appl_UGOzzbPVQswvkicPbnNYNqYbyae" });
+    }
 
     // PUSH NOTIFICATIONS procedure
     void getFcmToken(localStorage);

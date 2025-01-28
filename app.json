@@ -9,14 +9,10 @@
     "newArchEnabled": true,
     "icon": "./src/assets/images/app-icon.png",
     "ios": {
-      "supportsTablet": true,
-      "googleServicesFile": "./ios/GoogleService-Info.plist",
       "bundleIdentifier": "life.moreexciting.app",
       "icon": "./src/assets/images/app-icon.png",
+      "googleServicesFile": "./ios/GoogleService-Info.plist",
       "usesAppleSignIn": true
-    },
-    "android": {
-      "package": "life.moreexciting.app"
     }
   }
 }
