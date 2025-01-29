@@ -12,6 +12,7 @@ export default function Onboarding() {
   const {dd} = useContext(MELContext);
   const deckData = dd.onboarding();
   const screens = [...deckData.screens];
+  const NUM_CARDS = 3;
 
   useEffect(() => {
     // AUTHENTICATION procedure
@@ -24,19 +25,21 @@ export default function Onboarding() {
 
   const OnboardingScreenWrapper1 = ({ navigation }) => (
     <OnboardingScreen
+      name='WhyMEL'
       navigation={navigation}
       index={1}
-      size={4}
+      size={NUM_CARDS}
       data= {screens[0]}
       showPrevious={false}
       showNext={true}
-      nextScreen='Onboarding2'/>
+      nextScreen='Onboarding3'/>
   );
   const OnboardingScreenWrapper2 = ({ navigation }) => (
     <OnboardingScreen
+      name='Playground'
       navigation={navigation}
       index={2}
-      size={4}
+      size={NUM_CARDS}
       data= {screens[1]}
       showPrevious={true}
       showNext={true}
@@ -44,9 +47,10 @@ export default function Onboarding() {
   );
   const OnboardingScreenWrapper3 = ({ navigation }) => (
     <OnboardingScreen
+      name='Friends'
       navigation={navigation}
-      index={3}
-      size={4}
+      index={2}
+      size={NUM_CARDS}
       data= {screens[2]}
       showPrevious={true}
       showNext={true}
@@ -54,9 +58,10 @@ export default function Onboarding() {
   );
   const OnboardingScreenWrapper4 = ({ navigation }) => (
     <OnboardingScreen
+      name='Community'
       navigation={navigation}
-      index={4}
-      size={4}
+      index={3}
+      size={NUM_CARDS}
       data= {screens[3]}
       showPrevious={true}
       showNext={false}
@@ -68,7 +73,7 @@ export default function Onboarding() {
         <View style={stl.container}>
           <Stack.Navigator initialRouteName='Onboarding1'>
             <Stack.Screen name="Onboarding1" component={OnboardingScreenWrapper1} options={{ headerShown: false}} />
-            <Stack.Screen name="Onboarding2" component={OnboardingScreenWrapper2} options={{ headerShown: false }} />
+            {/* <Stack.Screen name="Onboarding2" component={OnboardingScreenWrapper2} options={{ headerShown: false }} /> */}
             <Stack.Screen name="Onboarding3" component={OnboardingScreenWrapper3} options={{ headerShown: false }} />
             <Stack.Screen name="Onboarding4" component={OnboardingScreenWrapper4} options={{ headerShown: false }} />
           </Stack.Navigator>

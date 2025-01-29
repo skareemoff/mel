@@ -15,7 +15,9 @@ const MiniCard = (cardData) => {
             cstl.card,
             styles.shadow,
             stl[cardData.cardStyle],
-            cardData.height == 'half' ? stl.cardHalf : stl.cardMini,
+            cardData.height == 'half' ? stl.cardHalf : (
+                cardData.height == 'micro' ? stl.cardMicro : stl.cardMini
+            ),
         ]}>
             { cardData.deckBackgroundSvg &&
                 <SvgXml xml={dd.getDeckImageSvg(cardData.deckBackgroundSvg, CARD_HALF)}
@@ -53,6 +55,11 @@ const stl = EStyleSheet.create({
     cardMini: {
         width: 210,
         height: 154.77,
+        backgroundColor: 'transparent',
+    },
+    cardMicro: {
+        width: 353,
+        height: 130,
         backgroundColor: 'transparent',
     },
     cardHalf: {

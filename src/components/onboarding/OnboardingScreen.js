@@ -13,6 +13,7 @@ import MiniCard from './MiniCard'
 import { runOnJS } from "react-native-reanimated";
 
 export default function OnboardingScreen({
+    name,
     navigation,
     index,
     size,
@@ -96,13 +97,52 @@ export default function OnboardingScreen({
         );
     };
 
+    const buildMicroCards = () => {
+        return (
+            <>
+            <MiniCard
+                text="Emotional Intelligence"
+                cardTextStyle="deckIce"
+                deckBackgroundSvg="SVG_ICE"
+                deckBackgroundColor="white"
+                cardStyle='miniCard1'
+                styleCardText='deckName1'
+                height='micro'
+            />
+            <MiniCard
+                text="Going Deep"
+                cardTextStyle="deckDeep"
+                deckBackgroundSvg="SVG_DEEP"
+                deckBackgroundColor="#5744ff"
+                cardStyle='miniCard2'
+                styleCardText='deckName1'
+                height='micro'
+            />
+            <MiniCard
+                text="Connection 101"
+                cardTextStyle="deckConnect"
+                deckBackgroundSvg="SVG_CONN"
+                deckBackgroundColor="#00bc38"
+                cardStyle='miniCard3'
+                styleCardText='deckName1'
+                height='micro'
+            />
+            <MiniCard
+                text="Love Life"
+                cardTextStyle="deckEOY"
+                deckBackgroundSvg="SVG_EOY"
+                deckBackgroundColor="#ff4444"
+                cardStyle='miniCard4'
+                styleCardText='deckName1'
+                height='micro'
+            />
+        </>
+        );
+    };
+
     const attributes = {
         width: "100%",
     };
-
-    if(index > 2) {
-        attributes.height = "100%";
-    }
 
     return (
         <GestureDetector gesture={swipe}>
@@ -128,8 +168,8 @@ export default function OnboardingScreen({
                                 }}
                             />
                         }
-                        { index === 4 &&
-                            <View style={[stl.onboardingContainer, { justifyContent: 'center', alignSelf: 'center', backgroundColor:  'transparent' }]}>
+                        { name === 'Community' &&
+                            <View style={[stl.onboardingContainer, { top: 100, alignSelf: 'center', backgroundColor:  'transparent' }]}>
                             <MiniCard
                                 height='half'
                                 deckName='Question of the day'
@@ -141,8 +181,8 @@ export default function OnboardingScreen({
                             />
                             </View>
                         }
-                        { index === 2 && buildStripes() }
-                        { index === 3 && buildMiniCards() }
+                        { name === 'Playground' && buildStripes() && buildMicroCards()}
+                        { name === 'Friends' && buildMiniCards() }
                         </View>
                     <Text style={stl.title}>{data.title}</Text>
                     <View style={[

@@ -19,7 +19,7 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [isShowSplashScreen, setIsShowSplashScreen] = useState(true);
-  const isShowOnboarding = localStorage.getString("SHOW_ONBOARDING") != 'NO1';
+  const isShowOnboarding = localStorage.getString("SHOW_ONBOARDING") != 'NO';
 
   useEffect(() => {
     // SPLASH SCREEN procedure
@@ -32,10 +32,9 @@ export default function App() {
       else {
         setIsShowSplashScreen(false);
       }
-    }, 6000);
+    }, isShowOnboarding ? 6000 : 5000);
 
     // IN_APP PURCHASE init procedure
-    Purchases.setLogLevel(Purchases.LOG_LEVEL.DEBUG);
     if (Platform.OS === 'ios') {
     	Purchases.configure({ apiKey: "appl_UGOzzbPVQswvkicPbnNYNqYbyae" });
     }
@@ -66,7 +65,7 @@ export default function App() {
           <View style={stl.container}>
             <StatusBar hidden={true} />
             { isShowSplashScreen
-              ?  <SplashScreen  />
+              ?  <SplashScreen  showOnboarding={isShowOnboarding}/>
               :  <NavigationContainer theme={navTheme}>
                   <Stack.Navigator initialRouteName={isShowOnboarding ? 'Onboarding' : 'Home'}>
                     <Stack.Screen name="Onboarding" component={Onboarding}     options={{ headerShown: false }} />
