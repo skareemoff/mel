@@ -47,10 +47,12 @@ const showNotification = async ({title, body}) => {
     notifee.setBadgeCount(1);
 
   const curDate = new Date();
+  console.log("Notification: "+curDate.getHours());
   if(curDate.getHours() < 9 || curDate.getHours() > 21) {
     scheduleNotification(title, body);
   }
   else {
+    console.log("Notification shown");
     await notifee.displayNotification({
       title: title,
       body: body,
@@ -67,6 +69,7 @@ const scheduleNotification = async ({title, body}) => {
     date.setDate(date.getDate() + 1)
   }
 
+  console.log("Notification scheduled for: "+date+" : "+date.getTime());
   // Create a trigger notification
   await notifee.createTriggerNotification({
       title: title,

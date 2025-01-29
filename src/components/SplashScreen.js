@@ -4,7 +4,7 @@ import {View, Text, Animated, Easing, Dimensions} from 'react-native';
 import { HeaderBar } from './HeaderBar';
 import { SvgXml } from 'react-native-svg';
 
-export default function SplashScreen({navigation}) {
+export default function SplashScreen({showOnboarding, navigation}) {
     const fadeAnim1 = useRef(new Animated.Value(0)).current;
     const fadeAnim2 = useRef(new Animated.Value(0)).current;
     const fadeAnim3 = useRef(new Animated.Value(0)).current;
@@ -61,7 +61,7 @@ export default function SplashScreen({navigation}) {
             }),
             Animated.timing(fadeAnim7, {
                 toValue:1,
-                duration: 1000,
+                duration: showOnboarding ? 1000 : 0,
                 easing: Easing.ease,
                 useNativeDriver:true,
             }),
@@ -87,19 +87,21 @@ export default function SplashScreen({navigation}) {
                     width: "100%",
                     position: 'absolute',
                     opacity: fadeAnim7 }}>
-                <SvgXml
-                    xml={bgXML}
-                    width="100%"
-                    style={{
-                        position: 'absolute',
-                        zIndex: 0,
-                        alignSelf: 'center',
-                        overflow: 'hidden',
-                        width: '100%',
-                        height: '100%',
-                        backgroundColor: '$containerColor'
-                    }}
-                />
+                { showOnboarding &&
+                    <SvgXml
+                        xml={bgXML}
+                        width="100%"
+                        style={{
+                            position: 'absolute',
+                            zIndex: 0,
+                            alignSelf: 'center',
+                            overflow: 'hidden',
+                            width: '100%',
+                            height: '100%',
+                            backgroundColor: '$containerColor'
+                        }}
+                    />
+                }
             </Animated.View>
             <Animated.View style={[stl.container, {opacity:fadeAnim5}]}>
                 <Animated.View style={[{opacity:fadeAnim1}]}>

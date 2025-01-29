@@ -7,19 +7,28 @@ import { HeaderBar } from './HeaderBar';
 import {MELContext} from './MELContext'
 import { useContext } from 'react';
 import {ID_FAVOURITES} from './DeckData'
+import SaleCard from './SaleCard'
+import { isDecksAccessPurchased, purchaseProduct } from './monetization'
 
 const HomeScreen = ({navigation}) => {
     const {dd, favouriteState} = useContext(MELContext);
     const cards = [
         {'id':'header'},
         {'id': 'questionOfTheDay'},
+        {'id':'sale'},
         ...dd.decks(),
         dd.getFavDeck()
     ];
 
     const clickDeck = (dd) => {
         navigation.navigate('Info', { deckID: dd.id, deckName: dd.deckName })
-    }
+    };
+
+    const clickSale = async () => {
+        if(purchaseProduct()) {
+
+        }
+    };
 
     const renderCard = ({ item }) => {
         switch(item.id) {
@@ -33,6 +42,15 @@ const HomeScreen = ({navigation}) => {
                         <QoDCard />
                     </View>
             )
+            case 'sale':
+                return isDecksAccessPurchased()
+                ? (
+                    <Pressable onPress={() => clickSale()}>
+                        <SaleCard />
+                    </Pressable>
+                )
+                : null;
+
             default:
                 const viewKey = item.id == ID_FAVOURITES ? favouriteState : 0;
                 return (

@@ -8,6 +8,7 @@ import styles, { height } from './style'
 import {HALF_CARD_HEIGHT} from './style'
 import { HeaderBar } from './HeaderBar';
 import {MELContext} from './MELContext'
+import {isDecksAccessPurchased, purchaseProduct} from './monetization'
 
 const DeckInfoScreen = ({route, navigation}) => {
     const {dd} = React.useContext(MELContext);
@@ -119,12 +120,17 @@ const DeckInfoScreen = ({route, navigation}) => {
                 decelerationRate="fast"
             />
             <Appbar style={[ styles.appbarBottom, { position: 'absolute', top: height - 118, backgroundColor: 'transparent'} ] } >
-            { deckData.cards.length > 0
-               ?    <Pressable style={[stl.playButton]} onPressOut={() => clickDeck()}>
-                        <Text style={stl.playButtonText}>Play</Text>
-                    </Pressable>
-
-                : <View style={stl.playButtonDimmed}><Text style={[stl.playButtonText]}>Play</Text></View>
+            {   isDecksAccessPurchased()
+                ? (
+                    deckData.cards.length > 0
+                    ?   <Pressable style={[stl.playButton]} onPressOut={() => clickDeck()}>
+                            <Text style={stl.playButtonText}>Play</Text>
+                        </Pressable>
+                    : <View style={stl.playButtonDimmed}><Text style={[stl.playButtonText]}>Play</Text></View>
+                )
+                : <Pressable style={[stl.playButton]} onPressOut={() => purchaseProduct()}>
+                    <Text style={stl.playButtonText}>Upgrade</Text>
+                </Pressable>
             }
             </Appbar>
         </View>

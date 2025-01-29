@@ -49,7 +49,7 @@ export class DeckData {
             fetch(url).then((response) => response.json() ).then((response) => {
                 if(response.status == 'ok') {
                     const tmpDate = new Date(response.date);
-                    if(this.isToday(tmpDate)) {
+                    if(DeckData.isToday(tmpDate)) {
                         this._dayOfTheQuestion = tmpDate;
                         this._questionOfTheDay = response.question;
                         this._revealed = response.revealed;
@@ -66,7 +66,7 @@ export class DeckData {
     verifyQoD(){
         if(this._questionOfTheDay != null &&
             this._dayOfTheQuestion != null &&
-            isToday(this._dayOfTheQuestion)) {
+            DeckData.isToday(this._dayOfTheQuestion)) {
             return true;
         }
         this._dayOfTheQuestion = null;
@@ -74,18 +74,22 @@ export class DeckData {
         return false;
     }
 
-    isToday(date){
+    static isToday(date){
         var curDate = new Date();
         return curDate.getFullYear() == date.getFullYear()
                 && curDate.getMonth() == date.getMonth()
                 && curDate.getDate() == date.getDate();
     }
 
-    isRevealedToday() {
-        const storedVal = this._storage.getString("REVEALED");
+    static isRevealedQoDToday(storage) {
+        const storedVal = storage.getString("REVEALED");
         return typeof(storedVal) !== 'undefined'
-                && storedVal != null
-                && this.isToday(new Date(storedVal));
+        && storedVal != null
+        && DeckData.isToday(new Date(storedVal));
+    }
+
+    isRevealedToday() {
+        return DeckData.isRevealedQoDToday(this._storage);
     }
 
     revealQoD(callBack) {
