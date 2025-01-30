@@ -1,10 +1,9 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import {MELContext} from '../MELContext'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import OnboardingScreen from './OnboardingScreen'
-import { login } from '../authentication';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,15 +12,6 @@ export default function Onboarding() {
   const deckData = dd.onboarding();
   const screens = [...deckData.screens];
   const NUM_CARDS = 3;
-
-  useEffect(() => {
-    // AUTHENTICATION procedure
-    // login(onLogin);
-  }, []);
-
-  const onLogin = () => {
-    dd.setLoggedIn();
-  }
 
   const OnboardingScreenWrapper1 = ({ navigation }) => (
     <OnboardingScreen
