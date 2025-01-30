@@ -5,13 +5,13 @@ import {HALF_CARD_HEIGHT} from './style'
 import QoDCard from './QoDCard';
 import { HeaderBar } from './HeaderBar';
 import {MELContext} from './MELContext'
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import {ID_FAVOURITES} from './DeckData'
 import SaleCard from './SaleCard'
-import { isDecksAccessPurchased, purchaseProduct } from './monetization'
+import { checkDecksAccessPurchased, purchaseProduct } from './monetization';
 
 const HomeScreen = ({navigation}) => {
-    const {dd, favouriteState} = useContext(MELContext);
+    const {dd, favouriteState, purchaseState, setPurchaseState} = useContext(MELContext);
     const cards = [
         {'id':'header'},
         {'id': 'questionOfTheDay'},
@@ -20,14 +20,18 @@ const HomeScreen = ({navigation}) => {
         dd.getFavDeck()
     ];
 
+    useEffect(() => {
+        checkDecksAccessPurchased(setPurchaseState);
+        dd.doFilter(purchaseState);
+    }, [purchaseState]);
+
     const clickDeck = (dd) => {
         navigation.navigate('Info', { deckID: dd.id, deckName: dd.deckName })
     };
 
     const clickSale = async () => {
-        if(purchaseProduct()) {
-
-        }
+        console.log("INITIATING PURCHASE");
+        purchaseProduct(setPurchaseState);
     };
 
     const renderCard = ({ item }) => {
@@ -43,13 +47,13 @@ const HomeScreen = ({navigation}) => {
                     </View>
             )
             case 'sale':
-                return isDecksAccessPurchased()
-                ? (
+                return purchaseState
+                ? null
+                : (
                     <Pressable onPress={() => clickSale()}>
                         <SaleCard />
                     </Pressable>
-                )
-                : null;
+                );
 
             default:
                 const viewKey = item.id == ID_FAVOURITES ? favouriteState : 0;
@@ -89,6 +93,7 @@ const HomeScreen = ({navigation}) => {
         <FlatList
             style={styles.flatList}
             data={cards}
+            key={purchaseState}
             renderItem={renderCard}
             contentContainerStyle={{
                 paddingBottom: HALF_CARD_HEIGHT,

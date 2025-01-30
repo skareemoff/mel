@@ -19,7 +19,7 @@ export class DeckData {
         this._storage = localStorage;
         this._decks = [];
 
-        this._decks = this.doFilter([]); // default filter of data
+        this._decks = this.doFilter(false); // default filter of data
 
         this.loadQoD();
         this.loadFavourites();
@@ -113,61 +113,23 @@ export class DeckData {
         return this._revealed;
     }
 
-    async setLoggedIn() {
-        var userID = getUserID();
-        if (typeof(userID) !== 'undefined' && userID != null) {
-            try {
-                    const url = ACTION_URL+'filterSettings';
-                    await fetch(url, {
-                        method: 'POST',
-                        body: JSON.stringify({
-                            userID: userID
-                        }),
-                    }).then((response) => response.json() ).then((response) => {
-                        if(response.status == 'ok')
-                            this._decks = this.doFilter(response.products);
-                        else
-                            this._decks = this.doFilter([]);
-                    });
-            }
-            catch(err) {
-                setError(true);
-                this._decks = this.doFilter([]);
-            }
-        }
-    }
-
-    doFilter(products) {
+    doFilter(purchaseState) {
         const DEFAULT_ITEM_COUNT = 3;
         const newDecks = [];
 
         this._rawData.decks.map((deck) => {
-            let filtered = false;
-            products.map((item) => {
-                if(item.type == 'deck' && item.id == deck.deckID) {
-                    if(item.status == 'authorized') {
-                        const newDeck = {...deck};
-                        newDeck.totalCards = deck.cards.length;
-                        newDecks.push(newDeck);
-                        filtered = true;
-                    }
-                }
-            });
-
-            if( !filtered ) {
-                // Love Life and Connections 101 are accessible for free fully
-                if(deck.id == 7 || deck.id == 5) {
-                    const newDeck = {...deck};
-                    newDeck.totalCards = deck.cards.length;
-                    newDecks.push(newDeck);
-                }
-                else {
-                    const newDeck = {...deck};
-                    newDeck.isLocked = true;
-                    newDeck.totalCards = deck.cards.length;
-                    newDeck.cards = deck.cards.slice(0, DEFAULT_ITEM_COUNT);
-                    newDecks.push(newDeck);
-                }
+            // Love Life and Connections 101 are accessible for free fully
+            if(deck.id == 7 || deck.id == 5 || purchaseState) {
+                const newDeck = {...deck};
+                newDeck.totalCards = deck.cards.length;
+                newDecks.push(newDeck);
+            }
+            else {
+                const newDeck = {...deck};
+                newDeck.isLocked = true;
+                newDeck.totalCards = deck.cards.length;
+                newDeck.cards = deck.cards.slice(0, DEFAULT_ITEM_COUNT);
+                newDecks.push(newDeck);
             }
         });
         return newDecks;

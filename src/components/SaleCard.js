@@ -1,18 +1,18 @@
-import { TouchableOpacity, Text, Animated, View, Image} from "react-native";
+import { Text, View} from "react-native";
 import EStyleSheet from 'react-native-extended-stylesheet';
 import styles from './style'
-import cstl from './cardStyle'
+import { useContext } from "react";
+import { MELContext } from "./MELContext";
 
 const SaleCard = () => {
+  const {purchaseState} = useContext(MELContext);
+
   return (
     <View style={[
       styles.flatListItem,
       styles.shadow,
-      st.cover,
-      {
-        flexDirection: 'column',
-      }
-    ]}>
+      st.cover
+    ]} key={purchaseState}>
       <View style={{
         top: 24,
         left: 20,
@@ -124,5 +124,6 @@ const st = EStyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'left',
     maxWidth: 400,
+    flexDirection: 'column',
   }
 });

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FlatList, View, Text, Pressable, Image } from 'react-native';
 import Markdown from 'react-native-markdown-display';
 import { Appbar } from 'react-native-paper';
@@ -8,10 +8,10 @@ import styles, { height } from './style'
 import {HALF_CARD_HEIGHT} from './style'
 import { HeaderBar } from './HeaderBar';
 import {MELContext} from './MELContext'
-import {isDecksAccessPurchased, purchaseProduct} from './monetization'
+import { checkDecksAccessPurchased, purchaseProduct } from './monetization';
 
 const DeckInfoScreen = ({route, navigation}) => {
-    const {dd} = React.useContext(MELContext);
+    const {dd, purchaseState, setPurchaseState} = React.useContext(MELContext);
     const { deckID } = route.params;
     const deckData = dd.getDeck(deckID);
     const descrColor = deckData.deckBackgroundColor ? deckData.deckBackgroundColor : 'darkGrey'
@@ -22,6 +22,16 @@ const DeckInfoScreen = ({route, navigation}) => {
         {'id': 'example'},
         {'id': 'rules'}
     ];
+
+    useEffect(() => {
+        checkDecksAccessPurchased(setPurchaseState);
+        dd.doFilter(purchaseState);
+    }, [purchaseState]);
+
+    const clickSale = async () => {
+        console.log("INITIATING PURCHASE");
+        purchaseProduct(setPurchaseState);
+    };
 
     const descrStyle = function(deckColor) {
         return {
@@ -117,6 +127,7 @@ const DeckInfoScreen = ({route, navigation}) => {
             <FlatList
                 style={[styles.flatList]}
                 data={cards}
+                key={purchaseState}
                 keyExtractor={(item) => item.id}
                 renderItem={renderCard}
                 contentContainerStyle={{
@@ -131,17 +142,17 @@ const DeckInfoScreen = ({route, navigation}) => {
                 decelerationRate="fast"
             />
             <Appbar style={[ styles.appbarBottom, { position: 'absolute', top: height - 118, backgroundColor: 'transparent'} ] } >
-            {   isDecksAccessPurchased()
-                ? (
-                    deckData.cards.length > 0
-                    ?   <Pressable style={[stl.playButton]} onPressOut={() => clickDeck()}>
-                            <Text style={stl.playButtonText}>Play</Text>
-                        </Pressable>
-                    : <View style={stl.playButtonDimmed}><Text style={[stl.playButtonText]}>Play</Text></View>
-                )
-                : <Pressable style={[stl.playButton]} onPressOut={() => purchaseProduct()}>
-                    <Text style={stl.playButtonText}>Upgrade</Text>
-                </Pressable>
+            { deckData.isLocked
+                ?   <Pressable style={[stl.playButton]} onPressOut={() => clickSale()}>
+                        <Text style={stl.playButtonText}>Upgrade</Text>
+                    </Pressable>
+                :   (
+                        deckData.cards.length > 0
+                        ?   <Pressable style={[stl.playButton]} onPressOut={() => clickDeck()}>
+                                <Text style={stl.playButtonText}>Play</Text>
+                            </Pressable>
+                        : <View style={stl.playButtonDimmed}><Text style={[stl.playButtonText]}>Play</Text></View>
+                    )
             }
             </Appbar>
         </View>
