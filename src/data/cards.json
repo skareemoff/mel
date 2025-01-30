@@ -6,7 +6,6 @@
         "deckTextStyle": "deckIce",
         "deckBackgroundSvg": "SVG_ICE",
         "deckBackgroundColor": "#00B3E4",
-        "visibleByDefault": true,
         "description": "> Effortless questions to move beyond small talk and kick off authentic, engaging conversations.",
         "rules": "### How to Play ###\n##### In this collection, you\\'ll find fun and easy questions to start conversations and move beyond small talk. Whether you\\'re with friends, colleagues, or meeting someone new, these questions make every interaction a little more exciting! #####\n\n> 1. Decide who goes first. Tap **Play** \n> 2. The first person picks someone to answer the question and hands them the phone. That person shares their answer with the group.\n> 3. After answering, the person who just spoke selects the next question and chooses someone else to answer. The gameplay continues until everyone has had a turn.\n\n ###### **Pro Tip:** If an Action Card appears, everyone must do the action written on the card. ######",
         "cards": [
@@ -518,7 +517,6 @@
         "deckTextStyle": "deckConfes",
         "deckBackgroundSvg": "SVG_CONFES",
         "deckBackgroundColor": "#7c25ff",
-        "visibleByDefault": true,
         "description": "> Thought-provoking prompts for those ready to open up and share a bit more of their story.",
         "rules": "### How to play ###\n##### This deck is for those who are ready to open up and share a bit more. Dive into honest and vulnerable conversations with friends, partners, or family. #####\n\n> 1. Decide who goes first. Tap **Play.**\n> 2. The first person reads the question and answers as honestly as they feel comfortable.\n> 3. After answering, they can either:\n>    + Pass the next turn to anyone, or \n>     + Use the **Switch It** card to make someone else answer the same question before continuing. \n\n ###### **Pro Tip:** Use the **Challenge Card** to push yourself or someone else to reveal more or complete a fun task! ######",
         "cards": [
@@ -1120,7 +1118,6 @@
         "deckName": "Going Deep",
         "deckTextStyle": "deckDeep",
         "deckBackgroundSvg": "SVG_DEEP",
-        "visibleByDefault": true,
         "deckBackgroundColor": "#5744ff",
         "description": "> Honest and heartfelt questions about the most meaningful aspects of your life, designed to inspire real talk.",
         "rules": "### How to Play ###\n##### This collection is all about exploring life’s most meaningful topics. Expect heartfelt, honest conversations that connect on a deeper level. #####\n\n> 1. Decide who goes first. Tap **Play.**\n> 2. The first person reads the question, reflects for a moment, and shares their thoughts.\n> 3. After answering, the group can ask one follow-up question to dive deeper.\n> 4. The answering player then selects someone to go next and passes them the phone. \n\n ###### **Pro Tip:** If an **All Play Card** appears, everyone answers the same question for a group discussion. ######",
@@ -1680,7 +1677,6 @@
         "deckTextStyle": "deckConnect",
         "deckBackgroundSvg": "SVG_CONN",
         "deckBackgroundColor": "#00bc38",
-        "visibleByDefault": true,
         "description": "> This collection helps people to connect and get to know each other on a human level and spark a meaningful exchange.",
         "cards": [
           {
@@ -2346,7 +2342,6 @@
         "deckTextStyle": "deckTiny",
         "deckBackgroundSvg": "SVG_TINY",
         "deckBackgroundColor": "#b5ff72",
-        "visibleByDefault": true,
         "description": "> Simple yet impactful questions crafted to spark meaningful exchanges with kids and nurture connection.",
         "rules": "### How to Play ###\n##### This deck is designed for meaningful conversations with kids! The questions are simple, fun, and perfect for bonding with little ones. #####\n\n> 1. Decide who goes first. Tap **Play.**\n> 2. Pick a question together, reading it out loud, and letting the child say if it is a good question first.\n> 3. Offer the child to answer it first, but be ready to answer it first yourself, if the child prefers that.\n> 4. After the child’s response, the grown up answers the same question to model sharing.\n> 5. If a **Challenge Card** appears, everyone does a fun action like drawing their answer, acting it out, or finding an object in the room related to the question.\n\n ###### **Pro Tip:** Keep it playful! Award stars for creative answers and completed challenges. ######",
         "cards": [
@@ -3203,7 +3198,6 @@
         "deckTextStyle": "deckEOY",
         "deckBackgroundSvg": "SVG_EOY",
         "deckBackgroundColor": "#ff4444",
-        "visibleByDefault": true,
         "description": "> Effortless questions to move beyond small talk and kick off authentic, engaging conversations.",
         "rules": "### How to Play ###\n##### In this collection, you\\'ll find fun and easy questions to start conversations and move beyond small talk. Whether you\\'re with friends, colleagues, or meeting someone new, these questions make every interaction a little more exciting! #####\n\n> 1. Decide who goes first. Tap **Play** \n> 2. The first person picks someone to answer the question and hands them the phone. That person shares their answer with the group.\n> 3. After answering, the person who just spoke selects the next question and chooses someone else to answer. The gameplay continues until everyone has had a turn.\n\n ###### **Pro Tip:** If an Action Card appears, everyone must do the action written on the card. ######",
         "cards":[
@@ -3384,162 +3378,457 @@
           },
           {
             "id": 741,
-            "text": "What was your first impression of me when we met?",
+            "text": "What does an ideal romantic evening look like for you?",
             "deckID": 7
           },
           {
             "id": 742,
-            "text": "What's a favorite memory you have of us together?",
+            "text": "How do you prefer to express affection—through words, actions, or physical touch?",
             "deckID": 7
           },
           {
             "id": 743,
-            "text": "Is there a particular date or outing we've had that stands out to you?",
+            "text": "What gestures make you feel most appreciated in a relationship?",
             "deckID": 7
           },
           {
             "id": 744,
-            "text": "What's something you've learned from our relationship?",
+            "text": "How do you like to celebrate anniversaries or special occasions?",
             "deckID": 7
           },
           {
             "id": 745,
-            "text": "Do you have a favorite photo of us?",
+            "text": "What role does humor play in romantic relationships?",
             "deckID": 7
           },
           {
             "id": 746,
-            "text": "What's a song that reminds you of our time together?",
+            "text": "How important is spontaneity versus routine in your love life?",
             "deckID": 7
           },
           {
             "id": 747,
-            "text": "Is there a habit or quirk of mine that you find endearing?",
+            "text": "What are your thoughts on public displays of affection?",
             "deckID": 7
           },
           {
             "id": 748,
-            "text": "What's a challenge we've faced together that made us stronger?",
+            "text": "How do you prefer to handle disagreements or conflicts in a relationship?",
             "deckID": 7
           },
           {
             "id": 749,
-            "text": "Is there a place we've visited that you'd like to return to?",
+            "text": "What qualities do you admire most in a romantic partner?",
             "deckID": 7
           },
           {
             "id": 750,
-            "text": "What's a dish we've cooked together that you enjoyed?",
+            "text": "How do you envision sharing responsibilities in a partnership?",
             "deckID": 7
           },
           {
             "id": 751,
-            "text": "Is there a movie or show we've watched together that you loved?",
+            "text": "What are your favorite ways to spend quality time with a partner?",
             "deckID": 7
           },
           {
             "id": 752,
-            "text": "What's a goal we've achieved together that you're proud of?",
+            "text": "How do you feel about discussing past relationships with your current partner?",
             "deckID": 7
           },
           {
             "id": 753,
-            "text": "Is there a tradition we've started that you cherish?",
+            "text": "How do you like to support and be supported during challenging times?",
             "deckID": 7
           },
           {
             "id": 754,
-            "text": "What's a way I show love that resonates with you?",
+            "text": "How do you prefer to communicate love and appreciation—through gifts, words, or actions?",
             "deckID": 7
           },
           {
             "id": 755,
-            "text": "Is there a dream or aspiration of mine that you support wholeheartedly?",
+            "text": "What are your thoughts on setting relationship goals together?",
             "deckID": 7
           },
           {
             "id": 756,
-            "text": "What's a lesson we've learned together?",
+            "text": "How do you handle stress, and how can a partner assist during those times?",
             "deckID": 7
           },
           {
             "id": 757,
-            "text": "Is there a way we've grown as a couple that makes you happy?",
+            "text": "What are your views on balancing personal space and togetherness in a relationship?",
             "deckID": 7
           },
           {
             "id": 758,
-            "text": "What's a compliment I've given you that meant a lot?",
+            "text": "What are your favorite shared activities to build connection in a relationship?",
             "deckID": 7
           },
           {
             "id": 759,
-            "text": "Is there a way I can support you better in our relationship?",
+            "text": "How do you feel about surprises in a romantic context?",
             "deckID": 7
           },
           {
             "id": 760,
-            "text": "What's a promise we've made to each other that you hold dear?",
+            "text": "How do you share emotions openly with a partner?",
             "deckID": 7
           },
           {
             "id": 761,
-            "text": "What's your favorite inside joke we share?",
+            "text": "What role does mutual respect play in your view of a healthy relationship?",
             "deckID": 7
           },
           {
             "id": 762,
-            "text": "Is there a hobby or interest of mine that you've embraced?",
+            "text": "How do you handle situations when you need to apologize or forgive in a relationship?",
             "deckID": 7
           },
           {
             "id": 763,
-            "text": "What's a surprise we've planned for each other that you loved?",
+            "text": "What was your first impression of me when we met?",
             "deckID": 7
           },
           {
             "id": 764,
-            "text": "What's a song that feels like 'our song' to you?",
+            "text": "What's a favorite memory you have of us together?",
             "deckID": 7
           },
           {
             "id": 765,
-            "text": "Is there a way we've influenced each other's growth positively?",
+            "text": "Is there a particular date or outing we've had that stands out to you?",
             "deckID": 7
           },
           {
             "id": 766,
-            "text": "What's a place we've discovered together that you love?",
+            "text": "What's something you've learned from our relationship?",
             "deckID": 7
           },
           {
             "id": 767,
-            "text": "Is there a way we've supported each other during tough times that stands out?",
+            "text": "Do you have a favorite photo of us?",
             "deckID": 7
           },
           {
             "id": 768,
-            "text": "Is there a way we've balanced each other's strengths and weaknesses?",
+            "text": "What's a song that reminds you of our time together?",
             "deckID": 7
           },
           {
             "id": 769,
-            "text": "Is there a way we've communicated that's improved our relationship?",
+            "text": "Is there a habit or quirk of mine that you find endearing?",
             "deckID": 7
           },
           {
             "id": 770,
-            "text": "What's a lesson we've learned from a disagreement we've had?",
+            "text": "What's a challenge we've faced together that made us stronger?",
             "deckID": 7
           },
           {
             "id": 771,
-            "text": "Is there a way we've celebrated each other's successes that you value?",
+            "text": "Is there a place we've visited that you'd like to return to?",
             "deckID": 7
           },
           {
             "id": 772,
+            "text": "What's a dish we've cooked together that you enjoyed?",
+            "deckID": 7
+          },
+          {
+            "id": 773,
+            "text": "Is there a movie or show we've watched together that you loved?",
+            "deckID": 7
+          },
+          {
+            "id": 774,
+            "text": "What's a goal we've achieved together that you're proud of?",
+            "deckID": 7
+          },
+          {
+            "id": 775,
+            "text": "Is there a tradition we've started that you cherish?",
+            "deckID": 7
+          },
+          {
+            "id": 776,
+            "text": "What's a way I show love that resonates with you?",
+            "deckID": 7
+          },
+          {
+            "id": 777,
+            "text": "Is there a dream or aspiration of mine that you support wholeheartedly?",
+            "deckID": 7
+          },
+          {
+            "id": 778,
+            "text": "What's a lesson we've learned together?",
+            "deckID": 7
+          },
+          {
+            "id": 779,
+            "text": "Is there a way we've grown as a couple that makes you happy?",
+            "deckID": 7
+          },
+          {
+            "id": 780,
+            "text": "What's a compliment I've given you that meant a lot?",
+            "deckID": 7
+          },
+          {
+            "id": 781,
+            "text": "Is there a way I can support you better in our relationship?",
+            "deckID": 7
+          },
+          {
+            "id": 782,
+            "text": "What's a promise we've made to each other that you hold dear?",
+            "deckID": 7
+          },
+          {
+            "id": 783,
+            "text": "What's your favorite inside joke we share?",
+            "deckID": 7
+          },
+          {
+            "id": 784,
+            "text": "Is there a hobby or interest of mine that you've embraced?",
+            "deckID": 7
+          },
+          {
+            "id": 785,
+            "text": "What's a surprise we've planned for each other that you loved?",
+            "deckID": 7
+          },
+          {
+            "id": 786,
+            "text": "Is there a way we've influenced each other's growth positively?",
+            "deckID": 7
+          },
+          {
+            "id": 787,
+            "text": "What's a place we've discovered together that you love?",
+            "deckID": 7
+          },
+          {
+            "id": 788,
+            "text": "Is there a way we've supported each other during tough times that stands out?",
+            "deckID": 7
+          },
+          {
+            "id": 789,
+            "text": "Is there a way we've balanced each other's strengths and weaknesses?",
+            "deckID": 7
+          },
+          {
+            "id": 790,
+            "text": "Is there a way we've communicated that's improved our relationship?",
+            "deckID": 7
+          },
+          {
+            "id": 791,
+            "text": "What's a lesson we've learned from a disagreement we've had?",
+            "deckID": 7
+          },
+          {
+            "id": 792,
+            "text": "Is there a way we've celebrated each other's successes that you value?",
+            "deckID": 7
+          },
+          {
+            "id": 793,
             "text": "What's a dream vacation we've talked about that you'd love to take?",
+            "deckID": 7
+          },
+          {
+            "id": 794,
+            "text": "What qualities in our relationship make you feel secure?",
+            "deckID": 7
+          },
+          {
+            "id": 795,
+            "text": "How do you envision our future together?",
+            "deckID": 7
+          },
+          {
+            "id": 796,
+            "text": "What's a shared goal you'd like us to pursue?",
+            "deckID": 7
+          },
+          {
+            "id": 797,
+            "text": "Is there a book or article we've read together that sparked meaningful discussion?",
+            "deckID": 7
+          },
+          {
+            "id": 798,
+            "text": "What's a new activity you'd like us to try as a couple?",
+            "deckID": 7
+          },
+          {
+            "id": 799,
+            "text": "How do you feel we've grown individually since being together?",
+            "deckID": 7
+          },
+          {
+            "id": 800,
+            "text": "What's a way we handle stress together that you appreciate?",
+            "deckID": 7
+          },
+          {
+            "id": 801,
+            "text": "Is there a skill you'd like us to learn together?",
+            "deckID": 7
+          },
+          {
+            "id": 802,
+            "text": "What's a value we both share that's important to you?",
+            "deckID": 7
+          },
+          {
+            "id": 803,
+            "text": "How do you feel we've impacted each other's lives?",
+            "deckID": 7
+          },
+          {
+            "id": 804,
+            "text": "What's a way we can continue to strengthen our bond?",
+            "deckID": 7
+          },
+          {
+            "id": 805,
+            "text": "Is there a habit we've developed together that you find beneficial?",
+            "deckID": 7
+          },
+          {
+            "id": 806,
+            "text": "What's a topic you'd like us to explore more deeply together?",
+            "deckID": 7
+          },
+          {
+            "id": 807,
+            "text": "How do you feel when we spend quality time together?",
+            "deckID": 7
+          },
+          {
+            "id": 808,
+            "text": "What's a way we can support each other's personal growth?",
+            "deckID": 7
+          },
+          {
+            "id": 809,
+            "text": "Is there a dream you have for us that you'd like to share?",
+            "deckID": 7
+          },
+          {
+            "id": 810,
+            "text": "What's a way we've navigated change together that you're proud of?",
+            "deckID": 7
+          },
+          {
+            "id": 811,
+            "text": "How do you feel we've built trust in our relationship?",
+            "deckID": 7
+          },
+          {
+            "id": 812,
+            "text": "What's a tradition you'd like us to start?",
+            "deckID": 7
+          },
+          {
+            "id": 813,
+            "text": "Is there a way we can improve our communication?",
+            "deckID": 7
+          },
+          {
+            "id": 814,
+            "text": "What's a shared experience that brought us closer?",
+            "deckID": 7
+          },
+          {
+            "id": 815,
+            "text": "How do you feel we've supported each other's passions?",
+            "deckID": 7
+          },
+          {
+            "id": 816,
+            "text": "What's a way we can create more joy in our daily lives?",
+            "deckID": 7
+          },
+          {
+            "id": 817,
+            "text": "Is there a challenge you'd like us to tackle together?",
+            "deckID": 7
+          },
+          {
+            "id": 818,
+            "text": "What's a way we've shown appreciation for each other that stands out?",
+            "deckID": 7
+          },
+          {
+            "id": 819,
+            "text": "How do you feel we've maintained intimacy in our relationship?",
+            "deckID": 7
+          },
+          {
+            "id": 820,
+            "text": "What's a lesson you've learned from being with me?",
+            "deckID": 7
+          },
+          {
+            "id": 821,
+            "text": "Is there a way we can give back to our community together?",
+            "deckID": 7
+          },
+          {
+            "id": 822,
+            "text": "What's a way we've inspired each other?",
+            "deckID": 7
+          },
+          {
+            "id": 823,
+            "text": "How do you feel we've balanced our individual needs with our relationship?",
+            "deckID": 7
+          },
+          {
+            "id": 824,
+            "text": "What's a goal you'd like us to set for the coming year?",
+            "deckID": 7
+          },
+          {
+            "id": 825,
+            "text": "Is there a way we can enhance our emotional connection?",
+            "deckID": 7
+          },
+          {
+            "id": 826,
+            "text": "What's a way we've adapted to each other's differences?",
+            "deckID": 7
+          },
+          {
+            "id": 827,
+            "text": "How do you feel we've created a sense of home together?",
+            "deckID": 7
+          },
+          {
+            "id": 828,
+            "text": "What's a way we can continue to have fun together?",
+            "deckID": 7
+          },
+          {
+            "id": 829,
+            "text": "Is there a book or movie you'd like us to experience together?",
+            "deckID": 7
+          },
+          {
+            "id": 830,
+            "text": "What's a way we've demonstrated commitment to each other?",
+            "deckID": 7
+          },
+          {
+            "id": 831,
+            "text": "How do you feel we've made each other's lives better?",
             "deckID": 7
           }
         ]
