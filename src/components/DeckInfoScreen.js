@@ -27,7 +27,7 @@ const DeckInfoScreen = ({route, navigation}) => {
 
     useEffect(() => {
         checkDecksAccessPurchased(setPurchaseState);
-        dd.doFilter(purchaseState);
+        dd.setPurchasedState(purchaseState);
     }, [purchaseState]);
 
     const clickSale = async () => {

@@ -22,7 +22,7 @@ const HomeScreen = ({navigation}) => {
 
     useEffect(() => {
         checkDecksAccessPurchased(setPurchaseState);
-        dd.doFilter(purchaseState);
+        dd.setPurchasedState(purchaseState);
     }, [purchaseState]);
 
     const clickDeck = (dd) => {

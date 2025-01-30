@@ -5,7 +5,7 @@ const checkDecksAccessPurchased = async (setPurchaseState) => {
     try {
           await Purchases.getCustomerInfo().then(customerInfo => {
             console.log("CUSTOMER INFO: ", customerInfo);
-            let isPurchased = typeof customerInfo.entitlements.active['product.decks.all'] !== "undefined";
+            let isPurchased = typeof customerInfo.entitlements.active['decks.all'] !== "undefined";
             setPurchaseState(isPurchased);
             console.log("IS PURCHASED CHECKED: "+isPurchased);
         });
@@ -21,7 +21,7 @@ const purchaseProduct = async (setPurchaseState) => {
           console.log("INITIATING PACKAGE PURCHASE: ", offerings)
           Purchases.purchasePackage(offerings.current.availablePackages[0]).then(customerInfo => {
             console.log("CUSTOMER INFO: ", customerInfo);
-            let isPurchased = typeof customerInfo.entitlements.active['product.decks.all'] !== "undefined";
+            let isPurchased = typeof customerInfo.entitlements.active['decks.all'] !== "undefined";
             setPurchaseState(isPurchased);
             console.log("IS PURCHASED CHECKED: "+isPurchased);
           });

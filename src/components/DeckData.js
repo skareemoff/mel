@@ -18,8 +18,8 @@ export class DeckData {
         this._deckNames = {};
         this._storage = localStorage;
         this._decks = [];
-
-        this._decks = this.doFilter(false); // default filter of data
+        this._purchasedState = false;
+        this.filterDecks();
 
         this.loadQoD();
         this.loadFavourites();
@@ -113,13 +113,18 @@ export class DeckData {
         return this._revealed;
     }
 
-    doFilter(purchaseState) {
+    setPurchasedState(purchasedState) {
+        this._purchasedState = purchasedState;
+        this.filterDecks();
+    }
+
+    filterDecks() {
         const DEFAULT_ITEM_COUNT = 3;
         const newDecks = [];
 
         this._rawData.decks.map((deck) => {
             // Love Life and Connections 101 are accessible for free fully
-            if(deck.id == 7 || deck.id == 5 || purchaseState) {
+            if(deck.id == 7 || deck.id == 5 || this._purchasedState) {
                 const newDeck = {...deck};
                 newDeck.totalCards = deck.cards.length;
                 newDecks.push(newDeck);
@@ -132,7 +137,7 @@ export class DeckData {
                 newDecks.push(newDeck);
             }
         });
-        return newDecks;
+        this._decks = newDecks;
     }
 
 
