@@ -47,6 +47,8 @@
 		7690596F72704A7C870AD696 /* DMSans_18pt-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80F35069A0494E8594BB97A5 /* DMSans_18pt-ExtraBold.ttf */; };
 		7783D446DE664EA1BFB84307 /* DMMono-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36D6E6ED317B4CE7A3753384 /* DMMono-LightItalic.ttf */; };
 		78E15CFA188142A7B7A0EF6B /* DMSans_24pt-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0F1BCB5186B47F8937584E3 /* DMSans_24pt-Thin.ttf */; };
+		7E9A45BB2D4BA1B400F458AF /* MEL: More Exciting Life.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 7E9A45BA2D4BA1B400F458AF /* MEL: More Exciting Life.storekit */; };
+		7E9A45BD2D4BA36D00F458AF /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 7E9A45BC2D4BA36D00F458AF /* StoreKitTestCertificate.cer */; };
 		7EDF10542D46CCCA00E2C7C2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EDF10532D46CCCA00E2C7C2 /* StoreKit.framework */; };
 		7EDF10572D46CF5000E2C7C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EDF10562D46CF5000E2C7C2 /* GoogleService-Info.plist */; };
 		808667BEC6344611A05F87A1 /* DMSans_24pt-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78495E0A70A9453D8E6927E6 /* DMSans_24pt-ExtraLight.ttf */; };
@@ -146,6 +148,8 @@
 		78495E0A70A9453D8E6927E6 /* DMSans_24pt-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_24pt-ExtraLight.ttf"; path = "../src/assets/fonts/DMSans_24pt-ExtraLight.ttf"; sourceTree = "<group>"; };
 		791360589CDB405AA7701241 /* DMSans_24pt-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_24pt-LightItalic.ttf"; path = "../src/assets/fonts/DMSans_24pt-LightItalic.ttf"; sourceTree = "<group>"; };
 		7E8D827B77374C66B203DA52 /* DMMono-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMMono-MediumItalic.ttf"; path = "../src/assets/fonts/DMMono-MediumItalic.ttf"; sourceTree = "<group>"; };
+		7E9A45BA2D4BA1B400F458AF /* MEL: More Exciting Life.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "MEL: More Exciting Life.storekit"; sourceTree = "<group>"; };
+		7E9A45BC2D4BA36D00F458AF /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		7EDF10532D46CCCA00E2C7C2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7EDF10552D46CCCE00E2C7C2 /* MELMoreExcitingLife.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = MELMoreExcitingLife.entitlements; path = MELMoreExcitingLife/MELMoreExcitingLife.entitlements; sourceTree = "<group>"; };
 		7EDF10562D46CF5000E2C7C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -248,6 +252,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				7E9A45BA2D4BA1B400F458AF /* MEL: More Exciting Life.storekit */,
+				7E9A45BC2D4BA36D00F458AF /* StoreKitTestCertificate.cer */,
 				7EDF10562D46CF5000E2C7C2 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* MELMoreExcitingLife */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -482,11 +488,13 @@
 				F77F5170D1E74D5E9ADDFBBA /* DMSans-SemiBoldItalic.ttf in Resources */,
 				DEA7537C7BD341B7A049A865 /* DMSans-Thin.ttf in Resources */,
 				24A1E29C0D7B4C9F99C541BB /* DMSans-ThinItalic.ttf in Resources */,
+				7E9A45BD2D4BA36D00F458AF /* StoreKitTestCertificate.cer in Resources */,
 				CA781AB4B2754B5A8FA1654F /* DMSans_18pt-Black.ttf in Resources */,
 				03A110F3B5464D19B00203A0 /* DMSans_18pt-BlackItalic.ttf in Resources */,
 				C14052F497DC44E1A3E7BCC2 /* DMSans_18pt-Bold.ttf in Resources */,
 				B42E43E46408498D9B460042 /* DMSans_18pt-BoldItalic.ttf in Resources */,
 				7690596F72704A7C870AD696 /* DMSans_18pt-ExtraBold.ttf in Resources */,
+				7E9A45BB2D4BA1B400F458AF /* MEL: More Exciting Life.storekit in Resources */,
 				6B62FF10FB92454CA82942FF /* DMSans_18pt-ExtraBoldItalic.ttf in Resources */,
 				FC4720DE4C6847A790571219 /* DMSans_18pt-ExtraLight.ttf in Resources */,
 				4B040875911346A49F464908 /* DMSans_18pt-ExtraLightItalic.ttf in Resources */,
