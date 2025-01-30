@@ -3,13 +3,14 @@ import notifee from "@notifee/react-native";
 import TriggerType from "@notifee/react-native";
 
 const FCM_TOKEN = 'FCM_TOKEN';
+const NOTIFICATION_DATE = 'notification_date';
 
 const requestUserPermission = async () => {
   return await messaging().requestPermission();
 };
 
 const getFcmToken = async ({localStorage}) => {
-  const fcmtoken = localStorage.getString('fcmtoken');
+  const fcmtoken = localStorage.getString(FCM_TOKEN);
   if (!fcmtoken) {
     try {
       const newFcmToken = await messaging().getToken();
@@ -43,16 +44,23 @@ const notificationListener = () => {
 };
 
 const showNotification = async ({title, body}) => {
-  if(title === 'Question of the day')
-    notifee.setBadgeCount(1);
+
+  // prevent repeat notifications
+  let storedVal = localStorage.getString(NOTIFICATION_DATE);
+  if(typeof(storedVal) !== 'undefined' && storedVal != null && DeckData.isToday(new Date(storedVal))) {
+    return;
+  }
 
   const curDate = new Date();
-  console.log("Notification: "+curDate.getHours());
+  const dateKey = curDate.toISOString().split('T')[0];
+  localStorage.set(NOTIFICATION_DATE, dateKey);
+
+  notifee.setBadgeCount(1);
+
   if(curDate.getHours() < 9 || curDate.getHours() > 21) {
     scheduleNotification(title, body);
   }
   else {
-    console.log("Notification shown");
     await notifee.displayNotification({
       title: title,
       body: body,
@@ -69,7 +77,6 @@ const scheduleNotification = async ({title, body}) => {
     date.setDate(date.getDate() + 1)
   }
 
-  console.log("Notification scheduled for: "+date+" : "+date.getTime());
   // Create a trigger notification
   await notifee.createTriggerNotification({
       title: title,
