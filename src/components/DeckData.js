@@ -3,6 +3,7 @@ import { getUserID } from './authentication';
 import { ACTION_URL } from './Utils'
 
 const _SUFFIX_FAVOURITE = "FAV_";
+const REVEALED = 'REVEALED';
 export const ID_FAVOURITES = 'favourites';
 
 export class DeckData {
@@ -82,7 +83,7 @@ export class DeckData {
     }
 
     static isRevealedQoDToday(storage) {
-        const storedVal = storage.getString("REVEALED");
+        const storedVal = storage.getString(REVEALED);
         return typeof(storedVal) !== 'undefined'
         && storedVal != null
         && DeckData.isToday(new Date(storedVal));
@@ -100,7 +101,7 @@ export class DeckData {
                     if(response.status == 'ok') {
                         this._revealed = response.revealed;
                         const dateKey = this._dayOfTheQuestion.toISOString().split('T')[0];
-                        this._storage.set("REVEALED", dateKey);
+                        this._storage.set(REVEALED, dateKey);
                         callBack(this._revealed);
                     }
                 });
@@ -137,7 +138,7 @@ export class DeckData {
     }
 
     doFilter(products) {
-        const DEFAULT_ITEM_COUNT = 10;
+        const DEFAULT_ITEM_COUNT = 3;
         const newDecks = [];
 
         this._rawData.decks.map((deck) => {
@@ -154,13 +155,17 @@ export class DeckData {
             });
 
             if( !filtered ) {
-                if(deck.visibleByDefault) {
+                // Love Life and Connections 101 are accessible for free fully
+                if(deck.id == 7 || deck.id == 5) {
                     const newDeck = {...deck};
                     newDeck.totalCards = deck.cards.length;
-                    if(deck.cardsByDefault > 0)
-                        newDeck.cards = deck.cards.slice(0, deck.cardsByDefault);
-                    else
-                        newDeck.cards = deck.cards.slice(0, DEFAULT_ITEM_COUNT);
+                    newDecks.push(newDeck);
+                }
+                else {
+                    const newDeck = {...deck};
+                    newDeck.isLocked = true;
+                    newDeck.totalCards = deck.cards.length;
+                    newDeck.cards = deck.cards.slice(0, DEFAULT_ITEM_COUNT);
                     newDecks.push(newDeck);
                 }
             }

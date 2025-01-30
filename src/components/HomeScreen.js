@@ -1,4 +1,4 @@
-import { FlatList, Pressable, View } from 'react-native';
+import { FlatList, Image, Pressable, View } from 'react-native';
 import Card from './Card';
 import styles from './style'
 import {HALF_CARD_HEIGHT} from './style'
@@ -55,6 +55,17 @@ const HomeScreen = ({navigation}) => {
                 const viewKey = item.id == ID_FAVOURITES ? favouriteState : 0;
                 return (
                     <View style={styles.flatListItem} key={viewKey}>
+                        { item.isLocked &&
+                            <Image source={require("../assets/images/button-small-lock.png")} style={{
+                                height: 42,
+                                width: 42,
+                                top: 12,
+                                right: 12,
+                                zIndex: 1,
+                                position: 'absolute',
+                                backgroundColor: 'transparent'
+                            }}/>
+                        }
                         <Pressable onPress={() => clickDeck(item)}>
                             <Card
                                 type='deck'

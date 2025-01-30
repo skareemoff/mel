@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, View, Text, Pressable } from 'react-native';
+import { FlatList, View, Text, Pressable, Image } from 'react-native';
 import Markdown from 'react-native-markdown-display';
 import { Appbar } from 'react-native-paper';
 import EStyleSheet from 'react-native-extended-stylesheet';
@@ -55,6 +55,17 @@ const DeckInfoScreen = ({route, navigation}) => {
             case 'deck':
                 return(
                     <View style={styles.flatListItem}>
+                        {deckData.isLocked &&
+                            <Image source={require("../assets/images/button-small-lock.png")} style={{
+                                height: 42,
+                                width: 42,
+                                top: 12,
+                                right: 12,
+                                zIndex: 1,
+                                position: 'absolute',
+                                backgroundColor: 'transparent'
+                            }}/>
+                        }
                         <Card
                             type='deck'
                             text={deckData.deckName}
