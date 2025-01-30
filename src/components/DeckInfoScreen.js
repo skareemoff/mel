@@ -9,6 +9,7 @@ import {HALF_CARD_HEIGHT} from './style'
 import { HeaderBar } from './HeaderBar';
 import {MELContext} from './MELContext'
 import { checkDecksAccessPurchased, purchaseProduct } from './monetization';
+import SaleCard from './SaleCard';
 
 const DeckInfoScreen = ({route, navigation}) => {
     const {dd, purchaseState, setPurchaseState} = React.useContext(MELContext);
@@ -17,6 +18,7 @@ const DeckInfoScreen = ({route, navigation}) => {
     const descrColor = deckData.deckBackgroundColor ? deckData.deckBackgroundColor : 'darkGrey'
     const cards = [
         {'id': 'header'},
+        {'id':'sale'},
         {'id': 'deck'},
         {'id': 'description'},
         {'id': 'example'},
@@ -62,6 +64,14 @@ const DeckInfoScreen = ({route, navigation}) => {
         switch(item.id) {
             case 'header':
                 return (<HeaderBar showBackButton={true} navigation={navigation} />)
+            case 'sale':
+                return purchaseState
+                ? null
+                : (
+                    <Pressable onPress={() => clickSale()}>
+                        <SaleCard />
+                    </Pressable>
+                );
             case 'deck':
                 return(
                     <View style={styles.flatListItem}>

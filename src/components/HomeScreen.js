@@ -15,7 +15,7 @@ const HomeScreen = ({navigation}) => {
     const cards = [
         {'id':'header'},
         {'id': 'questionOfTheDay'},
-        {'id':'sale'},
+        //{'id':'sale'},
         ...dd.decks(),
         dd.getFavDeck()
     ];
