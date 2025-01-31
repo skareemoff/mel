@@ -3,7 +3,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import {View, Text, Animated, Easing, Dimensions} from 'react-native';
 import { HeaderBar } from './HeaderBar';
 import { SvgXml } from 'react-native-svg';
-import { localStorage } from "./src/components/storage";
+import { localStorage } from "./storage";
 
 export default function SplashScreen({navigation}) {
     const isShowOnboarding = localStorage.getString("SHOW_ONBOARDING") != 'NO';
