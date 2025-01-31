@@ -68,7 +68,7 @@ const DeckInfoScreen = ({route, navigation}) => {
             case 'header':
                 return (<HeaderBar showBackButton={true} navigation={navigation} />)
             case 'sale':
-                return purchaseState
+                return (purchaseState || !deckData.isLocked)
                 ? null
                 : (
                     <Pressable onPress={() => clickSale()}>
