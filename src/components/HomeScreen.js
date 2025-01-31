@@ -5,13 +5,14 @@ import {HALF_CARD_HEIGHT} from './style'
 import QoDCard from './QoDCard';
 import { HeaderBar } from './HeaderBar';
 import {MELContext} from './MELContext'
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import {ID_FAVOURITES} from './DeckData'
 import SaleCard from './SaleCard'
 import { checkDecksAccessPurchased, purchaseProduct } from './monetization';
 
 const HomeScreen = ({navigation}) => {
     const {dd, favouriteState, purchaseState, setPurchaseState} = useContext(MELContext);
+    const [screenKey, setScreenKey] = useState(0);
     const cards = [
         {'id':'header'},
         {'id': 'questionOfTheDay'},
@@ -21,9 +22,19 @@ const HomeScreen = ({navigation}) => {
     ];
 
     useEffect(() => {
+        console.log("UPDATING HOME SCREEN AFTER PURCHASE: "+purchaseState);``
         checkDecksAccessPurchased(setPurchaseState);
         dd.setPurchasedState(purchaseState);
+        cards.splice(0, cards.length,  [
+            {'id':'header'},
+            {'id': 'questionOfTheDay'},
+            //{'id':'sale'},
+            ...dd.decks(),
+            dd.getFavDeck()
+        ]);
+        setScreenKey(prevKey => prevKey + 1);
     }, [purchaseState]);
+
 
     const clickDeck = (dd) => {
         navigation.navigate('Info', { deckID: dd.id, deckName: dd.deckName })
@@ -93,7 +104,7 @@ const HomeScreen = ({navigation}) => {
         <FlatList
             style={styles.flatList}
             data={cards}
-            key={purchaseState}
+            key={screenKey}
             renderItem={renderCard}
             contentContainerStyle={{
                 paddingBottom: HALF_CARD_HEIGHT,

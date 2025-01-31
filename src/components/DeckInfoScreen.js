@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FlatList, View, Text, Pressable, Image } from 'react-native';
 import Markdown from 'react-native-markdown-display';
 import { Appbar } from 'react-native-paper';
@@ -16,6 +16,7 @@ const DeckInfoScreen = ({route, navigation}) => {
     const { deckID } = route.params;
     const deckData = dd.getDeck(deckID);
     const descrColor = deckData.deckBackgroundColor ? deckData.deckBackgroundColor : 'darkGrey'
+    const [screenKey, setScreenKey] = useState(0);
     const cards = [
         {'id': 'header'},
         {'id':'sale'},
@@ -26,8 +27,10 @@ const DeckInfoScreen = ({route, navigation}) => {
     ];
 
     useEffect(() => {
+        console.log("UPDATING DECK INFO SCREEN AFTER PURCHASE: "+purchaseState);
         checkDecksAccessPurchased(setPurchaseState);
         dd.setPurchasedState(purchaseState);
+        setScreenKey(prevKey => prevKey + 1);
     }, [purchaseState]);
 
     const clickSale = async () => {
@@ -137,7 +140,7 @@ const DeckInfoScreen = ({route, navigation}) => {
             <FlatList
                 style={[styles.flatList]}
                 data={cards}
-                key={purchaseState}
+                key={screenKey}
                 keyExtractor={(item) => item.id}
                 renderItem={renderCard}
                 contentContainerStyle={{
