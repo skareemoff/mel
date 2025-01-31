@@ -65,7 +65,7 @@ export default function App() {
           <View style={stl.container}>
             <StatusBar hidden={true} />
             { isShowSplashScreen
-              ?  <SplashScreen  showOnboarding={isShowOnboarding}/>
+              ?  <SplashScreen />
               :  <NavigationContainer theme={navTheme}>
                   <Stack.Navigator initialRouteName={isShowOnboarding ? 'Onboarding' : 'Home'}>
                     <Stack.Screen name="Onboarding" component={Onboarding}     options={{ headerShown: false }} />

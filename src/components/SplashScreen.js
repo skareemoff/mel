@@ -3,8 +3,11 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import {View, Text, Animated, Easing, Dimensions} from 'react-native';
 import { HeaderBar } from './HeaderBar';
 import { SvgXml } from 'react-native-svg';
+import { localStorage } from "./src/components/storage";
 
-export default function SplashScreen({showOnboarding, navigation}) {
+export default function SplashScreen({navigation}) {
+    const isShowOnboarding = localStorage.getString("SHOW_ONBOARDING") != 'NO';
+
     const fadeAnim1 = useRef(new Animated.Value(0)).current;
     const fadeAnim2 = useRef(new Animated.Value(0)).current;
     const fadeAnim3 = useRef(new Animated.Value(0)).current;
@@ -61,7 +64,7 @@ export default function SplashScreen({showOnboarding, navigation}) {
             }),
             Animated.timing(fadeAnim7, {
                 toValue:1,
-                duration: showOnboarding ? 1000 : 0,
+                duration: isShowOnboarding ? 1000 : 0,
                 easing: Easing.ease,
                 useNativeDriver:true,
             }),
@@ -87,7 +90,7 @@ export default function SplashScreen({showOnboarding, navigation}) {
                     width: "100%",
                     position: 'absolute',
                     opacity: fadeAnim7 }}>
-                { showOnboarding &&
+                { isShowOnboarding &&
                     <SvgXml
                         xml={bgXML}
                         width="100%"
