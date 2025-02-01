@@ -217,7 +217,6 @@ export class DeckData {
         if(deck.id === ID_FAVOURITES)
             return null;
         const info = [];
-        info.push({'type': 'likedCount', 'info': Math.floor(Math.random() * 99)});
         info.push({'type': 'cardCount',  'info': deck.cards ? deck.totalCards : 0});
         return info;
     }
