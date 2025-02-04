@@ -49,6 +49,24 @@ const SaleCard = () => {
         }}>
         Unlock all decks with{"\n"}1000+ questions
         </Text>
+        <Text style={{
+          fontFamily: 'DMMono-Regular',
+          fontSize: 22,
+          fontWeight: 400,
+          backgroundColor: '#5A1AEF',
+          width: 70,
+          height: 30,
+          paddintTop: 5,
+          transform: [{rotateZ: '25deg'}],
+          position: 'absolute',
+          top: -10,
+          right: 40,
+          borderRadius: 20,
+          color: 'white',
+          textAlign: 'center',
+          justifyContent: 'center',
+          alignContent: 'center'
+        }}>-60%</Text>
 
         <View style={{ marginTop: 20, flexDirection: 'row', justifyContent: 'left', alignItems: 'left' }}>
           <View style={{width: 10, height: 10, backgroundColor: '#5A1AEF', borderRadius: 50, justifyContent: 'center', alignItems: 'center'}}>
@@ -68,46 +86,6 @@ const SaleCard = () => {
           </View>
           <Text style={{ fontFamily: 'DMMono-Regular', fontSize: 14, marginLeft: 8, lineHeight: 15, color: 'white'}}>Free lifetime updates</Text>
         </View>
-
-          <View style={{
-            margin: 0,
-            padding: 0,
-            width: '100%',
-            flexDirection: 'row',
-            marginTop: 20,
-          }}>
-            <View style={{
-              paddingRight: 35,
-              borderRightWidth: 1,
-              borderColor: '#333333',
-            }}>
-              <Text style={{fontFamily: 'DMSans-Thin', fontSize: 42, color: '#F9F9F9'}}>$19,99</Text>
-          </View>
-          <View style={{
-            right: 50,
-            position: 'absolute',
-            justifyContent: 'left', alignItems: 'left'
-          }}>
-            <View style={{width: '105%', height: 5, backgroundColor: '#5A1AEF', zIndex: 1, top: '45%', position: 'absolute'}}></View>
-              <Text style={{ fontWeight: 250, fontFamily: 'DMSans-Thin', fontSize: 42, marginLeft: 8, color: '#F9F9F9'}}>$49,99</Text>
-              <Text style={{
-                fontFamily: 'DMMono-Regular',
-                fontSize: 14,
-                fontWeight: 400,
-                backgroundColor: '#5A1AEF',
-                width: 42,
-                height: 23,
-                position: 'absolute',
-                top: -5,
-                right: -10,
-                borderRadius: 20,
-                color: 'white',
-                textAlign: 'center',
-                justifyContent: 'center',
-                alignContent: 'center'
-              }}>-60%</Text>
-          </View>
-        </View>
       </View>
     </View>
   );
@@ -118,7 +96,7 @@ export default SaleCard;
 const st = EStyleSheet.create({
   cover: {
     width: 353,
-    height: 291,
+    height: 231,
     backgroundColor: 'black',
     borderRadius: 30,
     justifyContent: 'flex-start',
