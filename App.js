@@ -19,7 +19,8 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [isShowSplashScreen, setIsShowSplashScreen] = useState(true);
-  const isShowOnboarding = localStorage.getString("SHOW_ONBOARDING") != 'NO';
+  const showOnboarding = localStorage.getString("SHOW_ONBOARDING");
+  const isShowOnboarding = typeof(showOnboarding) !== 'undefined' && showOnboarding != null && showOnboarding !== 'NO';
 
   useEffect(() => {
     // SPLASH SCREEN procedure
