@@ -42,23 +42,21 @@ export default function SplashScreen({navigation}) {
                 easing: Easing.ease,
                 useNativeDriver:true,
             }),
-            Animated.parallel([
-                Animated.timing(fadeAnim5, {
-                    toValue:0,
-                    duration:750,
-                    easing: Easing.ease,
-                    useNativeDriver:true,
-                }),
-                Animated.timing(fadeAnim6, {
-                    toValue:1,
-                    duration:1000,
-                    easing: Easing.ease,
-                    useNativeDriver:true,
-                }),
-            ]),
+            Animated.timing(fadeAnim5, {
+                toValue:0,
+                duration:500,
+                easing: Easing.ease,
+                useNativeDriver:true,
+            }),
+            Animated.timing(fadeAnim6, {
+                toValue:1,
+                duration:500,
+                easing: Easing.ease,
+                useNativeDriver:true,
+            }),
             Animated.timing(slideAnim1, {
-                toValue: 0 - ((Dimensions.get('window').height - 50) /2), // 50 is $mainLogoHeight in styles
-                duration: 750,
+                toValue: 50 - ((Dimensions.get('window').height - 50) /2),
+                duration: 500,
                 easing: Easing.ease,
                 useNativeDriver: true
             }),
@@ -128,7 +126,7 @@ export default function SplashScreen({navigation}) {
                     </Text>
                 </Animated.View>
             </Animated.View>
-            <Animated.View style={[stl.container, {opacity:fadeAnim6}, {transform: [{translateY: slideAnim1}]} ]}>
+            <Animated.View style={[stl.container, stl.logoPosition, {opacity:fadeAnim6}, {transform: [{translateY: slideAnim1}]} ]}>
                 <HeaderBar showBackButton={false} navigation={navigation} />
             </Animated.View>
         </View>
@@ -146,6 +144,9 @@ const stl = EStyleSheet.create({
         backgroundColor: '$containerColor',
         margin: 0,
         padding: 0,
+    },
+    logoPosition: {
+        top: -50,
     },
     text: {
         color: "#6F6F6F",
