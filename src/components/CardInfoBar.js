@@ -65,7 +65,7 @@ const stl = EStyleSheet.create({
         zIndex: 1,
     },
     pillHalf: {
-        bottom: 12,
+        bottom: 15,
         left: 12,
         borderRadius: 20,
         backgroundColor: 'rgba(238 238 238 / 0.5)',
@@ -74,6 +74,8 @@ const stl = EStyleSheet.create({
         borderColor: 'transparent',
         backgroundColor: 'transparent',
         borderWidth: 0,
+        bottom: -10,
+        left: 15,
     },
     pillImage: {
         width: 15,
