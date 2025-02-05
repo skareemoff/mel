@@ -40,7 +40,9 @@ export const ShareableCard = ({deckData, cardDeck, currentIndex, viewShotRef}) =
                     height={cardDeck.value[currentIndex].height}
                     shotFooterText='More Exciting Life'
                     shareable='yes'
-                />
+                    infoRight='www.mel.life'
+                    infoTextStyleRight='playInfoText'
+                  />
             </ViewShot>
         </View>
     );
