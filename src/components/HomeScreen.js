@@ -1,14 +1,13 @@
-import { FlatList, Image, Pressable, View } from 'react-native';
+import { FlatList, Image, Linking, Pressable, Text, View } from 'react-native';
 import Card from './Card';
 import styles from './style'
-import {HALF_CARD_HEIGHT} from './style'
 import QoDCard from './QoDCard';
 import { HeaderBar } from './HeaderBar';
 import {MELContext} from './MELContext'
 import { useContext, useEffect, useState } from 'react';
 import {ID_FAVOURITES} from './DeckData'
 import SaleCard from './SaleCard'
-import { checkDecksAccessPurchased, purchaseProduct } from './monetization';
+import { checkDecksAccessPurchased, purchaseProduct, restorePurchases } from './monetization';
 
 const HomeScreen = ({navigation}) => {
     const {dd, favouriteState, purchaseState, setPurchaseState} = useContext(MELContext);
@@ -18,7 +17,9 @@ const HomeScreen = ({navigation}) => {
         {'id': 'questionOfTheDay'},
         //{'id':'sale'},
         ...dd.decks(),
-        dd.getFavDeck()
+        dd.getFavDeck(),
+        {'id': 'sendFeedback'},
+        {'id': 'restorePurchase'}
     ];
 
     useEffect(() => {
@@ -45,6 +46,11 @@ const HomeScreen = ({navigation}) => {
         purchaseProduct(setPurchaseState);
     };
 
+    const clickRestore = async () => {
+        console.log("INITIATING RESTORE");
+        restorePurchases(setPurchaseState);
+    };
+
     const renderCard = ({ item }) => {
         switch(item.id) {
             case 'header':
@@ -66,6 +72,52 @@ const HomeScreen = ({navigation}) => {
                     </Pressable>
                 );
 
+            case 'sendFeedback':
+                return (
+                    <Pressable style={styles.flatListItem} onPress={() => Linking.openURL('mailto:feedback@mel.life?subject=Feedback from MEL app') }>
+                        <View style={{
+                            borderRadius: 40,
+                            width: 353,
+                            height: 84,
+                            borderColor: 'black',
+                            borderWidth: 1,
+                            justifyContent: 'center',
+                            alignContent: 'center',
+                            alignItems: 'center'
+                        }}>
+                            <Text style={{
+                                fontSize: 32,
+                                fontFamily: 'DMSans',
+                                fontWeight: 500,
+                                textAlign: 'center',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                color: 'black'}}>Send feedback</Text>
+                        </View>
+                    </Pressable>
+                );
+            case 'restorePurchase':
+                return (
+                    <Pressable style={styles.flatListItem} onPress={() => clickRestore()}>
+                        <View style={{
+                            borderRadius: 40,
+                            width: 353,
+                            height: 84,
+                            justifyContent: 'center',
+                            alignContent: 'center',
+                            alignItems: 'center'
+                        }}>
+                            <Text style={{
+                                fontSize: 32,
+                                fontFamily: 'DMSans',
+                                fontWeight: 500,
+                                textAlign: 'center',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                color: 'black'}}>Restore purchase</Text>
+                        </View>
+                    </Pressable>
+                );
             default:
                 const viewKey = item.id == ID_FAVOURITES ? favouriteState : 0;
                 return (
@@ -107,7 +159,7 @@ const HomeScreen = ({navigation}) => {
             key={screenKey}
             renderItem={renderCard}
             contentContainerStyle={{
-                paddingBottom: HALF_CARD_HEIGHT,
+                paddingBottom: 70,
                 justifyContent: 'center',
                 alignItems: 'center',
                 alignSelf: 'center',

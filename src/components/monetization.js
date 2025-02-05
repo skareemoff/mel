@@ -31,9 +31,11 @@ const purchaseProduct = async (setPurchaseState) => {
         }
       })
   } catch (e) {
+    console.log("EXCEPTION: "+e);
+    showError(e);
     if (!e.userCancelled) {
       console.log("ERROR WHILE PURCHASING", e);
-      Alert.alert('Making a purchase is not available at this moment.\nPlease tryt again later.');
+      Alert.alert('Making a purchase attempt failed.\nPlease tryt again later.');
     }
     else {
       console.log("USER CANCELLED");
@@ -41,7 +43,18 @@ const purchaseProduct = async (setPurchaseState) => {
   }
 };
 
+const restorePurchases = async (setPurchaseState) => {
+  try {
+    await Purchases.restorePurchases().then(offerings => {
+      checkDecksAccessPurchased(setPurchaseState);
+    });
+  } catch (e) {
+
+  }
+};
+
 export {
     checkDecksAccessPurchased,
-    purchaseProduct
+    purchaseProduct,
+    restorePurchases
 };
