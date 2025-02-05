@@ -40,7 +40,6 @@ const notificationListener = () => {
     });
 
     subscribeToTopic('broadcast_to_all_users');
-    subscribeToTopic('testing');
 };
 
 const showNotification = async ({title, body}) => {
