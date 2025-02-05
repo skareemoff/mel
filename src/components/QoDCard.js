@@ -1,9 +1,10 @@
-import { Image, TouchableOpacity, Text, Animated} from "react-native";
+import { Image, TouchableOpacity, Text, Animated, StyleSheet} from "react-native";
 import EStyleSheet from 'react-native-extended-stylesheet';
 import React, { useRef, useState } from "react";
 import Card from './Card'
 import {MELContext} from './MELContext'
 import notifee from "@notifee/react-native";
+import { BlurView } from "expo-blur";
 
 const QoDCard = () => {
   const {dd} = React.useContext(MELContext);
@@ -54,7 +55,10 @@ const QoDCard = () => {
                 />
             {isShowRevealButton ?
             <Animated.View name="cover" style={[st.cover, opacityStyle, st.cardBlur ]} >
-                <Image source={require('../assets/images/qodmask-small.png')} style={st.blurImage} />
+                <BlurView
+                    intensity={20}
+                    style={st.blurView}
+                />
                 <TouchableOpacity style={[st.revealButton, st.shadow]} onPressOut={() => clickReveal()}>
                   <Text style={st.revealButtonText} source={require("../assets/images/button-play.png")}>Reveal</Text>
                 </TouchableOpacity>
@@ -73,6 +77,11 @@ const st = EStyleSheet.create({
   face: {
     alignItems: "center",
     justifyContent: "center",
+  },
+  blurView: {
+    ...StyleSheet.absoluteFillObject,
+    borderRadius: 20,
+    overflow: 'hidden',
   },
   cover: {
     flex: 1,

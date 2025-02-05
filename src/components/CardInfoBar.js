@@ -1,8 +1,9 @@
 import React from 'react';
-import { Image, Text, View } from 'react-native';
+import { Image, Text, View, StyleSheet } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import {CARD_HALF} from "./Utils"
 import MELContext from './MELContext'
+import { BlurView } from "expo-blur";
 
 const CardInfoBar = ({data, height}) => {
     const images = {
@@ -16,8 +17,15 @@ const CardInfoBar = ({data, height}) => {
             { data.map((item, index) => {
                 const img = images[item.type];
                 return (
-                    <View style={[stl.pill,height == CARD_HALF ? stl.pillHalf : stl.pillFull ]} key={index}>
-                        <Image style={stl.pillImage} source={img} /><Text style={stl.pillText}>{item.info}</Text>
+                    <View style={[stl.pillOuter, height == CARD_HALF ? stl.pillHalf : stl.pillFull ]} key={index}>
+                        <BlurView
+                            intensity={20}
+                            style={stl.blurView}
+                        />
+                        <View style={stl.pillContent}>
+                            <Image style={stl.pillImage} source={img} />
+                            <Text style={stl.pillText}>{item.info}</Text>
+                        </View>
                     </View>
                 )
             })}
@@ -33,25 +41,34 @@ const stl = EStyleSheet.create({
         justifyContext: 'left',
         alignItems: 'left',
         width: "100%",
-        left: 12,
+        left: 0,
         bottom: 0,
     },
-    pill: {
+    pillOuter: {
         flexDirection: "row",
-        borderRadius: 20,
-        borderColor: 'rgba(e, e, e, 0.05)',
-        backgroundColor: '#eeeeee',
-        opacity: 0.85,
-        borderWidth: 0.1,
         justifyContent: 'center',
         alignItems: 'center',
-        paddingRight: 15,
         height: 42,
-        backdropFilter: 'blur(10px)',
+        overflow: 'hidden',
+        marginLeft: 0,
+        position: 'relative',
+    },
+    blurView: {
+        ...StyleSheet.absoluteFillObject,
+        borderRadius: 20,
+        overflow: 'hidden',
+    },
+    pillContent: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingRight: 15,
+        zIndex: 1,
     },
     pillHalf: {
         bottom: 12,
-        marginLeft: 4,
+        left: 12,
+        borderRadius: 20,
+        backgroundColor: 'rgba(238 238 238 / 0.5)',
     },
     pillFull: {
         borderColor: 'transparent',
@@ -62,14 +79,15 @@ const stl = EStyleSheet.create({
         width: 15,
         height: 12,
         resizeMode: 'contain',
-        marginLeft: 15,
+        marginLeft: 12,
         alignSelf: 'center',
+        tintColor: 'rgba(0, 0, 0, 0.9)',
     },
     pillText: {
         fontFamily: "DMMono-Regular",
         fontSize: 14,
         lineHeight: 18,
-        color: 'black',
+        color: 'rgba(0, 0, 0, 0.9)',
         textAlign: 'right',
         verticalAlign: 'middle',
         paddingTop: 12,
