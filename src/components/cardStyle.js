@@ -95,10 +95,6 @@ export default EStyleSheet.create({
         fontFamily: "DMSans",
         color: 'black',
         fontSize: 14,
-        position: 'absolute',
-    },
-    footerTextRight: {
-        right: 15,
     },
 
 
