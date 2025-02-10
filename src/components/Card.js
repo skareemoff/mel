@@ -84,8 +84,8 @@ const Card = (cardData) => {
                     </View>
                 )}
                 <View style={[stl.bottom]}>
-                    { cardData.deckInfo && <CardInfoBar data={cardData.deckInfo} height={cardHeight}/> }
-                    <Text style={[stl.footerText, stl.footerTextRight, styles[cardData.infoTextStyleRight]]}>{cardData.infoRight}</Text>
+                    { cardData.deckInfo && <CardInfoBar data={cardData.deckInfo} height={cardHeight} infoBoxBlur={cardData.infoBoxBlur}/> }
+                    <Text style={[stl.footerText, styles[cardData.infoTextStyleRight]]}>{cardData.infoRight}</Text>
                 </View>
             </View>
         );
