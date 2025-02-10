@@ -52,6 +52,7 @@ const QoDCard = () => {
                 deckStyle='qODDeck'
                 cardStyle='qODCard'
                 infoTextStyleRight='qODInfoTextRight'
+                infoBoxBlur={false}
                 />
             {isShowRevealButton ?
             <Animated.View name="cover" style={[st.cover, opacityStyle, st.cardBlur ]} >
@@ -82,6 +83,7 @@ const st = EStyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     borderRadius: 20,
     overflow: 'hidden',
+    width: '100%',
   },
   cover: {
     flex: 1,
@@ -95,19 +97,9 @@ const st = EStyleSheet.create({
     top: 0,
   },
   cardBlur: {
-    width: 333,
+    width: '100%',
     height: 442,
     borderRadius: 20,
-  },
-  blurImage: {
-    width: '100%',
-    height: '100%',
-    position: 'absolute',
-    top: 50,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    borderRadius: 30,
   },
   revealButton: {
     justifyContent: 'center',
