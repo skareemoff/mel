@@ -159,7 +159,7 @@ const HomeScreen = ({navigation}) => {
             key={screenKey}
             renderItem={renderCard}
             contentContainerStyle={{
-                paddingBottom: 70,
+                paddingBottom: 160,
                 justifyContent: 'center',
                 alignItems: 'center',
                 alignSelf: 'center',
