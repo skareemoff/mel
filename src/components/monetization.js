@@ -31,11 +31,9 @@ const purchaseProduct = async (setPurchaseState) => {
         }
       })
   } catch (e) {
-    console.log("EXCEPTION: "+e);
-    showError(e);
     if (!e.userCancelled) {
       console.log("ERROR WHILE PURCHASING", e);
-      Alert.alert('Making a purchase attempt failed.\nPlease tryt again later.');
+      showError(e);
     }
     else {
       console.log("USER CANCELLED");
