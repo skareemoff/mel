@@ -117,6 +117,8 @@ export default EStyleSheet.create({
         fontSize: 14,
         color: '#4B677D',
         right: 35,
+        position: 'absolute',
+        backgroundColor: 'transparent',
     },
 
     exampleDeckTitle: {
