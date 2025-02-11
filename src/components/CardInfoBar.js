@@ -17,7 +17,7 @@ const CardInfoBar = ({data, height, infoBoxBlur}) => {
                 const img = images[item.type];
                 return (
                     <View style={[stl.pillOuter, height == CARD_HALF ? stl.pillHalf : stl.pillFull ]} key={index}>
-                        { infoBoxBlur &&
+                        { infoBoxBlur !== false &&
                             <BlurView
                                 intensity={20}
                                 style={stl.blurView}
