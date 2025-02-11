@@ -45,9 +45,13 @@ const restorePurchases = async (setPurchaseState) => {
   try {
     await Purchases.restorePurchases().then(offerings => {
       checkDecksAccessPurchased(setPurchaseState);
+      Alert.alert('Your purchases have been successfully restored');
     });
   } catch (e) {
-
+    if (!e.userCancelled) {
+      console.log("ERROR WHILE RESTORING", e);
+      showError(e);
+    }
   }
 };
 
