@@ -83,7 +83,6 @@ const st = EStyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     borderRadius: 20,
     overflow: 'hidden',
-    width: '100%',
   },
   cover: {
     flex: 1,
@@ -97,9 +96,14 @@ const st = EStyleSheet.create({
     top: 0,
   },
   cardBlur: {
-    width: '100%',
-    height: 442,
     borderRadius: 20,
+    width: '$cardWidth - 40',
+    height: '$cardHeightFull - 128',
+    top: 0,
+    left: 0,
+    marginBottom: 64,
+    marginTop: 64,
+    marginHorizontal: 20,
   },
   revealButton: {
     justifyContent: 'center',
@@ -112,6 +116,7 @@ const st = EStyleSheet.create({
     width: 161,
     height: 84,
     backgroundColor: "#F9F9F9",
+    marginBottom: 54
   },
   revealButtonText: {
     color: 'black',
