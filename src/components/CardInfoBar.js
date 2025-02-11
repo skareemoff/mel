@@ -2,7 +2,6 @@ import React from 'react';
 import { Image, Text, View, StyleSheet } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import {CARD_HALF} from "./Utils"
-import MELContext from './MELContext'
 import { BlurView } from "expo-blur";
 
 const CardInfoBar = ({data, height, infoBoxBlur}) => {
@@ -71,7 +70,6 @@ const stl = EStyleSheet.create({
         ...StyleSheet.absoluteFillObject,
         borderRadius: 20,
         overflow: 'hidden',
-        backgroundColor: 'transparent',
     },
     pillContent: {
         flexDirection: 'row',
