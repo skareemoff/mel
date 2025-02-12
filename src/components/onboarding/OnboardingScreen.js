@@ -11,6 +11,7 @@ import styles from '../style'
 import cstl from '../cardStyle'
 import MiniCard from './MiniCard'
 import { runOnJS } from "react-native-reanimated";
+import { localStorage } from "../storage";
 
 export default function OnboardingScreen({
     name,
@@ -49,6 +50,7 @@ export default function OnboardingScreen({
             index: 0,
             routes: [{ name: 'Home' }]
        });
+       localStorage.set("SHOW_ONBOARDING", 'NO');
     }, [navigation])
 
     const buildStripes = () => {

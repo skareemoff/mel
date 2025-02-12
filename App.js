@@ -20,9 +20,11 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   const [isShowSplashScreen, setIsShowSplashScreen] = useState(true);
   const showOnboarding = localStorage.getString("SHOW_ONBOARDING");
-  const isShowOnboarding = typeof(showOnboarding) == 'undefined' || showOnboarding == null || showOnboarding !== 'NO';
+  const isShowOnboarding = typeof showOnboarding === 'undefined' || showOnboarding === null || showOnboarding != 'NO';
 
   useEffect(() => {
+    console.log("IS SHOW ONBOARDING: "+showOnboarding+'['+isShowOnboarding+']');
+
     // SPLASH SCREEN procedure
     const timer = setTimeout(() => {
       if (Platform.OS === 'ios') {
@@ -44,9 +46,6 @@ export default function App() {
     void getFcmToken(localStorage);
     void requestUserPermission();
     void notificationListener();
-    if(isShowOnboarding) {
-      localStorage.set("SHOW_ONBOARDING", 'NO');
-    }
 
     return () => clearTimeout(timer);
   }, []);
