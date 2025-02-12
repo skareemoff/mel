@@ -49,24 +49,6 @@ const SaleCard = () => {
         }}>
         Unlock all decks with{"\n"}1000+ questions
         </Text>
-        <Text style={{
-          fontFamily: 'DMMono-Regular',
-          fontSize: 22,
-          fontWeight: 400,
-          backgroundColor: '#5A1AEF',
-          width: 70,
-          height: 30,
-          paddintTop: 5,
-          transform: [{rotateZ: '25deg'}],
-          position: 'absolute',
-          top: -10,
-          right: 40,
-          borderRadius: 20,
-          color: 'white',
-          textAlign: 'center',
-          justifyContent: 'center',
-          alignContent: 'center'
-        }}>-60%</Text>
 
         <View style={{ marginTop: 20, flexDirection: 'row', justifyContent: 'left', alignItems: 'left' }}>
           <View style={{width: 10, height: 10, backgroundColor: '#5A1AEF', borderRadius: 50, justifyContent: 'center', alignItems: 'center'}}>
