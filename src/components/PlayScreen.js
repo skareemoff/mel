@@ -79,7 +79,7 @@ export default function PlayScreen({route, navigation}) {
   const shareSnapshot = async () => {
     try {
       setShareModalVisible(true);
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
       if (!viewShotRef.current) {
         console.error('ViewShot ref is not ready');
@@ -95,6 +95,7 @@ export default function PlayScreen({route, navigation}) {
       await Share.open({ url: snapshot });
       setShareModalVisible(false);
     } catch (error) {
+      console.log(error);
       setShareModalVisible(false);
     };
   };
