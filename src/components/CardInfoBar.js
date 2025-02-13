@@ -51,11 +51,10 @@ const stl = EStyleSheet.create({
         alignItems: 'center',
         height: 42,
         overflow: 'hidden',
-        marginLeft: 0,
         position: 'relative',
     },
     pillHalf: {
-        bottom: 15,
+        bottom: 12,
         left: 12,
         borderRadius: 20,
         backgroundColor: 'rgba(238 238 238 / 0.7)',

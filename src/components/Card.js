@@ -38,60 +38,61 @@ const Card = (cardData) => {
     ? (cardData.height == CARD_FULL ? CARD_FULL : CARD_HALF)
     : ((cardData.type == 'card') ? CARD_FULL : CARD_HALF);
 
+    const bgColor = cardData.deckBackgroundColor ? cardData.deckBackgroundColor : 'white';
 
-    const buildCard = () => {
+    return (
+        <View style={[
+            stl.card,
+            styles.shadow,
+            styles[cardData.cardStyle],
+            cardHeight == CARD_FULL ? stl.cardFull : stl.cardHalf,
+            {backgroundColor: bgColor}
+        ]}>
+            {cardData.deckBackgroundSvg && dd.getDeckImageSvg(cardData.deckBackgroundSvg, cardHeight) &&
+                <SvgXml
+                    xml={dd.getDeckImageSvg(cardData.deckBackgroundSvg, cardHeight)}
+                    width="100%"
+                    style={
+                    {
+                        position: 'absolute',
+                        borderRadius: 30,
+                        zIndex: 0,
+                        overflow: 'hidden',
+                        backgroundColor: cardData.deckBackgroundColor ? cardData.deckBackgroundColor : 'white'
+                    }}
+                />
+            }
 
-        const bgColor = cardData.deckBackgroundColor ? cardData.deckBackgroundColor : 'white';
-        return (
-            <View style={[
-                stl.card,
-                styles.shadow,
-                styles[cardData.cardStyle],
-                cardHeight == CARD_FULL ? stl.cardFull : stl.cardHalf,
-                {backgroundColor: bgColor}
-            ]}>
-                {cardData.deckBackgroundSvg && dd.getDeckImageSvg(cardData.deckBackgroundSvg, cardHeight) &&
-                    <SvgXml
-                        xml={dd.getDeckImageSvg(cardData.deckBackgroundSvg, cardHeight)}
-                        width="100%"
-                        style={
-                        {
-                            position: 'absolute',
-                            borderRadius: 30,
-                            zIndex: 0,
-                            overflow: 'hidden',
-                            backgroundColor: cardData.deckBackgroundColor ? cardData.deckBackgroundColor : 'white'
-                        }}
-                    />
-                }
-                <View style={[stl.top]}>
-                    <View style={[stl.cardHeader]}>
-                        <Text style={[stl.deckName, styles[cardData.deckTextStyle]]}>{cardData.deckName}</Text>
-                        {cardData.deckSubText && <Text style={[stl.deckSubText, styles[cardData.deckSubTextStyle]]}>{cardData.deckSubText}</Text>}
-                    </View>
-                </View>
-                {cardData.useMarkdown == 'yes'
-                ? (
-                    <View style={stl.middle}>
-                        {cardData.text && <Markdown style={styles[cardData.cardTextStyle]}>{cardData.text}</Markdown>}
-                        {cardData.subText && cardData.subText && <Markdown style={styles[cardData.cardSubTextStyle]}>{cardData.subText}</Markdown>}
-                    </View>
-                )
-                : (
-                    <View style={stl.middle}>
-                        <Text style={[stl.cardText, styles[cardData.cardTextStyle]]}>{cardData.text}</Text>
-                        {cardData.subText && <Text style={[stl.cardSubText, styles[cardData.cardSubTextStyle]]}>{cardData.subText}</Text>}
-                    </View>
-                )}
-                <View style={[stl.bottom]}>
-                    { cardData.deckInfo && <CardInfoBar data={cardData.deckInfo} height={cardHeight} infoBoxBlur={cardData.infoBoxBlur}/> }
-                    <Text style={[stl.footerText, styles[cardData.infoTextStyleRight]]}>{cardData.infoRight}</Text>
+
+            <View style={[stl.top]}>
+                <View style={[stl.cardHeader]}>
+                    <Text style={[stl.deckName, styles[cardData.deckTextStyle]]}>{cardData.deckName}</Text>
+                    {cardData.deckSubText && <Text style={[stl.deckSubText, styles[cardData.deckSubTextStyle]]}>{cardData.deckSubText}</Text>}
                 </View>
             </View>
-        );
-    };
 
-    return buildCard()
+
+            {cardData.useMarkdown == 'yes'
+            ? (
+                <View style={stl.middle}>
+                    {cardData.text && <Markdown style={styles[cardData.cardTextStyle]}>{cardData.text}</Markdown>}
+                    {cardData.subText && cardData.subText && <Markdown style={styles[cardData.cardSubTextStyle]}>{cardData.subText}</Markdown>}
+                </View>
+            )
+            : (
+                <View style={stl.middle}>
+                    <Text style={[stl.cardText, styles[cardData.cardTextStyle]]}>{cardData.text}</Text>
+                    {cardData.subText && <Text style={[stl.cardSubText, styles[cardData.cardSubTextStyle]]}>{cardData.subText}</Text>}
+                </View>
+            )}
+
+
+            <View style={[stl.bottom]}>
+                { cardData.deckInfo && <CardInfoBar data={cardData.deckInfo} height={cardHeight} infoBoxBlur={cardData.infoBoxBlur}/> }
+                { cardData.infoRight && <Text style={[stl.footerText, styles[cardData.infoTextStyleRight]]}>{cardData.infoRight}</Text> }
+            </View>
+        </View>
+    );
 };
 
 export default Card;
