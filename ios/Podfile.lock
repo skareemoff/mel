@@ -41,6 +41,9 @@ PODS:
   - FBLazyVector (0.76.5)
   - Firebase (11.7.0):
     - Firebase/Core (= 11.7.0)
+  - Firebase/AnalyticsWithoutAdIdSupport (11.7.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics/WithoutAdIdSupport (~> 11.7.0)
   - Firebase/Core (11.7.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (~> 11.7.0)
@@ -62,6 +65,15 @@ PODS:
     - FirebaseCore (~> 11.7.0)
     - FirebaseInstallations (~> 11.0)
     - GoogleAppMeasurement (= 11.7.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
+    - GoogleUtilities/MethodSwizzler (~> 8.0)
+    - GoogleUtilities/Network (~> 8.0)
+    - "GoogleUtilities/NSData+zlib (~> 8.0)"
+    - nanopb (~> 3.30910.0)
+  - FirebaseAnalytics/WithoutAdIdSupport (11.7.0):
+    - FirebaseCore (~> 11.7.0)
+    - FirebaseInstallations (~> 11.0)
+    - GoogleAppMeasurement/WithoutAdIdSupport (= 11.7.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
     - GoogleUtilities/MethodSwizzler (~> 8.0)
     - GoogleUtilities/Network (~> 8.0)
@@ -1787,6 +1799,10 @@ PODS:
   - RevenueCat (5.14.5)
   - RNAppleAuthentication (2.4.0):
     - React-Core
+  - RNFBAnalytics (21.10.0):
+    - Firebase/AnalyticsWithoutAdIdSupport (= 11.7.0)
+    - React-Core
+    - RNFBApp
   - RNFBApp (21.7.1):
     - Firebase/CoreOnly (= 11.7.0)
     - React-Core
@@ -2105,6 +2121,7 @@ DEPENDENCIES:
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNAppleAuthentication (from `../node_modules/@invertase/react-native-apple-authentication`)"
+  - "RNFBAnalytics (from `../node_modules/@react-native-firebase/analytics`)"
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBMessaging (from `../node_modules/@react-native-firebase/messaging`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
@@ -2287,6 +2304,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNAppleAuthentication:
     :path: "../node_modules/@invertase/react-native-apple-authentication"
+  RNFBAnalytics:
+    :path: "../node_modules/@react-native-firebase/analytics"
   RNFBApp:
     :path: "../node_modules/@react-native-firebase/app"
   RNFBMessaging:
@@ -2399,6 +2418,7 @@ SPEC CHECKSUMS:
   ReactCommon: 5809a8ee421b7219221a475b78180f8f34b5c5ec
   RevenueCat: 4c0e809f7c7428cbe8d79cbb9a0dc7551e71e74e
   RNAppleAuthentication: 8d313d93fe2238d6b7ff0a39c67ebcf298d96653
+  RNFBAnalytics: af887ce556d3babaeb40a892c15265ebca353666
   RNFBApp: 6ea10ef8a45c43cd75d580599484c0931e6c3683
   RNFBMessaging: 10f37d2c5d9fe83e8f275322062803532faa4609
   RNGestureHandler: b9cd1bda1d2a95d390de0a88e1e41140a5a68e82
@@ -2411,6 +2431,6 @@ SPEC CHECKSUMS:
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: fcc198acd4a55599b3468cfb6ebc526baff5f06e
 
-PODFILE CHECKSUM: 4d5b49028454a53d8895a62e8a8d7fd46fb299ca
+PODFILE CHECKSUM: 4e5a01c46f1f02aa1d551d3ec51282dd605be511
 
 COCOAPODS: 1.16.2
