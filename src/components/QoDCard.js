@@ -1,23 +1,33 @@
-import { Image, TouchableOpacity, Text, Animated, StyleSheet} from "react-native";
+import { TouchableOpacity, Text, Animated, StyleSheet} from "react-native";
 import EStyleSheet from 'react-native-extended-stylesheet';
-import React, { useRef, useState } from "react";
-import Card from './Card'
-import {MELContext} from './MELContext'
+import React, { useContext, useEffect, useRef, useState } from "react";
+import analytics from '@react-native-firebase/analytics';
 import notifee from "@notifee/react-native";
 import { BlurView } from "expo-blur";
+import Card from './Card'
+import { qodD } from "./QuestionOfTheDayData";
+import styles from './style'
+import { MELContext } from "./MELContext";
 
 const QoDCard = () => {
-  const {dd} = React.useContext(MELContext);
+  const [isShowRevealButton, setIsShowRevealButton] = useState(!qodD.isRevealedToday());
+  const [dataKey, setDataKey] = useState(0);
+  const {questionOfTheDayState, setQuestionOfTheDayState} = useContext(MELContext);
 
-  const [isShowRevealButton, setIsShowRevealButton] = useState(!dd.isRevealedToday());
-  const [cardKey, setCardKey] = useState(dd.getQoDRevealedCount());
+  useEffect(() => {
+    setDataKey(prevKey => prevKey + 1);
+  }, [questionOfTheDayState]);
+
 
   const opacityAnimation = useRef(new Animated.Value(1)).current;
   const opacityStyle = { opacity: opacityAnimation };
 
   const clickReveal = () => {
-    dd.revealQoD(updateRevealed);
+    async () => await analytics().logEvent('reveal');
+
+    qodD.revealQoD(updateRevealed);
     notifee.setBadgeCount(0);
+
     Animated.timing(opacityAnimation, {
       toValue: 0,
       duration: 1000,
@@ -27,25 +37,25 @@ const QoDCard = () => {
 
   const updateRevealed = (revealed) => {
     setIsShowRevealButton(false);
-    setCardKey(prevKey => prevKey + 1);
+    setDataKey(prevKey => prevKey + 1);
   }
 
   const getDeckInfo = () => {
-    return [{'type': 'reflectingCount',  'info': dd.getQoDRevealedCount()+' reflecting'},];
+    return [{'type': 'reflectingCount',  'info': qodD.getQoDRevealedCount()+' reflecting'},];
   }
 
   return (
     <>
-        <Animated.View key={cardKey} style={[st.face]}>
+        <Animated.View key={dataKey} style={[styles.flatListItem, st.face]}>
             <Card
                 type='card'
                 deckID='qod'
                 deckName='Question of the day'
                 height='full'
 
-                text={ dd.getQuestionOfTheDay() }
+                text={ qodD.getQuestionOfTheDay(setQuestionOfTheDayState) }
                 deckInfo={getDeckInfo()}
-                infoRight={dd.getQoDTTLHours() + ' H'}
+                infoRight={qodD.getQoDTTLHours() + ' H'}
 
                 deckTextStyle='qODDeckText'
                 cardTextStyle='qODCardText'

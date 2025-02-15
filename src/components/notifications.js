@@ -1,6 +1,7 @@
 import messaging from '@react-native-firebase/messaging';
 import notifee from "@notifee/react-native";
 import TriggerType from "@notifee/react-native";
+import { isToday } from './Utils';
 
 const FCM_TOKEN = 'FCM_TOKEN';
 const NOTIFICATION_DATE = 'notification_date';
@@ -46,7 +47,7 @@ const showNotification = async ({title, body}) => {
 
   // prevent repeat notifications
   let storedVal = localStorage.getString(NOTIFICATION_DATE);
-  if(typeof(storedVal) !== 'undefined' && storedVal != null && DeckData.isToday(new Date(storedVal))) {
+  if(typeof(storedVal) !== 'undefined' && storedVal != null && isToday(new Date(storedVal))) {
     return;
   }
 

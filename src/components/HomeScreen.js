@@ -8,9 +8,10 @@ import { useContext, useEffect, useState } from 'react';
 import {ID_FAVOURITES} from './DeckData'
 import SaleCard from './SaleCard'
 import { checkDecksAccessPurchased, purchaseProduct, restorePurchases } from './monetization';
+import analytics from '@react-native-firebase/analytics';
 
 const HomeScreen = ({navigation}) => {
-    const {dd, favouriteState, purchaseState, setPurchaseState} = useContext(MELContext);
+    const {dd, favouriteState, purchaseState, setPurchaseState, questionOfTheDayState} = useContext(MELContext);
     const [screenKey, setScreenKey] = useState(0);
     const cards = [
         {'id':'header'},
@@ -23,7 +24,10 @@ const HomeScreen = ({navigation}) => {
     ];
 
     useEffect(() => {
-        console.log("UPDATING HOME SCREEN AFTER PURCHASE: "+purchaseState);``
+        setScreenKey(prevKey => prevKey + 1);
+      }, [questionOfTheDayState]);
+
+      useEffect(() => {
         checkDecksAccessPurchased(setPurchaseState);
         dd.setPurchasedState(purchaseState);
         cards.splice(0, cards.length,  [
@@ -38,16 +42,24 @@ const HomeScreen = ({navigation}) => {
 
 
     const clickDeck = (dd) => {
+        async () => await analytics().logEvent('deck', {
+              id: dd.id,
+              name: dd.deckName
+        });
         navigation.navigate('Info', { deckID: dd.id, deckName: dd.deckName })
     };
 
     const clickSale = async () => {
-        console.log("INITIATING PURCHASE");
+        async () => await analytics().logEvent('purchase', {
+            id: 'homeScreen'
+        });
         purchaseProduct(setPurchaseState);
     };
 
     const clickRestore = async () => {
-        console.log("INITIATING RESTORE");
+        async () => await analytics().logEvent('restorePurchase', {
+            id: 'homeScreen'
+        });
         restorePurchases(setPurchaseState);
     };
 
@@ -59,9 +71,7 @@ const HomeScreen = ({navigation}) => {
                 )
             case 'questionOfTheDay':
                 return (
-                    <View style={styles.flatListItem}>
-                        <QoDCard />
-                    </View>
+                    <QoDCard />
             )
             case 'sale':
                 return purchaseState

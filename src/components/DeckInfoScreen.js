@@ -10,6 +10,9 @@ import { HeaderBar } from './HeaderBar';
 import {MELContext} from './MELContext'
 import { checkDecksAccessPurchased, purchaseProduct } from './monetization';
 import SaleCard from './SaleCard';
+import analytics from '@react-native-firebase/analytics';
+import uuid from 'react-native-uuid';
+import { useFocusEffect } from '@react-navigation/core';
 
 const DeckInfoScreen = ({route, navigation}) => {
     const {dd, purchaseState, setPurchaseState} = React.useContext(MELContext);
@@ -27,14 +30,34 @@ const DeckInfoScreen = ({route, navigation}) => {
     ];
 
     useEffect(() => {
-        console.log("UPDATING DECK INFO SCREEN AFTER PURCHASE: "+purchaseState);
         checkDecksAccessPurchased(setPurchaseState);
         dd.setPurchasedState(purchaseState);
         setScreenKey(prevKey => prevKey + 1);
     }, [purchaseState]);
 
-    const clickSale = async () => {
-        console.log("INITIATING PURCHASE");
+    useFocusEffect(
+        React.useCallback(() => {
+          async () => await analytics().logEvent('deckInfoStart', {
+            id: deckID,
+            name: deckData.deckName
+          });
+
+          return () => {
+            async () => await analytics().logEvent('deckInfoEnd', {
+              id: deckID,
+              name: deckData.deckName
+            });
+          };
+        }, [])
+      );
+
+
+    const clickSale = async (isSaleDeck) => {
+        async () => await analytics().logEvent('purchase', {
+            id: deckID,
+            name: deckData.deckName,
+            isSaleDeck: isSaleDeck
+        });
         purchaseProduct(setPurchaseState);
     };
 
@@ -60,7 +83,8 @@ const DeckInfoScreen = ({route, navigation}) => {
     };
 
     const clickDeck = () => {
-        navigation.navigate('Play', { deckID: deckID });
+        const playSessionID = uuid.v4();
+        navigation.navigate('Play', { deckID: deckID, playSessionID: playSessionID });
     };
 
     const renderCard = ({ item }) => {
@@ -71,7 +95,7 @@ const DeckInfoScreen = ({route, navigation}) => {
                 return (purchaseState || !deckData.isLocked)
                 ? null
                 : (
-                    <Pressable onPress={() => clickSale()}>
+                    <Pressable onPress={() => clickSale(true)}>
                         <SaleCard />
                     </Pressable>
                 );
@@ -156,7 +180,7 @@ const DeckInfoScreen = ({route, navigation}) => {
             />
             <Appbar style={[ styles.appbarBottom, { position: 'absolute', top: height - 118, backgroundColor: 'transparent'} ] } >
             { deckData.isLocked
-                ?   <Pressable style={[stl.playButton]} onPressOut={() => clickSale()}>
+                ?   <Pressable style={[stl.playButton]} onPressOut={() => clickSale(false)}>
                         <Text style={stl.playButtonText}>Upgrade</Text>
                     </Pressable>
                 :   (

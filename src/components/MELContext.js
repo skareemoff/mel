@@ -1,19 +1,21 @@
-import React, { createContext, useState, useEffect } from "react";
-import { DeckData } from "./DeckData";
+import React, { createContext, useEffect, useState } from "react";
+import { deckDataInstance } from "./DeckData";
+import { qodD } from "./QuestionOfTheDayData";
 
 const MELContext = createContext();
 
 const MELContextProvider = ({ children }) => {
-    const [dd, setDD] = useState(null);
+    const [dd] = useState(deckDataInstance);
     const [favouriteState, setFavouriteState] = useState(0);
     const [purchaseState, setPurchaseState] = useState(false);
+    const [questionOfTheDayState, setQuestionOfTheDayState] = useState(0);
 
-    useEffect(() => {
-        setDD(new DeckData());
-    }, []);
+  useEffect(() => {
+    qodD.loadQoD(setQuestionOfTheDayState);
+  }, []);
 
     return (
-      <MELContext.Provider value={{dd, favouriteState, setFavouriteState, purchaseState, setPurchaseState}}>
+      <MELContext.Provider value={{dd, favouriteState, setFavouriteState, purchaseState, setPurchaseState, questionOfTheDayState, setQuestionOfTheDayState}}>
         {children}
       </MELContext.Provider>
     );

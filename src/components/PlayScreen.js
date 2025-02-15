@@ -14,14 +14,15 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import { SvgXml } from 'react-native-svg';
 import { useKeepAwake } from '@sayem314/react-native-keep-awake';
 import {MELContext} from './MELContext'
+import analytics from '@react-native-firebase/analytics';
+import { useFocusEffect } from '@react-navigation/core';
 
 export default function PlayScreen({route, navigation}) {
   useKeepAwake();
 
   const {dd, setFavouriteState} = React.useContext(MELContext);
-
   const MAX = 3;
-  const { deckID } = route.params;
+  const { deckID, playSessionID } = route.params;
   const deckData = dd.getDeck(deckID);
   const cardDeck = useSharedValue(specialShuffle(deckData.cards));
   const viewShotRef = useRef(null);
@@ -35,6 +36,24 @@ export default function PlayScreen({route, navigation}) {
     updateVisibleCards();
   }, [currentIndex]);
 
+  useFocusEffect(
+    React.useCallback(() => {
+      async () => await analytics().logEvent('playStart', {
+        id: deckID,
+        name: deckData.deckName,
+        playSessionID: playSessionID,
+      });
+
+      return () => {
+        async () => await analytics().logEvent('playEnd', {
+          id: deckID,
+          name: deckData.deckName,
+          playSessionID: playSessionID,
+        });
+      };
+    }, [])
+  );
+
   const updateVisibleCards = () => {
     const visible = cardDeck.value.slice(currentIndex, currentIndex + MAX).map((item, index) => ({
         ...item,
@@ -45,39 +64,64 @@ export default function PlayScreen({route, navigation}) {
 
   const toggleFavourite = () => {
     const cardID = cardDeck.value[currentIndex].id;
-    if(dd.isFavourite(cardID)) {
-      dd.removeFavourite(cardID);
-    }
-    else {
-      dd.addFavourite(cardID);
-    }
+    const isFavourite = dd.isFavourite(cardID);
+
+    isFavourite ? dd.removeFavourite(cardID) : dd.addFavourite(cardID);
+
+    async () => await analytics().logEvent('favourite', {
+      id: deckID,
+      name: deckData.deckName,
+      playSessionID: playSessionID,
+      fromState: isFavourite
+    });
+
     setFavouriteState(prevKey => prevKey + 1);
   };
 
   const handleSetCurrentIndex = (newIndex) => {
+
+    const prevIndex = currentIndex;
+    var nextIndex = currentIndex;
+
     if(newIndex == -1 && currentIndex > 0) {
       // go back one
-      setCurrentIndex(currentIndex-1);
-      setDeckKey(prevKey => prevKey + 1);
-      animatedValue.value = currentIndex;
+      nextIndex = currentIndex - 1;
     }
     else if(newIndex > 0) {
       if(newIndex < cardDeck.value.length) {
         // progress one forward
-        setCurrentIndex(newIndex);
+        nextIndex = newIndex;
       }
       else {
         // reached the end of the deck
+        nextIndex = 0;
         cardDeck.value = specialShuffle(cardDeck.value);
-        animatedValue.value = 0;
-        setDeckKey(prevKey => prevKey + 1);
-        setCurrentIndex(0);
       }
     }
+
+    setCurrentIndex(nextIndex);
+    setDeckKey(prevKey => prevKey + 1);
+    animatedValue.value = nextIndex;
+
+    async () => await analytics().logEvent('swipe', {
+      id: deckID,
+      name: deckData.deckName,
+      playSessionID: playSessionID,
+      newIndex: newIndex,
+      currentCard: cardDeck.value[prevIndex].id,
+      nextCard: cardDeck.value[nextIndex].id
+    });
+
   };
 
   const shareSnapshot = async () => {
     try {
+      async () => await analytics().logEvent('share', {
+        id: deckID,
+        name: deckData.deckName,
+        playSessionID: playSessionID,
+      });
+
       setShareModalVisible(true);
       await new Promise(resolve => setTimeout(resolve, 1000));
 

@@ -23,8 +23,6 @@ export default function App() {
   const isShowOnboarding = typeof showOnboarding === 'undefined' || showOnboarding === null || showOnboarding != 'NO';
 
   useEffect(() => {
-    console.log("IS SHOW ONBOARDING: "+showOnboarding+'['+isShowOnboarding+']');
-
     // SPLASH SCREEN procedure
     const timer = setTimeout(() => {
       if (Platform.OS === 'ios') {

@@ -1,17 +1,11 @@
 import { localStorage } from "./storage";
-import { getUserID } from './authentication';
-import { ACTION_URL } from './Utils'
 
 const _SUFFIX_FAVOURITE = "FAV_";
-const REVEALED = 'REVEALED';
 export const ID_FAVOURITES = 'favourites';
 
 export class DeckData {
 
     constructor() {
-        this._questionOfTheDay = null;
-        this._dayOfTheQuestion = null;
-        this._revealed = 0;
         this._userData = {state: 'unknown'};
         this._rawData = require('../data/cards.json');
         this._favourites = [];
@@ -20,8 +14,6 @@ export class DeckData {
         this._decks = [];
         this._purchasedState = false;
         this.filterDecks();
-
-        this.loadQoD();
         this.loadFavourites();
         this.decks().map((deck) => {
             this._deckNames[deck.id] = deck.deckName;
@@ -40,78 +32,6 @@ export class DeckData {
         this._favourites = [...favourites];
       };
 
-    loadQoD() {
-        if(this.verifyQoD()) {
-            return this._questionOfTheDay;
-        }
-
-        try {
-            const url = ACTION_URL+'questionOfTheDay';
-            fetch(url).then((response) => response.json() ).then((response) => {
-                if(response.status == 'ok') {
-                    const tmpDate = new Date(response.date);
-                    if(DeckData.isToday(tmpDate)) {
-                        this._dayOfTheQuestion = tmpDate;
-                        this._questionOfTheDay = response.question;
-                        this._revealed = response.revealed;
-                    }
-                }
-            });
-        }
-        catch(err) {
-            setError(true);
-        }
-        return this._questionOfTheDay;
-    }
-
-    verifyQoD(){
-        if(this._questionOfTheDay != null &&
-            this._dayOfTheQuestion != null &&
-            DeckData.isToday(this._dayOfTheQuestion)) {
-            return true;
-        }
-        this._dayOfTheQuestion = null;
-        this._questionOfTheDay = null;
-        return false;
-    }
-
-    static isToday(date){
-        var curDate = new Date();
-        return curDate.getFullYear() == date.getFullYear()
-                && curDate.getMonth() == date.getMonth()
-                && curDate.getDate() == date.getDate();
-    }
-
-    static isRevealedQoDToday(storage) {
-        const storedVal = storage.getString(REVEALED);
-        return typeof(storedVal) !== 'undefined'
-        && storedVal != null
-        && DeckData.isToday(new Date(storedVal));
-    }
-
-    isRevealedToday() {
-        return DeckData.isRevealedQoDToday(this._storage);
-    }
-
-    revealQoD(callBack) {
-        if(!this.isRevealedToday()) {
-            try {
-                const url = ACTION_URL+'addRevealed';
-                fetch(url).then((response) => response.json() ).then((response) => {
-                    if(response.status == 'ok') {
-                        this._revealed = response.revealed;
-                        const dateKey = this._dayOfTheQuestion.toISOString().split('T')[0];
-                        this._storage.set(REVEALED, dateKey);
-                        callBack(this._revealed);
-                    }
-                });
-            }
-            catch(err) {
-                setError(true);
-            }
-        }
-        return this._revealed;
-    }
 
     setPurchasedState(purchasedState) {
         this._purchasedState = purchasedState;
@@ -139,25 +59,6 @@ export class DeckData {
         });
         this._decks = newDecks;
     }
-
-
-
-    getQuestionOfTheDay() {
-        return this._questionOfTheDay;
-    }
-
-    getQoDTTLHours() {
-        if(this._dayOfTheQuestion == null) {
-            return (24 - new Date().getHours());
-        }
-        return (24 - (new Date().getHours() - this._dayOfTheQuestion.getHours()));
-    }
-
-    getQoDRevealedCount() {
-        return this._revealed;
-    }
-
-
 
 
     addFavourite(cardID) {
@@ -235,3 +136,5 @@ export class DeckData {
             return this._rawData.svgLibrary[imageName];
     }
 }
+
+export const deckDataInstance = new DeckData();

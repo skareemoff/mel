@@ -16,6 +16,14 @@ export const specialShuffle = (array) => {
   return tmpArray;
 };
 
+export const isToday= (date) => {
+  var curDate = new Date();
+  return curDate.getFullYear() == date.getFullYear()
+          && curDate.getMonth() == date.getMonth()
+          && curDate.getDate() == date.getDate();
+}
+
+
 export const CARD_FULL = 'full';
 export const CARD_HALF = 'half';
 export const ACTION_URL = 'https://script.google.com/macros/s/AKfycbyGVjLmAHYviTXCulytpptgo-g9t6TbCNmEAJ4QUsDTZ28yBmkYr56mtzBuiOvvSOFD/exec?action=';
