@@ -9,6 +9,7 @@ class QuestionOfTheDayData {
     constructor() {
         this._questionOfTheDay = null;
         this._dayOfTheQuestion = null;
+        this._revealedUpdateTime = null;
         this._isLoading = false;
         this._revealed = 0;
         this._storage = localStorage;
@@ -32,6 +33,7 @@ class QuestionOfTheDayData {
                         this._dayOfTheQuestion = tmpDate;
                         this._questionOfTheDay = response.question;
                         this._revealed = response.revealed;
+                        this._revealedUpdateTime = new Date();
                         setQuestionOfTheDayState(prevKey => prevKey + 1);
                         this._isLoading = false;
                     }
@@ -47,12 +49,24 @@ class QuestionOfTheDayData {
     verifyQoD(){
         if(this._questionOfTheDay != null &&
             this._dayOfTheQuestion != null &&
-            isToday(this._dayOfTheQuestion)) {
+            isToday(this._dayOfTheQuestion) &&
+            isRevealedCountUpToDate()) {
             return true;
         }
         this._dayOfTheQuestion = null;
         this._questionOfTheDay = null;
         return false;
+    }
+
+    isRevealedCountUpToDate() {
+        if(this._revealedUpdateTime == null)
+            return false;
+
+        const curTime = new Date();
+        return curDate.getFullYear() == this._revealedUpdateTime.getFullYear()
+        && curDate.getMonth() == this._revealedUpdateTime.getMonth()
+        && curDate.getDate() == this._revealedUpdateTime.getDate()
+        && curDate.getHours() == this._revealedUpdateTime.getHours();
     }
 
     isRevealedToday() {
@@ -83,7 +97,7 @@ class QuestionOfTheDayData {
     }
 
     getQuestionOfTheDay(setQuestionOfTheDayState) {
-        this.loadQoD();
+        this.loadQoD(setQuestionOfTheDayState);
         return this._questionOfTheDay;
     }
 
@@ -94,7 +108,8 @@ class QuestionOfTheDayData {
         return (24 - (new Date().getHours() - this._dayOfTheQuestion.getHours()));
     }
 
-    getQoDRevealedCount() {
+    getQoDRevealedCount(setQuestionOfTheDayState) {
+        this.loadQoD(setQuestionOfTheDayState);
         return this._revealed;
     }
 }

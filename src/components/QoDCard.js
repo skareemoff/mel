@@ -41,7 +41,7 @@ const QoDCard = () => {
   }
 
   const getDeckInfo = () => {
-    return [{'type': 'reflectingCount',  'info': qodD.getQoDRevealedCount()+' reflecting'},];
+    return [{'type': 'reflectingCount',  'info': qodD.getQoDRevealedCount(setQuestionOfTheDayState)+' reflecting'},];
   }
 
   return (
