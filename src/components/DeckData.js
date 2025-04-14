@@ -43,19 +43,19 @@ export class DeckData {
         const newDecks = [];
 
         this._rawData.decks.map((deck) => {
-            // Love Life and Connections 101 are accessible for free fully
-            if(deck.id == 7 || deck.id == 5 || this._purchasedState) {
+            // // Love Life and Connections 101 are accessible for free fully
+            // if(deck.id == 7 || deck.id == 5 || this._purchasedState) {
                 const newDeck = {...deck};
                 newDeck.totalCards = deck.cards.length;
                 newDecks.push(newDeck);
-            }
-            else {
-                const newDeck = {...deck};
-                newDeck.isLocked = true;
-                newDeck.totalCards = deck.cards.length;
-                newDeck.cards = deck.cards.slice(0, DEFAULT_ITEM_COUNT);
-                newDecks.push(newDeck);
-            }
+            // }
+            // else {
+            //     const newDeck = {...deck};
+            //     newDeck.isLocked = true;
+            //     newDeck.totalCards = deck.cards.length;
+            //     newDeck.cards = deck.cards.slice(0, DEFAULT_ITEM_COUNT);
+            //     newDecks.push(newDeck);
+            // }
         });
         this._decks = newDecks;
     }

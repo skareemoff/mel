@@ -9,7 +9,7 @@ import {HALF_CARD_HEIGHT} from './style'
 import { HeaderBar } from './HeaderBar';
 import {MELContext} from './MELContext'
 import { checkDecksAccessPurchased, purchaseProduct } from './monetization';
-import SaleCard from './SaleCard';
+// import SaleCard from './SaleCard';
 import analytics from '@react-native-firebase/analytics';
 import uuid from 'react-native-uuid';
 import { useFocusEffect } from '@react-navigation/core';
@@ -22,7 +22,7 @@ const DeckInfoScreen = ({route, navigation}) => {
     const [screenKey, setScreenKey] = useState(0);
     const cards = [
         {'id': 'header'},
-        {'id':'sale'},
+        // {'id':'sale'},
         {'id': 'deck'},
         {'id': 'description'},
         {'id': 'example'},
