@@ -14,8 +14,6 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import { SvgXml } from 'react-native-svg';
 import { useKeepAwake } from '@sayem314/react-native-keep-awake';
 import {MELContext} from './MELContext'
-import analytics from '@react-native-firebase/analytics';
-import { useFocusEffect } from '@react-navigation/core';
 
 export default function PlayScreen({route, navigation}) {
   useKeepAwake();
@@ -36,24 +34,6 @@ export default function PlayScreen({route, navigation}) {
     updateVisibleCards();
   }, [currentIndex]);
 
-  useFocusEffect(
-    React.useCallback(() => {
-      async () => await analytics().logEvent('playStart', {
-        id: deckID,
-        name: deckData.deckName,
-        playSessionID: playSessionID,
-      });
-
-      return () => {
-        async () => await analytics().logEvent('playEnd', {
-          id: deckID,
-          name: deckData.deckName,
-          playSessionID: playSessionID,
-        });
-      };
-    }, [])
-  );
-
   const updateVisibleCards = () => {
     const visible = cardDeck.value.slice(currentIndex, currentIndex + MAX).map((item, index) => ({
         ...item,
@@ -67,13 +47,6 @@ export default function PlayScreen({route, navigation}) {
     const isFavourite = dd.isFavourite(cardID);
 
     isFavourite ? dd.removeFavourite(cardID) : dd.addFavourite(cardID);
-
-    async () => await analytics().logEvent('favourite', {
-      id: deckID,
-      name: deckData.deckName,
-      playSessionID: playSessionID,
-      fromState: isFavourite
-    });
 
     setFavouriteState(prevKey => prevKey + 1);
   };
@@ -103,25 +76,10 @@ export default function PlayScreen({route, navigation}) {
     setDeckKey(prevKey => prevKey + 1);
     animatedValue.value = nextIndex;
 
-    async () => await analytics().logEvent('swipe', {
-      id: deckID,
-      name: deckData.deckName,
-      playSessionID: playSessionID,
-      newIndex: newIndex,
-      currentCard: cardDeck.value[prevIndex].id,
-      nextCard: cardDeck.value[nextIndex].id
-    });
-
   };
 
   const shareSnapshot = async () => {
     try {
-      async () => await analytics().logEvent('share', {
-        id: deckID,
-        name: deckData.deckName,
-        playSessionID: playSessionID,
-      });
-
       setShareModalVisible(true);
       await new Promise(resolve => setTimeout(resolve, 1000));
 

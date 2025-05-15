@@ -6,61 +6,25 @@ import { HeaderBar } from './HeaderBar';
 import {MELContext} from './MELContext'
 import { useContext, useEffect, useState } from 'react';
 import {ID_FAVOURITES} from './DeckData'
-import SaleCard from './SaleCard'
-import { checkDecksAccessPurchased, purchaseProduct, restorePurchases } from './monetization';
-import analytics from '@react-native-firebase/analytics';
 
 const HomeScreen = ({navigation}) => {
-    const {dd, favouriteState, purchaseState, setPurchaseState, questionOfTheDayState} = useContext(MELContext);
+    const {dd, favouriteState, questionOfTheDayState} = useContext(MELContext);
     const [screenKey, setScreenKey] = useState(0);
     const cards = [
         {'id':'header'},
         {'id': 'questionOfTheDay'},
-        //{'id':'sale'},
         ...dd.decks(),
         dd.getFavDeck(),
         {'id': 'sendFeedback'},
-        {'id': 'restorePurchase'}
     ];
 
     useEffect(() => {
         setScreenKey(prevKey => prevKey + 1);
       }, [questionOfTheDayState]);
 
-      useEffect(() => {
-        checkDecksAccessPurchased(setPurchaseState);
-        dd.setPurchasedState(purchaseState);
-        cards.splice(0, cards.length,  [
-            {'id':'header'},
-            {'id': 'questionOfTheDay'},
-            //{'id':'sale'},
-            ...dd.decks(),
-            dd.getFavDeck()
-        ]);
-        setScreenKey(prevKey => prevKey + 1);
-    }, [purchaseState]);
-
 
     const clickDeck = (dd) => {
-        async () => await analytics().logEvent('deck', {
-              id: dd.id,
-              name: dd.deckName
-        });
         navigation.navigate('Info', { deckID: dd.id, deckName: dd.deckName })
-    };
-
-    const clickSale = async () => {
-        async () => await analytics().logEvent('purchase', {
-            id: 'homeScreen'
-        });
-        purchaseProduct(setPurchaseState);
-    };
-
-    const clickRestore = async () => {
-        async () => await analytics().logEvent('restorePurchase', {
-            id: 'homeScreen'
-        });
-        restorePurchases(setPurchaseState);
     };
 
     const renderCard = ({ item }) => {
@@ -73,15 +37,6 @@ const HomeScreen = ({navigation}) => {
                 return (
                     <QoDCard />
             )
-            case 'sale':
-                return purchaseState
-                ? null
-                : (
-                    <Pressable onPress={() => clickSale()}>
-                        <SaleCard />
-                    </Pressable>
-                );
-
             case 'sendFeedback':
                 return (
                     <Pressable style={styles.flatListItem} onPress={() => Linking.openURL('mailto:feedback@mel.life?subject=Feedback from MEL app') }>
@@ -103,28 +58,6 @@ const HomeScreen = ({navigation}) => {
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 color: 'black'}}>Send feedback</Text>
-                        </View>
-                    </Pressable>
-                );
-            case 'restorePurchase':
-                return (
-                    <Pressable style={styles.flatListItem} onPress={() => clickRestore()}>
-                        <View style={{
-                            borderRadius: 40,
-                            width: 353,
-                            height: 84,
-                            justifyContent: 'center',
-                            alignContent: 'center',
-                            alignItems: 'center'
-                        }}>
-                            <Text style={{
-                                fontSize: 32,
-                                fontFamily: 'DMSans',
-                                fontWeight: 500,
-                                textAlign: 'center',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                color: 'black'}}>Restore purchase</Text>
                         </View>
                     </Pressable>
                 );

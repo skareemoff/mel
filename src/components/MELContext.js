@@ -7,7 +7,6 @@ const MELContext = createContext();
 const MELContextProvider = ({ children }) => {
   const [dd] = useState(deckDataInstance);
   const [favouriteState, setFavouriteState] = useState(0);
-  const [purchaseState, setPurchaseState] = useState(false);
   const [questionOfTheDayState, setQuestionOfTheDayState] = useState(0);
 
   useEffect(() => {
@@ -15,7 +14,7 @@ const MELContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <MELContext.Provider value={{dd, favouriteState, setFavouriteState, purchaseState, setPurchaseState, questionOfTheDayState, setQuestionOfTheDayState}}>
+    <MELContext.Provider value={{dd, favouriteState, setFavouriteState, questionOfTheDayState, setQuestionOfTheDayState}}>
       {children}
     </MELContext.Provider>
   );

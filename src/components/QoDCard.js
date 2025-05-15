@@ -1,7 +1,6 @@
 import { TouchableOpacity, Text, Animated, StyleSheet} from "react-native";
 import EStyleSheet from 'react-native-extended-stylesheet';
 import React, { useContext, useEffect, useRef, useState } from "react";
-import analytics from '@react-native-firebase/analytics';
 import notifee from "@notifee/react-native";
 import { BlurView } from "expo-blur";
 import Card from './Card'
@@ -23,8 +22,6 @@ const QoDCard = () => {
   const opacityStyle = { opacity: opacityAnimation };
 
   const clickReveal = () => {
-    async () => await analytics().logEvent('reveal');
-
     qodD.revealQoD(updateRevealed);
     notifee.setBadgeCount(0);
 

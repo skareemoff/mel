@@ -12,8 +12,6 @@ import EStyleSheet from "react-native-extended-stylesheet";
 import DeckInfoScreen from "./src/components/DeckInfoScreen";
 import {MELContextProvider} from './src/components/MELContext'
 import Onboarding from "./src/components/onboarding/Onboarding";
-import { getFcmToken, requestUserPermission, notificationListener } from './src/components/notifications';
-import Purchases from "react-native-purchases";
 
 const Stack = createNativeStackNavigator();
 
@@ -34,16 +32,6 @@ export default function App() {
         setIsShowSplashScreen(false);
       }
     }, isShowOnboarding ? 6000 : 5000);
-
-    // IN_APP PURCHASE init procedure
-    if (Platform.OS === 'ios') {
-    	Purchases.configure({ apiKey: "appl_UGOzzbPVQswvkicPbnNYNqYbyae" });
-    }
-
-    // PUSH NOTIFICATIONS procedure
-    void getFcmToken(localStorage);
-    void requestUserPermission();
-    void notificationListener();
 
     return () => clearTimeout(timer);
   }, []);

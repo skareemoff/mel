@@ -8,58 +8,21 @@ import styles, { height } from './style'
 import {HALF_CARD_HEIGHT} from './style'
 import { HeaderBar } from './HeaderBar';
 import {MELContext} from './MELContext'
-import { checkDecksAccessPurchased, purchaseProduct } from './monetization';
-// import SaleCard from './SaleCard';
-import analytics from '@react-native-firebase/analytics';
 import uuid from 'react-native-uuid';
-import { useFocusEffect } from '@react-navigation/core';
 
 const DeckInfoScreen = ({route, navigation}) => {
-    const {dd, purchaseState, setPurchaseState} = React.useContext(MELContext);
+    const {dd} = React.useContext(MELContext);
     const { deckID } = route.params;
     const deckData = dd.getDeck(deckID);
     const descrColor = deckData.deckBackgroundColor ? deckData.deckBackgroundColor : 'darkGrey'
     const [screenKey, setScreenKey] = useState(0);
     const cards = [
         {'id': 'header'},
-        // {'id':'sale'},
         {'id': 'deck'},
         {'id': 'description'},
         {'id': 'example'},
         {'id': 'rules'}
     ];
-
-    useEffect(() => {
-        checkDecksAccessPurchased(setPurchaseState);
-        dd.setPurchasedState(purchaseState);
-        setScreenKey(prevKey => prevKey + 1);
-    }, [purchaseState]);
-
-    useFocusEffect(
-        React.useCallback(() => {
-          async () => await analytics().logEvent('deckInfoStart', {
-            id: deckID,
-            name: deckData.deckName
-          });
-
-          return () => {
-            async () => await analytics().logEvent('deckInfoEnd', {
-              id: deckID,
-              name: deckData.deckName
-            });
-          };
-        }, [])
-      );
-
-
-    const clickSale = async (isSaleDeck) => {
-        async () => await analytics().logEvent('purchase', {
-            id: deckID,
-            name: deckData.deckName,
-            isSaleDeck: isSaleDeck
-        });
-        purchaseProduct(setPurchaseState);
-    };
 
     const descrStyle = function(deckColor) {
         return {
@@ -91,14 +54,6 @@ const DeckInfoScreen = ({route, navigation}) => {
         switch(item.id) {
             case 'header':
                 return (<HeaderBar showBackButton={true} navigation={navigation} />)
-            case 'sale':
-                return (purchaseState || !deckData.isLocked)
-                ? null
-                : (
-                    <Pressable onPress={() => clickSale(true)}>
-                        <SaleCard />
-                    </Pressable>
-                );
             case 'deck':
                 return(
                     <View style={styles.flatListItem}>
@@ -179,18 +134,13 @@ const DeckInfoScreen = ({route, navigation}) => {
                 decelerationRate="fast"
             />
             <Appbar style={[ styles.appbarBottom, { position: 'absolute', top: height - 118, backgroundColor: 'transparent'} ] } >
-            { deckData.isLocked
-                ?   <Pressable style={[stl.playButton]} onPressOut={() => clickSale(false)}>
-                        <Text style={stl.playButtonText}>Upgrade</Text>
+            {(
+                deckData.cards.length > 0
+                ?   <Pressable style={[stl.playButton]} onPressOut={() => clickDeck()}>
+                        <Text style={stl.playButtonText}>Play</Text>
                     </Pressable>
-                :   (
-                        deckData.cards.length > 0
-                        ?   <Pressable style={[stl.playButton]} onPressOut={() => clickDeck()}>
-                                <Text style={stl.playButtonText}>Play</Text>
-                            </Pressable>
-                        : <View style={stl.playButtonDimmed}><Text style={[stl.playButtonText]}>Play</Text></View>
-                    )
-            }
+                : <View style={stl.playButtonDimmed}><Text style={[stl.playButtonText]}>Play</Text></View>
+            )}
             </Appbar>
         </View>
     )
