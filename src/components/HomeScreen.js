@@ -1,26 +1,19 @@
 import { FlatList, Image, Linking, Pressable, Text, View } from 'react-native';
 import Card from './Card';
 import styles from './style'
-import QoDCard from './QoDCard';
 import { HeaderBar } from './HeaderBar';
 import {MELContext} from './MELContext'
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import {ID_FAVOURITES} from './DeckData'
 
 const HomeScreen = ({navigation}) => {
-    const {dd, favouriteState, questionOfTheDayState} = useContext(MELContext);
-    const [screenKey, setScreenKey] = useState(0);
+    const {dd, favouriteState} = useContext(MELContext);
     const cards = [
         {'id':'header'},
-        {'id': 'questionOfTheDay'},
         ...dd.decks(),
         dd.getFavDeck(),
         {'id': 'sendFeedback'},
     ];
-
-    useEffect(() => {
-        setScreenKey(prevKey => prevKey + 1);
-      }, [questionOfTheDayState]);
 
 
     const clickDeck = (dd) => {
@@ -33,10 +26,6 @@ const HomeScreen = ({navigation}) => {
                 return (
                     <HeaderBar showBackButton={false} navigation={navigation} />
                 )
-            case 'questionOfTheDay':
-                return (
-                    <QoDCard />
-            )
             case 'sendFeedback':
                 return (
                     <Pressable style={styles.flatListItem} onPress={() => Linking.openURL('mailto:feedback@mel.life?subject=Feedback from MEL app') }>
@@ -99,7 +88,6 @@ const HomeScreen = ({navigation}) => {
         <FlatList
             style={styles.flatList}
             data={cards}
-            key={screenKey}
             renderItem={renderCard}
             contentContainerStyle={{
                 paddingBottom: 160,

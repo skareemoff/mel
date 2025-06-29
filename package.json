@@ -8,7 +8,6 @@
     "android": "expo run:android"
   },
   "dependencies": {
-    "@notifee/react-native": "^9.1.8",
     "@react-navigation/core": "^7.3.1",
     "@react-navigation/elements": "^2.2.5",
     "@react-navigation/native": "^7.0.14",

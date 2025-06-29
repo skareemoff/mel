@@ -19,6 +19,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		14E4623BB5EA42A8B73188E4 /* DMSerifText-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C966100232A14A1B8D933AD5 /* DMSerifText-Italic.ttf */; };
 		153350248622423096222248 /* DMSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 295F043FADD049BC834DED91 /* DMSans-Black.ttf */; };
+		18AB0A81026A3D83655C0C08 /* libPods-MELMoreExcitingLife.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0534B01FCA6F5F1AB08087 /* libPods-MELMoreExcitingLife.a */; };
 		1F9448A8BAEC467A8FE81F46 /* DMSans_36pt-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9883D654AA24DAE8B045F0B /* DMSans_36pt-Black.ttf */; };
 		24A1E29C0D7B4C9F99C541BB /* DMSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62864FB8A6314F1598EBED6B /* DMSans-ThinItalic.ttf */; };
 		258BBBD74D2D4C7A81B8DB89 /* DMSans_24pt-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC400B6A5AA14847A0B6ABA1 /* DMSans_24pt-Medium.ttf */; };
@@ -47,7 +48,6 @@
 		7690596F72704A7C870AD696 /* DMSans_18pt-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80F35069A0494E8594BB97A5 /* DMSans_18pt-ExtraBold.ttf */; };
 		7783D446DE664EA1BFB84307 /* DMMono-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36D6E6ED317B4CE7A3753384 /* DMMono-LightItalic.ttf */; };
 		78E15CFA188142A7B7A0EF6B /* DMSans_24pt-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0F1BCB5186B47F8937584E3 /* DMSans_24pt-Thin.ttf */; };
-		7C26C28407BF4AA11A5E7D8F /* libPods-MELMoreExcitingLife.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08C17D5C148783997ECCBC70 /* libPods-MELMoreExcitingLife.a */; };
 		808667BEC6344611A05F87A1 /* DMSans_24pt-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78495E0A70A9453D8E6927E6 /* DMSans_24pt-ExtraLight.ttf */; };
 		8376DDF4E47B4C7AA54F0C18 /* DMSans-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74F4911127D94B29BB13426E /* DMSans-BlackItalic.ttf */; };
 		85819E93D14646D7AE67247A /* DMMono-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47BC7B7F9EA5482098A4B50A /* DMMono-Italic.ttf */; };
@@ -99,7 +99,6 @@
 
 /* Begin PBXFileReference section */
 		027F506415B7453D9B797A77 /* DMSans-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-LightItalic.ttf"; path = "../src/assets/fonts/DMSans-LightItalic.ttf"; sourceTree = "<group>"; };
-		08C17D5C148783997ECCBC70 /* libPods-MELMoreExcitingLife.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MELMoreExcitingLife.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B560C96D616415E8743D787 /* DMSans_36pt-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_36pt-LightItalic.ttf"; path = "../src/assets/fonts/DMSans_36pt-LightItalic.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* MEL: More Exciting Life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MEL: More Exciting Life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MELMoreExcitingLife/AppDelegate.h; sourceTree = "<group>"; };
@@ -112,12 +111,14 @@
 		214F705F1840413CBBC98288 /* DMSans_24pt-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_24pt-BlackItalic.ttf"; path = "../src/assets/fonts/DMSans_24pt-BlackItalic.ttf"; sourceTree = "<group>"; };
 		295F043FADD049BC834DED91 /* DMSans-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Black.ttf"; path = "../src/assets/fonts/DMSans-Black.ttf"; sourceTree = "<group>"; };
 		2D2CAE8101914850BD8BBFE6 /* DMSans_24pt-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_24pt-Black.ttf"; path = "../src/assets/fonts/DMSans_24pt-Black.ttf"; sourceTree = "<group>"; };
+		2F0534B01FCA6F5F1AB08087 /* libPods-MELMoreExcitingLife.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MELMoreExcitingLife.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F77D4679BA54F58AEF4979D /* DMSans_36pt-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_36pt-ExtraBold.ttf"; path = "../src/assets/fonts/DMSans_36pt-ExtraBold.ttf"; sourceTree = "<group>"; };
 		307A6034FF704CDD823630B2 /* DMSans_18pt-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_18pt-ThinItalic.ttf"; path = "../src/assets/fonts/DMSans_18pt-ThinItalic.ttf"; sourceTree = "<group>"; };
 		357770019E05476DB0A0EF05 /* DMSans_36pt-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_36pt-SemiBoldItalic.ttf"; path = "../src/assets/fonts/DMSans_36pt-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		36D6E6ED317B4CE7A3753384 /* DMMono-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMMono-LightItalic.ttf"; path = "../src/assets/fonts/DMMono-LightItalic.ttf"; sourceTree = "<group>"; };
 		37D076AFFFDE44688168BF4A /* DMSans_18pt-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_18pt-ExtraBoldItalic.ttf"; path = "../src/assets/fonts/DMSans_18pt-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		37E511ADB6D242D9B3D4C5C9 /* DMSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Regular.ttf"; path = "../src/assets/fonts/DMSans-Regular.ttf"; sourceTree = "<group>"; };
+		386960A935A687120F81D842 /* Pods-MELMoreExcitingLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MELMoreExcitingLife.debug.xcconfig"; path = "Target Support Files/Pods-MELMoreExcitingLife/Pods-MELMoreExcitingLife.debug.xcconfig"; sourceTree = "<group>"; };
 		39BB6183314C4DA9BEEFA782 /* DMSans_18pt-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_18pt-BlackItalic.ttf"; path = "../src/assets/fonts/DMSans_18pt-BlackItalic.ttf"; sourceTree = "<group>"; };
 		414B005EED2D41D89B0C395D /* DMSans_18pt-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_18pt-Medium.ttf"; path = "../src/assets/fonts/DMSans_18pt-Medium.ttf"; sourceTree = "<group>"; };
 		43AAB683F81146DFBBCAE029 /* DMSans_24pt-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_24pt-ExtraLightItalic.ttf"; path = "../src/assets/fonts/DMSans_24pt-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -146,6 +147,7 @@
 		7EDF10532D46CCCA00E2C7C2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7EDF10552D46CCCE00E2C7C2 /* MELMoreExcitingLife.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = MELMoreExcitingLife.entitlements; path = MELMoreExcitingLife/MELMoreExcitingLife.entitlements; sourceTree = "<group>"; };
 		80F35069A0494E8594BB97A5 /* DMSans_18pt-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_18pt-ExtraBold.ttf"; path = "../src/assets/fonts/DMSans_18pt-ExtraBold.ttf"; sourceTree = "<group>"; };
+		82D2DAF7C3C66654FE2C8FF8 /* Pods-MELMoreExcitingLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MELMoreExcitingLife.release.xcconfig"; path = "Target Support Files/Pods-MELMoreExcitingLife/Pods-MELMoreExcitingLife.release.xcconfig"; sourceTree = "<group>"; };
 		84523E964D3E4FE8B3760A7A /* DMSans_18pt-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_18pt-ExtraLightItalic.ttf"; path = "../src/assets/fonts/DMSans_18pt-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		89A67D072CE84C0AB74C9D6C /* DMSans_18pt-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_18pt-SemiBoldItalic.ttf"; path = "../src/assets/fonts/DMSans_18pt-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		8D94B4BCC5294B4898D85AE3 /* DMSans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Medium.ttf"; path = "../src/assets/fonts/DMSans-Medium.ttf"; sourceTree = "<group>"; };
@@ -172,7 +174,6 @@
 		BA3EAB98F4BD4841959098C8 /* DMSans_36pt-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_36pt-Bold.ttf"; path = "../src/assets/fonts/DMSans_36pt-Bold.ttf"; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
 		BCCBF79DF16C4864B1768714 /* DMSans_24pt-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_24pt-Regular.ttf"; path = "../src/assets/fonts/DMSans_24pt-Regular.ttf"; sourceTree = "<group>"; };
-		BD96CD722C52F290730CE514 /* Pods-MELMoreExcitingLife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MELMoreExcitingLife.release.xcconfig"; path = "Target Support Files/Pods-MELMoreExcitingLife/Pods-MELMoreExcitingLife.release.xcconfig"; sourceTree = "<group>"; };
 		BFEF99341B5940968E69D33C /* DMSans_36pt-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_36pt-BlackItalic.ttf"; path = "../src/assets/fonts/DMSans_36pt-BlackItalic.ttf"; sourceTree = "<group>"; };
 		C0399CE026D04DD2B7F59EFC /* DMSans-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-ExtraBold.ttf"; path = "../src/assets/fonts/DMSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		C2DEB76DDFDA4D06B61705F8 /* DMSans-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans-Thin.ttf"; path = "../src/assets/fonts/DMSans-Thin.ttf"; sourceTree = "<group>"; };
@@ -188,7 +189,6 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F088DC86F5514E6491AE8FA2 /* DMSans_36pt-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_36pt-ExtraLightItalic.ttf"; path = "../src/assets/fonts/DMSans_36pt-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		F0F1BCB5186B47F8937584E3 /* DMSans_24pt-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_24pt-Thin.ttf"; path = "../src/assets/fonts/DMSans_24pt-Thin.ttf"; sourceTree = "<group>"; };
-		F4738771EBC9F32E635625FD /* Pods-MELMoreExcitingLife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MELMoreExcitingLife.debug.xcconfig"; path = "Target Support Files/Pods-MELMoreExcitingLife/Pods-MELMoreExcitingLife.debug.xcconfig"; sourceTree = "<group>"; };
 		F5B503A2F4D7400FAC1290CF /* DMSans_36pt-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_36pt-ExtraLight.ttf"; path = "../src/assets/fonts/DMSans_36pt-ExtraLight.ttf"; sourceTree = "<group>"; };
 		F93049FABAE845198A737A9B /* DMSans_18pt-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DMSans_18pt-ExtraLight.ttf"; path = "../src/assets/fonts/DMSans_18pt-ExtraLight.ttf"; sourceTree = "<group>"; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-MELMoreExcitingLife/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C26C28407BF4AA11A5E7D8F /* libPods-MELMoreExcitingLife.a in Frameworks */,
+				18AB0A81026A3D83655C0C08 /* libPods-MELMoreExcitingLife.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,7 +229,7 @@
 			children = (
 				7EDF10532D46CCCA00E2C7C2 /* StoreKit.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				08C17D5C148783997ECCBC70 /* libPods-MELMoreExcitingLife.a */,
+				2F0534B01FCA6F5F1AB08087 /* libPods-MELMoreExcitingLife.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -372,8 +372,8 @@
 		D65327D7A22EEC0BE12398D9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F4738771EBC9F32E635625FD /* Pods-MELMoreExcitingLife.debug.xcconfig */,
-				BD96CD722C52F290730CE514 /* Pods-MELMoreExcitingLife.release.xcconfig */,
+				386960A935A687120F81D842 /* Pods-MELMoreExcitingLife.debug.xcconfig */,
+				82D2DAF7C3C66654FE2C8FF8 /* Pods-MELMoreExcitingLife.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -393,14 +393,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "MELMoreExcitingLife" */;
 			buildPhases = (
-				6C853EB53C7AB87F31969DF2 /* [CP] Check Pods Manifest.lock */,
+				800ABBA6D73D92937D4558DE /* [CP] Check Pods Manifest.lock */,
 				F560BF5E491FBC10046CBEB1 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				BB24AEC669B0858C8B70B0A6 /* [CP] Embed Pods Frameworks */,
-				2B9EB6957CA55C4DF94C9278 /* [CP] Copy Pods Resources */,
+				8515734E7AEA48544670D53E /* [CP] Embed Pods Frameworks */,
+				F632AF9B4907F9759D11CF91 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -552,7 +552,66 @@
 			shellPath = /bin/sh;
 			shellScript = "if [[ -f \"$PODS_ROOT/../.xcode.env\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env\"\nfi\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n# The project root by default is one level up from the ios directory\nexport PROJECT_ROOT=\"$PROJECT_DIR\"/..\n\nif [[ \"$CONFIGURATION\" = *Debug* ]]; then\n  export SKIP_BUNDLING=1\nfi\nif [[ -z \"$ENTRY_FILE\" ]]; then\n  # Set the entry JS file using the bundler's entry resolution.\n  export ENTRY_FILE=\"$(\"$NODE_BINARY\" -e \"require('expo/scripts/resolveAppEntry')\" \"$PROJECT_ROOT\" ios absolute | tail -n 1)\"\nfi\n\nif [[ -z \"$CLI_PATH\" ]]; then\n  # Use Expo CLI\n  export CLI_PATH=\"$(\"$NODE_BINARY\" --print \"require.resolve('@expo/cli', { paths: [require.resolve('expo/package.json')] })\")\"\nfi\nif [[ -z \"$BUNDLE_COMMAND\" ]]; then\n  # Default Expo CLI command for bundling\n  export BUNDLE_COMMAND=\"export:embed\"\nfi\n\n# Source .xcode.env.updates if it exists to allow\n# SKIP_BUNDLING to be unset if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.updates\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.updates\"\nfi\n# Source local changes to allow overrides\n# if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n`\"$NODE_BINARY\" --print \"require('path').dirname(require.resolve('react-native/package.json')) + '/scripts/react-native-xcode.sh'\"`\n\n";
 		};
-		2B9EB6957CA55C4DF94C9278 /* [CP] Copy Pods Resources */ = {
+		800ABBA6D73D92937D4558DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MELMoreExcitingLife-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8515734E7AEA48544670D53E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MELMoreExcitingLife/Pods-MELMoreExcitingLife-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MELMoreExcitingLife/Pods-MELMoreExcitingLife-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F560BF5E491FBC10046CBEB1 /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-MELMoreExcitingLife/expo-configure-project.sh\"\n";
+		};
+		F632AF9B4907F9759D11CF91 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -598,65 +657,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MELMoreExcitingLife/Pods-MELMoreExcitingLife-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6C853EB53C7AB87F31969DF2 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MELMoreExcitingLife-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BB24AEC669B0858C8B70B0A6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MELMoreExcitingLife/Pods-MELMoreExcitingLife-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MELMoreExcitingLife/Pods-MELMoreExcitingLife-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F560BF5E491FBC10046CBEB1 /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-MELMoreExcitingLife/expo-configure-project.sh\"\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -675,7 +675,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F4738771EBC9F32E635625FD /* Pods-MELMoreExcitingLife.debug.xcconfig */;
+			baseConfigurationReference = 386960A935A687120F81D842 /* Pods-MELMoreExcitingLife.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -690,7 +690,7 @@
 				INFOPLIST_FILE = MELMoreExcitingLife/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MEL: More Exciting Life";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -717,7 +717,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD96CD722C52F290730CE514 /* Pods-MELMoreExcitingLife.release.xcconfig */;
+			baseConfigurationReference = 82D2DAF7C3C66654FE2C8FF8 /* Pods-MELMoreExcitingLife.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -727,7 +727,7 @@
 				INFOPLIST_FILE = MELMoreExcitingLife/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MEL: More Exciting Life";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -806,7 +806,10 @@
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -861,7 +864,10 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
