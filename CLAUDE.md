@@ -56,6 +56,10 @@ This is a React Native app built with Expo that creates an interactive card-base
 
 The app uses MMKV for persistent storage with keys prefixed by `FAV_` for favorites. The `DeckData` class acts as the main data controller, loading card content from JSON and managing user preferences. State flows through MELContext to keep UI synchronized.
 
+### Styling System
+
+The app uses EStyleSheet for enhanced styling with global variables defined in `src/components/style.js`. Card dimensions are standardized: 353px width, 570px full height, 260px half height.
+
 ### Font Assets
 
 Custom DM Sans and DM Serif fonts are included in `src/assets/fonts/` and configured through react-native.config.js.
@@ -63,3 +67,10 @@ Custom DM Sans and DM Serif fonts are included in `src/assets/fonts/` and config
 ### iOS Configuration
 
 The app is configured for iOS with bundle identifier `life.moreexciting.app` and includes Apple Sign In capability. Podfile and Xcode project files are managed through Expo's build process.
+
+## Development Environment
+
+- **Node.js Path**: Set to `/opt/homebrew/bin/node` in `.xcode.env`
+- **New Architecture**: Enabled in both `app.json` and Podfile
+- **No Testing Framework**: Project currently has no test setup
+- **No Linting/Formatting**: No ESLint or Prettier configuration

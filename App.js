@@ -9,6 +9,7 @@ import PlayScreen from "./src/components/PlayScreen";
 import { localStorage } from "./src/components/storage";
 import SplashScreen from "./src/components/SplashScreen";
 import EStyleSheet from "react-native-extended-stylesheet";
+import "./src/components/style";
 import DeckInfoScreen from "./src/components/DeckInfoScreen";
 import {MELContextProvider} from './src/components/MELContext'
 import Onboarding from "./src/components/onboarding/Onboarding";
